@@ -1,0 +1,9 @@
+#tit {
+	background-color: #000;
+	color: #fff;
+}
+#pic {
+	background-image: url("../images/chenman.jpg");
+	width: 1280px;
+	height: 853px;
+}
