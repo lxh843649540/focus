@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>vue-router传参练习</title>
+    <script src="js/vue.min.js"></script>
+    <script src="js/vue-router.js"></script>
+</head>
+<body>
+<div id="example">
+    <router-view></router-view>
+</div>
+<!--定义菜单模板-->
+<script type="text/x-template" id="menu">
+    <ul>
+        <li v-for="list in dishList"><router-link :to="'/order/'+list">{{list}}</router-link></li>
+    </ul>
+</script>
+<!--定义结果模板-->
+<script type="text/x-template" id="order">
+    <div>
+        <h1>您订购的餐点是：{{msg}}</h1>
+        <router-link to="/">返回菜单</router-link>
+    </div>
+</script>
+<script>
+    let menu=Vue.component('menu',{
+        data:function () {
+          return {
+          	dishList:['鱼香肉丝','京酱肉丝','肉夹馍']
+          }
+        },
+        template:'#menu',
+    });
+    let order=Vue.component('order',{
+        template:'#order',
+        data:function () {
+            return {
+            	msg:''
+            }
+        },
+        created:function () {
+            this.msg=this.$route.params.name;
+        }
+    });
+//    定义路由
+    const myRoutes=[
+        {path:'',redirect:'/menu'},
+	    {path:'/menu',component:menu},
+        {path:'/order/:name',component:order},
+    ];
+//    创建router实例
+    const myRouter=new VueRouter({
+        routes:myRoutes
+    });
+    new Vue({
+        el:'#example',
+        router:myRouter
+    })
+</script>
+</body>
+</html>

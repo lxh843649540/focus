@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Watch</title>
+</head>
+<body>
+<div id="example">
+    <input type="text" v-model="kw">
+    {{kw}}
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+new Vue({
+    el:'#example',
+    data:{
+        kw:'',
+    },
+    watch:{
+        kw:function (newvalue,oldvalue){
+            console.log('新值'+newvalue+'旧值'+oldvalue)
+        }
+    }
+})
+</script>
+</body>
+</html>

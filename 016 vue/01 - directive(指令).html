@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="example">
+    <button @click="addClick" v-binds="count" v-if="count<5">{{count}}</button>
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+    new Vue({
+        el:'#example',
+        data:{
+            count:'0'
+        },
+        methods:{
+            addClick:function () {
+                this.count++;
+            }
+        },
+        directives:{
+            binds:{
+                bind:function(){console.log('in bind')},
+                update:function (el,binding) {
+                   console.log('in update');
+               //    console.log(binding);
+                   console.log(el.innerHTML.length);
+//                   if(binding.value==5){
+//                       el.remove();
+//                   }
+                },
+                unbind:function () {console.log('in unbind')}
+            }
+        }
+    })
+</script>
+</body>
+</html>

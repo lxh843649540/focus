@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>父子通信</title>
+</head>
+<body>
+<div id="example">
+    <father></father>
+</div>
+<script src="js/vue.min.js"></script>
+<!--父组件的样板-->
+<script type="text/x-template" id="fTpl">
+    <div>
+        <p>I'm father</p>
+        <input type="button" value="查看儿子在干嘛" @click="checkSon">
+        <hr>
+        <child ref="myChild"></child>
+    </div>
+</script>
+<!--子组件的样板-->
+<script type="text/x-template" id="sTpl">
+    <div>
+        <p>I'm son</p>
+        <input type="button" value="查看老爹在干嘛" @click="checkFather">
+    </div>
+</script>
+<script>
+    Vue.component('father',{
+        data:function () {
+          return {
+              doing:'钓鱼'
+          }
+        },
+        methods:{
+            checkSon:function(){
+                console.log(this.$refs.myChild.doing)
+            },
+            toFather:function (msg) {
+              console.log('儿子传过来的数据是'+msg)
+            }
+        },
+        template:'#fTpl'
+    });
+    Vue.component('child',{
+        props:['name'],
+        data:function () {
+          return {doing:'游戏'}
+        },
+        methods:{
+            checkFather:function () {
+                console.log(this.$parent.doing);
+//                与父亲通信（给父亲传送数据）
+                this.$parent.toFather('回家吃饭')
+            },
+        },
+        template:'#sTpl'
+    });
+    new Vue({
+        el:'#example',
+    })
+</script>
+</body>
+</html>

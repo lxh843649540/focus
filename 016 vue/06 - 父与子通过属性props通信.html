@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>父子通信</title>
+</head>
+<body>
+<div id="example">
+    <father-component></father-component>
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+    Vue.component('father-component',{
+    	data:function () {
+		    return {
+		    	say:'father say'
+		    }
+	    },
+        template:`
+        <div>
+        <p>I'm father</p>
+        <hr>
+        <child-component name="say" num="123"></child-component>
+</div>
+        `
+    });
+    Vue.component('child-component',{
+        props:['name','num'],
+        template:`
+        <div>
+            <p>I'm child</p>
+            <span>{{'接收到的数据为：'+name+num}}</span>
+        </div>
+`
+    });
+    new Vue({
+        el:'#example'
+    })
+</script>
+</body>
+</html>

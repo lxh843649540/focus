@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.min.js"></script>
+    <script src="js/vue-router.js"></script>
+</head>
+<body>
+<div id="example">
+    <router-view></router-view>
+</div>
+<!--创建详情页模板-->
+<script type="text/x-template" id="detail">
+    <div>
+        <h1>详情页</h1>
+        <input type="text" v-model="kw">
+        <input type="button" @click="handleClick" value="立即下单并传输数据">
+    </div>
+</script>
+<!--创建下单页模板-->
+<script type="text/x-template" id="order">
+    <div>
+        <h1>下单页</h1>
+        <p>接收到的参数为：{{msg}}</p>
+        <router-link to="/">返回菜单再看看</router-link>
+    </div>
+</script>
+<script>
+//    定义详情页组件
+    let kflDetail=Vue.component('detail',{
+        template:'#detail',
+        data:function () {
+            return {kw:''}
+        },
+        methods:{
+            handleClick:function () {
+                myRouter.push('/myOrder/'+this.kw)
+            }
+        }
+    });
+
+//    定义下单页组件
+    let kflOrder=Vue.component('order',{
+        template:'#order',
+        data:function () {
+            return {
+            	msg:''
+            }
+        },
+        created:function () {
+            this.msg=this.$route.params.id;
+        }
+    });
+
+//    定义路由
+    const myRoutes=[
+        {path:'/',component:kflDetail},
+        {path:'/myOrder/:id',component:kflOrder},
+    ];
+
+//    创建router实例
+    const myRouter=new VueRouter({
+        routes:myRoutes
+    });
+
+//    创建和挂载根实例
+    new Vue({
+        el:'#example',
+        router:myRouter
+    })
+</script>
+</body>
+</html>
