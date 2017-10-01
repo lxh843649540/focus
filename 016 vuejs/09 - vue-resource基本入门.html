@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>resource基本入门</title>
+    <script src="js/vue.min.js"></script>
+    <script src="js/vue-resource.js"></script>
+</head>
+<body>
+<div id="example">
+    <my-film></my-film>
+</div>
+<script>
+    Vue.component('my-film',{
+        data:function () {
+            return {myList:[]}
+        },
+        mounted:function () {
+          this.$http.get('data/test.json').then(function (responsive) {
+              this.myList=responsive.data;
+          })
+        },
+        template:`
+            <ul>
+                <li v-for="tmp in myList">{{'name: '+tmp.name +' age: '+tmp.age}}</li>
+            </ul>
+        `
+    });
+    new Vue({
+        el:'#example',
+    })
+</script>
+</body>
+</html>

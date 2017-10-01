@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>父子通信</title>
+</head>
+<body>
+<div id="example">
+    <father-component></father-component>
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+    Vue.component('father-component',{
+        template:`
+        <div>
+        <p>I'm father</p>
+        <span>{{'son give me a word is :'+getMsg}}</span>
+        <hr>
+        <child-component @msgTF="recMsg"></child-component>
+</div>
+        `,
+        data:function () {
+          return {
+              getMsg:''
+          }
+        },
+        methods:{
+            recMsg:function(msg){
+                this.getMsg=msg
+            }
+        }
+    });
+    Vue.component('child-component',{
+        props:['name'],
+        data:function () {
+          return {kw:''}
+        },
+        methods:{
+            handleClick:function () {
+                this.$emit('msgTF',this.kw)
+            },
+        },
+        template:`
+        <div>
+            <input type="text" v-model="kw"><input type="button" value="click me" @click="handleClick">
+        </div>
+`
+    });
+    new Vue({
+        el:'#example',
+    })
+</script>
+</body>
+</html>

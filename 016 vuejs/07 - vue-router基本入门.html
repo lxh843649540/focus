@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.min.js"></script>
+    <script src="js/vue-router.js"></script>
+</head>
+<body>
+<div id="example">
+    <!--router-link跳转-->
+    <router-link to="/kunes">router-link to kune</router-link>
+    <router-link to="/lees">router-link to lee</router-link>
+    <!--js跳转-->
+    <button @click="jumpk">js to kune</button>
+    <button @click="jumpl">js to lee</button>
+    <!--a跳转-->
+    <a href="#/kunes">a to kune</a>
+    <a href="#/lees">a to lee</a>
+    <router-view></router-view>
+</div>
+<script>
+    const kune={template:'<div>我是李小辉的英文名-kune</div>'};
+    const lee={template:'<div>我是李小辉的姓-lee</div>'};
+    const myRoutes=[
+        {path:'/kunes',component:kune},
+        {path:'/lees',component:lee}
+    ];
+    const myRouter=new VueRouter({
+        routes:myRoutes
+    });
+new Vue({
+    el:'#example',
+    router:myRouter,
+    methods:{
+        jumpk:function () {
+            myRouter.push('/kunes')
+        },
+        jumpl:function () {
+            myRouter.push('/lees')
+        }
+    }
+})
+</script>
+</body>
+</html>

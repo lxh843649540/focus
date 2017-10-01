@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>组件通信练习</title>
+</head>
+<body>
+<div id="example">
+    <chat-room></chat-room>
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+    Vue.component('chat-room',{
+        data:function () {
+          return {
+              talking:[]
+          }
+        },
+        methods:{
+            allMsg:function (msg) {
+                this.talking.push(msg);
+            }
+        },
+        template:`
+    <div>
+        <ul>
+            <li v-for="talk in talking">{{talk}}</li>
+        </ul>
+        <hr>
+        <mike @upMsg="allMsg"></mike>
+        <lucy @upMsg="allMsg"></lucy>
+    </div>
+        `
+    });
+//    mike输入组件
+    Vue.component('mike',{
+        template:`
+    <div>
+        <span>mike:</span>
+        <input type="text" v-model="mSay">
+        <input type="button" value="发送" @click="mikeTalk">
+    </div>`,
+        data:function () {
+            return {name:'mike: ',mSay:''}
+        },
+        methods:{
+            mikeTalk:function () {
+                this.$emit('upMsg',this.name+this.mSay)
+            }
+        }
+    });
+//    lucy输入组件
+    Vue.component('lucy',{
+        template:`
+    <div>
+        <span>lucy:</span>
+        <input type="text" v-model="lSay">
+        <input type="button" value="发送" @click="lucyTalk">
+    </div>`,
+        data:function () {
+            return {name:'lucy: ',lSay:''}
+        },
+        methods:{
+            lucyTalk:function () {
+                this.$emit('upMsg',this.name+this.lSay)
+            }
+        }
+    });
+    new Vue({
+        el:'#example',
+    });
+</script>
+</body>
+</html>
