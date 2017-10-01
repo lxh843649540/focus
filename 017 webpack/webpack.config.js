@@ -2,31 +2,34 @@ const path = require('path');
 // const uglifyjsPlugin = require('uglifyjs-webpack-plugin');
 const htmlPlugin = require('html-webpack-plugin');
 const cleanPlugin = require('clean-webpack-plugin');
+const extractTextPlugin = require('extract-text-webpack-plugin');
+var website = {
+  publicPath: 'http://192.168.0.103:1702/'
+};
 module.exports = {
 	entry: {
 		entry: './src/entry.js',
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: '[name].js'
+		filename: '[name].js',
+        publicPath: website.publicPath
 	},
 	module: {
 		rules: [
 			{
 				test: /\.css$/,
-				use: [{
-					loader: 'style-loader'
-				},
-				{
-					loader: 'css-loader'
-				}]
+				use: extractTextPlugin.extract({
+				    fallback: 'style-loader',
+                    use: 'css-loader'
+                })
 			},
 			{
 				test: /\.(jpg|png|gif|svg)$/,
 				use: [{
 					loader: 'url-loader',
 					options: {
-						limit: 400000
+						limit: 40000
 					}
 				}]
 			}
@@ -34,7 +37,7 @@ module.exports = {
 	},
 	plugins: [
 		// new uglifyjsPlugin(),
-		new cleanPlugin(['dist']),
+		// new cleanPlugin(['dist']),
 		new htmlPlugin ({
 			title: 'webpack',
 			minify: {
@@ -42,7 +45,8 @@ module.exports = {
 			},
 			hash: true,
 			template: './src/index.html'
-		})
+		}),
+        new extractTextPlugin('css/index.css'),
 	],
 	devServer: {
 		contentBase: path.resolve(__dirname, 'dist'),
