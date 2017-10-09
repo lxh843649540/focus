@@ -11,6 +11,7 @@
   "author": "lxh",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^7.1.5",
     "clean-webpack-plugin": "^0.1.17",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.0",
@@ -19,6 +20,9 @@
     "html-withimg-loader": "^0.1.16",
     "less": "^3.0.0-alpha.3",
     "less-loader": "^4.0.5",
+    "postcss-loader": "^2.0.6",
+    "purify-css": "^1.2.5",
+    "purifycss-webpack": "^0.7.0",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
     "webpack": "^3.6.0",
