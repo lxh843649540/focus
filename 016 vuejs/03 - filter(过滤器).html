@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter</title>
+</head>
+<body>
+<div id="example">
+    <h1>{{price | add$('￥')}}</h1>
+    <h2>{{msg | tuc}}</h2>
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+new Vue({
+    el:'#example',
+    data:{
+        msg:'hello world',
+        price:'1000'
+    },
+    filters:{
+        add$:function (val,arg) {
+            return '$'+arg+val;
+        },
+        tuc:function (val) {
+            return val.toUpperCase()
+        }
+    }
+})
+</script>
+</body>
+</html>
