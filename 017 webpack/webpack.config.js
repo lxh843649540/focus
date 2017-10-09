@@ -1,11 +1,9 @@
 const path = require('path');
-// const uglifyjsPlugin = require('uglifyjs-webpack-plugin');
+const webpack = require('webpack');
+const uglifyjsPlugin = require('uglifyjs-webpack-plugin');
 const htmlPlugin = require('html-webpack-plugin');
-const cleanPlugin = require('clean-webpack-plugin');
+// const cleanPlugin = require('clean-webpack-plugin');
 const extractTextPlugin = require('extract-text-webpack-plugin');
-var website = {
-  publicPath: 'http://192.168.0.103:1702/'
-};
 module.exports = {
 	entry: {
 		entry: './src/entry.js'
@@ -13,7 +11,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].js',
-        publicPath: website.publicPath
+        publicPath: 'http://192.168.1.120:1702/'
 	},
 	module: {
 		rules: [
@@ -23,22 +21,35 @@ module.exports = {
 				    fallback: 'style-loader',
                     use: 'css-loader'
                 })
-			},
-			{
-				test: /\.(jpg|png|gif|svg)$/,
+			},{
+				test: /\.(jpg|png|gif)$/,
 				use: [{
 					loader: 'url-loader',
 					options: {
-						limit: 40000,
+						limit: 50000,
 						outputPath: 'images/'
 					}
 				}]
+			},{
+				test: /\.(htm|html)$/i,
+				use: ['html-withimg-loader']
+			},{
+				test: /\.less$/,
+				use: extractTextPlugin.extract({
+						use: [{
+							loader: 'css-loader'
+						}, {
+							loader: 'less-loader'
+						}],
+						fallback: 'style-loader'
+					}
+				)
 			}
 		]
 	},
 	plugins: [
 		// new uglifyjsPlugin(),
-		new cleanPlugin(['dist']),
+		// new cleanPlugin(['dist']),
 		new htmlPlugin ({
 			title: 'webpack',
 			minify: {
