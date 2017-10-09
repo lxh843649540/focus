@@ -4,7 +4,7 @@ const htmlPlugin = require('html-webpack-plugin');
 const cleanPlugin = require('clean-webpack-plugin');
 module.exports = {
 	entry: {
-		entry: './src/entry.js',
+		entry: './src/entry.js'
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
@@ -26,7 +26,8 @@ module.exports = {
 				use: [{
 					loader: 'url-loader',
 					options: {
-						limit: 400000
+						limit: 40000,
+						outputPath: 'images/'
 					}
 				}]
 			}
