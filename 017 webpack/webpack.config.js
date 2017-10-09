@@ -3,10 +3,11 @@ const glob = require('glob');
 const webpack = require('webpack');
 const uglifyjsPlugin = require('uglifyjs-webpack-plugin');
 const htmlPlugin = require('html-webpack-plugin');
-// const cleanPlugin = require('clean-webpack-plugin');
+const cleanPlugin = require('clean-webpack-plugin');
 const extractTextPlugin = require('extract-text-webpack-plugin');
 const purifyCssPlugin = require('purifycss-webpack');
 module.exports = {
+    devtool: 'source-map',
 	entry: {
 		entry: './src/entry.js'
 	},
@@ -50,12 +51,18 @@ module.exports = {
 						fallback: 'style-loader'
 					}
 				)
-			}
+			},{
+		        test: /\.(jsx|js)$/,
+                use: [{
+                        loader: 'babel-loader',
+		        }],
+                exclude: /node_modules/
+            }
 		]
 	},
 	plugins: [
 		// new uglifyjsPlugin(),
-		// new cleanPlugin(['dist']),
+		new cleanPlugin(['dist']),
 		new htmlPlugin ({
 			title: 'webpack',
 			minify: {
