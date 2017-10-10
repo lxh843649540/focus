@@ -14,7 +14,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].js',
-        publicPath: 'http://192.168.0.103:1702/'
+        publicPath: 'http://192.168.1.120:1702/'
 	},
 	module: {
 		rules: [
@@ -78,7 +78,7 @@ module.exports = {
 	],
 	devServer: {
 		contentBase: path.resolve(__dirname, 'dist'),
-		host: '192.168.0.103',
+		host: '192.168.1.120',
 		port: 1702,
 		compress: true
 	}
