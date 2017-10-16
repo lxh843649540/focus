@@ -1,20 +1,32 @@
 const path = require('path');
 const glob = require('glob');
-const webpack = require('webpack');
-const uglifyjsPlugin = require('uglifyjs-webpack-plugin');
 const htmlPlugin = require('html-webpack-plugin');
-const cleanPlugin = require('clean-webpack-plugin');
 const extractTextPlugin = require('extract-text-webpack-plugin');
 const purifyCssPlugin = require('purifycss-webpack');
+const webpack = require('webpack');
+const uglifyjsPlugin = require('uglifyjs-webpack-plugin');
+const cleanPlugin = require('clean-webpack-plugin');
+const entry = require('./custom_module/entry_config');
+console.log(encodeURIComponent(process.env.type));
+if(process.env.type == "company") {
+	var website = {
+		publicPath:'http://192.168.1.116:1702/'
+	};
+}else{
+	var website = {
+		publicPath:'http://192.168.0.103:1702/'
+	};
+}
+var website = {
+	publicPath:'http://192.168.1.116:1702/'
+};
 module.exports = {
     devtool: 'source-map',
-	entry: {
-		entry: './src/entry.js'
-	},
+	entry: entry.path,
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].js',
-        publicPath: 'http://192.168.1.120:1702/'
+        publicPath: website.publicPath
 	},
 	module: {
 		rules: [
@@ -62,7 +74,7 @@ module.exports = {
 	},
 	plugins: [
 		// new uglifyjsPlugin(),
-		new cleanPlugin(['dist']),
+		// new cleanPlugin(['dist']),
 		new htmlPlugin ({
 			title: 'webpack',
 			minify: {
@@ -71,14 +83,14 @@ module.exports = {
 			hash: true,
 			template: './src/index.html'
 		}),
-        new extractTextPlugin('css/index.css'),
-        new purifyCssPlugin ({
-            paths: glob.sync(path.join(__dirname, 'src/*.html'))
-        })
+		new extractTextPlugin('css/index.css'),
+		new purifyCssPlugin ({
+			paths: glob.sync(path.join(__dirname, 'src/*.html'))
+		})
 	],
 	devServer: {
 		contentBase: path.resolve(__dirname, 'dist'),
-		host: '192.168.1.120',
+		host: '192.168.1.116',
 		port: 1702,
 		compress: true
 	}

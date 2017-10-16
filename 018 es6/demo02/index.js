@@ -48,70 +48,25 @@
 // console.log(pro.add(1,2));
 
 
-// let state = 1;
-// function step1(resolve,reject) {
-// 	console.log('1.开始洗菜做饭准备');
-// 	if(state === 1){
-// 		resolve('洗菜做饭准备完成')
-// 	}else{
-// 		reject('洗菜做菜失败');
-// 	}
-// }
-// function step2(resolve,reject) {
-// 	console.log('2.开始吃饭');
-// 	if(state === 1){
-// 		resolve('吃饭完成')
-// 	}else{
-// 		reject('吃饭失败');
-// 	}
-// }
-// function step3(resolve,reject) {
-// 	console.log('3.开始收拾碗筷');
-// 	if(state === 1){
-// 		resolve('碗筷收拾完成')
-// 	}else{
-// 		reject('碗筷收拾失败');
-// 	}
-// }
-// new Promise(step1).then(function (val) {
-// 	console.log(val);
-// 	return new Promise(step2)
-// }).then(function (val) {
-// 	console.log(val);
-// 	return new Promise(step3)
-// }).then(function (val) {
-// 	console.log(val);
-// });
-function printHello (ready) {
-	return new Promise(function (resolve, reject) {
-		if (ready) {
-			resolve("Hello");
-		} else {
-			reject("Good bye!");
-		}
-	});
+ class Coder {
+	name (val) {
+		console.log(val);
+		return val;
+	}
+	skill (val) {
+		console.log(this.name('李小辉')+':skill'+':'+val)
+	}
+	constructor (a, b) {
+		this.a = a;
+		this.b = b;
+	}
+	add () {
+		return this.a+this.b;
+	}
 }
-
-function printWorld () {
-	alert("World");
-}
-
-function printExclamation () {
-	alert("!");
-}
-
-// printHello(true)
-// 	.then(function(message){
-// 		alert(message);
-// 	})
-// 	.then(printWorld)
-// 	.then(printExclamation);
-printHello(true).then(function (message) {
-	return message;
-}).then(function (message) {
-	return message  + ' World';
-}).then(function (message) {
-	return message + '!';
-}).then(function (message) {
-	alert(message);
-});
+// let jspan = new Coder(1,2);
+// jspan.skill('web');
+// console.log(jspan.add());
+class Htmler extends Coder {}
+let lxh = new Htmler(1,2);
+console.log(lxh.add());
