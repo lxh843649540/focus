@@ -1,11 +1,12 @@
 const path = require('path');
 const glob = require('glob');
+const webpack = require('webpack');
 const htmlPlugin = require('html-webpack-plugin');
 const extractTextPlugin = require('extract-text-webpack-plugin');
 const purifyCssPlugin = require('purifycss-webpack');
-const webpack = require('webpack');
 const uglifyjsPlugin = require('uglifyjs-webpack-plugin');
 const cleanPlugin = require('clean-webpack-plugin');
+//引入入口文件模块
 const entry = require('./custom_module/entry_config');
 console.log(encodeURIComponent(process.env.type));
 if(process.env.type == "company") {
@@ -30,7 +31,7 @@ module.exports = {
 	},
 	module: {
 		rules: [
-			{
+			{// css分离
 				test: /\.css$/,
 				use: extractTextPlugin.extract({
 				    fallback: 'style-loader',
@@ -40,7 +41,7 @@ module.exports = {
                         }, 'postcss-loader'
                     ]
                 })
-			},{
+			},{// 图片处理
 				test: /\.(jpg|png|gif)$/,
 				use: [{
 					loader: 'url-loader',
@@ -49,10 +50,10 @@ module.exports = {
 						outputPath: 'images/'
 					}
 				}]
-			},{
+			},{// HTML 分离
 				test: /\.(htm|html)$/i,
 				use: ['html-withimg-loader']
-			},{
+			},{// Less文件的打包和分离
 				test: /\.less$/,
 				use: extractTextPlugin.extract({
 						use: [{
@@ -63,7 +64,7 @@ module.exports = {
 						fallback: 'style-loader'
 					}
 				)
-			},{
+			},{// es6 转es5
 		        test: /\.(jsx|js)$/,
                 use: [{
                         loader: 'babel-loader',
@@ -84,8 +85,13 @@ module.exports = {
 			template: './src/index.html'
 		}),
 		new extractTextPlugin('css/index.css'),
+		// 消除未使用的CSS
 		new purifyCssPlugin ({
 			paths: glob.sync(path.join(__dirname, 'src/*.html'))
+		}),
+		// 引入第三方框架（jQuery）
+		new webpack.ProvidePlugin({
+			$: 'jquery'
 		})
 	],
 	devServer: {
