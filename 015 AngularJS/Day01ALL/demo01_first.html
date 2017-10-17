@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app>
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<h1>Hello AngularJS {{3+5}}</h1>
+<h2>{{3>2?'大于':'小于等于'}}</h2>
+<div ng-init="count=10">
+  <span>{{"count is "+count}}</span>
+</div>
+<h2>{{count}}</h2>
+<span ng-init="car={name:'BMW',price:20}">
+  {{"name is "+car.name+" price is "+car.price}}
+</span>
+<span ng-init="list=[10,20,30,40]">
+  {{list[2]}}
+</span>
+</body>
+</html>

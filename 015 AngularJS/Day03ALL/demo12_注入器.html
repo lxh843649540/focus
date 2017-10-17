@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+
+</div>
+<script>
+  var app = angular.module('myApp', ['ng']);
+  //通过service方法创建自定义服务
+  app.service('$test', function () {
+    this.info = 'it is a test';
+  })
+
+
+  //得到注入器
+  var injector = angular.injector(['ng', 'myApp']);
+  //手工判断该服务是否存在
+  var result = injector.has('$test')
+  console.log(result);
+  //如果存在，得到该服务对象，调用属性或者方法
+  if (result) {
+    var testObj = injector.get('$test');
+    console.log(testObj.info);
+  }
+
+  //采用行内式依赖注入
+  app.controller('myCtrl',
+    ['$scope','$injector' ,
+      function ($scope,$injector ) {
+        if($injector.has('$test'))
+        {
+          var result = $injector.get('$test').info
+          console.log("in myCtrl is "+ result)
+        }
+      }])
+</script>
+</body>
+</html>
+

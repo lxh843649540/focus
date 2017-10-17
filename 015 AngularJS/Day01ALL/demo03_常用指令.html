@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+
+<div ng-app>
+  <ul ng-init="list=[30,40,50]">
+    <li>{{list[0]}}</li>
+    <li>{{list[1]}}</li>
+    <li>{{list[2]}}</li>
+  </ul>
+</div>
+
+  <span ng-init="num=10"></span>
+
+  <!--将表达式的结果输出到当前元素位置-->
+  <h1 ng-bind="num"></h1>
+
+  <!--通过ngInit初始化多条数据-->
+  <h1 ng-init="count=2;name='zhangsan'">
+    {{"count is "+count+" name is "+name}}
+  </h1>
+
+</body>
+</html>
+
+
+
+

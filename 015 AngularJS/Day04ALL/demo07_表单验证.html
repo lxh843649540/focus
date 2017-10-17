@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+  <form name="myForm" ng-submit="handleSubmit()">
+    <label for="userName">用户名</label>
+    <input type="text"
+           name="myUserName"
+           ng-model="user_name"
+           id="userName" required/>
+    <span ng-hide="myForm.myUserName.$valid">
+      请输入用户名
+    </span>
+    <span ng-show="myForm.myUserName.$dirty">
+      操作过
+    </span>
+    <span ng-show="myForm.myUserName.$pristine">
+      未操作过
+    </span>
+    <span ng-show="myForm.myUserName.$error.required">
+      请输入用户信息
+    </span>
+    <br/>
+    <label for="userPwd">密码</label>
+    <input type="password"
+           name="myUserPwd"
+           ng-model="user_pwd"
+           id="userPwd"/>
+    <br/>
+    <input type="submit"
+           ng-disabled="myForm.$invalid"
+           value="提交"/>
+  </form>
+</div>
+
+<script>
+  var app = angular.module('myApp', ['ng']);
+  app.controller('myCtrl', ['$scope',
+    function ($scope) {
+      $scope.handleSubmit = function () {
+        console.log($scope.user_name +
+        $scope.user_pwd);
+      }
+    }])
+</script>
+</body>
+</html>

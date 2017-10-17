@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+  <button ng-click="start()">开始</button>
+  <button ng-click="stop()">结束</button>
+</div>
+<script>
+  var app = angular.module('myApp', ['ng']);
+
+  //通过factory方法来创建一个心跳服务
+  app.factory('$heartBeat', function ($interval) {
+    return {
+      startBeat: function () {
+         promise = $interval(
+          function () {
+            console.log('in heart Beat..');
+          },
+          500)
+      },
+      stopBeat: function () {
+        $interval.cancel(promise);
+      }
+    }
+    1
+  });
+
+  app.controller('myCtrl', function ($scope,$heartBeat) {
+
+    $scope.start = function () {
+      $heartBeat.startBeat();
+    }
+    
+    $scope.stop = function () {
+      $heartBeat.stopBeat();
+    }
+    
+  })
+</script>
+</body>
+</html>

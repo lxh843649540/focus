@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+  <p>{{nowPort}}</p>
+  <button ng-click="handleClick()">
+    得到端口号
+  </button>
+</div>
+<script>
+  var app = angular.module('myApp', ['ng']);
+  app.controller('myCtrl', function ($scope,$location) {
+    $scope.nowPort = "";
+    $scope.handleClick = function () {
+     //获取端口号
+      $scope.nowPort = $location.port();
+    }
+    
+  })
+</script>
+</body>
+</html>

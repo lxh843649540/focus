@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+  <select
+    ng-model="color"
+    ng-options="color.name for color in colorList">
+
+  </select>
+</div>
+<script>
+  var app = angular.module('myApp', ['ng']);
+  app.controller('myCtrl', function ($scope) {
+    console.log('myCtrl  func is called');
+
+    //构造对象数组，是要数组中的数据动态的显示在select
+    $scope.colorList = [
+      {name:'红色',value:'r'},
+      {name:'绿色',value:'g'},
+      {name:'蓝色',value:'b'}
+    ];
+    //指定在下拉菜单中是下标为1的默认被选中
+    $scope.color = $scope.colorList[1];
+    //监听模型数据的变化
+    $scope.$watch('color', function () {
+      console.log($scope.color);
+    })
+  })
+</script>
+</body>
+</html>

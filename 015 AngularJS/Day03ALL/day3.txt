@@ -1,0 +1,167 @@
+一、内置服务
+$location $scope $rootScope $interval $timeout $http
+
+1、ng双向数据绑定的工作原理
+当绑定一个数据，在ng框架中添加一个watcher，这个处理函数是用来更新DOM；
+在ng中有一个循环，在不断的判断数据是否发生了变化，发生变化则执行更新DOM的函数；
+循环称为$digest，可以通过
+$scope.$digest()手工的执行当前作用域对象每一个模型数据对应的监听处理函数；
+还有另外一种方案：
+$scope.$apply() ，和执行$digest()区别：$apply会触发$rootScope的$digest()
+
+2、$interval(周期性定时器) $timeout（延迟定时器）
+
+练习：
+通过$interval，每隔1s，实现图片轮播，两个按钮：开始、结束
+分析：
+构造数组，数组中存储是图片的名称信息
+通过定时器不断的切换数组的下标。
+
+3、$http
+和远程服务器通信的一个服务。
+
+$http({url:'',method:''}).success().error()
+
+简洁写法：
+$http.get()
+$http.post()
+...
+
+注意事项：
+①要求返回的数据格式是json格式
+②在发起post请求时，如果需要传参
+$http.post('url',data),需要设置请求头：
+$http.defaults.headers.post = {'Content-Type':'application/x-www-form-urlencoded'};
+
+全局设置请求头：
+app.run(function($http){
+$http.defaults.headers.post = {'Content-Type':'application/x-	www-form-urlencoded'};})
+练习：点击按钮，发起post请求，服务器接收数据返回给客户端，将返回的结果显示出来
+发送：name='zhangsan'
+返回：json格式字符串 
+      tip:welcome zhangsan
+分析：
+①服务器端
+②在客户端发起请求 解析返回的结果 显示出来。
+
+
+服务：$httpParamSerializerJQLike
+主要是可以将对象或者对象数组进行urlEncoded序列化
+
+var result = $httpParamSerializerJQLike（$scope.user）
+
+
+
+二、自定义服务
+服务的本质是对象。
+
+创建服务的常见方式：
+factory（返回对象） service （方法、属性）constant（常量服务） value（变量服务）
+
+
+1、factory
+app.factory('服务名称',function(){
+	return {
+         key:value 
+	}
+})
+
+2、service方法
+app.service('服务名称',function(){
+//构造函数
+this.name = 'zhangsan';
+this.speak = function(){}
+
+})
+
+3、constant value
+app.constant('服务名称',{})
+app.value('服务名称',{})
+
+
+练习：创建一个自定义的服务 $heartBeat,有两个方法，一个开始（启动定时器每隔0.5s，打印一句话），一个结束（结束定时器）
+在视图有两个按钮，点击start按钮调用服务中的开始方法，点击stop按钮调用服务中的结束方法。
+
+要求：统一factory创建服务，需要用到$interval，注入到factory对应的第二个参数
+
+
+三、依赖注入
+
+将依赖的对象注入到当前对象，直接去使用依赖的对象即可。
+
+降低耦合度、提高开发速度。。
+
+文件压缩：
+yui-compressor
+有两种方案：
+①CLI（command line interface）
+java -jar **.jar **.js > **.min.js
+②webStorm
+file->settings->tools-->fileWatchers->点击+ -》选中yui compressor js-->设置program（点击按钮在弹窗中选中C盘根目录下的js文件）
+
+文件压缩的作用：
+①删除了注释  ②没用空白字符清除
+③简化了变量的名称（混淆）
+
+文件压缩出现了问题：
+$scope变成了a。。，ng框架是无法找到被修改名字后的服务，程序就出现了问题。
+
+
+依赖注入：
+①推断式（猜测）
+app.controller('',function($scope){})
+注入器，是直接根据服务的名称，在服务的注册列表中去查找该名称所对应的服务，找到并实例化提供给我们使用
+特点：注入服务的顺序是无所谓的，在压缩混淆时，会出现无法查找服务的16:34 2017/6/7问题
+
+②标记式
+可以解决文件压缩后找不到服务的问题
+解决方案：给处理函数指定了$inject属性：由依赖的服务名称构成数组
+ctrFunc.$inject = ['$scope','$show'] 
+
+注意事项：在数组中写服务的顺序要与在创建ng对象时对应的方法中服务的顺序是要保持一致
+
+③行内式（内联）
+允许在创建ng对象指定一个数组作为参数，在数组中写上依赖的服务的名称，数组中最后一个参数必须是该ng对象对应的处理函数
+
+注意事项：顺序
+
+
+四、注入器
+注入器是帮助查找和定位服务
+
+得到注入器：
+①直接注入$injector
+②通过方法
+angular.injector();
+
+注入器常用API：
+has('服务名称')
+get('服务名称')
+
+练习：
+实现一个自定义计算器服务（加法运算的方法-》有两个参数，将参数求和返回）
+采用行内式依赖注入注入上述服务。
+在视图中两个input标签，一个求和按钮
+
+
+
+
+
+每日一练：
+将购物车封装成一个服务，在服务中有添加到购物车的方法，有从购物车中移除的方法。
+要求：
+①通过$http请求初始化数据并显示
+②通过行内式依赖注入注入所有服务
+
+
+
+
+
+
+
+
+
+
+
+
+

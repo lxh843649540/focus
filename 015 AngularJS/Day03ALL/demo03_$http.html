@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+  <button ng-click="getData()">
+    get请求
+  </button>
+  <ul>
+    <li ng-repeat="tmp in list">
+      {{"name is "+tmp.name+" age is "+tmp.age}}
+    </li>
+  </ul>
+</div>
+<script>
+  var app = angular.module('myApp', ['ng']);
+  app.controller('myCtrl',
+    function ($scope,$http) {
+        $scope.list = [];
+        $scope.getData = function () {
+          $http
+            .get('data/test.json')
+            .success(function (result) {
+              $scope.list = result;
+            })
+            .error(function () {
+              console.log(arguments);
+            })
+        }
+    })
+</script>
+</body>
+</html>

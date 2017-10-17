@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+
+</div>
+<script>
+  var app = angular.module('myApp', ['ng']);
+  //常量服务:将一些配置数据放到常量服务中（一般只是用来读取 不会修改）
+  app.constant('$URL', {url: 'www.baidu.com', port: 8080});
+
+  //变量服务:存储会经常修改的数据
+  app.value('$data', {versionCode: 0.1, number: 100});
+
+  app.controller('myCtrl',
+    function ($URL,$data) {
+      console.log($URL.port);
+      console.log($data.versionCode);
+    })
+</script>
+</body>
+</html>

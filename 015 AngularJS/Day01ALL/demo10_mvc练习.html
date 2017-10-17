@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+  <ul>
+    <li ng-repeat="dish in dishList">
+      <img ng-src="img/{{dish.imgUrl}}" alt=""/>
+      <h2>{{dish.name}}</h2>
+      <p>{{dish.price}}</p>
+    </li>
+  </ul>
+  <button
+    ng-show="hasMore"
+    ng-click="handleClick()">
+    加载更多
+  </button>
+  <p ng-hide="hasMore">
+    没有更多数据可以加载了
+  </p>
+</div>
+
+<script>
+  //模块的创建和使用
+  var app = angular.module('myApp', ['ng']);
+
+  //完成控制器的创建和使用
+  app.controller('myCtrl', function ($scope) {
+    //定义模型数据
+    $scope.dishList = [
+      {imgUrl: '1.jpg', name: '水仙花', price: 20},
+      {imgUrl: '2.jpg', name: '百合', price: 22},
+      {imgUrl: '3.jpg', name: '郁金香', price: 21},
+    ];
+    //当按钮点击时，设置为false（假设）
+    $scope.hasMore = true;
+
+    //定义按钮点击的处理函数
+    $scope.handleClick = function () {
+      //向数组中插入一条数据
+      var obj = {imgUrl: '4.jpg', name: '薄荷', price: 20};
+      $scope.dishList.push(obj);
+
+      $scope.hasMore = false;
+
+    }
+
+    console.log($scope);
+  })
+
+</script>
+
+</body>
+</html>

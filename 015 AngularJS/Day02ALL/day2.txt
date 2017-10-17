@@ -1,0 +1,177 @@
+一、指令的自定义、使用
+1、创建和使用
+var app = angular.module('myApp',['ng']);
+app.directive('指令名称',func);
+
+
+自定义指令的命名：
+驼峰式，有两部分构成，前缀一般是公司或者项目的缩写，后缀表示的为指令的作用(tsHello)
+使用指令时：采用烤串式的方式去使用
+(ts-hello)
+
+2、高级
+
+属性：
+①template 显示的模板内容
+②restrict: 'EACM' (E:元素A:属性C:类M：注释)
+作为注释去调用自定义指令时，需要设置replace属性为true
+③replace 替换
+④scope：接收参数
+
+调用指令来传递参数并处理：
+①在自定义的指令内部去准备接收
+指定scope，把要传递过来的值存在驼峰式命名的变量中，指定@，在调用指令传参时，就会读取该属性对应的值
+scope:{
+testName:'@'
+}
+②传递参数
+在调用指令时，指定对应的属性名称和要传递的值
+<div test-hello test-name="123"></div>
+
+练习：创建自定义指令tsDirective（显示一个h1的标签）,传入ts-name='hello world'，调用指令显示ts-name对应的值显示在自定义指令
+
+二、双向数据绑定
+1、方向1：model->View模型数据绑定到视图
+
+绑定的方式：①双花括号 ②常见的ng指令（ngRepeat ngIf ngShow....）
+
+效果：数据一旦绑定到视图上，随着数据的修改，视图会自动更新。
+
+例子：点击按钮，实现数字的自增（count++），并显示在视图中。
+
+对比：
+DOM操作方式：查找元素、操作元素
+angular：修改model数据
+
+
+2、方向2：View->Model将视图中用户的输入/操作 绑定到模型数据
+
+实现方式： ngModel
+
+双向数据绑定：ngModel可以实现双向数据绑定，将定义好的模型数据绑定到视图，也可以将用户的输入的结果绑定到数据上。
+
+3、监听数据的变化
+$scope.$watch('监听的变量的名称',
+func)
+
+练习：
+通过MVC实现一个SPA，在view有一个textarea（留言本），有一个select（选择颜色rgb）,有一个checkbox(是否同意)，通过$watch监听每一个输入组件的选择结果并通过控制台输出日志信息。
+
+在angularJs之所以能够实现绑定，是因为angularJS框架在背后为每一个模型数据添加了一个监听，与$watch其实是一个道理。
+
+
+常用指令：
+ngOptions:根据集合，动态的生成option。
+
+select ng-options="color.name for color in colorList"
+
+
+三、过滤器、函数
+1、ng中自带的过滤器
+过滤器：实现对数据的筛选、过滤、格式化。
+
+过滤器是一个有返回值的方法。
+
+过滤器语法：
+{{ expression |过滤器1:'参数' | 过滤器2:'参数' }}
+
+| --》 管道，支持多重过滤。
+
+常见的过滤器中：
+①currency 货币样式的格式化
+②date 日期格式化 参数： y M d h m s 年月日 时分秒
+③filter 将一个array，处理一个新的数组
+④json 将对象转换成json格式的字符串
+'{"name":123}'
+⑤uppercase/lowercase 大小写的转换
+⑥orderBy 排序：按照字符串首字母排序，按照数字的大小排序，默认是升序的。
+{{ expression | orderBy:'':boolean}}
+⑦number 将一个数字进行格式化，根据参数决定显示小数点后的位数
+⑧limitTo
+限定数组中的个数
+
+练习：通过$scope定义一个对象数组(5个)，对象包含的属性：score\age\name。
+实现按照score降序只显示前三名。
+
+orderBy limitTo.
+
+2、自定义过滤器的创建和使用
+
+过滤器的本质就是一个方法，参数就是输入的值以及给过滤器指定的参数，返回值就是处理后要显示的值。
+
+①过滤器创建
+var app = angular.module();
+app.filter(‘名称’，func)//创建过滤器
+在filter的第二参数，是一个方法，返回的是过滤器方法（有返回值）
+app.filter('customFilter', function () {
+    return function (value,arg1) {
+      console.log(value,arg1);
+      return '$'+value;
+    }
+  });
+②调用过滤器（与自带过滤器用法一致）
+{{ price | customFilter }}
+
+练习：自定义大写转换的过滤器
+①创建过滤器
+ 给过滤器定义方法
+	toUppercase()
+②调用
+
+3、ng中自带方法
+
+angular.toJson 序列化
+angular.fromJson 反序列化
+
+四、服务
+
+服务的本质是单例对象，封装一些方法和属性的。
+
+单例模式：在实例化变量的时候，如果该变量已经存在，直接返回该变量；如果不存在，就创建一个新的变量再返回
+
+ng自带的服务有很多，常用：
+$location $window $http $scope $rootScope $interval $timeout..
+
+服务的使用方式：
+直接在创建ng对象时候，将服务注入进来，ng的注入器会实现服务的实例化，从而让我们可以直接调用。
+
+$scope与$rootScope的关系：
+①不同的控制器之间 是无法直接共享数据
+②$scope是$rootScope的子作用域对象
+$scope的id是随着控制器的加载顺序依次递增，$rootScope的id是1
+
+③不同控制器之间如何通信？？
+1、借助于$rootScope
+2、既然子作用域对象可以调用父作用域对象的值或者方法，就可以通过控制器之间的嵌套来实现通信
+3、事件
+父-》子
+$scope.$broadcast('eventName',args)
+
+子-》父
+$scope.$emit('eventName',args)
+
+绑定事件：
+$scope.$on('eventName',func)
+
+每日一练：实现全选
+
+ngModel不仅可以实现数据到视图的绑定，还可以实现视图的操作结果到数据的绑定。
+
+分析：
+数据应该是一个对象数组，每一个对象包含name\birthday\isSelected
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

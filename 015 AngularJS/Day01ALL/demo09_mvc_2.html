@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/angular.js"></script>
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+  <p>{{count}}</p>
+  <button ng-click="handleClick()">
+    clickMe
+  </button>
+</div>
+
+<!--出了myCtrl的控制范围，count就读不到了-->
+<p>{{count}}</p>
+
+<script>
+  //完成模块的创建和使用
+  var app = angular.module('myModule',['ng'])
+  //控制器的创建和使用
+  app.controller('myCtrl', function ($scope) {
+    $scope.count = 0;
+
+    //如果要想让数据或者方法 能在控制器的范围去调用，
+    //必须放在$scope对象中
+    $scope.handleClick = function () {
+      $scope.count++;
+    }
+
+  })
+</script>
+</body>
+</html>

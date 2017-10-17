@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+  <span>{{count}}</span>
+</div>
+<script>
+  var app = angular.module('myApp', ['ng']);
+  app.controller('myCtrl',
+    function ($scope, $interval) {
+      $scope.count = 0;
+      //启动周期性定时器 实现对数据的自增操作
+      /* setInterval(
+       function () {
+       $scope.count++;
+       console.log($scope.count);
+       //$scope.$digest();
+       $scope.$apply();
+       },
+       500
+       )*/
+
+      $interval(
+        function () {
+          $scope.count++;
+        },
+        500)
+
+    })
+</script>
+</body>
+</html>

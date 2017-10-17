@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="myApp02">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+  <button ng-click="handleClick()">
+    clickMe
+  </button>
+</div>
+
+<script>
+  var app01 = angular.module('myApp01', ['ng']);
+
+  app01.service('$show', function () {
+    this.showAlert = function () {
+      alert('msg in $show service');
+    }
+  })
+
+  //在创建自定义模块，依赖于其他模块，将他们写在第二个参数对应的数组中即可
+  var app02 = angular.module('myApp02',['myApp01']);
+
+  app02.controller('myCtrl',
+    ['$scope','$show',
+      function ($scope,$show) {
+        //按钮点击 调用myApp01模块中的$show服务中的方法
+        $scope.handleClick = function () {
+          $show.showAlert();
+        }
+      }
+    ]);
+</script>
+</body>
+</html>

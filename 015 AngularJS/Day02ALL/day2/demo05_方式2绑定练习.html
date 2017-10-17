@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+  请输入留言内容：
+  <textarea ng-model="user_msg"></textarea>
+  <br/>
+  选择喜欢的颜色:
+  <select ng-model="user_color">
+    <option value="r">红色</option>
+    <option value="g">绿色</option>
+    <option value="b">蓝色</option>
+  </select>
+  <br/>
+  是否同意
+  <input type="checkbox"
+         ng-model="user_agree"/>
+</div>
+<script>
+  var app = angular.module('myApp', ['ng']);
+  app.controller('myCtrl', function ($scope) {
+    console.log('myCtrl  func is called');
+    $scope.user_msg = "";
+    $scope.user_color='r';
+    $scope.user_agree = true;
+
+    $scope.$watch('user_msg', function (newVal,oldVal) {
+      console.log(newVal);
+      console.log($scope.user_msg);
+    })
+
+    $scope.$watch('user_color', function () {
+      console.log($scope.user_color);
+    })
+
+    $scope.$watch('user_agree', function () {
+      console.log($scope.user_agree);
+    })
+
+    console.log($scope);
+
+  })
+</script>
+</body>
+</html>

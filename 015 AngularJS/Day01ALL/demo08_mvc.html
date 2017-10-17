@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--完成模块的调用-->
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<!--完成控制器的调用-->
+<div ng-controller="myCtrl">
+  <p>{{"num is "+num}}</p>
+</div>
+
+<script>
+  //创建了myApp的模块
+  var app = angular.module('myApp',['ng']);
+  //创建控制器
+  app.controller('myCtrl', function ($scope) {
+    //当控制器被加载时，执行的处理函数
+    console.log('myCtrl func is called');
+    //定义模型数据
+    //$scope是建立起数据和视图的桥梁
+    $scope.num=10;
+  })
+</script>
+
+</body>
+</html>

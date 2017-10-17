@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app>
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+
+<ul ng-init="myList=[10,20,20,30]">
+  <!-- 使用ngRepeat来遍历集合，实例化多个标签模板-->
+  <li ng-repeat="tmp in myList track by $index">
+    {{"$index is "+$index+" value is "+tmp}}
+  </li>
+</ul>
+
+<div ng-init="car={name:'BMW',price:20}">
+  <p ng-repeat="(key,value) in car">
+    {{key+":"+value}}
+  </p>
+</div>
+
+
+</body>
+</html>

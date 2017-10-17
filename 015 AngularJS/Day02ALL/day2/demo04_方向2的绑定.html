@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+  <!-- 通过ngModel指令，将用户的输入绑定到模型数据
+    （方向1的绑定）-->
+  <input type="text" ng-model="inputTxt"/>
+  <!-- 将模型数据绑定到视图（方向1的绑定）-->
+  <h1>{{inputTxt}}</h1>
+
+  <hr/>
+  <input type="text" ng-model="kw"/>
+</div>
+<script>
+  var app = angular.module('myApp', ['ng']);
+  app.controller('myCtrl', function ($scope) {
+    console.log('myCtrl  func is called');
+    $scope.inputTxt = 'zhangsan';
+    $scope.kw = '';
+
+    //监听模型数据的变化
+    $scope.$watch('kw',
+      function (newVal,oldVal) {
+      console.log("newVal is "+newVal+
+      " oldval is "+oldVal);
+    })
+
+  })
+</script>
+</body>
+</html>

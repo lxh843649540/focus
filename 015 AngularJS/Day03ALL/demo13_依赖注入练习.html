@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+  <input type="number" ng-model="num1"/>
+  <input type="number" ng-model="num2"/>
+  <br/>
+  <button ng-click="addResult()">求和</button>
+  <p>{{'求和结果：'+result}}</p>
+</div>
+<script>
+  var app = angular.module('myApp', ['ng']);
+  
+  //创建服务
+  app.service('$calculator', function () {
+    this.add = function (num1,num2) {
+      return (num1+num2);
+    }
+  })
+
+  //行内式依赖注入
+  app.controller('myCtrl',
+    ['$scope','$calculator',
+      function ($scope,$calculator) {
+          $scope.addResult = function () {
+            $scope.result = $calculator.add(
+              $scope.num1,$scope.num2);
+
+          }
+      }
+    ])
+</script>
+</body>
+</html>

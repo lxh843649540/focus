@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <script src="js/angular-route.js"></script>
+  <title></title>
+</head>
+<body ng-controller="parentCtrl">
+<!--代码片段加载到这里-->
+<ng-view></ng-view>
+
+<script>
+  var app = angular.module('myApp', ['ng', 'ngRoute']);
+
+  app.config(function ($routeProvider) {
+    $routeProvider
+      .when('/myPerson', {
+        templateUrl: 'tpl/person.html',
+        controller: 'personCtrl'
+      })
+      //配置接收方的路由
+      .when('/mySettings/:id', {
+        templateUrl: 'tpl/settings.html',
+        controller: 'settingsCtrl'
+      })
+      .otherwise({redirectTo: '/myPerson'})
+  })
+
+  app.controller('personCtrl',
+    ['$scope', '$location',
+      function ($scope, $location) {
+        //通过$location跳转到设置页面
+        $scope.jump = function () {
+          $location.path('/mySettings/1');
+        }
+      }]);
+
+  //创建一个控制器，给body使用，希望所有的代码片段都能够调用该控制器中封装的变量和方法
+  app.controller('parentCtrl',
+    ['$scope', '$location',
+      function ($scope, $location) {
+        //跳转到指定的路由地址对应的页面
+        $scope.jumpRoute = function (desPath) {
+          $location.path(desPath);
+        }
+
+      }])
+
+  //给设置页面创建控制器
+  app.controller('settingsCtrl',
+    ['$scope', '$routeParams',
+      function ($scope, $routeParams) {
+        console.log($routeParams);
+        $scope.msg = $routeParams.id;
+      }])
+
+</script>
+
+</body>
+</html>

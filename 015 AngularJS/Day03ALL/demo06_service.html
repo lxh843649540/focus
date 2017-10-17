@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+
+</div>
+<script>
+  var app = angular.module('myApp', ['ng']);
+
+  //通过service方法创建服务
+  app.service('$student', function () {
+    //构造函数
+    this.name = 'lucy';
+    this.study = function () {
+      console.log('正在学习');
+    }
+  });
+
+  app.controller('myCtrl',
+    function ($scope,$student) {
+      //读取服务中的属性
+      console.log("服务中name属性对应的值为"+$student.name);
+      //调用服务中的方法
+      $student.study();
+    })
+</script>
+</body>
+</html>

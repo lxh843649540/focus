@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<!--
+1、搭建MVC的架子
+2、构造数据
+3、显示
+4、实现添加
+5、实现删除
+-->
+
+<div ng-controller="myCtrl">
+  <button ng-click="addToCart()">
+    添加
+  </button>
+  <table>
+    <thead>
+    <tr>
+      <th>单价</th>
+      <th>数量</th>
+      <th>小计</th>
+      <th>删除</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="obj in cart track by $index">
+      <td>{{obj.price}}</td>
+      <td>{{obj.count}}</td>
+      <td>{{obj.price*obj.count}}</td>
+      <td>
+        <button
+          ng-click="deleFromCart($index)">
+          删除
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  var app = angular.module('myApp',['ng']);
+
+  app.controller('myCtrl', function ($scope) {
+    $scope.cart = [
+      {price:40,count:3},
+      {price:20,count:2},
+      {price:90,count:1}
+    ];
+    
+    $scope.addToCart = function () {
+      var newObj = {
+        price:Math.floor(Math.random()*20),
+        count:Math.floor(Math.random()*10)
+      };
+      $scope.cart.push(newObj);
+    }
+
+    $scope.deleFromCart = function (index) {
+      $scope.cart.splice(index,1);
+    }
+  })
+
+</script>
+
+
+</body>
+</html>

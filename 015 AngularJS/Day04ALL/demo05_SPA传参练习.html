@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/test.css"/>
+  <script src="js/angular.js"></script>
+  <script src="js/angular-route.js"></script>
+  <title></title>
+</head>
+<body ng-controller="parentCtrl">
+
+<ng-view class="page"></ng-view>
+
+<script>
+  var app = angular.module('myApp', ['ng', 'ngRoute']);
+
+  app.config(function ($routeProvider) {
+    $routeProvider
+      .when('/Check', {
+        templateUrl: 'tpl/check.html'
+      })
+      .when('/Pay/:price', {
+        templateUrl: 'tpl/pay.html',
+        controller:'payCtrl'
+      })
+      .when('/Send', {
+        templateUrl: 'tpl/send.html'
+      })
+      .otherwise({redirectTo: '/Check'})
+  });
+
+  app.controller('parentCtrl',
+    ['$scope', '$location',
+      function ($scope, $location) {
+        $scope.jump = function (desPath) {
+          $location.path(desPath);
+        }
+      }
+    ])
+  //接收参数、保存参数、显示在视图中
+  app.controller('payCtrl',
+    ['$scope', '$routeParams',
+      function ($scope, $routeParams) {
+        $scope.result = $routeParams.price;
+        console.log($scope.result);
+      }])
+
+</script>
+
+</body>
+</html>

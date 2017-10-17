@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+  <ul>
+    <li ng-repeat="stu in stuList
+    | orderBy:'score':true
+    | limitTo:3">
+      {{stu.name+"-"+stu.age+"-"+stu.score}}
+    </li>
+  </ul>
+</div>
+<script>
+  var app = angular.module('myApp', ['ng']);
+  app.controller('myCtrl', function ($scope) {
+    console.log('myCtrl  func is called');
+    $scope.stuList = [
+      {name:'name6',age:10,score:80},
+      {name:'name5',age:10,score:79},
+      {name:'name4',age:10,score:82},
+      {name:'name3',age:10,score:89},
+      {name:'name2',age:10,score:60}
+    ];
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app>
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+
+<table ng-init="stuList=[
+  {name:'Michael',age:20,score:60,sex:'1'},
+  {name:'Lincoln',age:21,score:70,sex:'0'},
+  {name:'Sara',age:23,score:40,sex:'1'},
+  {name:'T-Bag',age:24,score:50,sex:'1'},
+  ]">
+  <thead>
+  <tr>
+    <th>名称</th>
+    <th>年龄</th>
+    <th>成绩</th>
+    <th>性别</th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="tmp in stuList"
+        ng-if="tmp.score >= 60">
+      <td ng-repeat="(key,value) in tmp">
+        {{value}}
+      </td>
+      <!--<td>{{tmp.name}}</td>
+      <td>{{tmp.age}}</td>
+      <td>{{tmp.score}}</td>
+      <td>{{tmp.sex}}</td>-->
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

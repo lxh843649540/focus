@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+  <p>{{price}}</p>
+  <p>{{price | customFilter:'￥'}}</p>
+</div>
+<script>
+  var app = angular.module('myApp', ['ng']);
+
+  //创建过滤器(过滤器的本质就是方法)
+  app.filter('customFilter', function () {
+    return function (value,arg1) {
+      console.log(value,arg1);
+      return '$'+value;
+    }
+  });
+
+  app.controller('myCtrl', function ($scope) {
+    console.log('myCtrl  func is called');
+    $scope.price = 100;
+  })
+</script>
+</body>
+</html>

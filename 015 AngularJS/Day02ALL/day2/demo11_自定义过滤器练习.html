@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+  <h1>{{name | myUppercase}}</h1>
+</div>
+<script>
+  var app = angular.module('myApp', ['ng']);
+
+  //创建自定义的过滤器
+  app.filter('myUppercase', function () {
+    return function (value) {
+      //实现对输入的处理
+      //返回，显示出来
+      return value.toUpperCase();
+    }
+  });
+
+  app.controller('myCtrl', function ($scope) {
+    $scope.name = "Jack";
+  })
+</script>
+</body>
+</html>

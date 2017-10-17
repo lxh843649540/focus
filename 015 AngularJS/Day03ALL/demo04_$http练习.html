@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+  <button ng-click="postData()">
+    获取信息
+  </button>
+  <span>{{msg.tip}}</span>
+</div>
+<script>
+  var app = angular.module('myApp', ['ng']);
+
+  //全局设置 post请求头
+  //app.config 需要用到provider
+  //app.run
+
+  app.run(function ($http) {
+    $http.defaults.headers.post = {
+      'Content-Type':
+        'application/x-www-form-urlencoded'
+    }}
+    );
+
+  app.controller('myCtrl',
+    function ($scope,$http,$httpParamSerializerJQLike) {
+      $scope.postData = function () {
+        var user =
+        {name:'zhangsan',age:20,score:90};
+        var result =
+          $httpParamSerializerJQLike(user);
+        console.log(result);
+        $http
+          .post('data/test.php',result)
+          .success(function (data) {
+            console.log(data);
+            $scope.msg = data;
+          })
+      }
+    })
+</script>
+</body>
+</html>

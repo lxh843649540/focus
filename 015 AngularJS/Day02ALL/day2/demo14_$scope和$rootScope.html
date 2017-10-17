@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app='myModule'>
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+
+<div ng-controller="myCtrl01">
+  <p>{{"num1 in myCtr01 is "+num1}}</p>
+  <p>{{"num2 in myCtr01 is "+num2}}</p>
+</div>
+
+<div ng-controller="myCtrl02">
+  <p>{{"num1 in myCtr02 is "+num1}}</p>
+  <p>{{"num2 in myCtr02 is "+num2}}</p>
+  <!-- myCtrl03的$scope
+  就是myCtrl02$scope的子组用对象-->
+  <div ng-controller="myCtrl03">
+    <p>{{"num3 in myCtrl03 is "+num3}}</p>
+  </div>
+</div>
+
+<script>
+  var app = angular.module('myModule', ['ng']);
+
+  app.controller('myCtrl01',
+    function ($scope, $rootScope) {
+      console.log('myCtrl01 func is called');
+      $scope.num1 = 10;
+      console.log($scope);
+      console.log($rootScope);
+      $rootScope.num2 = 100;
+    })
+
+  app.controller('myCtrl02', function ($scope) {
+    console.log('myCtrl02 func is called');
+    console.log($scope);
+    $scope.num3 = 99;
+
+  })
+
+  app.controller('myCtrl03', function ($scope) {
+
+  })
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app>
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<!--初始化数据-->
+<span ng-init="
+imgUrl='1.jpg';
+hasMore=false;
+isValid=false">
+
+</span>
+
+<!--显示图片-->
+<img ng-src="img/{{imgUrl}}" alt=""/>
+
+<!--通过ngShow、ngHide控制元素的显示或者隐藏-->
+<button ng-show="hasMore">加载更多</button>
+<p ng-show="!hasMore">没有更多数据可以加载了</p>
+
+<!--通过ngDisabled决定元素使能或者非使能-->
+<button ng-disabled="!isValid">clickMe</button>
+
+<!--ngChecked ngStyle ngClass..-->
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+    <button ng-click="handleClick()">
+      clickMe
+    </button>
+</div>
+<script>
+  var app = angular.module('myApp', ['ng']);
+
+  //通过factory自定义服务
+  app.factory('$output', function () {
+    return {
+      print: function (str) {
+        //比较复杂的业务逻辑
+        console.log(str);
+      }
+    }
+  });
+
+  app.controller('myCtrl',
+    function ($scope,$output) {
+      $scope.handleClick = function () {
+        $output.print('Hello Service');
+      }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+
+<div ng-controller="parentCtrl">
+  <button ng-click="toChild()">
+    向child传值
+  </button>
+
+  <div ng-controller="childCtrl">
+    <p>{{data}}</p>
+    <button ng-click="toParent()">向parent传值</button>
+  </div>
+
+</div>
+
+
+<script>
+  var app = angular.module('myApp', ['ng']);
+
+  app.controller('parentCtrl', function ($scope) {
+    $scope.toChild = function () {
+      //通过事件传值 约定事件名称：toChildEvent
+      $scope.$broadcast(
+        'toChildEvent',
+        ' msg from parent')
+    }
+
+    //绑定toParentEvent事件的处理函数
+    $scope.$on('toParentEvent',
+      function (event, result) {
+        console.log(result);
+      })
+
+  });
+
+  app.controller('childCtrl', function ($scope) {
+    //绑定事件 $on
+    $scope.$on('toChildEvent',
+      function (event, result) {
+        console.log(arguments);
+        $scope.data = result;
+      });
+
+    $scope.toParent = function () {
+      //向父级元素通过事件传值 $emit 约定:toParentEvent
+      $scope.$emit(
+        'toParentEvent',
+        'msg to my parent'
+      );
+    }
+
+  });
+
+</script>
+</body>
+</html>

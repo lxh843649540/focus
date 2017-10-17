@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+  <!-- 货币-->
+  <p>{{price | currency}}</p>
+  <p>{{price | currency :'￥'}}</p>
+  <!-- 日期-->
+  <p>{{myDate}}</p>
+  <p>{{myDate | date:'MM-dd hh-mm'}}</p>
+  <!-- 大小写转换-->
+  <p>{{name | uppercase}}</p>
+  <p>{{name | lowercase}}</p>
+  <!-- 排序 order by-->
+  <ul>
+    <li ng-repeat="stu in stuList
+    | orderBy:'age':true">
+      <p>
+        {{"name is "+stu.name+" age is "+stu.age}}
+      </p>
+    </li>
+  </ul>
+  <p>{{"num is "+num}}</p>
+  <p>{{num | number:2}}</p>
+
+  <ol>
+    <li ng-repeat="tmp in list | limitTo:2">
+      {{tmp}}
+    </li>
+  </ol>
+
+</div>
+<script>
+  var app = angular.module('myApp', ['ng']);
+  app.controller('myCtrl', function ($scope) {
+    console.log('myCtrl  func is called');
+    $scope.price = 1002;
+    $scope.myDate = new Date();//初始化一个日期
+    //大小写转换
+    $scope.name = 'Michael';
+    $scope.stuList = [
+      {name:'zhangsan',age:20},
+      {name:'lisi',age:28},
+      {name:'wanger',age:22}
+    ];
+
+    $scope.num = 10.2333;
+    $scope.list = [10,20,30,40,50];
+
+  })
+</script>
+</body>
+</html>

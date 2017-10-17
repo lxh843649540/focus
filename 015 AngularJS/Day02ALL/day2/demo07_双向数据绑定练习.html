@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+  <input type="checkbox" ng-model="isAgree"/>是否同意
+  <button ng-disabled="!isAgree">注册</button>
+
+  <!--<select ng-model="imgUrl">
+    <option value="1.jpg">水仙花</option>
+    <option value="2.jpg">郁金香</option>
+  </select>
+
+  <img ng-src="img/{{imgUrl}}" alt=""/>
+-->
+  <select ng-model="imgObj" ng-options="imgObj.name for imgObj in imgList"></select>
+
+  <img ng-src="img/{{imgObj.url}}" alt=""/>
+  
+</div>
+<script>
+  var app = angular.module('myApp', ['ng']);
+  app.controller('myCtrl', function ($scope) {
+    console.log('myCtrl  func is called');
+    $scope.isAgree = true;
+    $scope.imgUrl = "1.jpg";
+
+    $scope.imgList = [
+      {name:'水仙花',url:'1.jpg'},
+      {name:'郁金香',url:'2.jpg'}
+    ]
+    $scope.imgObj = $scope.imgList[0];
+  })
+</script>
+</body>
+</html>

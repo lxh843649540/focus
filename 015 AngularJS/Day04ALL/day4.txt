@@ -1,0 +1,167 @@
+每日一练：
+将购物车封装成一个服务，在服务中有添加到购物车的方法，有从购物车中移除的方法。
+要求：
+①通过$http请求初始化数据并显示
+②通过行内式依赖注入注入所有服务
+
+分析：
+①自定义服务
+②通过$http初始化数据
+③将数据显示在视图中
+④实现添加、删除
+
+一、模块化设计
+1、自定义模块以及相互调用
+angular.module('myApp01',['myApp02'])
+
+2、面试题：一个ng的模块可以包含哪些东西？
+控制器
+指令
+过滤器
+函数
+服务
+
+二、内置模块
+1、路由模块
+实现SPA。
+SPA：单一页面应用程序，对应的是多页面应用程序（传统）。
+
+SPA的工作原理：
+①页面url地址
+http://127.0.0.1/index.html#/路由地址
+②请求完整的html页面
+③解析路由地址
+④从路由词典找到该路由地址对应的配置信息--》代码片段，控制器。。
+⑤发起异步请求，加载代码片段到完整的页面中（有一个容器）
+
+
+2、在ng中如何实现SPA？
+基本步骤：
+①引入angular-route.js,在创建自定义模块指定依赖ngRoute
+②指定容器 盛放代码片段 ngView
+③创建需要的代码片段
+④配置路由词典
+$routProvider.when 添加一条路由信息
+$routProvider.otherwise 处理异常
+⑤测试
+
+练习：通过ngRoute来实现SPA，有两个代码片段 login register。
+
+能够通过修改地址栏中的路由地址，实现对代码片段的访问。
+
+3、在SPA页面跳转的方式
+①直接修改地址栏（测试）
+②优化后的超链接
+<a href='#路由地址'></a>
+<a href='#/mySettings'></a>
+③通过js的方式
+$location.path('路由地址');
+$location.path('/mySettings');
+
+不同的控制器之间通信方式：
+①$rootScope
+②控制器之间的嵌套
+③通过event ($scope.$broadcast/$emit/$on)
+
+路由传参：
+①明确 发送方和接收方
+②配置接收方的路由地址
+when('/mySettings',{}) 
+--->
+when('/mySettings/:id',{})
+③借助于$routeParams服务获取参数
+④发送
+<a href='#/mySettings/20'>
+$location.path('/mySettings/20')
+
+要求：
+从个人中心页 跳转到 设置页面时 传值，设置页面接收到值并显示在视图
+①发送：个人中心 接收：设置页面
+②设置接收方的路由
+when('/mySettings',{})
+-->
+when('/mySettings/:id')
+③$routeParams
+④发送
+a href='#/mySettings/20'
+
+练习：
+创建一个SPA，有3个代码片段
+1、check（商品查看页面）: a->跳转到pay，同时传递参数100； button->跳转send
+2、pay（支付页面）：接收到check传递过来的参数并显示出来；button-》跳转到send页面
+3、send（发货页面）：
+a -》跳转到check
+
+①发送：check 接收：pay
+②配置pay页面路由
+③接收参数 $routeParams
+④发送参数
+
+指令：
+ngInclude
+用法： <div 
+ng-include="'tpl/
+include/header.html'"></div>
+作用：在当前页面动态加载指定的代码片段
+
+
+三、动画模块
+①直接引入对应的js angular-animate.js
+②在自定义模块时，依赖于ngAnimate
+③修改ng动画模块内置的样式类
+ng-Enter ng-Enter-Active 
+ng-Leave ng-Leave-Active
+
+
+四、表单验证
+$pristine 原始的，没有操作过
+$dirty 操作过的
+$valid 有效
+$invalid 无效
+$error 对象：email,url,..
+
+
+注意事项：
+①提交事件 ngSubmit
+②给每一个表单组件指定name，通过ngModel绑定到模型数据
+③表单本身也可以加上判断
+myForm.$valid 只要是表单中所有的表单组件通过验证，该值就是true，否则就是false
+
+
+练习：
+实现一个表单：输入用户名，密码，要求用户名和密码都是必须输入的，当没有输入时提示“请输入用户名”,"请输入密码"；
+还有一个提交按钮（能否点击取决于表单是否通过验证）
+
+逻辑运算：输入过而且当前还是无效
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

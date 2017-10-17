@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+
+</div>
+<script>
+  var app = angular.module('myApp', ['ng']);
+  app.controller('myCtrl', function ($scope) {
+//    json格式的序列化和反序列化
+    var str = '{"name":"Lucy","age":20}';
+    //反序列化:将一个json格式的字符串反序列为一个对象
+    var stu = angular.fromJson(str);
+    console.log(stu);
+    //序列化：将一个对象序列化为json格式的字符串
+    var jsonStr = angular.toJson(stu);
+    console.log(jsonStr);
+
+    //遍历集合
+    var list = [10,20,30];
+    angular.forEach(list, function (value,key) {
+      console.log(key,value);
+    })
+    // angular.uppercase('Jack')
+    // angular.lowercase('Jack')
+  })
+</script>
+</body>
+</html>

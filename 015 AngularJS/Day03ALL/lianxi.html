@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+
+  <table>
+    <thead>
+    <tr>
+      <th>选中</th>
+      <th>名称</th>
+      <th>生日</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="tmp in list">
+      <td>
+        <input type="checkbox"
+               ng-click="chooseSome()"
+               ng-model="tmp.isSelected"/>
+      </td>
+      <td>
+        <span>{{tmp.name}}</span>
+      </td>
+      <td>
+        <span>{{tmp.birthday}}</span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  全选
+  <input
+    type="checkbox"
+    ng-click="chooseAll()"
+    ng-model="selectAll"/>
+  <br/>
+  <button ng-click="handleClick()">
+    查看
+  </button>
+</div>
+
+<script>
+  var app = angular.module('myApp', ['ng']);
+
+  app.controller('myCtrl', function ($scope) {
+    //模拟数据
+    $scope.list = [
+      {
+        name: 'Lucy',
+        birthday: '2011-11-11',
+        isSelected: false
+      },
+      {
+        name: 'HanMeiMei',
+        birthday: '2012-11-12',
+        isSelected: false
+      }
+    ];
+    //将数据显示在视图中
+    //实现查看功能
+    $scope.handleClick = function () {
+      //由于用户选中的结果已经通过ngModel绑定了模型数据，遍历以下list数组就可以知道谁被选中了
+      var result = "";
+      angular.forEach($scope.list,
+        function (value, key) {
+          if (value.isSelected) {
+            result += (value.name + "被选中了");
+          }
+        })
+      alert(result);
+
+    }
+    /*    实现全选功能*/
+    //部分选中的处理函数
+    $scope.chooseSome = function () {
+      //决定全选 是不是 要被选中
+      var result = true;
+      angular.forEach(
+        $scope.list,
+        function (value, key) {
+          result = result && value.isSelected;
+        }
+      )
+      $scope.selectAll = result;
+    }
+    //全部选中的处理函数
+    $scope.chooseAll = function () {
+      //全选后结果 是要影响到每一个部分选中绑定的数据
+      angular.forEach(
+        $scope.list, function (value, key) {
+          value.isSelected = $scope.selectAll;
+        })
+    }
+  });
+
+</script>
+</body>
+</html>

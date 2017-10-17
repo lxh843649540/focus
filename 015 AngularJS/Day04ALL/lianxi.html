@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/angular.js"></script>
+  <title></title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+  <button ng-click="add()">添加</button>
+  <table>
+    <thead>
+    <tr>
+      <th>单价</th>
+      <th>数量</th>
+      <th>小计</th>
+      <th>删除</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="obj in list track by $index">
+      <td>
+        {{obj.price}}
+      </td>
+      <td>
+        {{obj.count}}
+      </td>
+      <td>
+        {{(obj.price * obj.count) | number:2}}
+      </td>
+      <td>
+        <button ng-click="delete($index)">删除</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<script>
+  var app = angular.module('myApp', ['ng']);
+
+  //创建自定义服务
+  app.service('$cart', [function () {
+    //添加到购物车：要添加的数据，添加到哪个地方
+    this.addToCart = function (list,product) {
+      list.push(product);
+      return list;
+    }
+    this.deleteFromCart = function (list,index) {
+      list.splice(index,1);
+      return list;
+    }
+  }])
+
+  app.controller('myCtrl',
+    ['$scope', '$http', '$cart',
+      function ($scope, $http, $cart) {
+        //定义数组用来绑定到视图显示
+        $scope.list = [];
+
+        //初始化数据
+        $http
+          .get('data/product.json')
+          .success(function (data) {
+            console.log(data);
+            $scope.list = data;
+          })
+        //定义点击添加按钮的方法
+        $scope.add = function () {
+          //调用自定义服务中的添加到购物车方法
+          var product = {
+            price:Math.floor(Math.random()*10),
+            count:2
+          }
+          $scope.list = $cart.addToCart($scope.list,product);
+        }
+        //定义点击删除按钮的方法
+        $scope.delete = function (index) {
+          $scope.list =
+            $cart.deleteFromCart($scope.list,index);
+        }
+      }
+    ])
+</script>
+</body>
+</html>
