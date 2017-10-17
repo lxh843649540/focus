@@ -15,12 +15,9 @@ if(process.env.type == "company") {
 	};
 }else{
 	var website = {
-		publicPath:'http://192.168.0.103:1702/'
+		publicPath:'http://192.168.0.104:1702/'
 	};
 }
-var website = {
-	publicPath:'http://192.168.1.116:1702/'
-};
 module.exports = {
     devtool: 'source-map',
 	entry: entry.path,
@@ -92,12 +89,22 @@ module.exports = {
 		// 引入第三方框架（jQuery）
 		new webpack.ProvidePlugin({
 			$: 'jquery'
-		})
+		}),
+        // 在dist的输出文件里第一行显示的提示内容
+		new webpack.BannerPlugin('本webpack配置是由李小辉的创建的5')
 	],
 	devServer: {
 		contentBase: path.resolve(__dirname, 'dist'),
-		host: '192.168.1.116',
+		host: '192.168.0.104',
 		port: 1702,
 		compress: true
-	}
+	},
+    watchOptions: {
+        //检测修改时间，以毫秒为单位
+        poll: 1000,
+        //防止重复保存而发生重复编译错误。这里设置的500是半秒内重复保存，不进行打包操作
+        aggregeateTimeout: 500,
+        //不监听目录
+        ignored: /node_modules/
+    }
 };
