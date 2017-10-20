@@ -9,15 +9,18 @@ const cleanPlugin = require('clean-webpack-plugin');
 //引入入口文件模块
 const entry = require('./custom_module/entry_config');
 console.log(encodeURIComponent(process.env.type));
-if(process.env.type == "company") {
-	var website = {
-		publicPath:'http://192.168.1.116:1702/'
-	};
-}else{
-	var website = {
-		publicPath:'http://192.168.0.104:1702/'
-	};
-}
+// if(process.env.type === "company") {
+// 	var website = {
+// 		publicPath:'http://192.168.1.237:1702/'
+// 	};
+// }else{
+// 	var website = {
+// 		publicPath:'http://192.168.0.104:1702/'
+// 	};
+// }
+var website = {
+	publicPath:'http://192.168.1.237:1702/'
+};
 module.exports = {
     devtool: 'source-map',
 	entry: entry.path,
@@ -35,10 +38,11 @@ module.exports = {
                     use: [{
 				        loader: 'css-loader',
                         options: {importLoader: 1}
-                        }, 'postcss-loader'
-                    ]
+                        }, {
+				    	loader: 'postcss-loader'
+                    }]
                 })
-			},{// 图片处理
+			},{// 图片处理与图片路径处理
 				test: /\.(jpg|png|gif)$/,
 				use: [{
 					loader: 'url-loader',
@@ -71,7 +75,7 @@ module.exports = {
 		]
 	},
 	plugins: [
-		// new uglifyjsPlugin(),
+		new uglifyjsPlugin(),
 		// new cleanPlugin(['dist']),
 		new htmlPlugin ({
 			title: 'webpack',
@@ -81,6 +85,7 @@ module.exports = {
 			hash: true,
 			template: './src/index.html'
 		}),
+		// CSS分离
 		new extractTextPlugin('css/index.css'),
 		// 消除未使用的CSS
 		new purifyCssPlugin ({
@@ -95,7 +100,7 @@ module.exports = {
 	],
 	devServer: {
 		contentBase: path.resolve(__dirname, 'dist'),
-		host: '192.168.0.104',
+		host: '192.168.1.237',
 		port: 1702,
 		compress: true
 	},
