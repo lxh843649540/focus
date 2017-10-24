@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">标题</h1>
+		</header>
+		<div class="mui-content">
+			<form class="mui-input-group">
+			    <div class="mui-input-row">
+			        <label>用户名</label>
+			    <input type="text" class="mui-input-clear" placeholder="请输入用户名">
+			    </div>
+			    <div class="mui-input-row">
+			        <label>密码</label>
+			        <input type="password" class="mui-input-password" placeholder="请输入密码">
+			    </div>
+			    <div class="mui-button-row">
+			        <button type="button" class="mui-btn mui-btn-primary" >确认</button>
+			        <button type="button" class="mui-btn mui-btn-danger" >取消</button>
+			    </div>
+			</form>
+			<div class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#"><img src="images/pic3.jpg"/></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="images/pic1.jpg"/></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="images/pic2.jpg"/></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="images/pic3.jpg"/></a>
+					</div>
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#"><img src="images/pic1.jpg"/></a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+			<p id="info" style="text-align: center; color: #000000;" onclick="choosePic()">您正在看第1张图片</p>
+		</div>
+		<script type="text/javascript">
+			mui.plusReady(function() {
+				var gallery = mui('.mui-slider');
+				gallery.slider({
+	  				interval:5000//自动轮播周期，若为0则不自动播放，默认为0；
+				});
+				document.querySelector('.mui-slider').addEventListener('slide', function(event) {
+	  			//注意slideNumber是从0开始的；
+	  			document.getElementById("info").innerText = "你正在看第"+(event.detail.slideNumber+1)+"张图片";
+				});
+			})
+			var indicators = document.querySelectorAll('div.mui-slider-indicator>div.mui-indicator');
+			function choosePic () {
+					for (i=0;i<indicators.length;i++) {
+						e.detail.
+					}
+				}
+		</script>
+	</body>
+
+</html>

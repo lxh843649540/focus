@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h1 class="mui-title">test</h1>
+	</header>
+	<div class="mui-content">
+		<ul class="mui-table-view">
+			<li class="mui-table-view-cell mui-collapse mui-active">
+				<a class="mui-navigater-right" href="#">面板1</a>
+				<div class="mui-collapse-content">
+					<p>面板1子内容</p>
+				</div>
+			</li>
+			<li class="mui-table-view-cell mui-collapse">
+				<a class="mui-navigater-right" href="#">面板2</a>
+				<div class="mui-collapse-content">
+					<p>面板2子内容</p>
+				</div>
+			</li>
+		</ul>
+		<button type="button" class=" mui-btn mui-btn-block mui-btn-primary" onclick="showMenu()">点击打开折叠菜单</button>
+		<div id="sheet1" class="mui-popover mui-popover-bottom mui-popover-action">
+			<!--可选菜单-->
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#">菜单1</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="#">菜单2</a>
+				</li>
+			</ul>
+			<!--取消菜单-->
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#sheet1"><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<ul>
+		<li>haha <span class="mui-badge mui-badge-primary">15555</span></li>
+		<li>haha <span class="mui-badge mui-badge-warning">15555</span></li>
+		<li>haha <span class="mui-badge mui-badge-danger mui-badge-inverted">15555</span></li>
+	</ul>
+	<div class="mui-input-row mui-checkbox mui-left">
+		<label>足球</label>
+		<input type="checkbox" name="checkbox1" value="足球" checked/>
+	</div>
+	<div class="mui-input-row mui-checkbox">
+		<label>蓝球</label>
+		<input type="checkbox" name="checkbox1" value="蓝球"/>
+	</div>
+	<button type="button" class="mui-btn mui-btn-danger" onclick="habbies()">获取单选得到的值</button>
+	<ul class="mui-table-view mui-table-view-radio">
+		<li class="mui-table-view-cell">
+			<a class="mui-navigate-right">Item 1</a>
+		</li>
+		<li class="mui-table-view-cell mui-selected">
+			<a class="mui-navigate-right">Item 2</a>
+		</li>
+		<li class="mui-table-view-cell">
+			<a class="mui-navigate-right">Item 3</a>
+		</li>
+	</ul>
+	<script type="text/javascript">
+		function showMenu () {
+			mui('#sheet1').popover('toggle');
+		}
+		function habbies () {
+			var list = document.querySelectorAll('input[name=checkbox1]');
+			var choo = new Array;
+			for (i=0; i<list.length;i++) {
+				if(list[i].checked) {
+					choo.push(list[i].value);
+				}
+			}
+			if (choo.length === 0) {
+				mui.toast('请选择');
+				return;
+			}
+			mui.toast(choo);
+		}
+	</script>
+</body>
+</html>
