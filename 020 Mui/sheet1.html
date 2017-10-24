@@ -62,19 +62,20 @@
 			mui.plusReady(function() {
 				var gallery = mui('.mui-slider');
 				gallery.slider({
-	  				interval:5000//自动轮播周期，若为0则不自动播放，默认为0；
+	  				interval:3000//自动轮播周期，若为0则不自动播放，默认为0；
 				});
 				document.querySelector('.mui-slider').addEventListener('slide', function(event) {
 	  			//注意slideNumber是从0开始的；
 	  			document.getElementById("info").innerText = "你正在看第"+(event.detail.slideNumber+1)+"张图片";
 				});
-			})
-			var indicators = document.querySelectorAll('div.mui-slider-indicator>div.mui-indicator');
-			function choosePic () {
-					for (i=0;i<indicators.length;i++) {
-						e.detail.
+				var indicators = document.querySelectorAll('div.mui-slider-indicator>div.mui-indicator');
+				for (var i=0;i<indicators.length;i++) {
+					indicators[i].onclick = function () {
+						gallery.slider().gotoItem(i);//跳转到第index张图片，index从0开始；
 					}
 				}
+			})
+			
 		</script>
 	</body>
 
