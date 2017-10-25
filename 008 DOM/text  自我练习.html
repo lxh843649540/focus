@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function open1(){
+        open("http://tmooc.cn","_self")
+    }
+    function open2(){
+        open("http://tmooc.cn","_blank")
+    }
+    function open3(){
+        location.replace("http://tmooc.cn")
+    }
+
+
+</script>
+<a href="http://tmooc.cn" target="_self">在本页面打开,可后退</a><br>
+<a href="javascript:open1()">在本页面打开,可后退</a><br>
+<a href="http://tmooc.cn" target="_blank">在其他页面打开,并且可以打开多个页面</a><br>
+<a href="JavaScript:open2()">在其他页面打开,并且可以打开多个页面</a><br>
+<a href="Javascript:open3()">在当前页面打开,不可后退</a><br>
+<a href="http://tmooc.cn" target="blank">在其他页面打开,只能一个页面</a><br>
+
+</body>
+</html>

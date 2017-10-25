@@ -1,0 +1,70 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>动态创建表格</title>
+<meta charset="utf-8" />
+<style>
+	table{width:600px; border-collapse:collapse;
+		text-align:center;
+	}
+	td,th{border:1px solid #ccc}
+    table>thead>tr{
+        font-weight: bold;
+    }
+</style>
+
+</head>
+<body>
+	<div id="data"></div>
+  <script>
+	var json=[
+    {"ename":"Tom", "salary":11000, "age":25},
+    {"ename":"John", "salary":13000, "age":28},
+    {"ename":"Mary", "salary":12000, "age":25}
+  ];
+	//创建一个table
+    var table=
+      document.createElement("table");
+    //在table中创建thead
+    var thead=table.createTHead();
+    //在thead中创建tr
+    var tr=thead.insertRow();
+    //遍历json数组中第一个对象的每个key
+    for(var key in json[0]){
+      //在tr中创建td
+      tr.insertCell().innerHTML=key;
+    }
+    tr.insertCell().innerHTML="opt";
+    //在table中创建tbody
+    var tbody=table.createTBody();
+    //遍历json中每个员工
+    for(var i=0;i<json.length;i++){
+      //在tbody中创建tr
+      var tr=tbody.insertRow();
+      //遍历当前员工的每个属性
+      for(var key in json[i]){
+        //创建td
+        //设置td的内容为key对应的属性值
+          tr.insertCell().innerHTML=json[i][key];
+      }
+      var td=tr.insertCell();
+        //创建按钮
+        var btn=document.createElement("button");
+        btn.innerHTML="删除行";
+        btn.onclick=function () {
+            //获得当前按钮所在行
+            var tr=this
+                .parentNode//当前按钮所在的td
+                .parentNode;//按钮所在td的行
+            var name=tr.cells[0].innerHTML;
+            if(confirm("确定删除"+name+"吗?")){//确认弹出框小工具
+                table.deleteRow(tr.rowIndex);
+            }
+        };
+        td.appendChild(btn);
+    }
+    //将table追加到id为data的div下
+    document.getElementById("data").appendChild(table);
+  </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>读取并修改元素的属性</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="css/2.css" />
+<style>
+  #content1,#content2,#content3{
+    height:0;
+    opacity:0;
+    overflow:hidden;
+    transition:all .25s linear;
+  }
+  #content1.open,
+  #content2.open,
+  #content3.open{
+    zIndex:10;
+    height:100px;
+    opacity:1;
+  }
+</style>
+
+</head>
+<body>
+	<h2>实现多标签页效果</h2>
+	<ul id="tab">
+		<li><a href="#content1">10元套餐</a></li>
+		<li><a href="#content2">30元套餐</a></li>
+		<li><a href="#content3">50元包月</a></li>
+	</ul>
+	<div id="container">
+		<div id="content1">
+			<a href="#">10元套餐详情</a>：<br />&nbsp;每月套餐内拨打100分钟，超出部分2毛/分钟
+		</div>
+		<div id="content2">
+      <a href="#">30元套餐详情</a>：<br />&nbsp;每月套餐内拨打300分钟，超出部分1.5毛/分钟
+		</div>
+		<div id="content3">
+      <a href="#">50元包月详情</a>：<br />&nbsp;每月无限量随心打
+		</div>
+	</div>
+  <script>
+    //查找id为container下的所有div
+    var divs=document.querySelectorAll(
+      "#container>div"
+    );
+    //查找id为tab下的所有a
+    var as=document.querySelectorAll(
+      "#tab a"
+    );
+    //遍历as中每个a
+    for(var i=0;i<as.length;i++){
+      as[i].onmouseover=function(){
+        for(var i=0;i<divs.length;i++){
+          divs[i].className="";
+        }
+        var i=this.href.indexOf("#");
+        document.getElementById(
+          this.href.slice(i+1)
+        ).className="open";
+      };
+      as[i].onmouseout=function(){
+        var i=this.href.indexOf("#");
+        document.getElementById(
+          this.href.slice(i+1)
+        ).className="";
+      }
+    }
+    for(var i=0;i<divs.length;i++){
+      divs[i].onmouseover=function(){
+        this.className="open";
+      }
+      divs[i].onmouesout=function(){
+        this.className="";
+      }
+    }
+  </script>
+</body>
+</html>

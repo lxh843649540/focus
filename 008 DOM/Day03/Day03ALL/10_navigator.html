@@ -1,0 +1,29 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>navigator对象常用属性</title>
+<meta charset="utf-8" />
+
+</head>
+<body>
+	<script>
+	  if(navigator.cookieEnabled)
+      document.write("cookie已启用，请妥善保存个人信息!<br>");
+    else
+      document.write("已禁用cookie，无法记住密码!<br>");
+
+    document.write("是否安装flash插件:"+
+      (navigator.plugins[
+        "Shockwave Flash"
+      ]!==undefined)
+      +"<br>"
+    );
+    document.write("是否安装QQ Music插件:"+
+      (navigator.plugins[
+        "QQ Music"
+        ]!==undefined)
+      +"<br>"
+    );
+  </script>
+</body>
+</html>

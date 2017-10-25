@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Carousel轮播</title>
+    <style>
+        #slider{
+            width:200px;
+            height:150px;
+            position:relative;;
+            border:1px solid #000;
+        }
+        #slider>img{
+            position:absolute;
+            top:0;
+            left:0;
+        }
+        #slider>img.show{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<div id="slider">
+    <img src="images/1.jpg" class="show">
+    <img src="images/2.jpg">
+    <img src="images/3.jpg">
+    <img src="images/4.jpg">
+</div>
+<script>
+    function task() {
+        //获得id为slider下的class为show的img
+        var img = document.querySelector(
+            "#slider>img.show"
+        );
+        img.className="";
+        if (img.nextElementSibling!==null)
+            img.nextElementSibling.className="show";
+        else
+            img.parentNode.firstElementChild.className = "show";
+    }
+//    var timer=setInterval(task,1000);
+    var div=document.getElementById("slider");
+    div.onmouseover=function(){
+        clearInterval(timer);
+        timer=null;
+    };
+    div.onmouseout=function () {
+      timer=setInterval(task,1000)  ;
+    }
+</script>
+</body>
+</html>

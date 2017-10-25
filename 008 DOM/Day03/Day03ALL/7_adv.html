@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>窗口右下角消息弹出框</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="css/7.css"/>
+ </head>
+ <body>
+  <div id="msg">
+	  <a href="javascript:down()">X</a>
+  </div>
+  <script>
+    //首先要在css中为msg添加transition属性
+    //找到id为msg的div
+    var msg=
+      document.getElementById("msg");
+    //当整个页面加载完成后在执行
+    window.onload=function(){
+      //设置div的bottom为0
+      msg.style.bottom=0;
+    }
+
+    function down(){
+      msg.style.bottom="-200px";
+      //等3秒后自动上浮
+      setTimeout(function(){
+        msg.style.bottom=0;
+      },3000);
+    }
+  </script>
+ </body>
+</html>

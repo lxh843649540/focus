@@ -1,0 +1,55 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>动态创建表格</title>
+<meta charset="utf-8" />
+<style>
+	table{width:600px; border-collapse:collapse;
+		text-align:center;
+	}
+	td,th{border:1px solid #ccc}
+</style>
+
+</head>
+<body>
+	<div id="data"></div>
+  <script>
+	var json=[
+    {"ename":"Tom", "salary":11000, "age":25},
+    {"ename":"John", "salary":13000, "age":28},
+    {"ename":"Mary", "salary":12000, "age":25}
+  ];
+	//创建table
+    var table=document.createElement("table");
+    //创建thead,并将追加到table
+    var thead=document.createElement("thead");
+    table.appendChild(thead);
+    //创建tr并追加到thead
+    var tr=document.createElement("tr");
+    thead.appendChild(tr);
+    //在遍历json数组中第1个人的每个属性时,创建th,并将key放入th的innerHTML,再将th追加到tr中
+    for(var key in json[0]){
+        var th=document.createElement("th");
+        th.innerHTML=key;
+        tr.appendChild(th);
+    }
+    //创建tbody并追加到table中
+    var tbody=document.createElement("tbody");
+    table.appendChild(tbody);
+    //遍历每个员工
+    for(var i=0;i<json.length;i++){
+        //为每个员工创建一个tr
+        var tr=document.createElement("tr");
+        //遍历当前员工的每个属性,并为每个属性创建一个td
+        for(var key in json[i]){
+            var td=document.createElement("td");
+            td.innerHTML=json[i][key];
+            tr.appendChild(td);
+        }
+        tbody.appendChild(tr);
+    }
+      //将整个table追加到id为data的div元素中
+      document.getElementById("data").appendChild(table);
+  </script>
+</body>
+</html>

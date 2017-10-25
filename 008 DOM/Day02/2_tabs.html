@@ -1,0 +1,58 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>读取并修改元素的属性</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="css/2.css" />
+<style></style>
+
+</head>
+<body>
+	<h2>实现多标签页效果</h2>
+	<ul id="tab">
+		<li><a href="#content1">10元套餐</a></li>
+		<li><a href="#content2">30元套餐</a></li>
+		<li><a href="#content3">50元包月</a></li>
+	</ul>
+	<div id="container">
+		<div id="content1">
+			10元套餐详情：<br />&nbsp;每月套餐内拨打100分钟，超出部分2毛/分钟
+		</div>
+		<div id="content2">
+			30元套餐详情：<br />&nbsp;每月套餐内拨打300分钟，超出部分1.5毛/分钟
+		</div>
+		<div id="content3">
+			50元包月详情：<br />&nbsp;每月无限量随心打
+		</div>
+	</div>
+  <script>
+      //-------------第一种----------------
+	var content1=document.getElementById("content1");
+	content1.style.zIndex="10";
+	var as=document.querySelectorAll(
+	    "#tab a"
+	);
+    //找到id为container下的所有div
+    var containers=document.querySelectorAll(
+        "#container>div"
+    );
+	for(var i=0;i<as.length;i++){
+	    as[i].onmouseover=function () {
+            for(var i=0;i<containers.length;i++){
+                containers[i].style.zIndex="";
+            }
+            //查找当前a的href中#的位置
+            var well=this.href.indexOf("#");
+            //找到当前a对应的div
+            var container=document.getElementById(
+                this.href.slice(well+1)
+            );
+            //修改div的zIndex为10
+            container.style.zIndex="10";
+        }
+	}
+      //-------------第二种--------------
+
+  </script>
+</body>
+</html>

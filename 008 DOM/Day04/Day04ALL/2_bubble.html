@@ -1,0 +1,35 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>事件处理</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css/2.css"/>
+		
+	</head>
+	<body>
+		<div class="d1">
+			<div class="d2">
+				<div class="d3">
+				</div>
+			</div>
+		</div>
+    <script>
+			function highLight(e){
+        this.style.background="yellow";
+        alert(this.className);
+        this.style.background="";
+        //取消冒泡
+        e.stopPropagation();
+      }
+			document.querySelector(".d1")
+        .addEventListener(
+          "click",highLight);
+      document.querySelector(".d2")
+        .addEventListener(
+          "click",highLight);
+      document.querySelector(".d3")
+        .addEventListener(
+          "click",highLight);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+	<title>DOM Tree</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+  <span id="s1">Hello</span>
+  <h1>标题一</h1>
+  <script>
+    //查找body的直接子节点
+    //查找body的直接子元素
+    //用节点树查找h1
+    //用元素树查找h1
+    console.log(
+      document.body.childNodes
+    );
+    console.log(
+      document.body.children
+    );
+    console.log(
+      document.body
+        .firstChild//#text
+        .nextSibling//span
+        .nextSibling//#text
+        .nextSibling//h1
+    );
+    console.log(
+      document.body
+        .firstElementChild//span
+        .nextElementSibling//h1
+    );
+  </script>
+</body>
+</html>

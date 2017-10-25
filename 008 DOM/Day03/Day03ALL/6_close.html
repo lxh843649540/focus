@@ -1,0 +1,36 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>倒计时自动关闭/跳转页面</title>
+<meta charset="utf-8" />
+
+</head>
+<body>
+	<span>5秒钟后自动关闭</span><br>
+	<a href="javascript:stop()">留在本页</a>
+  <script>
+//	  function task(){ close();}
+//    setTimeout(task,5000);
+    //查找body下第一个子元素
+    var span=
+      document.body.firstElementChild;
+    function task(){
+      //获得span中的数字
+      var n=parseInt(span.innerHTML);
+      if(n>1){//如果n>1
+        n--;//才n-1
+        //将n拼回span的内容中
+        span.innerHTML=
+          n+"秒钟后自动关闭";
+      }else{
+        close();//关闭当前窗口
+      }
+    }
+    var timer=setInterval(task,1000);
+    function stop(){
+      clearInterval(timer);
+      timer=null;
+    }
+  </script>
+</body>
+</html>

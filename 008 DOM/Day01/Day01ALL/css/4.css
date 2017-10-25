@@ -1,0 +1,14 @@
+li{
+	list-style:none;
+}
+li span{
+	padding-left: 20px;
+	cursor: pointer;
+  background: url("../img/add.png") no-repeat center left;
+}
+li ul{ /*display:none*/
+  height:0;  overflow:hidden;
+  transition:all .25s linear;
+}
+.open{ background: url("../img/minus.png") no-repeat center left; }
+.open+ul{/*display:block*/ height:95px; }

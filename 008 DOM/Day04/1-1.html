@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="shoot">shoot</button><br>
+    <button id="follow">添加跟踪单</button><br>
+    <button id="remove">取消跟踪弹</button>
+    <script>
+        var shoot=document.getElementById("shoot");
+        shoot.addEventListener(
+            "click",
+            function () {
+                console.log("············");
+            }
+        );
+        function foll(){
+            console.log("**************")
+        }
+        var follow=document.getElementById("follow");
+        follow.onclick=function() {
+            shoot.addEventListener(
+                "click",
+                foll
+            )
+        };
+        var remove=document.getElementById("remove");
+        remove.onclick=function() {
+            shoot.removeEventListener(
+                "click",
+                foll
+            )
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>窗口右下角消息弹出框</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="css/7.css"/>
+ </head>
+ <body>
+  <div id="msg">
+	  <a href="javascript:down()">X</a>
+  </div>
+  <script>
+    //首先要在css中为msg添加transition属性
+    var msg=document.getElementById("msg");
+    window.onload=function(){
+        msg.style.bottom=0;
+    };
+   function down(){
+       msg.style.bottom="-200px";
+       setTimeout(function(){msg.style.bottom=0},3000);
+   }
+  </script>
+ </body>
+</html>
