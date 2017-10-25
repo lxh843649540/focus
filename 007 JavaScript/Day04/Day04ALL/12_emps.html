@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  //创建空数组emps，准备保存输入的姓名
+  var emps=[];
+  do{
+    //请用户输入人名input
+    var input=prompt("输入姓名");
+    //如果人名不是"exit"
+    if(input!="exit")
+      //将input追加到数组末尾
+      emps[emps.length]=input;
+    else //否则
+      break;//退出循环
+  }while(true);
+  //(退出循环)输出emps中所有人名
+  document.write(String(emps));
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  var enddate=
+    new Date("2017/4/28 17:00");
+  var now=new Date();
+  var s=parseInt((enddate-now)/1000);
+  console.log(s);
+  var d=parseInt(s/(3600*24));
+  var h=parseInt(s%(3600*24)/3600);
+  var m=parseInt(s%3600/60);
+  var s=s%60;
+  document.write("距离下一个假期还有:"+
+    d+"天"+h+"小时"+m+"分"+s+"秒");
+</script>
+</body>
+</html>

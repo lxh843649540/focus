@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  //随机生成一个整数r //5
+  var r=parseInt(Math.random()*10);
+  //请用户输入一个整数n //3
+  var n=parseInt(
+    prompt("输入一个0~9之间的整数")
+  );
+  while(n!=r){//只要n!=r
+    //如果n>r，就提示大了
+    //否则, 就提示小了
+    alert(n>r?"大了":"小了");
+    //请用户输入一个整数n //5
+    n=parseInt(
+      prompt("输入一个0~9之间的整数")
+    );
+  }
+  //(退出循环)提示猜对了
+  document.write("猜对了!");
+</script>
+</body>
+</html>

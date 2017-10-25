@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  var arr=[0,1,2,3,4,5,6];
+         //0 1 2 3 4 5 6
+         //      |     |
+         //  length-4  length-1
+  //选择3位置开始到5位置(6位置之前)的三个元素
+  var subArr=arr.slice(3,5+1);
+  console.log(String(arr));
+  console.log(String(subArr));
+  //选择倒数第4到倒数第2位置的元素
+  var subArr=arr.slice(
+    //arr.length-4,arr.length-2+1
+    -4,-2+1
+  );
+  console.log(String(subArr));
+  //选择末尾的4个元素
+  var subArr=arr.slice(-4);
+  console.log(String(subArr));
+  //复制arr数组
+  var arr_copy=arr.slice();//复制出一个新数组
+  var arr2=arr;//仅复制地址值，数组依然只有一个
+  console.log(String(arr_copy));
+  console.log(String(arr2));
+  console.log(arr_copy==arr);//false
+  console.log(arr2==arr);//true
+</script>
+</body>
+</html>

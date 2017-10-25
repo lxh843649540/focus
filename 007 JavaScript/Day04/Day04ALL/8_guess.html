@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  //随机生成一个整数r //5
+  var r=parseInt(Math.random()*10);
+  do{
+    //请用户输入一个整数n
+    var input=
+      prompt("输入一个0~9之间的整数");
+    //input是"exit"
+    if(input=="exit"){
+      document.write("放弃了！");
+      break;
+    }else{
+      //将input转为数字做比较
+      var n=parseInt(input);
+      //如果n>r,就提示大了
+      if(n>r) alert("大了");
+      //如果n>r,就提示大了
+      else if(n<r) alert("小了");
+      else{//否则提示猜对了,并退出
+        document.write("猜对了");
+        break;
+      }
+    }
+  }while(true);//死循环
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>暑假到来倒计时</title>
+</head>
+<body>
+<script>
+    "use strict"
+    var future=new Date("2017/07/15 17:50");//预计的毕业时间
+    var now=new Date();//导出系统现在的时间
+    var s=(future-now)/1000;//得出需要的秒
+    console.log(s);
+    var day=parseInt(s/(3600*24));
+    var hour=parseInt(s%(3600*24)/3600);
+    var minute=parseInt(s%3600/60);
+    var second=parseInt(s%60);
+    document.write("距离毕业还有"+day+"天"+hour+"小时"+minute+"分"+second+"秒");
+</script>
+</body>
+</html>

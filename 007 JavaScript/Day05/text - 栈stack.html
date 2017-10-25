@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>stack</title>
+</head>
+<body>
+<script>
+    //结尾入栈:arr.push(值1,值2,....);可以压入多个值
+    //结尾出栈:var last=arr.pop();
+    //开头入栈:arr.unshift(值1,值2,....);可以压入多个值
+    //开头出栈:var first=arr.shift();
+    var p=[];
+   for(var i=1;i<=5;i++){
+       p.push("+"+i);
+       console.log(String(p));
+   }
+
+
+   //------------------------创建一个函数dec2bin,将一个十进制转为二进制------------------------
+    function dec2bin(sec) {
+        var bin=[];
+        while (sec>0){
+            //将sec%2的余数压入数组bin中保存
+            bin.unshift(sec%2);//余数从开头压入
+            //将dec/2,再舍弃小数部分，保存回sec中作为下次的被除数
+            sec=parseInt(sec/2);
+        }
+        return bin.join("");
+    }
+    var n=90;
+    console.log(n.toString(2));
+    console.log(dec2bin(n));
+</script>
+</body>
+</html>

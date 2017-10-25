@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">开始考试</button>
+<script>
+    document.getElementById("btn").onclick=function (){
+        let score=0;
+        let a=prompt("中国古代诗仙是谁?");
+        if(a==="李白")score+=1;
+        let b=prompt("中国古代诗鬼是谁?");
+        if(b==="李贺")score+=1;
+        let c=prompt("中国古代诗圣是谁?");
+        if(c==="杜甫")score+=1;
+        console.log(score);
+    }
+</script>
+</body>
+</html>

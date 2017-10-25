@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <script>
+     //--------------特殊: +运算中，只要碰到一个字符串，另一个也被转为字符串，+法计算，变为字符串拼接
+//     var n=2,
+//        s="3",
+//        b=true;
+//     console.log(n*s,n+b,s-b,n+s,s+b,s*b);
+//--- ------------1. 将纯数字字符串或布尔类型转为数字: Number(x)---------------------------------
+     //请用户输入现在的工资
+//     var salary=prompt("请输入您现在的工资:");
+//        console.log(typeof salary);//string
+//     salary=Number(salary);//将salary的值转换为数字.
+//        console.log(typeof salary);//number
+//     //将现在工资加两千
+//     salary=salary+2000;
+//     //输出新的工资
+//     document.write("涨薪后:"+salary);
+//------------------------- 2. 将带单位的字符串，去单位后，转为数字: ---------------------------
+//     var width="500px";
+//     console.log(typeof width);
+//     width=parseFloat(width)-100;
+//     console.log(typeof width);
+//     document.write(width+"px");
+     //------------------------- 3. 舍入误差:------------------------
+//        var price=1.7;
+//        var money=2;
+//        var change=money-price;
+//        change=change.toFixed(2);
+//        console.log(typeof change);
+//        document.write("找零"+change);
+     //----------------------4.字符串做比较,对比的是每个字符的unicode号大小----------------------
+//     var n=2,s="3",b=true;
+//          console.log(
+//              n>b,//true
+//              n>s,//false
+//              n>=s-b,//true
+//              s<b,//false
+//              s=b//
+//          );
+     //
+     //     var n1="12",n2="2",n3=2;
+     //     console.log(n1>n2);//false  字符串 1和2比大小
+     //     console.log(n1>n3);//true    12和2比大小
+     //
+     //     var s1="scott",s2="jerry",s3="smith";
+     //     console.log(
+     //         s2<s1, //true 首字母对比 j的序号比s小
+     //         s1<s3  //true 首字母相同  对比第二个字母  c的序号小于m
+     //     );
+     //
+//          var str="hello";
+//          var n=parseFloat(str);//n:NaN
+//          console.log(n);//n:NaN
+//          console.log(n==NaN);//false
+//          console.log(isNaN(n));//true
+//          console.log(
+//              n>2,n<2,n==2
+//          );
+//-------------------------------------------------------------------------------------------
+//     var n=prompt("请输入一个值");
+//     n=parseFloat(n);
+//     console.log(typeof n);
+//     //如果n不是NaN,说明是数字
+//     document.write("是数字吗?"+!isNaN(n));
+     //---------------------------全等于(===)的作用---------------------------------
+//     var a=null,b=undefined;
+//     console.log(a==b,a===b);
+//     console.log(a==undefined,a===undefined);
+//     console.log(b==null,b===null);
+//-------------------------------&& || 判断--------------------------------------------------
+//小明:
+//     var h=226,d=2.5,b=false;
+//     // 小马:
+//     var h=166,d=238,b=false;
+//     //小贝:
+//     var h=183,d=5,b=true;
+//     console.log(h>180&&d>1&&b==true);
+//--------------------------短路逻辑------------------------------------------------------
+//     var a=10;
+//     console.log(a>=10&&b<=0);//报错
+//     console.log(a<10&&b<=0);//false
+//     console.log(a>=10||b<=0);//true
+//     console.log(a<10||b<=0);//报错
+//-------------------------&&短路逻辑实现商品打折及找零-----------------------------------------
+     //         var price=parseFloat(prompt("输入单价:"));
+     //         var count=parseFloat(prompt("输入数量:"));
+     //          var total=price*count;//计算总额;
+     //          total>=500&&(total=total*0.8);//判断是否优惠;
+     //         document.write("应收:"+total);
+     //          var pay=parseFloat(prompt("收钱:"));
+     //            var change=pay-total;
+     //          pay>=total&&document.write("找零:"+change);
+     //            pay<total&&document.write("找零:"+"您的余额不足!")
+//------------------------------||短路逻辑实现是否有评价------------------------------------
+//     var coment=prompt("输入评价:");
+//     coment=coment||"主人很懒,什么也没有留下!"
+//     document.write("评价:"+coment);
+//-------------------------------前++后++-------------------------------------------------
+//     var n=3;
+//     console.log(n++ + ++n+n++);
+ </script>
+</body>
+</html>

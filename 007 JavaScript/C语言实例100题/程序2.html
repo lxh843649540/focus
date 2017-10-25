@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title2</title>
+</head>
+<body>
+<script>
+    "use strict"
+    function bonus(i) {
+        var bonus10=1;
+        var bonus20=bonus10+10*0.075;
+        var bonus40=bonus20+20*0.05;
+        var bonus60=bonus40+20*0.03;
+        var bonus100=bonus60+40*0.015;
+        document.write("您的奖金为:"+
+            (i<=10?i*0.1:
+                    i<=20?bonus10+(i-10)*0.075:
+                        i<=40?bonus20+(i-20)*0.05:
+                            i<=60?bonus40+(i-40)*0.03:
+                                i<=100?bonus60+(i-60)*0.015:
+                                    bonus100+(i-100)*0.01
+            )+"万元"
+        )
+    }
+    var profit=parseFloat(prompt("请输入利润(万元):"));
+    bonus(profit);
+</script>
+</body>
+</html>

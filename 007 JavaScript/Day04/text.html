@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Text</title>
+</head>
+<body>
+<script>
+//---------------------------------------while循环------------------------------------------
+//    var count=parseInt(prompt("游戏币数量"));
+//    while(count>=3){
+//        count-=3;
+//        document.write(count+"<br>")
+//    }
+//    document.write("还剩"+count+"枚游戏币");
+
+
+                     //---------猜数字---------
+    //随机生成一个数字
+//    var r=parseInt(Math.random()*10);
+//    var input=parseInt(prompt("请输入一个0-9数字"));
+//    while(input!=r){//只要n!=r
+//        //如果n>r，就提示大了
+//        //否则, 就提示小了
+//        alert(input>r?"大了":"小了")
+//        input=parseInt(prompt("请输入一个0-9数字"));
+//    }
+//    document.write("猜对了");
+
+
+
+//----------------------------------do while---------------------------------------------
+//    var count=parseInt(prompt("输入数字"));
+//    do{
+//        document.write(count);
+//        ++count;
+//    }while (count<10);
+
+
+                            //---------猜数字---------
+    //随机生成一个数字
+//    var r=parseInt(Math.random()*10);
+//    do {
+//        var input=parseInt(prompt("请输入一个0-9的整数字"));
+//        //input不是exit
+//        if (input!="exit"){
+//            var n=parseInt(input);
+//            alert(
+//                n>r?"大了":
+//                n<r?"小了":
+//                    "猜对了"
+//            )
+//        }else{document.write("放弃了")}
+//    }
+//    while(input!="exit"&&n!=r);
+
+
+
+//----------------------------------------for循环----------------------------------------
+//    for( var count=parseInt(prompt("游戏币数量"));count>=3;count-=3){
+//        document.write(count+"<br>");
+//    }
+//    document.write("还剩"+count+"枚游戏币");
+
+
+    //--------------1加到100--------------------
+//    var sum=0;
+//    for(var i=1;i<=10;i++){
+//        sum+=i;
+//    }
+//    document.write("和是"+sum);
+                    //---简写---
+//    for(var i=1,sum=0;i<=5;sum+=i,i++);
+//    document.write("和是"+sum);
+
+
+
+//---------------------------------------嵌套循环-------------------------------------
+//    var ln=5;
+//    for (var r=1,str="";r<=ln;r++){
+//        for(var i=1;i<=r;i++){
+//            str+="*";
+//        }
+//        str+="\n";
+//    }
+//    console.log(str);
+//
+//    //-----------------9*9乘法表
+//    for (var r=1,str="";r<=9;r++){
+//        for(var i=1;i<=r;i++){
+//            str+=i+"X"+r+"="+(i*r)+" "
+//        }
+//        str+="\n";
+//    }
+//    console.log(str);
+
+
+    //----------------------------------数组------------------------------------------
+//    var arr1=[];
+//    var arr2=["后羿","虞姬","鲁班七号"];
+//                //0,   1       2
+//    var arr3=new Array(5);
+//    console.log(String(arr1));
+//    console.log(String(arr2));
+//    console.log(String(arr3));
+//    console.dir(arr1);
+//    console.dir(arr2);
+//    console.dir(arr3);
+//    arr2[1]="小乔";
+//    console.log(String(arr2));
+//    arr3.length-=1;
+//    console.dir(arr3);
+//    console.log(String(arr3));
+
+    //-----------------------------
+//    var teachers=[
+//        "盖伦","项羽","鲁班七号"
+//]
+//    teachers[teachers.length]="韩老师";
+//    console.dir(teachers);
+//    console.log(String(teachers));
+//    teachers.length-=1;
+//    console.log(String(teachers));
+//    teachers[0]="妲己";
+//    console.log(String(teachers));
+//    console.dir(teachers);
+
+    //---------------------------------
+//    var emps=[];
+//    do{
+//        //请用户输入人名
+//        var input=prompt("请输入人名");
+//        //如果人名不是exit
+//        if(input!="exit")
+//            //将input追加到数组末尾
+//            emps[emps.length]=input;
+//        else break;//退出死循环
+//    }while(true);
+//    console.log(String(emps));
+
+
+//----------------------------------------遍历数组-------------------------------------
+//    var week=["日","一","二","三","四","五","六"];
+//    for()
+
+
+    //--------------------------------------------------------------------------------
+    var arr=[12,3,123,2,23,1];
+    function getMax(arr) {
+        var max=arr[0];
+        //从1开始遍历arr中每个元素
+        for(var i=1;i<arr.length;i++){
+            //如果当前元素大于max
+                arr[i]>max&&(max=arr[i])
+        }
+        return max;
+    }
+</script>
+</body>
+</html>

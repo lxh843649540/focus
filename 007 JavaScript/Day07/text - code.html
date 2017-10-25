@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    "use strict"
+    //-------------------在数组中添加0~9,A~Z,a~z----------------------------------------
+    var chars=[];
+    //向chars中添加0-9;
+    for(var c=48;c<=57;c++){
+        chars.push(String.fromCharCode(c));
+    }
+    //向chars中添加A-Z
+    for(var b=65;b<=90;b++){
+        chars.push(String.fromCharCode(b));
+    }
+    //向chars中添加a-z
+    for(var a=97;a<=122;a++){
+        chars.push(String.fromCharCode(a));
+    }
+    console.log(String(chars));
+                /*定义函数getcode获得随机4位验证码*/
+    function getCode() {
+        //i从1开始,到<=4结束,同时声明空字符串code
+        for(var i=1,code="";i<=4;i++){
+            //在0~61之间随机生成一个整数r
+            var r=parseInt(Math.random()*62+1);
+            //将chars数组中的r位置的字符拼接到code
+            code+=chars[r];
+        }//for
+        return code;
+    }//function
+    console.log(getCode());
+
+    //获得一个验证码
+    do {
+        var code=getCode();
+        var input=prompt("请输入验证码:"+code);
+        if (input.toLowerCase()!==code.toLowerCase()){
+            alert("验证码输入错误，请重试");
+        }else{document.write("输入正确!");break;}
+    }while(true);
+</script>
+</body>
+</html>

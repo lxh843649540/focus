@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  var arr=[0,1,2,3,4,5,6];
+  //var deletes=arr.splice(3,3);
+  //var deletes=arr.splice(-4);
+  //console.log(String(deletes));
+  //删除arr开头2个元素，再拼接到末尾
+  var deletes=arr.splice(0,2);
+  arr=arr.concat(deletes);
+  console.log(String(arr));
+  //2,3,4,5,6,0,1
+  //删除末尾2个元素，再拼接回开头
+  var deletes=arr.splice(-2);
+  arr=deletes.concat(arr);
+  console.log(String(arr));
+  //0,1,2,3,4,5,6
+
+</script>
+</body>
+</html>

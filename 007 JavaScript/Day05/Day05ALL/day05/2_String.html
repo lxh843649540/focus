@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<select id="sel"><!--innerHTML--></select>
+<script>
+  //从服务器端收到一个数组:
+  var provs=["北京","河北","河南","山东"];
+  var html="<option>"+
+    provs.join("</option><option>")
+    +"</option>";
+  //设置元素的HTML内容为html字符串
+  sel.innerHTML=html;
+
+  var arr=["no","zuo","no","die"];
+  var str=arr.join(" ");
+  console.log(str);
+  var arr=["H","e","l","l","o"];
+  var str=arr.join("");
+  console.log(str);
+
+  //定义函数isEmpty判断一个数组是否为空
+  function isEmpty(arr){
+    //无缝拼接的结果等于""
+    return arr.join("")==="";
+  }
+  console.log(
+    isEmpty([]),//true
+    isEmpty(new Array(5)),//true
+    isEmpty([,1,,]) //false
+  );
+
+  var arr=[1,2,3];
+  //console.dir(arr);
+  console.log(String(arr));
+  arr.length--;
+  //console.dir(arr);
+  console.log(String(arr));
+</script>
+</body>
+</html>

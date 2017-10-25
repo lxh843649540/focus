@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  var a=3, b=5;
+  //方法一:
+  //var t=b; b=a; a=t;
+  //方法二:
+  //a+=b; b=a-b; a-=b;
+  //方法三:
+  a^=b; b^=a; a^=b;
+  console.log(a,b);//5,3
+  console.log(typeof a);
+  console.log(typeof b);
+</script>
+</body>
+</html>

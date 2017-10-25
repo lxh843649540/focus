@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  var arr1=[];
+  var arr2=[
+    "大旭",// 0
+    "东sir",// 1
+    "涛哥",// 2
+    "黑胖子"// 3
+  ];/*.length=4*/
+  var arr3=new Array(5);
+  //如果查看数组中的内容
+  console.log(String(arr1));
+  console.log(String(arr2));
+  console.log(String(arr3));
+  //如果查看数组的存储结构:
+  console.dir(arr1);
+  console.dir(arr2);
+  console.dir(arr3);
+  arr2[0]="燕儿";
+  console.log(String(arr2));
+  //输出添加新元素之前的元素个数:
+  console.log(arr2.length);//4
+  arr2[5]="大梅姐";//自动创建
+  console.log(arr2.length);//6
+  console.log(String(arr2));
+//燕儿,东sir,涛哥,黑胖子,  ,大梅姐,length
+// 0     1    2     3    4    5     6
+  console.log(arr2[6]);//undefined
+</script>
+</body>
+</html>

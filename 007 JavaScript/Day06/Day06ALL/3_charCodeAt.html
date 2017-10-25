@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  var str="张东";
+  console.log(
+    str.charCodeAt(/*0*/),
+    str.charCodeAt(1)
+  );
+
+  var str="今晚308,w84u";
+  //编码函数: 将原文中的字，编码为数字
+  function encode(msg){
+    //遍历msg中每个字，同时声明空字符串code
+    for(var i=0,code="";i<msg.length;i++){
+      //获得i位置的字符的unicode号，保存在u中
+      var u=msg.charCodeAt(i);
+      if(u<100) u="000"+u;
+      else if(u<1000) u="00"+u;
+
+      code+=u;
+    }
+    return code;//返回code
+  }
+  var code=encode(str);
+  console.log(code);
+
+  //编写解码函数decode,将code解码为原文
+  function decode(code){
+    //每5个字符遍历一次code,同时声明msg为""
+    for(var i=0,msg="";i<code.length;i+=5){
+      //获得当前位置开始的5个字符,保存在变量u中
+      var u=code.slice(i,i+5);
+      //将unicode号反向转回文字，保存在变量c中
+      var c=String.fromCharCode(u);
+      //将c拼接到msg中
+      msg+=c;
+    }
+    return msg;//返回msg
+  }
+  var msg=decode(code);
+  console.log(msg);
+</script>
+</body>
+</html>

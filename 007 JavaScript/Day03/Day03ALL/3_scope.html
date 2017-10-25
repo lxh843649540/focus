@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  //全局范围window
+  var bx="可乐";//全局变量
+  function room1(){//函数范围
+    var ysj="纯净水";//局部变量
+    console.log(ysj);
+    console.log(bx);
+  }
+  function room2(){//函数作用域
+    //console.log(ysj);//保存
+    console.log(bx);
+  }
+  console.log(bx);
+  //console.log(ysj);//报错
+  room1();
+  room2();
+
+  var n=0;//全局变量可反复使用
+  function add() {
+    n++; console.log(n);
+  }
+  add(); add(); add();//1 2 3
+  console.log(n);//3
+  function add2(){//局部变量不可重复使用，每次调用都是全新的
+    var m=0; m++; console.log(m);
+  }
+  add2(); add2(); add2();//1 1 1
+
+  var x=10;//全局变量
+  function fun(){
+    /*var*/ x=100;
+    x++;
+    console.log(x);
+  }
+  fun();//?
+  console.log(x);//? //输出全局
+</script>
+</body>
+</html>

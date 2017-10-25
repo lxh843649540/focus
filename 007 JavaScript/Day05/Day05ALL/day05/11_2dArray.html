@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  var data=[
+   //0 1 2 3
+    [0,0,0,0],//0 \n
+    [0,0,0,0],//1 \n
+    [0,0,0,0],//2 \n
+    [0,0,0,0] //3
+  ];
+  //在0~3之间生成一个随机行号r
+  var r=parseInt(Math.random()*4);
+  //在0~3之间生成一个随机列号c
+  var c=parseInt(Math.random()*4);
+  data[r][c]=2;
+  //console.dir(data);
+  console.log(data.join("\n"));
+  //console.log(data[4][2]);
+            //undefined[2] 报错
+  //将data中每个格都改为1
+  for(var r=0;r<data.length;r++){
+    for(var c=0;c<data[r].length;c++){
+      data[r][c]=1;
+    }
+  }
+  console.log(data.join("\n"));
+</script>
+</body>
+</html>

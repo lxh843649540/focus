@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>queue</title>
+</head>
+<body>
+<script>
+    var queue=[];
+    for(i=1;i<=5;i++){
+        queue.push("顾客"+i);
+    }
+    queue.push("李");
+    console.log(String(queue));
+
+    var count=5;
+    while (count>0){
+        var c=queue.shift();
+        console.log(c+"抢购成功");
+        console.log(String(queue));
+        count--;
+    }
+    console.log(queue+"没有抢到");
+
+</script>
+</body>
+</html>

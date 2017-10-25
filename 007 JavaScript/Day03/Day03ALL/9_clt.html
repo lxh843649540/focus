@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>//练习8分钟
+  //请用户输入身高height(m)和体重weight(kg),转为浮点数
+  var height=parseFloat(
+    prompt("输入身高(m)")
+  );
+  var weight=parseFloat(
+    prompt("输入体重(kg)")
+  );
+  //计算可莱托指数clt: weight/(height*height)
+  var clt=weight/(height*height);
+  //如果clt<20，输出瘦
+  //if(clt<20) document.write("瘦")
+  //否则如果clt>25,输出胖
+  //else if(clt>25) document.write("胖")
+  //否则输出正常
+  //else document.write("正常");
+
+  document.write(
+    clt<20?"瘦":clt>25?"胖":"正常"
+  );
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  var msg="咱们WEIXIN联系";
+  var i=msg.search(
+    /(微|w(ei)?)\s*(信|x(in)?)/i);
+  if(i==-1)
+    document.write("发送成功!");
+  else
+    document.write(
+      "发现敏感词，不允许发送!")
+</script>
+</body>
+</html>

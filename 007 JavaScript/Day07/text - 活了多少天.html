@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    "use strict"
+    document.write(new Date());//只能获取客户端本地时间
+    var birth=new Date("1994/08/08");
+    var now=new Date();
+    var ms=now-birth;
+    console.log(ms/1000/3600/24);
+</script>
+</body>
+</html>

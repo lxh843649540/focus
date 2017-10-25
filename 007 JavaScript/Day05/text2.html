@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var num=["one","two","three","four"];
+    var str=num.join("-");
+    console.log(str);
+    var str=num.join("");
+    console.log(str);
+
+    function isEmpty(arr) {
+        return arr.join("")==="";
+    }
+    console.log(
+        isEmpty([]),
+        isEmpty(new Array(5)),
+        isEmpty([, ,1,])
+    );
+
+</script>
+</body>
+</html>

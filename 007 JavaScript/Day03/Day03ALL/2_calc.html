@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  //定义函数add,执行任意两数的加法,并返回和
+  function add(a,b){
+    return a+b;
+  }
+  console.log(
+    add(3,5),//8
+    add(12,23)//35
+  );
+  //定义函数max，获得三个数中的最大值并返回最大值
+  function max(a,b,c){
+    //定义变量max，赋值为a
+    var max=a;
+    //如果b>max就将max赋值为b
+    b>max&&(max=b);
+    //如果c>max就将max赋值为c
+    c>max&&(max=c);
+    return max;//返回max
+  }//练习10分钟，下课休息10分钟
+  console.log(
+    max(3,5,2),//5
+    max(12,3,123)//123
+  );
+</script>
+</body>
+</html>

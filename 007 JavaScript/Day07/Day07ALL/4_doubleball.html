@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  function doubleball(){
+    /*6个红球,范围1~33之间*/
+    //定义一个空数组reds
+    var reds=[];
+    //只要reds的元素个数<6
+    while(reds.length<6){
+      //随机生成一个1~33之间的整数r
+      var r=
+        parseInt(Math.random()*33+1);
+      //遍历reds数组
+      for(var i=0;i<reds.length;i++){
+        //如果r等于当前元素就退出循环
+        if(r===reds[i]) break;
+      }
+      //如果i==reds的元素个数
+      if(i===reds.length)
+        reds.push(r);//才将r压入reds
+    }
+    //将reds按数字升序排列
+    reds.sort(
+      function(a,b){return a-b;}
+    );
+    /*1个蓝球,范围1~16之间*/
+    //在1~16之间生成一个随机整数b
+    var b=parseInt(Math.random()*16+1);
+    //返回 reds转为字符串+|+b
+    return String(reds)+"|"+b;
+  }
+  document.write(doubleball());
+</script>
+</body>
+</html>

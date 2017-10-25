@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  /*
+  *
+  **
+  ***
+  ****
+  *****
+  */
+  var ln=5;
+  //反复调用打印第r行的公式打印每一行
+  for(var r=1,str="";r<=ln;r++){
+    //打印第r行的公式
+    for(var i=1;i<=r;i++){ str+="*";}
+    str+="\n";//每行结束拼一个换行
+  }
+  console.log(str);
+
+  /*
+  1x1=1
+  1x2=2 2x2=4
+  1x3=3 2x3=6 3x3=9
+  ...
+   */
+  //反复调用打印第r行的公式打印每一行
+  for(var r=1,str="";r<=9;r++){
+    //打印第r行的公式
+    for(var i=1;i<=r;i++){
+      str+=i+"x"+r+"="+(i*r)+" "
+    }
+    str+="\n";//每行结束拼一个换行
+  }
+  console.log(str);
+
+  /*
+      *
+     **
+    ***
+   ****
+  *****
+  */
+  /*
+       *
+      ***
+     *****
+    *******
+   *********
+   */
+</script>
+</body>
+</html>

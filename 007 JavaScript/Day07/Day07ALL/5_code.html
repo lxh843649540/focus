@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  /*将所有可用字符保存在一个数组中*/
+  var chars=[];
+  //向chars中添加0~9
+  for(var c=48;c<=57;c++){
+    chars.push(String.fromCharCode(c));
+  }
+  //向chars中添加A-Z
+  for(var c=65;c<=90;c++){
+    chars.push(String.fromCharCode(c));
+  }
+  //向chars中添加a-z
+  for(var c=97;c<=122;c++){
+    chars.push(String.fromCharCode(c));
+  }
+  //console.log(String(chars));
+  /*定义函数getCode获得随机4位验证码*/
+  function getCode(){
+    //i从1开始，到<=4结束,同时声明空字符串code
+    for(var i=1,code="";i<=4;i++){
+      //在0~61之间生成一个随机整数r
+      var r=parseInt(Math.random()*62);
+      //将chars数组中r位置的字符拼到code
+      code+=chars[r];
+    }
+    return code;//返回code
+  }
+  //console.log(getCode());
+
+  //反复:
+  do{
+    //获得一个验证码code
+    var code=getCode();
+    //请用户反复输入验证码
+    var input=prompt("输入验证码:"+code);
+    //如果输入错误，就提示验证码错误，并重新生成验证码
+    if(input.toLowerCase()
+        !=code.toLowerCase())
+      alert("验证码输入错误，请重试");
+    //否则，就提示验证通过,并退出循环
+    else{
+      document.write("验证通过!");
+      break;
+    }
+  }while(true);
+</script>
+</body>
+</html>

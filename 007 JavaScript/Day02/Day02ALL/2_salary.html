@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  //请用户输入现在的工资
+  var salary=prompt("输入现在的工资:");
+  //salary:"10000"
+  console.log(typeof salary);//string
+  //将salary的值转为数字，再保存回salary中
+  salary=Number(salary);
+  console.log(typeof salary);//number
+  //将现在的工资+2000
+  salary+=2000;
+  //输出新的工资
+  document.write("涨薪后:"+salary);
+</script>
+</body>
+</html>

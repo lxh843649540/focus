@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var n=2323.586;
+    console.log(n.toFixed(2));
+    console.log(n.toString(2));
+
+    //-------------------------
+
+    var li="李",
+    xiao="小",
+    hui="辉";
+    console.log(li.charCodeAt(),xiao.charCodeAt(),hui.charCodeAt());
+
+    //---------------------------------------------------------------
+
+    var name="李小辉";
+    console.log(name.charCodeAt(1));
+
+    //------------------------------
+
+    var eng="My World";
+    console.log(eng);//My World
+    console.log(eng.toUpperCase());//大写 MY WORLD
+    console.log(eng.toLowerCase());//小写 my world
+
+    //-----------------------------------------------
+
+    var uname="lixiaohui";
+    var input=prompt("请输入用户名");
+    if (uname.toLowerCase()===input.toLowerCase())
+        document.write("用户名已被使用");
+    else
+        document.write("用户名可用")
+</script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  var kword=prompt("搜索");
+  //将kword编码为单字节
+  kword=encodeURIComponent(kword);
+  document.write("向服务器发送请求:<br>");
+  var request="https://s.taobao.com/search?q="+kword;
+  document.write(request);
+
+  document.write("<br>");
+  document.write("Server端收到请求:<br>")
+  request=decodeURIComponent(request);
+  document.write(request);
+</script>
+</body>
+</html>

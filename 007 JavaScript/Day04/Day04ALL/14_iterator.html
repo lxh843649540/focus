@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  var week=
+    ["日","一","二","三","四","五","六"];
+  //遍历week数组中每个元素
+  for(var i=0;i<week.length;i++){
+    week[i]="星期"+week[i];
+  }
+  console.log(String(week));
+
+  var arr=[12,3,123,2,23,1];
+  function getMax(arr){
+    var max=arr[0];
+    //从1开始遍历arr中每个元素
+    for(var i=1;i<arr.length;i++){
+      //如果当前元素>max就设置max为当前元素
+      arr[i]>max&&(max=arr[i]);
+    }
+    return max;
+  }
+  console.log(getMax(arr));//123
+</script>
+</body>
+</html>

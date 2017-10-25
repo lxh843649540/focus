@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  var a=5;
+  var b=a;
+  b++;
+  console.log(a);//5
+  console.log(b);//6
+
+  var card=10;//全局
+  function pay(card){//局部
+    card-=3;//局部
+    console.log(card);//局部
+  }
+  //将全局card的值复制给参数变量card
+  pay(card/*全局*/);//7
+  console.log(card);//10
+</script>
+</body>
+</html>

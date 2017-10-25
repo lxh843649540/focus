@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  var str="no zuo no die no can no bibi";
+        // 0      7     14     21
+  var i=-1;
+  do{
+    i=str.indexOf("no",i+1);
+    if(i!=-1)
+    console.log("在位置"+i+"发现关键词");
+    else break;
+  }while(true);
+
+  var url="http://tmooc.cn/1702/javascript/index.html";
+  //找到url中最后一个/的位置lasti
+  var lasti=url.lastIndexOf("/");
+  var fname=url.slice(lasti+1);
+  console.log(fname);
+</script>
+</body>
+</html>

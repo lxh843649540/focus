@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Sort</title>
+</head>
+<body>
+<script>
+    //sort  默认排序规则:将所有的元素都转换为字符串,再进行升序排序!
+    var num=[5,6,4,8,9,0];
+    num.sort();
+    console.log(String(num));//0,4,5,6,8,9
+    //--------------------------------英文排序-----------------------------------------
+    var n=["kangkang","mary","jane","Michal","jary","lee"];
+    n.sort();
+    console.log(String(n));
+    //-----------------------------使用升序函数比较器-----------------------------------
+    var num1=[12,3,123,2,23,1];
+    //自定义数字升序比较器函数
+    num1.sort(function(a,b){return a-b;});//降序排列,"function(a,b){return b-a;}"
+    console.log(String(num1));
+</script>
+</body>
+</html>

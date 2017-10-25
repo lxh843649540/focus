@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Text</title>
+</head>
+<body>
+<script>
+//--------------------------------西红柿鸡蛋面---------------------------------------------
+//    function cook(egg,tomato,noodle){
+//        console.log("炒" + egg);
+//        console.log("炒" + tomato);
+//        console.log("葱花炝锅");
+//        console.log("煮" + noodle);
+//        return egg+tomato+noodle;
+//    }
+////    周一
+//        var want=cook("西红柿","鸡蛋","面条");
+//        console.log("好吃的"+want);
+//------------------------------------------------------------------------------------------
+//    function add(a,b){
+//        return a*b;
+//    }
+//    console.log(
+//        add(5,6),
+//        add(5,3)
+//    );
+//--------------------------定义函数max，获得三个数中的最大值并返回最大值----------------------------
+//    function max(a,b,c){
+//        var max=a;
+//        b>max && (max=b);
+//        c>max&&(max=c);
+//        return max;
+//    }
+//    console.log(
+//        max(3,5,4)
+//    );
+                        //---------------另一种方式---------------------
+//        function max(a,b,c){
+//            a>b&&(a^=b,b^=a,a^=b);
+//            a>c&&(a^=c,c^=a,a^=c);
+//            b>c&&(b^=c,c^=b,b^=c);
+//            return c;
+//        }
+//        console.log(
+//            max (9,25,3)
+//        );
+//-----------------------------------全局变量&局部变量---------------------------------------
+//    var bx="可乐";
+//    function room1(){
+//        var water="饮用水";
+//        console.log(bx);
+//        console.log(water);
+//    }
+//    function room2(){
+//        console.log(bx);
+//    }
+//    room1();
+//    room2();
+                   //---------------------------------------------
+//    var n=5;
+//    function one(){
+//        n++
+//        console.log(n);
+//    }
+//    function two() {
+//        n=2;
+//        ++n
+//        console.log(n);
+//    }
+//    one();
+//    one();
+//    one();
+//    one();
+//    two();
+//    two();
+//    two();
+//    two();
+                    //-----------------------------------------
+//    var x=10;
+//    function fun() {
+//        x=100;
+//        x++;
+//        console.log(x);
+//    }
+//    fun();
+//    console.log(x);
+                   //---------------------hoist1---------------------
+//    console.log(a);
+//    var a=10;
+//    console.log(a);
+                   //---------------------hoist2----------------------
+//    var n=10;
+//    function fn(){
+//        console.log(n);
+//        var n=100;
+//        console.log(n);
+//    }
+//    fn();
+//    console.log(n);
+    //-------------------------------按值传递--------------------------------------
+//    var card=10;
+//    function pay(card/*复制card*/){
+//        card-=3;//局部
+//        console.log(card);//局部
+//    }
+//    pay(card/*局部,复制卡所得的值*/);//7
+//    console.log(card/*全局*/);//10
+//---------------------------------汉字搜索编码/解码------------------------------------------
+//    var kword=prompt("搜索");
+//    //将kword编码为单字节
+//    kword=encodeURIComponent(kword);
+//    document.write("向服务器发送请求:<br>");
+//    var request="http://s.www.taobao.com/search?q"+kword;
+//    document.write(request);
+//    //解码
+//    document.write("<br>");
+//    document.write("服务器端收到请求:<br>");
+//    request=decodeURIComponent(request);
+//    document.write(request);
+//--------------------------------商品价格找零重写-----------------------------------------
+//        //请用户输入商品单价price
+//        var price=parseFloat(
+//            prompt("输入单价")
+//        );
+//        //请用户输入商品数量count
+//        var count=parseFloat(
+//            prompt("输入数量")
+//        );
+//        //请用户输入收款金额money
+//        var money=parseFloat(
+//            prompt("输入收款金额")
+//        );
+//        //计算总价total: price*count
+//        var total=price*count;
+//        //如果total>=500,就打八折
+//        total>=500&&(total*=0.8);
+//        //计算找零change: money-total
+//        var change=money-total;
+//         ----第一种--------
+//        //如果change>=0
+//        //输出应收:total,找零:change
+//        //否则
+//        //输出应收:total,还差:-change
+//        change>=0?
+//            document.write(
+//                "应收:"+total+",找零:"+change)
+//            :
+//            document.write(
+//                "应收:"+total+",还差:"+ -change);
+          //--------第二种----------
+//    if(change>=0){
+//        document.write("应收:"+total+"找零:"+change)
+//    }else{
+//        document.write("应收:"+total+"还差:"+ -change)
+//    }
+//--------------------------------------输入成绩打分------------------------------------------
+//    var score=parseFloat(prompt("请输入成绩"));
+     //--------------第一种--------------
+//    if(score>=90){document.write("A")}else
+//    if(score>=80){document.write("B")}else
+//    if(score>=70){document.write("C")}else
+//    if(score>=60){document.write("D")}else
+//    {document.write("呵呵哒☺你是猪吗?")}
+    //---------------第二种(简写)----------------
+//        score>=90?document.write("A"):
+//        score>=80?document.write("B"):
+//        score>=70?document.write("C"):
+//        score>=60?document.write("D"):
+//        document.write("无解")
+    //--------------第二种(超简写)--------------
+//    document.write(
+//        score>=90?"A":
+//        score>=80?"B":
+//        score>=70?"C":
+//        score>=60?"D":
+//        "无解"
+//    )
+//---------------------------输入身高体重检测健康--------------------------------------------
+    //请用户输入身高height(M)和体重weight(kg),转为浮点数
+//    var height=parseFloat(prompt("请输入身高"));
+//    var weight=parseFloat(prompt("请输入体重"));
+//    //计算可莱托指数clt:weight/(height*height)
+//    var clt=weight/(height^2);
+//    document.write(
+//        clt<20?"瘦":
+//        clt>25?"胖":
+//        "正常"
+//    )
+//---------------------------------switch/case---------------------------------------------
+//    var key=parseInt(prompt("请输入数字"));
+//    switch(key){
+//        case 1:alert("正在查询...");break;
+//        case 2:alert("正在显示...");break;
+//        case 3:alert("正在转账...");break;
+//        case 4:alert("正在接通人工服务...");break;
+//        default:alert("取消中...")
+//    }
+
+</script>
+</body>
+</html>

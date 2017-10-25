@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  //员工2012年6月30日入职
+  //计算员工的合同到期时间(3年后)
+  //计算合同续签时间(提前一个月)
+    //如果续签时间是周六/日,就提前到上周五
+  var hiredate=new Date("2012/6/30");
+  var enddate=new Date(hiredate);
+  enddate.setFullYear(
+    enddate.getFullYear()+3
+  );
+  var renewdate=new Date(enddate);
+  renewdate.setMonth(
+    renewdate.getMonth()-1
+  );
+  if(renewdate.getDay()==6)
+    renewdate.setDate(
+      renewdate.getDate()-1
+    );
+  else if(renewdate.getDay()==0)
+    renewdate.setDate(
+      renewdate.getDate()-2
+    );
+  console.log(
+    hiredate.toLocaleDateString());
+  console.log(
+    enddate.toLocaleDateString());
+  console.log(
+    renewdate.toLocaleDateString());
+</script>
+</body>
+</html>

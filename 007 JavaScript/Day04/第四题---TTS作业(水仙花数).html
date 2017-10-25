@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">打印所有的水仙花数</button>
+<script>
+//    document.getElementById("btn").onclick=function () {
+//        for (let a=100;a<1000;a++){
+//            let str="";
+//            str+=a;
+//            if(str==str[0]*str[0]*str[0]+str[1]*str[1]*str[1]+str[2]*str[2]*str[2]){
+//                console.log(a);
+//            }
+//        }
+//    }
+document.getElementById("btn").onclick=function () {
+    for (let a = 1; a < 10; a++) {
+        for (let b = 0; b < 10; b++) {
+            for (let c = 0; c < 10; c++) {
+                if ("" + a + b + c == a * a * a + b * b * b + c * c * c) {
+                    console.log("" + a + b + c)
+                }
+            }
+        }
+    }
+}
+</script>
+</body>
+</html>

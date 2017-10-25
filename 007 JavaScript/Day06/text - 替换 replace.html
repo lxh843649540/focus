@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //-------------------------示例一  固定词替换,若要删除,用""替换-------------------
+
+    var str="No zuo no die no can No bibi";
+    str=str.replace(/\bno\b/ig,"**");
+    console.log(str);
+
+    //-------------------------示例二  灵活替换-------------------
+
+    var word="那天,我去了她家,我说:\"我草,你家真大\"! 她想和我去草地野餐.我草草收拾了草地.她说:\"我去去就来\".";
+    //我去,我草,我去去,我草草,我去草
+    word=word.replace(/我[去草]{1,2}/ig,function (kw) {
+        return kw.length==2?"**":"***";
+    });
+    console.log(word);
+
+</script>
+</body>
+</html>

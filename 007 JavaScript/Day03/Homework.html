@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+<script>
+    //------------------------------------程序五---------------------------------------------
+//    function sort(x,y,z) {
+//        if(x>y){x^=y,y^=x,x^=y}
+//        if(x>z){x^=z,z^=x,x^=z}
+//        if(y>z){y^=z,z^=y,y^=z}
+//        document.write(x+"<"+y+"<"+z)
+//    }
+//    sort(9,10,11)
+    //------------------------------------程序四--------------------------------------------
+    var year=parseInt(prompt("请输入年份"));
+    var month=parseInt(prompt("请输入月份"));
+    var day=parseInt(prompt("请输入天数"));
+    if(year%400==0||(year%4==0&&year%100!=0)){
+        switch (month) {
+            case 1:
+                sum = 0;
+                break;
+            case 2:
+                sum = 31;
+                break;
+            case 3:
+                sum = 59;
+                break;
+            case 4:
+                sum = 90;
+                break;
+            case 5:
+                sum = 120;
+                break;
+            case 6:
+                sum = 151;
+                break;
+            case 7:
+                sum = 181;
+                break;
+            case 8:
+                sum = 212;
+                break;
+            case 9:
+                sum = 243;
+                break;
+            case 10:
+                sum = 273;
+                break;
+            case 11:
+                sum = 304;
+                break;
+            case 12:
+                sum = 334;
+                break;
+        }
+    }else{
+        switch (month) {
+            case 1:
+                sum = 0;
+                break;
+            case 2:
+                sum = 31;
+                break;
+            case 3:
+                sum = 60;
+                break;
+            case 4:
+                sum = 90;
+                break;
+            case 5:
+                sum = 120;
+                break;
+            case 6:
+                sum = 151;
+                break;
+            case 7:
+                sum = 181;
+                break;
+            case 8:
+                sum = 212;
+                break;
+            case 9:
+                sum = 243;
+                break;
+            case 10:
+                sum = 273;
+                break;
+            case 11:
+                sum = 304;
+                break;
+            case 12:
+                sum = 334;
+                break;
+        }
+    }
+    sum=sum+day;
+    document.write("您输入的是"+year+"年的"+"第"+sum+"天");
+    //------------------------------------程序二--------------------------------------------
+//    var i=parseFloat(prompt("输入利润"));
+//    console.log(typeof i);
+//    bonus1=100000*0.1;
+//    bonus2=bonus1+100000*0.075;
+//    bonus4=bonus2+200000*0.05;
+//    bonus6=bonus4+200000*0.03;
+//    bonus10=bonus6+400000*0.015;
+//        //----------第一种---------
+//    if(i<=100000){document.write(i*0.1)}else
+//    if(i<=200000){document.write(bonus1+(i-100000)*0.075)}else
+//    if(i<=400000){document.write(bonus2+(i-200000)*0.05)}else
+//    if(i<=600000){document.write(bonus4+(i-400000)*0.03)}else
+//    if(i<=1000000){document.write(bonus6+(i-600000)*0.015)}else
+//    if(i>1000000){document.write(bonus10+(i-1000000)*0.05)}
+    //    //----------第二种---------
+//    i<=100000?document.write(i*0.1):
+//    i<=200000?document.write(bonus1+(i-100000)*0.075):
+//    i<=400000?document.write(bonus2+(i-200000)*0.05):
+//    i<=600000?document.write(bonus4+(i-400000)*0.03):
+//    i<=1000000?document.write(bonus6+(i-600000)*0.015):
+//    i>1000000?document.write(bonus10+(i-1000000)*0.05):
+//    document.write("");
+</script>
+</body>
+</html>

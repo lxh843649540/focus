@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  var a=5;
+  var b=a;//按值传递
+  b++;
+  console.log(a);//5
+  console.log(b);//6
+
+  var card=10;
+  function pay(card/*局部*/){
+    card-=3;
+    console.log(card);
+  }
+  pay(card/*全局*/);//7
+  console.log(card);//10
+
+  var my=["包","包","包","包"];
+//  var xu=my;//按值传递
+//  xu.length--;
+//  console.log(my.length);//3
+  function eat(arr/*局部*/){
+    arr.length--;
+    console.log(arr.length);
+  }
+  eat(my/*全局*/);//3
+  console.log(my.length);//3
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Regular Expression</title>
+</head>
+<body>
+<script>
+    //--------------str.search(/../)---------------
+//    var msg="咋们微信联系";
+//    var i=str.search(/(微|w(ei)?)\s*(信|x(in)?)/i);
+//    if (i==-1)
+//        document.write("发送成功");
+//    else
+//        document.write("发现敏感词,发送不成功!");
+
+    //-----------str.match(/.../ig)-----------
+
+
+    var str="No zuo no die,No can no bibi,nothing nano";
+    var kword=str.match(/\bno\b/ig);
+    console.log(kword);
+
+    //-------------------------------------------
+</script>
+</body>
+</html>

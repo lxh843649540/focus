@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title5</title>
+</head>
+<body>
+<script>
+    "use strict"
+function num(a,b,c){
+a>c?(a^=c,c^=a,a^=c):
+b>c?(b^=c,c^=b,b^=c):
+a>b?(a^=b,b^=a,a^=b):
+document.write("从小到大的排序为:"+a+"<"+b+"<"+c);
+}
+var a=parseFloat(prompt("请输入第1个数字:"));
+var b=parseFloat(prompt("请输入第2个数字:"));
+var c=parseFloat(prompt("请输入第3个数字:"));
+num(a,b,c);
+</script>
+</body>
+</html>

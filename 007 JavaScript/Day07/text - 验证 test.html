@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    "use strict"
+    //--------test(验证) 凡是验证必须前加^,后加$;
+    var reg=/^\d{6}$/;
+    var input=prompt("请输入密码:");
+    if (reg.test(input))
+        document.write("验证通过!");
+    else
+        alert("密码格式不符!");
+</script>
+</body>
+</html>

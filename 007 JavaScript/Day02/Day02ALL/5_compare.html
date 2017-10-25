@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  var n=2, s="3", b=true;
+  console.log(
+    n>b,//true
+    n>s,//false
+    n>=s-b,//true
+    n==s-b,//true
+    n<=s,  //true
+    b>=s   //false
+  );
+
+  var s1="scott",s2="jerry",s3="smith";
+  console.log(
+    s2<s1,//true: j(106)<s(115)
+    s2<s3,//true:
+    s1<s3 //true: s==s  c(99)<m(109)
+  );
+  var n1="12",n2="2",n3=2;
+  console.log(n1>n2);//false
+      // "1(49)">"2(50)"
+  console.log(n1>n3);//true
+      //      12>2
+</script>
+</body>
+</html>

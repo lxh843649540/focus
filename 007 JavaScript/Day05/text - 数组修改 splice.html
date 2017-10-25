@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>splice</title>
+</head>
+<body>
+<script>
+    //splice:直接修改原数组.
+    //删除元素:arr.splice(starti,n) 删除starti开始的后面的n个元素
+    var arr=[0,1,2,3,4,5,6];
+    arr.splice(3,3);//删除了第3个开始的后面3个元素
+    console.log(String(arr));//0,1,2,6
+    //------------------------------删除开头2个元素,在拼接回末尾;--------------------------
+    var arr1=[0,1,2,3,4,5,6];
+    var deletes=arr1.splice(0,2);//删除开头两个元素
+    arr2=arr1.concat(deletes);//拼接回末尾
+    console.log(String(arr2));
+    //----------------------------------插入----------------------------------------
+    var n=[0,1,2,3,4,5,6];
+    n.splice(2,0,11,12,13);
+    console.log(String(n));//0,1,11,12,13,2,3,4,5,6
+    //------------------------------------删除,替换----------------------------------------
+    var s=[0,1,2,3,4,5,6];
+    s.splice(4,2,666,[12,13,14]);
+    console.log(String(s));//0,1,2,3,666,999,5,6
+</script>
+</body>
+</html>

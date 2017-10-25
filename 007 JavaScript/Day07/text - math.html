@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Math</title>
+</head>
+<body>
+<script>
+    "use strict"
+    //------------math 不用创建,不能new,直接使用  ceil/floor/found---------------
+//    var n=345.678;
+//    console.log(
+//    Math.ceil(n),//346,  上取整
+//    Math.floor(n),//345,  下取整
+//    parseInt(n),//345,
+//    Math.round(n)//346,  四舍五入取整
+//    )
+
+    //-----------------------Math.pow/Math.sqrt--------------------------------------
+
+//    function round(n,d){
+//        //将n*10d次方
+//        n*=(Math.pow(10,d));
+//        //将n四舍五入取整
+//        n=Math.round(n);
+//        //将n/10的d次方
+//        n/=(Math.pow(10,d));
+//        //返回n
+//        return n;
+//    }
+//    console.log(
+//        round(345.678,2),
+//        round(345.678,0),
+//        round(345.678,-1)
+//    )
+
+    //---------------------------Math.max/Max.min--------------------------------------
+
+//    var num=[1,6,3,8,4];
+//    console.log(
+//    Math.max.apply(null,num),
+//    Math.min.apply(null,num)
+//    );
+
+    //-------------------------Math random随机数  Math.random() 0<=r<1---------------------
+//    function doubleball(){
+//        /*6个红球,范围1~33之间*/
+//        //定义一个空数组reds
+//        var reds=[];
+//        //只要reds的元素个数<6
+//        while(reds.length<6){
+//        //随机生成一个1~33之间的整数r
+//            var r=parseInt(Math.random()*33+1);
+//        //遍历reds数组
+//            for(var i=0;i<reds.length;i++){
+//                //如果r等于当前元素
+//                //就退出循环
+//                if (r===reds[i]) break;
+//            }//for
+//            //如果i==reds的元素个数
+//            //才将r压入reds
+//            if (i===reds.length)reds.push(r);
+//        }//while
+//        //将reds按数字升序排列
+//            reds.sort(function(a,b){return a-b});
+//        /*1个蓝球,范围1~16之间*/
+//        //在1~16之间生成一个随机整数b
+//            var b=parseInt(Math.random()*16+1);
+//        //返回 reds转为字符串+|+b
+//        return String(reds)+"|"+b;
+//    }//function
+//    document.write(doubleball());
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    "use strict"
+    var names=["明月","白鹭","青天","照香炉","思君","锄禾","当午"];
+    var str="床前明月光,一行白鹭上青天,日照香炉生紫烟,日日思君不见君,锄禾日当午";
+//   var reg=new RegExp(names.join("|"),"g");
+//    var kword=str.match(reg);
+    do {
+        var arr=reg.exec(str);
+
+        if (arr!==null){
+            console.log("在位置"+?+"发现敏感词"+?+",下次从"+?+"开始");
+        }else{break;}
+    }while(true);
+</script>
+</body>
+</html>
