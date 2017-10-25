@@ -1,0 +1,107 @@
+ul,p{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+#nav{
+	width:990px;
+	height:40px;
+	margin:0 auto;
+	background-color:#E64346;
+}
+#nav p{
+	/*宽度，高度，行高，背景颜色，左浮动*/
+	width:210px;
+	height:40px;
+	line-height:40px;
+	background-color:#CD2A2C;
+	float:left;
+}
+#nav p a{
+	/*颜色，取消下划线，左内边距*/
+	color:#fff;
+	text-decoration:none;
+	padding:15px;
+	font-weight:bold;
+}
+#nav i{
+	/*右浮动，尺寸，背景，位置微调(外边距)*/
+	float:right;
+	width:20px;
+	height:20px;
+	background:url(../Images/iconlist_2.png) no-repeat -65px 0;
+	margin:10px 10px 0 0;
+}
+#nav ul{
+	float:left;
+}
+#nav li{
+	float:left;
+}
+#nav li a{
+	/*浮动?块级?行内块?*/
+	float:left;
+	width:100px;
+	height:40px;
+	/*水平居中，垂直居中，文本颜色，加粗，大小，下划线 */
+	text-align:center;
+	line-height:40px;
+	color:#fff;
+	font-weight:bold;
+	font-size:14px;
+	text-decoration:none;
+}
+#nav li a:hover{
+	background-color:#BD2A2C;
+}
+#content{
+	width:990px;
+	margin:0 auto;
+	min-height:100px;
+}
+#cate_box{
+	/*宽度，高度，背景，边框，box-sizing*/
+	width:210px;
+	height:400px;
+	background-color:#fafafa;
+	border:2px solid #CD2A2C;
+	border-top:none;
+	box-sizing:border-box;
+}
+#cate_box>li>a{
+	/*文字大小，颜色，下划线*/
+	font-size:14px;
+	color:#333;
+	text-decoration:none;
+}
+#cate_box>li{
+	/*宽度，左内边距，上下内边距，下边框*/
+	width:186px;
+	padding:5px 0 5px 10px;
+	border-bottom:1px solid #fff;
+	border-top:1px solid transparent;
+}
+#cate_box>li:hover{
+	/*上下边框，背景颜色*/
+	border-color:#ddd;
+	background-color:#fff;
+	cursor:pointer;
+}
+#cate_box{
+	padding-top:5px;
+}
+#d1{
+	width:100px;height:100px;
+	border:3px solid red;
+	}
+
+
+
+
+
+
+
+
+
+
+

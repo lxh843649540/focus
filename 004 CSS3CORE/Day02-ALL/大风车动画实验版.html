@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-cn">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>大风车</title>
+  <style type="text/css">
+	#parent{
+		width:600px;
+		height:600px;
+		border:10px solid #16497F;
+		border-radius:50%;
+		position:relative;
+		}
+	#parent div:nth-child(1){
+		width:300px;
+		height:100px;
+		background-color:red;
+		position:absolute;
+		top:250px;
+		transform-origin:100% 50%;
+		transform:rotatex(0deg);
+        border-radius:50%;
+		}
+	#parent div:nth-child(2){
+		width:300px;
+		height:100px;
+		background-color:orange;
+		position:absolute;
+		top:250px;
+        transform-origin:300px 50px;
+		transform:rotate(60deg);
+        border-radius:50%;
+		}
+	#parent div:nth-child(3){
+		width:300px;
+		height:100px;
+		background-color:yellow;
+		position:absolute;
+		top:250px;
+        transform-origin:300px 50px;
+		transform:rotate(120deg);
+        border-radius:50%;
+		}
+	#parent div:nth-child(4){
+		width:300px;
+		height:100px;
+		background-color:green;
+		position:absolute;
+		top:250px;
+        transform-origin:300px 50px;
+		transform:rotate(180deg);
+        border-radius:50%;
+		}
+	#parent div:nth-child(5){
+		width:300px;
+		height:100px;
+		background-color:blue;
+		position:absolute;
+		top:250px;
+        transform-origin:300px 50px;
+		transform:rotate(240deg);
+        border-radius:50%;
+		}
+	#parent div:nth-child(6){
+		width:300px;
+		height:100px;
+		background-color:purple;
+		position:absolute;
+		top:250px;
+        transform-origin:300px 50px;
+		transform:rotate(300deg);
+        border-radius:50%;
+		}
+	#parent div{
+		animation:scroll 5s linear infinite;
+		}
+	@-webkit-keyframes scroll{
+		0%{
+			transform:rotate(0deg);
+			}
+		100%{
+			transform:rotate(360deg);
+			}
+		}
+  </style>
+ </head>
+ <body>
+	<div id="parent">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+ </body>
+</html>

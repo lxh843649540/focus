@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-cn">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Day03作业</title>
+ </head>
+ <body>	
+	<form action="http://www.baidu.com" method="post" enctype="multipart/form-data">
+		<h1>旧的input type</h1>
+		<p>
+			用户名：
+			<input type="text" name="txtUsername"/>		
+		</p>
+		<input type="Image" src="Day03\images\btn.jpg"/>
+		<input type="Image" src="Day03\images\btn.jpg"/>
+		<h1>新的input type</h1>
+			<p>
+				邮箱：
+				<input type="Email" name="txtEmail"/>
+			<br />			
+				URLL：
+				<input type="Url" name="txtUrl"/>
+			<br>
+				数字：
+				<input type="Number" name="txtNumber" min="100" max="1" step="1"/>
+			<br>
+				电话：
+				<input type="Tel" name="txtTel"/>
+			<br>
+				搜索：
+				<input type="Search" name="txtSearch"/>
+			</p>
+			<hr />
+			<p>
+				范围：
+				<input type="Range" name="txtRange" value="0" step="1" min="1" max="100"/>
+			<br>
+				颜色：
+				<input type="Color" name="txtColor"/>
+			<br>
+				日期：
+				<input type="Date" name="txtDate" value=""/>
+			<br>
+				月份：
+				<input type="Month" name="txtMonth"/>
+			<br>
+				周数：
+				<input type="Week" name="txtWeek"/>
+			</p>
+			<input type="submit" name="txtSubmit"/><!--“<button>提交</button>” 与 “<input type="submit"/>” 效果相同-->
+	</form> 
+	
+ </body>
+</html>

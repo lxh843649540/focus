@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-cn">
+	<head>
+		<title>Insert a title</title>
+		<meta charset="utf-8">
+		<style>
+			input{
+				outline:none;
+			}
+			#txtName{
+				height:27px;
+				border:1px solid #ddd;
+				/*简写方式*/
+				background:url(Images/user.png) no-repeat 0 center;
+				padding-left:25px;
+			}
+			#txtName:focus{
+				background-image:url(Images/pwd.png);
+			}
+
+			#txtPwd{
+				height:27px;
+				border:1px solid #ddd;
+				background-image:url(Images/pwd.png);
+				background-repeat:no-repeat;
+				background-position:right center;
+				padding-right:25px;
+			}
+		</style>
+	</head>
+	<body>
+		<p>
+			姓名：<input id="txtName">
+		</p>
+		<p>
+			密码：<input id="txtPwd">
+		</p>
+		
+	</body>
+</html>

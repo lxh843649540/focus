@@ -1,0 +1,244 @@
+
+*{
+	box-sizing:border-box;
+}
+body{
+	font:12px "microsoft yahei",Arial,Helvetica,sans-serif;
+	color:#666;
+}
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,dl,dd{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+img{
+	vertical-align:middle;
+}
+.lf{float:left;}
+.rt{float:right;}
+.clear{clear:both;}
+a{
+	color:#666;
+	text-decoration:none;
+}
+a:hover{
+	color:#FF0700;
+	text-decoration:underline;
+}
+#top,#top_main,#nav,#banner,#main,#foot-box,#footer{
+	width:1211px;
+	margin:0 auto;
+}
+/********模块1：页面顶部**********/
+#top{
+	/*高度，行高，背景颜色，下边框*/
+	height:30px;
+	line-height:30px;
+	background-color:#f7f7f7;
+	border-bottom:1px solid #eee;
+}
+#top>img{
+	float:left;
+	margin:9px 5px 0 0;
+}
+#top>ul>li{
+	float:left;
+}
+#top>ul>li>b{
+	border-left:1px solid #ddd;
+	margin:0 5px;
+}
+li.vip a{
+	/*左内边距，背景*/
+	padding-left:29px;
+	background:url(Images/vip.jpg) no-repeat 0 center;
+}
+li.bjd a{
+	padding-left:26px;
+	background:url(Images/dakehu.jpg) no-repeat 0 center;
+}
+li.app_jd a{
+	/*行内块，高度，行高，左内边距，背景*/
+	display:inline-block;
+	height:22px;
+	line-height:22px;
+	padding-left:18px;
+	background:url(Images/iconlist_2.png) no-repeat -128px -360px;
+}
+li.app_jd a:hover{
+	background-position:-128px -399px;
+}
+li.service>a{
+	/*左右内边距，行内块，高度，行高，边框(透明)*/
+	padding:0 15px;
+	display:inline-block;
+	height:27px;
+	line-height:27px;
+	border:1px solid transparent;
+	border-bottom:none;
+	background:url(Images/jt_down.jpg) no-repeat 95% center;
+}
+li.service>a:hover{
+	/*边框颜色，背景颜色，背景图更换*/
+	
+}
+li.service{
+	/*配合 #service-items 的绝对定位*/
+	position:relative;
+}
+#service-items{
+	/*左右下边框，背景颜色，宽度，内容水平居中对齐*/
+	border:1px solid #ddd;
+	border-top:none;
+	background-color:#fff;
+	width:80px;
+	text-align:center;
+	/*定位*/
+	position:absolute;
+	left:11px;
+	top:27px;
+	/*隐藏*/
+	display:none;
+}
+li.service:hover #service-items{
+	display:block;
+}
+li.service:hover>a{
+	border-color:#ddd;
+	background-color:#fff;
+	background-image:url(Images/jt_up.jpg);
+}
+/************模块2：LOGO和搜索框***********/
+#top_main{
+	padding:10px 0;
+}
+#search-box{
+	/*宽度，左右外边距，左浮动*/
+	width:500px;
+	margin:0 80px 0 40px;
+	float:left;
+}
+/*搜索框 和 按钮的 区域*/
+#search-box div.search{
+	height:36px; /*方式1*/
+	background-color:#e4393c;
+	/*边框或内边距 */
+	padding:3px;
+	/*box-sizing:content-box;*/ /*方式2*/
+}
+#search-box input{
+	/*宽度，高度，去掉边框，左右内边距*/
+	width:410px;
+	height:30px;
+	border:none;
+	padding:0 5px;
+}
+#search-box button{
+	/*宽度，高度，取消边框，背景颜色*/
+	width:80px;
+	height:28px;
+	border:none;
+	background-color:#e4393c;
+	/*文字：颜色，大小，加粗*/
+	color:#fff;
+	font-size:14px;
+	font-weight:bold;
+}
+#search-box div.hot-words{
+	margin-top:5px;
+	height:16px;
+	overflow:hidden;
+	color:#999;
+}
+#search-box div.hot-words a{
+	color:#999;
+}
+/*我的京东*/
+#my-jd{
+	/*左浮动，边框，背景颜色，高度，左内边距,右内边距*/
+	float:left;
+	border:1px solid #efefef;
+	height:32px;
+	padding-left:27px;
+	padding-right:5px;
+	line-height:30px;
+	background:#f7f7f7 url(Images/iconlist_2.png) no-repeat -116px -25px;
+	width:96px;/*宽度(60)，padding(27+5)，border(2)*/
+	margin-top:5px;
+}
+#my-jd b{
+	/*边框透明，上边框#ddd*/
+	border:5px solid transparent;
+	border-top-color:#ddd;
+	/*相对定位：位置微调*/
+	position:relative;
+	top:12px;
+}
+/**********模块3：页面主导航*************/
+#nav{
+	height:40px;
+	background-color:#E64346;
+}
+#nav>p{
+	/*宽度，高度，行高，背景，左浮动*/
+	width:210px;
+	height:40px;
+	line-height:40px;
+	background-color:#CD2A2C;
+	float:left;
+}
+#nav>p a{
+	/*文字大小：14，颜色，加粗，取消下划线，左内边距*/
+	font-size:14px;
+	color:#fff;
+	font-weight:bold;
+	text-decoration:none;
+	padding-left:15px;
+}
+#nav li{
+	float:left;
+}
+#nav li a{
+	/*行内块，宽度，高度，行高，颜色，大小，取消下划线 ，水平对齐*/
+	display:inline-block;
+	width:100px;
+	height:40px;
+	line-height:40px;
+	color:#fff;
+	font-size:14px;
+	text-decoration:none;
+	text-align:center;
+	font-weight:bold;
+}
+#nav li a:hover{
+	background-color:#BD2A2C;
+}
+
+/*******模块6：购物指南模块*********/
+#foot-box{
+	/*上边框，上外边距，上内边距，overflow*/
+	border-top:1px solid #ddd;
+	margin-top:10px;
+	padding-top:10px;
+	overflow:hidden;
+}
+#foot-box p{
+	/*左浮动，宽度，高度，左右外边距，背景*/
+	float:left;
+	width:40px;
+	height:40px;
+	margin:0 10px 0 50px;
+	background-image:url(Images/iconlist_2.png);
+}
+#foot-box ul{
+	/*左浮动，宽度，行高*/
+	float:left;
+	width:142px;
+	line-height:22px;
+}
+p.shopping-guide{
+	background-position:0 -55px;
+}
+#main{
+	margin:10px auto;
+}

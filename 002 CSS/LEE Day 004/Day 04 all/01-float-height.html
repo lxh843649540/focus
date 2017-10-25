@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-cn">
+	<head>
+		<title>浮动元素为父元素高度带来的影响</title>
+		<meta charset="utf-8">
+		<style>
+			#d1{
+				border:1px solid #000;
+				/*方案1*/
+				/*height:200px;*/
+
+				/*方案2*/
+				/*float:left;*/
+
+				/*方案3*/
+				/*overflow:auto;*/
+			}
+			.c1,.c2,.c3{
+				width:200px;
+				height:200px;
+			}
+			.c1{
+				background:red;
+				float:left;
+			}
+			.c2{
+				background:green;
+				float:left;
+			}
+			.c3{
+				background:blue;
+				float:left;
+			}
+			#p1{
+				background:orange;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1">
+			<div class="c1"></div>
+			<div class="c2"></div>
+			<div class="c3"></div>
+			<div style="clear:both;"></div>
+		</div>
+		<p id="p1">该p的位置在哪呢???</p>
+	</body>
+</html>

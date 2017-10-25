@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-cn">
+	<head>
+		<title>Insert a title</title>
+		<meta charset="utf-8">
+		<style>
+			#d1{
+				width:200px;
+				height:200px;
+				background-color:red;
+				/*在IE8,9,10中，要显示orange色*/
+				background-color:orange\0;
+				/*在IE9，10中，要显示green色*/
+				background-color:green\9\0;
+				
+				/*在IE7中，要显示粉色*/
+				+background-color:pink;
+				/*在IE6中，要显示蓝色*/
+				-background-color:blue;
+				
+			}
+			
+			*div{
+				background-color:yellow;
+				width:200px;
+				height:200px;
+			}
+		</style>
+
+		<!--[if lt IE 9]>
+			<link>
+		<![endif]-->
+	</head>
+	<body>
+		<!--[if !IE 8]>
+			该段内容在除IE8以外的浏览器中显示
+		<![endif]-->
+		<!--[if IE 6]>
+			<h1>该段内容只能在IE6中被识别</h1>
+		<![endif]-->
+		<!--[if gt IE 6]>
+			该段内容只能在IE6以上浏览器中被识别
+		<![endif]-->
+		<div id="d2"></div>
+		<div id="d1"></div>
+	</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-cn">
+	<head>
+		<title>伪类选择器</title>
+		<meta charset="utf-8">
+		<style>
+			:target{
+				background-color:yellow;
+			}
+
+			td:first-child{
+				background-color:yellow;
+			}
+			#tbl td:first-child{
+				color:#f00;
+				font-weight:bold;
+			}
+
+			/*获取#tbl中的第一行第一列*/
+			#tbl tr:first-child td:first-child{
+				border:2px solid orange;
+			}
+			/*获取#tbl中最后一行最后一列的表格*/
+			#tbl tr:last-child td:last-child{
+				border:2px solid orange;
+			}
+			#tbl tr:nth-child(2) td:nth-child(2){
+				border:2px solid orange;
+			}
+
+			#tbl tr:not(:first-child){
+				font-weight:bold;
+				font-style:italic;
+				color:purple;
+			}
+
+			#content::first-letter{
+				font-weight:bold;
+				font-size:18pt;
+				color:#f00;
+				margin-right:5px;
+				margin-bottom:5px;
+			}
+			#content:first-line{
+				font-size:16pt;
+				color:blue;
+				font-weight:bold;
+			}
+			#content::selection{
+				background-color:yellow;
+				color:red;
+				/*以下两个属性无效*/
+				font-size:18px;
+				font-weight:bold;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="content">
+			这是一段普通的文本<br>
+			该段文本有两句话
+		</div>
+		<table id="tbl">
+			<tr>
+				<td>孙悟空</td>
+				<td>猪悟能</td>
+				<td>沙悟净</td>
+			</tr>
+			<tr>
+				<td>宋江</td>
+				<td>李逵</td>
+				<td>林冲</td>
+			</tr>
+			<tr>
+				<td>刘备</td>
+				<td>关羽</td>
+				<td>张飞</td>
+			</tr>
+		</table>
+		<a href="#d1">跳转到锚点1</a>
+		<a href="#d2">跳转到锚点2</a>
+		<div id="d1">id为d1的元素，锚点为d1的元素</div>
+		<div style="height:5000px;"></div>
+		<div id="d2">id为d2的元素，锚点为d2的元素</div>
+		<div style="height:5000px;"></div>
+	</body>
+</html>

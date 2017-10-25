@@ -1,0 +1,60 @@
+body{
+	font-size:12px;
+}
+#discuss{
+	width:990px;
+	margin:0 auto;
+}
+#discuss div.mt{
+	/*高度，背景，边框*/
+	height:30px;
+	background:#F7F7F7;
+	border:1px solid #ddd;
+	border-top:2px solid #9B9B9B;
+}
+#discuss-content{
+	border-bottom:1px solid #ddd;
+	padding-bottom:2px;
+}
+#discuss-datas{
+	width:990px;
+}
+#discuss-datas th{
+	/*文本颜色，下边框，上下内边距*/
+	color:#666;
+	border-bottom:1px solid #ddd;
+	padding:5px 0;
+}
+#discuss-datas .col1{
+	width:600px;
+	text-align:left;
+}
+#discuss-datas td{
+	/*文字颜色，下边框，居中对齐，上下内边距*/
+	color:#9c9a9c;
+	border-bottom:1px dotted #ddd;
+	text-align:center;
+	padding:5px 0;
+}
+#discuss a{
+	color:#005aa0;
+	text-decoration:none;
+}
+#discuss a:hover{
+	text-decoration:underline;
+}
+#discuss-datas i{
+	/*21*17*/
+	padding-left:21px;
+	padding-bottom:2px;
+	padding-top:3px;
+	margin-right:3px;
+	background-image:url(../Images/iconlist_1.png);
+	background-repeat:no-repeat;
+}
+i.shai{
+	background-position:-110px -220px;
+}
+i.lun{
+	background-position:-152px -220px;
+}

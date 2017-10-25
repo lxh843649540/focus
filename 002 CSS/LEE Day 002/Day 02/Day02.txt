@@ -1,0 +1,212 @@
+1、边框
+	1、边框
+		边框实际上是由四个三角形组成的
+	2、边框倒角
+		属性：border-radius
+		取值：
+			具体数值(px) 或 %
+			最少一个值，最多4个值
+		单角定义
+			border-top-left-radius:左上角倒角半径
+			border-bottom-right-radius:右下角
+			... ...
+	3、边框阴影
+		属性：box-shadow
+		取值：h-shadow v-shadow blur spread color inset;
+			h-shadow:(必须)
+				阴影的水平偏移距离
+				取值为正，右偏移
+				取值为负，左偏移
+			v-shadow:(必须)
+				阴影的垂直偏移距离
+				取值为正，下偏移
+				取值为负，上偏移
+			blur : 模糊距离,取值为数值
+			spread : 阴影的大小
+			color : 颜色
+			inset : 值，将默认的外阴影改为内阴影
+	4、轮廓
+		1、什么是轮廓
+			位于元素外围的一条线,位于边框之外的
+		2、属性
+			outline:width style color;
+			outline-width:宽度;
+			outline-style:样式;
+			outline-color:颜色;
+
+			常用：
+				outline:none;
+				或
+				outline:0;
+		练习：作业基础上
+			1、为每幅图像增加四个角的倒角(5px)
+			2、鼠标移入的时候，为每幅图像增加阴影
+				右下偏移，大小不限，颜色不限
+2、框模型(重难点)
+	1、框 & 框模型
+		框：页面元素皆为框
+		框模型：Box Model ,定义了元素框处理元素内容尺寸，内边距，边框和外边距的一种方式
+
+		元素一旦增加框模型对应属性的属性，那么实际的占地区域会发生改变
+
+		元素的实际宽度=左右外边距 + 左右边框 + 左右内边距 + width;
+		
+		元素的实际高度=上下外边距 + 上下边框 + 上下内边距 + height;
+	2、外边距
+		1 、外边距
+			围绕在元素边缘周围的空白区域
+			默认不能被其他元素所占据
+			作用：拉伸两个元素间的距离
+		2、语法
+			属性：
+				margin:值;
+				单边设置：
+				margin-方向:值;
+					方向：top/right/bottom/left
+			取值：
+				1、具体数值 px
+				2、%
+				3、负值
+					左外边距取负值 ：左移动
+					左外边距取正值 ：右移动
+					上外边距取负值 ：上移动
+					上外边距取正值 ：下移动
+				4、auto
+					自动，由浏览器计算外边距的值应该是多少
+					注意：默认情况下，auto只对左右有效，上下无效。
+
+					为块级元素设置宽度后，再设置其左右外边距为 auto，该元素能水平居中显示
+			margin的简洁写法：
+				margin:value; 四个方向外边距的值
+					margin:5px;
+				margin:v1 v2; v1 上下外边距 v2 左右外边距
+					margin:5px 10px;
+				margin:v1 v2 v3;v1 上外边距 v2 左右外边距 v3 下外边距
+					margin:5px 15px 3px;
+				margin:v1 v2 v3 v4;上 右 下 左
+		3、页面中具备默认外边距的元素
+		4、特殊注意
+			1、外边距合并
+				当两个垂直外边距相遇时，将合并成一个
+			2、外边距的溢出
+				特殊场合下，为子元素设置外边距(上下)会作用到父元素上
+				特殊场合：
+					1、父元素没有边框(上下)
+					2、为第一个(最后一个)子元素设置外边距
+				解决方案：
+					1、为父元素增加边框(透明的)
+						弊端：父元素会变高
+					2、可以为父元素设置上内边距来取代子元素上外边距
+						弊端：父元素高度会变高
+					3、为父元素增加一个空子元素
+						<table></table>
+						弊端：多一个子元素
+					4、后续讲解...(CSS3高级)
+			3、为行内元素和行内块元素设置垂直外边距
+				1、大部分行内元素垂直外边距无效
+					img允许设置
+				2、行内块元素设置垂直外边距，该行的所有元素都跟着变
+	3、内边距
+		1、什么是内边距
+			内容区域 和 边框(边缘)之间的距离
+			注意：内边距会扩大边框所占用的区域
+		2、语法
+			属性：
+				padding:值;
+				padding-方向:值;
+					方向：top/right/bottom/left
+				取值：
+					1、px
+					2、%
+					3、auto
+			简写方式：
+				padding:value; 上下左右
+				padding:v1 v2; 上下  左右
+				padding:v1 v2 v3;上  左右  下
+				padding:v1 v2 v3 v4;上 右 下 左
+		3、特殊注意
+			1、为行内元素增加上下内边距时
+				只影响自己，并不影响其他元素
+	4、box-sizing
+		1、作用
+			重新指定元素尺寸计算模式
+			占地宽度 = margin+border+padding+width
+			可见宽度 = border+padding+width
+		2、语法
+			属性：box-sizing
+			取值：
+				1、content-box
+					默认值，width只表示内容区域的宽度，border和padding额外进行计算
+					可见宽度=border+padding+width
+				2、border-box
+					width包含边框内所有的距离(padding,border)
+					可见宽度=width(border+padding+宽度);
+3、背景
+	1、背景颜色
+		属性：background-color
+		取值：颜色值 或 transparent
+		注意：背景颜色从边框位置处开始绘制
+	2、背景图像
+		属性：background-image
+		取值：url(背景图url)
+	3、背景重复
+		属性：background-repeat
+		取值：
+			1、repeat
+				默认值，即横向又纵向平铺
+			2、repeat-x
+				只在横向平铺
+			3、repeat-y
+				只在纵向平铺
+			4、no-repeat
+				不平铺
+	4、背景图片尺寸
+		属性：background-size
+		取值：
+			1、value1 value2
+				指定背景图像宽度 和 高度
+			2、value1% value2%
+				采用当前元素宽和高的占比，来作为背景图大小
+			3、cover
+				覆盖，会将背景图像等比放大，直到背景图完全覆盖到元素为止
+			4、contain
+				包含，会将背景图像等比放大，直到右边或下边碰到元素边缘为止
+	5、背景图片固定
+		属性：background-attachment
+		取值：
+			1、scroll
+				滚动，默认值
+			2、fixed
+				固定，让背景图一直在可视化区域中
+	6、背景图片定位
+		改变背景图在元素中的位置
+		属性：background-position
+		取值：
+			1、x y
+				指定背景图水平 和 垂直偏移距离
+				x : 水平偏移距离
+					取值为正，背景图右偏移
+					取值为负，背景图左偏移
+				y : 垂直偏移距离
+					取值为正，背景图下偏移
+					取值为负，背景图上偏移
+			2、x% y%
+				0% 0% : 背景图在左上
+				0% 100% : 背景图在左下
+				100% 100% : 背景图在右下
+			3、关键字
+				x : left / center / right
+				y : top / center/ bottom
+	7、背景属性
+		在一个 background 属性中声明所有的北京属性值
+
+		属性：background
+		取值：color url repeat attachment position;
+
+		ex:
+			background:red;
+			background:url(a.jpg) no-repeat;
+	8、特殊使用
+		CSS Sprites(精灵图/雪碧图)
+
+4、渐变

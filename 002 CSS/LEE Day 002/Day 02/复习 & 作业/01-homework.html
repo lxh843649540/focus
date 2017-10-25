@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-cn">
+	<head>
+		<title>CSS Day01 作业</title>
+		<meta charset="utf-8">
+		<style>
+			#container{
+				/*宽度，高度，边框 */
+				width:500px;
+				height:150px;
+				border:1px solid #000;
+				/*溢出处理*/
+				overflow-x:auto;
+			}
+			#container>p{
+				/*宽度，高度*/
+				width:800px;
+				height:100px;
+			}
+
+			#container img{
+				/*宽度*/
+				width:100px;
+				/*边框*/
+				border:1px solid transparent;
+				/*增加倒角 */
+				border-radius:5px;
+			}
+
+			#container img:hover{
+				border-color:#000;
+				/*增加边框阴影*/
+				box-shadow:5px 5px 5px 0px #666;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<p>
+				<img src="images/p_small_001.jpg">
+				<img src="images/p_small_002.jpg">
+				<img src="images/p_small_003.jpg">
+				<img src="images/p_small_004.jpg">
+				<img src="images/p_small_005.jpg">
+				<img src="images/p_small_006.jpg">
+				<img src="images/p_small_007.jpg">
+			</p>
+		</div>
+	</body>
+</html>

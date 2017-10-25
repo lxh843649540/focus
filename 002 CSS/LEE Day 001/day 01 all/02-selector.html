@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-cn">
+	<head>
+		<title>Insert a title</title>
+		<meta charset="utf-8">
+		<style>
+			/*声明一个类选择器*/
+			.redColor{
+				color:red;
+			}
+
+			.bigSize{
+				font-size:48px;
+			}
+
+			/*控制class为redColor的h1元素，取消加粗显示*/
+			h1.redColor{
+				font-weight:normal;
+			}
+
+			#top{
+				background-color:yellow;
+				color:red;
+				font-size:24px;
+			}
+
+			#top,span.bigSize{
+				text-decoration:line-through;
+			}
+
+			/*.p1 span{color:red;}*/
+			#d1>.p1>span{color:red;}
+
+			/*a:link{color:black;}*/
+			/*a:visited{color:orange;}*/
+			/*a:hover{*/
+				/*color:red;*/
+				/*font-size:24px;*/
+			/*}*/
+			/*a:active{*/
+				/*color:blue;*/
+			/*}*/
+
+			#txtName{
+				color:gray;
+				font-style:italic;
+			}
+			#txtName:active{
+				font-style:normal;
+			}
+			#txtName:focus{
+				color:green;
+			}
+
+			a{
+				color:black;
+				text-decoration:none;/*取消下划线*/
+			}
+			a:hover{
+				color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="http://www.csdn.net" target="_blank">CSDN</a>
+		<input id="txtName" value="请输入信息">
+		<div id="d1">
+			<span>这是d1中的span元素</span>
+			<p class="p1">
+				<span>这是d1中的p中的span元素</span>
+			</p>
+		</div>
+
+		<header id="top">
+			模拟页面的顶部信息
+		</header>
+		<header>
+			另一块头部信息
+		</header>
+		<span class="bigSize">这是一个span元素</span>
+		<b>这是一个b标记</b>
+		<span class="redColor">文本颜色为红色的span</span>
+		<p>这是一个测试的p标记</p>
+		<p class="redColor bigSize">文本颜色为红色的p标记</p>
+		<h1 class="redColor">红色的h1</h1>
+	</body>
+</html>

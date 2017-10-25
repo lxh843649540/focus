@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-cn">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>大风车</title>
+  <style type="text/css">
+	#parent{
+		width:600px;
+		height:600px;
+		border:10px solid #16497F;
+		border-radius:50%;
+		position:relative;
+        transition-duration:100s;
+        transition-timing-function:linear;
+		}
+    #parent div{
+        width:300px;
+        height:100px;
+        position:absolute;
+        top:250px;
+        border-radius:50%;
+        transform-origin:100% 50%;
+    }
+	#parent div:nth-child(1){
+		background-color:red;
+		transform:rotatex(0deg);
+		}
+	#parent div:nth-child(2){
+		background-color:orange;
+		transform:rotate(60deg);
+		}
+	#parent div:nth-child(3){
+		background-color:yellow;
+		transform:rotate(120deg);
+		}
+	#parent div:nth-child(4){
+		background-color:green;
+		transform:rotate(180deg);
+		}
+	#parent div:nth-child(5){
+		background-color:blue;
+		transform:rotate(240deg);
+		}
+	#parent div:nth-child(6){
+		background-color:purple;
+		transform:rotate(300deg);
+		}
+	#parent:hover{
+		transform:rotate(36000deg);
+		}
+  </style>
+ </head>
+ <body>
+	<div id="parent">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+ </body>
+</html>

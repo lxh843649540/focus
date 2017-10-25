@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>列表</title>
+  <style type="text/css">
+	#nav{
+		width:990px;
+		height:40px;
+		background:#E64346;
+		margin:0 auto;
+		}
+	#nav p{
+		line-height:40px;
+		margin:0px;
+		float:left;
+		width:210px;
+		height:40px;
+		background:#bc2a2b;
+		padding-left:20px;
+		box-sizing:border-box;
+		}
+	#nav p span{
+		background-image:url(iconlist_2.png);
+		background-position:-65px 0px;
+		float:right;
+		margin-top:10px;
+		width:20px;
+		height:20px;
+		}
+	#nav ul{
+		list-style:none;
+		line-height:40px;
+		margin:0px;
+		}
+	#nav li{
+		float:left;
+		width:100px;
+		margin:0;
+		text-align:center;
+		}
+	#nav a{
+		color:#fff;
+		font-weight:bold;
+		}
+	#nav li:hover{
+		background-color:#bc2a2b;
+		}
+	a{
+		text-decoration:none;
+		}
+	#content{
+	width:990px;
+	margin:0 auto;
+	min-height:100px;
+}
+#cate_box{
+	/*宽度，高度，背景，边框，box-sizing*/
+	width:210px;
+	height:400px;
+	background-color:#fafafa;
+	border:2px solid #CD2A2C;
+	border-top:none;
+	box-sizing:border-box;
+	position:relative;
+}
+#cate_box>li>a{
+	/*文字大小，颜色，下划线*/
+	font-size:14px;
+	color:#333;
+	text-decoration:none;
+}
+#cate_box{
+	padding-top:5px;
+	list-style:none;
+	margin-top:0px;
+}
+#d1{
+	width:100px;height:100px;
+	border:3px solid red;
+	}
+#sub-cate-box{
+	width:710px;
+	height:400px;
+	border:1px solid #ddd;
+	background-color:#fff;
+	position:absolute;
+	top:0px;
+	left:195px;
+	}
+#cate_box>li>a{
+	width:186px;
+	padding:5px 0 5px 10px;
+	border-bottom:1px solid #fff;
+	border-top:1px solid transparent;
+	display:block;
+	}
+#cate_box>li>a:hover{
+	border-color:#ddd;
+	background-color:#fff;
+	cursor:pointer;
+	position:relative;
+	z-index:50;
+	}
+
+  </style>
+ </head>
+ <body>
+	<nav id="nav">
+		<p>
+			<a href="#">全部商品分类</a>
+			<span></span>
+		</p>
+		<ul>
+			<li>
+				<a href="#">首页</a>
+			</li>
+			<li>
+				<a href="#">服装城</a>
+			</li>
+			<li>
+				<a href="#">食品</a>
+			</li>
+			<li>
+				<a href="#">团购</a>
+			</li>
+			<li>
+				<a href="#">夺宝岛</a>
+			</li>
+			<li>
+				<a href="#">闪购</a>
+			</li>
+			<li>
+				<a href="#">金融</a>
+			</li>
+		</ul>
+	</nav>
+	<div id="content">
+			<ul id="cate_box">
+				<li>
+					<a href="#">图书、音像、数字商品</a>
+					<div id="sub-cate-box"></div>
+				</li>
+				<li>
+					<a href="#">家用电器</a>
+				</li>
+			</ul>
+		</div>
+ </body>
+</html>

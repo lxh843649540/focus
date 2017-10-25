@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-cn">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Day 03</title>
+ </head>
+ <body>
+	<!--以下为使用div做布局-->
+	<div id="header">页面顶部</div>
+	<div id="nav">主导航</div>
+	<div id="banner">页面广告</div>
+	<div id="mian">
+		<div id="left-side">左边栏</div>
+	</div>
+	<div id="footer">页面底部</div>
+	<hr />
+	<!--以下为使用结构标记替代div-->
+	<header>页面顶部</header>
+	<nav>页面主导航</nav>
+	<div>banner</div>
+	<section>
+		<aside>左边栏</aside>
+		页面主体
+	</section>
+	<footer>页面底部</footer>
+	<hr />
+	<form action="http://www.baidu.com"
+	method="post">
+		<p>用户名称：<input type="text" maxlength="10" value="请输入您的名称" name="txtUsername"></p>
+		<p>用户密码：<input type="password" name="txtPassname"/></p>
+		<p>用户昵称：<input type="" readonly></p>
+		<p>用户密码：<input type="password"/></p>
+		<hr />
+		<p>用户性别：
+			<input type="radio" name="rdoGender" value="0" checked id="rdoMale"/>
+			<label for="rdoMale">男</label>
+			<input type="radio" name="rdoGender" value="1"/>女
+			<input type="radio" name="rdoGender" value="2"/>人妖
+		</p>
+		<p>用户爱好：
+			<input type="checkbox" name="chkHobby" value="0"/>吃
+			<input type="checkbox" name="chkHobby" value="1"/>喝
+			<input type="checkbox" name="chkHobby" value="2"/>玩
+			<input type="checkbox" name="chkHobby" value="3"/>乐
+		</p>
+			<hr />
+		<p>
+			自我介绍：
+			<textarea name="txTintro" id="" cols="50" rows="5">这家伙很懒，什么都没有留下</textarea>
+		</p>
+		<p>
+			来自何方：
+			<select name="selfrom" size=""id="">
+				<option value="1">北京</option>
+				<option value="2">上海</option>
+				<option value="3">广州</option>
+				<option value="4">深圳</option>
+				<option value="-1" selected>==请选择==</option>
+			</select>
+		</p>
+		<p>
+			<input type="submit" value="起飞"/>
+			<input type="reset" value="恢复"/>
+			<input type="button" value="自定义"/>
+			<button>button为提交按钮</button>
+			<input type="image" src="C:\Users\bjwsl-001\Desktop\LEE Day 002\images\btn_login.JPG"/>
+		</p>
+		<hr />
+		<p>
+			Email：
+			<input type="email" />
+			<input type="submit" />
+		</p>
+		<p>
+			关键字：
+			<input type="search" />
+			<input type="submit" />
+		</p>
+		<p>
+			电话号码：
+			<input type="tel" />
+			<input type="submit" />
+		</p>
+		<p>用户年龄：
+			<input type="number" step="1" max="30" min="1"/>
+			<input type="submit" />
+		</p>
+		<p>
+			选择年龄：
+			<input type="range" name="" />
+			选择颜色：
+			<input type="color" />
+		</p>
+		<p>
+			<input type="date" name="txtdate"/>
+		</p>
+		<p>
+			<input type="submit" />
+		</p>
+		<p>请选择周
+			<input type="week" name="txtweek"/>
+		</p>
+		<p>请选择月份
+			<input type="month" name="txtmonth"/>
+		</p>
+
+		<iframe src="C:\Users\bjwsl-001\Desktop\LEE Day 003\02-homework.html" frameborder="0" width="500" height="100">对不起，您的浏览器不支持iframe..</iframe>
+	</form>
+	<hr />
+ </body>
+</html>

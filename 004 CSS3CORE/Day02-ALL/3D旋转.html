@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <style type="text/css">
+	#stage{
+		perspective:1000px;
+		-webkit-perspective:1000px;
+		}
+	#container{
+		width:800px;
+		height:400px;
+		margin:100px auto;
+		position:relative;
+		transform:rotatex(-45deg) rotatey(0deg);
+		transform-style:preserve-3d;
+		transition-duration:1s;
+		transition-timing-function:linear;
+		}
+	#container:hover{
+		transform:rotatey(180deg);
+	}
+	#container div{
+		width:100px;
+		height:100px;
+		background-color:#e4393c;
+		position:absolute;
+		top:150px;
+		left:350px;
+		}
+	#container div:nth-child(1){
+		transform:translatez(200px);
+		}
+	#container div:nth-child(2){
+		transform:rotatey(60deg) translatez(200px);
+		}
+	#container div:nth-child(3){
+		transform:rotatey(120deg) translatez(200px);
+		}
+	#container div:nth-child(4){
+		transform:rotatey(180deg) translatez(200px);
+		}
+	#container div:nth-child(5){
+		transform:rotatey(240deg) translatez(200px);
+		}
+	#container div:nth-child(6){
+		transform:rotatey(300deg) translatez(200px);
+		}
+ </style>
+ <body>
+	<div id="stage">
+		<div id="container">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+		</div>
+	</div>
+ </body>
+</html>

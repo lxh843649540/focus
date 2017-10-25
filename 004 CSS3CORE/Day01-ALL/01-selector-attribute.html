@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-cn">
+	<head>
+		<title>属性选择器</title>
+		<meta charset="utf-8">
+		<style>
+			[class]{
+				font-weight:bold;
+			}
+			div[class][id]{
+				font-style:italic;
+			}
+			div[id="d1"]{
+				font-size:48px;
+			}
+			div[class~=blueBack]{
+				border:2px solid blue;
+			}
+			div[id^=d]{
+				width:200px;
+				height:200px;
+				border-radius:50%;
+				border:2px solid black;
+				text-align:center;
+				line-height:200px;
+			}
+			div[class$=ack]{
+				background-color:yellow;
+			}
+			[class*=ac]{
+				font-size:18pt;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1" class="c1">id为d1</div>
+		<div class="important redColor blueBack">class为important 以及 redColor 的元素</div>
+		<div id="d2">id为d2的div元素</div>
+		<div class="lack">
+			 class属性值为lack的元素
+		</div>
+		<div class="act">
+			class属性值为act的元素
+		</div>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-cn">
+	<head>
+		<title>模拟弹出菜单</title>
+		<meta charset="utf-8">
+		<style>
+			#my_tb{
+				width:100px;
+				height:30px;
+				line-height:30px;
+				padding:10px;
+				border:1px solid #666;
+				background:orange;
+				/*相对定位*/
+				position:relative;
+				cursor:pointer;
+			}
+
+			#menu{
+				width:300px;
+				height:200px;
+				border:1px solid #666;
+				background:orange;
+				/*绝对定位*/
+				position:absolute;
+				top:50px;
+				left:0px;
+				/*默认隐藏*/
+				display:none;
+			}
+
+			#container{
+				/*配合 #menu 做绝对定位*/
+				position:relative;
+				width:122px;
+			}
+			#container:hover #menu{
+				display:block;
+			}
+			#container:hover #my_tb{
+				border-bottom:none;
+				z-index:100;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div id="my_tb">
+				我的淘宝
+			</div>
+			<div id="menu">
+				我的淘宝弹出菜单
+			</div>
+		</div>
+	</body>
+</html>

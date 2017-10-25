@@ -1,0 +1,98 @@
+body{
+	font-size:12px;
+}
+#discuss{
+	width:990px;
+	margin:0 auto;
+}
+#discuss div.mt{
+	/*高度，背景，边框*/
+	height:30px;
+	background:#F7F7F7;
+	border:1px solid #ddd;
+	border-top:2px solid #9B9B9B;
+}
+#discuss-content{
+	border-bottom:1px solid #ddd;
+	padding-bottom:2px;
+}
+#discuss-datas{
+	width:990px;
+}
+#discuss-datas th{
+	/*文本颜色，下边框，上下内边距*/
+	color:#666;
+	border-bottom:1px solid #ddd;
+	padding:5px 0;
+}
+#discuss-datas .col1{
+	width:600px;
+	text-align:left;
+}
+#discuss-datas td{
+	/*文字颜色，下边框，居中对齐，上下内边距*/
+	color:#9c9a9c;
+	border-bottom:1px dotted #ddd;
+	text-align:center;
+	padding:5px 0;
+}
+#discuss a{
+	color:#005aa0;
+	text-decoration:none;
+}
+#discuss a:hover{
+	text-decoration:underline;
+}
+#discuss-datas i{
+	/*21*17*/
+	padding-left:21px;
+	padding-bottom:2px;
+	padding-top:3px;
+	margin-right:3px;
+	background-image:url(../Images/iconlist_1.png);
+	background-repeat:no-repeat;
+}
+i.shai{
+	background-position:-110px -220px;
+}
+i.lun{
+	background-position:-152px -220px;
+}
+/*作业*/
+#discuss div.mt a{
+	/*左浮动，宽度，高度，水平排列，行高*/
+	float:left;
+	width:100px;
+	height:30px;
+	text-align:center;
+	line-height:30px;
+}
+#discuss div.mt a:hover{
+	/*颜色，取消下划线*/
+	color:#E4393C;
+	text-decoration:none;
+}
+#discuss div.mt a.current{
+	/*左右边框，上边框，背景颜色，文本颜色 */
+	border:1px solid #ddd;
+	border-bottom:none;
+	border-top:2px solid #e4393c;
+	background-color:#fff;
+	color:#e4393c;
+	/*向上移动元素*/
+	margin-top:-6px;
+	/*增加高度*/
+	height:35px;
+	line-height:35px;
+}
+#extra div.total{
+	float:right;
+}
+
+
+
+
+
+
+
+

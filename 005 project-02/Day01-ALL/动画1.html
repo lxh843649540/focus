@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-cn">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>动画1</title>
+	<style type="text/css">
+		/*@keyframes 名称{
+			0%|from{动画开始时，元素的状态}
+			100%|end{动画结束时，元素的状态}
+			}
+		@-wedkit-keyframes 名称{
+			0%|from{动画开始时，元素的状态}
+			100%|end{动画结束时，元素的状态}
+			}*/
+		#container{
+			width:100px;
+			height:100px;
+			background-color:red;
+			border:1px solid #000;
+			/*页面加载时即调用动画*/
+			animation:scroll 5s linear infinite alternate;
+			}
+		#container:hover{
+			/*animation-name:scroll;
+			animation-duration:5s;
+			animation-timing-function:linear;
+			animation-iteration-count:infinite;
+			animation-direction:alternate;*/
+			animation-play-state:paused;
+			}
+		/*申明动画*/
+		@-webkit-keyframes scroll{
+			0%{
+				background-color:#f00;
+				}
+			25%{
+				background-color:yellow;
+				margin-left:200px;
+				border-radius:0%;
+				margin-top:0;
+				}
+			50%{
+				background-color:green;
+				margin-top:200px;
+				margin-left:200px;
+				border-radius:50%;
+				}
+			75%{
+				background-color:blue;
+				margin-top:200px;
+				margin-left:0;
+				border-radius:50%;
+				}
+			100%{
+				background-color:red;
+				margin-top:0px;
+				margin-left:0;
+				border-radius:0%;
+				}
+			}
+		
+
+	</style>
+ </head>
+ <body>
+	<div id="container"></div>
+	<div></div>
+	<div></div>
+	<div></div>
+ </body>
+</html>

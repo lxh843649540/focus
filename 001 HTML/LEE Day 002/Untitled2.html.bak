@@ -1,0 +1,18 @@
+<!--文档类型申明-->
+<!doctype html>
+<html lang="zh-cn">
+ <head>
+  <meta charset="UTF-8"><!--保证文件也是"utf-8"-->
+  <title>课堂实操</title>
+  <meta name="keyword" content="标记,中"><!--设置网页关键字(keyword),面向搜索引擎-->
+  <meta name="descrition" content="减肥是现在热门讨论的话题*******"><!--设置网页预览内容（description）面向搜索引擎，不是用户-->
+  <style></style>
+  <link><!--样式的引入-->
+  <script></script>
+
+ </head>
+ <body>
+   <div align="right">这是一个div元素</div>
+   <span align="center">这是一个span元素</span>
+ </body>
+</html>

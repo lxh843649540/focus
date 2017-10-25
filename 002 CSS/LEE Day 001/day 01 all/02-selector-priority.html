@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-cn">
+	<head>
+		<title>选择器优先级</title>
+		<meta charset="utf-8">
+		<style>
+			#d1 #s1{color:red;}/*100+100=200*/
+			#d1 p span{color:orange;}/*100+1+1=102*/
+			.p1 span{color:yellow;}/*10+1=11*/
+			#d1 #p #s1{color:pink;}/*100+100+100=300*/
+			#d1 .p1 span{color:blue;}/*100+10+1=111*/
+
+
+			#top{color:red;}
+			span{color:orange;}
+
+			a:hover{color:red;}/*权值：11*/
+			a.anchor{color:black;}/*权值：11*/
+		</style>
+	</head>
+	<body>
+		<a class="anchor" href="http://www.oschina.net">中国开源社区</a>
+
+		<div id="top">
+			<span>top中的span</span>
+		</div>
+
+
+
+		<div id="d1">
+			<p id="p" class="p1">
+				<span id="s1">这是一个span</span>
+			</p>
+		</div>
+	</body>
+</html>

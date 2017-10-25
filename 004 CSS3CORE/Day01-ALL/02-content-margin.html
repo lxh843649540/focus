@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-cn">
+	<head>
+		<title>内容生成解决的问题</title>
+		<meta charset="utf-8">
+		<style>
+			#parent{
+				background-color:red;
+			}
+			#son{
+				width:200px;
+				height:200px;
+				background-color:yellow;
+				margin-top:50px;
+			}
+
+			#parent:before{
+				content:"";
+				display:table;
+			}
+
+			#container{
+				border:1px solid #000;
+			}
+			#container div{
+				width:200px;
+				height:200px;
+				background-color:blue;
+				float:left;
+			}
+
+			.clear:after{
+				content:"";
+				display:block;
+				clear:both;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container" class="clear">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<!-- 
+				1、在最后一个子元素位置处(:after)
+				2、空元素(content:"")
+				3、必须为块级(display:block;)
+				4、清除浮动(clear:both;)
+			-->
+		</div>
+
+		<!-- <div id="parent"> -->
+			<!-- 
+				1、在第一个子元素的位置处(内容区域之前:before)
+				2、添加空子元素(content:"";)
+				3、子元素类型必须为table(display:table)
+			-->
+			<!-- <div id="son"></div> -->
+		<!-- </div> -->
+	</body>
+</html>

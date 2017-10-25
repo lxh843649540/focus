@@ -1,0 +1,281 @@
+﻿1、结构标记
+2、表单
+3、新表单元素(HTML5新标记)
+==========================================
+1、结构标记
+	1、网页结构(布局)
+		块级元素做布局 -> div
+	2、什么是结构标记
+		为了取代 做布局的 div，从而体现出布局标记的语义性
+	3、常用结构标记
+		1、header 元素
+			作用：用来表示页面 或 某部分内容的 顶部信息
+			语法：<header></header>
+		2、nav 元素
+			作用：用来表示页面的主导航信息
+			语法：<nav></nav>
+		3、section 元素
+			作用：表示页面中的 小节，也可以用来表示页面的主体内容
+			语法：<section></section>
+		4、article 元素
+			作用：表示页面中的 文章信息 ，或是文字居多的部分，比如：博客信息，微博中的条目，论坛中的主贴 和 回帖
+			语法：<article></article>
+		5、footer 元素
+			作用：表示页面中 底部的信息，一般用户关注度较低
+			语法：<footer></footer>
+		6、aside 元素
+			作用：表示页面中的边栏信息
+			语法：<aside></aside>
+2、表单(重难点)
+	1、表单概述
+		表单用于显示、收集用户信息，并提交给服务器
+
+		完整的表单由两部分组成：
+			1、实现表单以及可交互的界面元素(前端)
+				1、表单元素
+					用于定义表单的提交信息如：提交地址，提交方式... ...
+				2、表单控件
+					能够与用户交互的界面元素 如：文本框，密码框... ...
+			2、表单提交后的处理(服务器端)
+	2、表单元素
+		1 、语法
+			<form></form>
+
+			注意：
+				1、只有出现在 form 中的 表单控件的数据才会被提交
+				2、form 在页面中 没有显示效果，只有功能
+		2、属性
+			1、action
+				作用：指定提交给服务器处理程序的地址，该地址要与服务器端人员商量
+				注意：如果省略不写，默认提交给本页
+			2、method
+				作用：指定提交数据的方法(模式)
+				取值：
+					1、get (默认值)
+						获取
+						特点：
+							1、以明文的方式提交数据到服务器(数据会显示在地址栏上),安全性较低
+							2、最大提交2kb数据
+							3、向服务要数据时用get方式
+					2、post
+						邮寄... ...
+						特点：
+							1、以隐式的方式提交数据到服务器(不会显示),安全性较高
+								身份证号，密码，安全性要求高的数据，必须用post
+							2、无提交数据大小限制
+							3、让服务器处理数据时使用post
+					3、put
+					4、delete
+					... ...
+			3、enctype
+				作用：指定表单数据的编码方式(什么样的数据允许被提交)
+				取值：
+					1、application/x-www-form-urlencoded
+						默认值
+						可以将所有的数据提交给服务器(文件除外)
+					2、multipart/form-data
+						允许将文件(图像，音频，视频，文档等)提交给服务器
+					3、text/plain
+						允许将普通字符提交给服务器，特殊字符无法提交(=,&,?)
+			4、name
+				定义表单的名称
+			5、ID
+				定义表达独一无二的标识
+	3、表单控件
+		都是与用户进行交互的元素
+		表单控件：
+			1、input 元素
+				作用：收集用户的信息
+				标记：<input> 或 <input/>
+				属性：
+					1、type
+						根据不同的type值，创建不同的输入控件
+					2、name
+						定义控件的名称，提供给服务器端使用,采用匈牙利命名法 控件缩写+功能
+					3、value
+						定义控件的值，提供给服务器端使用
+					4、disabled
+						禁用控件(无法操作，无法提交)
+						该属性无值
+				input控件详解：
+					1、文本框 与 密码框
+						文本框：type="text"
+						密码框：type="password"
+
+						属性：
+							1、maxlength
+								限制输入的字符数
+							2、readonly
+								只读(只能看，不能改，但允许被提交)
+								无值属性
+							3、name
+								缩写：txt
+								 用户名：txtUsername
+								 用户密码:txtPassword
+							4、placeholder
+								占位符
+					2、单选按钮 和 复选框
+						单选按钮：type="radio"
+						复选框：type="checkbox"
+
+						属性：
+							1、name
+								1、定义控件的名称
+								2、为控件分组
+
+								radio缩写：rdo
+								checkbox缩写：chk
+							2、value
+								值
+							3、checked
+								预选中
+					3、按钮
+						1、提交按钮
+							type="submit"
+						2、重置按钮
+							type="reset"
+						3、普通按钮
+							type="button"
+						属性：
+							1、name
+								缩写：btn
+							2、value
+								按钮上的文字
+						其他按钮：
+						1、图片按钮(提交功能)
+							<input type="image">
+							属性：src
+						2、按钮(提交按钮)
+							<button>内容</button>
+					4、隐藏域 和 文件选择框
+						隐藏域：type="hidden"
+						文件选择框：type="file"
+
+						隐藏域：想提交给服务器，但不想被用户看见的数据放在隐藏域中
+
+						属性：
+							1、name
+							2、value
+						使用文件选择框时注意以下问题：
+						1、要求 form 的method 属性必须为 post
+						2、要求 form 的enctype 属性必须为 multipart/form-data
+
+			2、textarea 元素(多行文本域)
+				允许录入多行数据
+				1、语法
+					标记：<textarea></textarea>
+					属性：
+						1、name
+							缩写：txt
+						2、cols
+							指定文本区域的列数
+						3、rows
+							指定文本区域的行数
+						4、readonly
+							只读
+			3、select 和 option(选择框)
+				语法：
+					1、标记
+						选择框：
+						<select></select>
+						选项：
+						<option></option>
+					2、属性
+						1、<select>属性
+							1、name
+								缩写：sel
+							2、size
+								默认显示选项的数量，如果大于1的话，则为滚动列表
+							3、multiple
+								设置多选，也会变成滚动列表
+								配合 Ctrl 或 Shift 实现多选
+						2、<option>属性
+							1、value
+								值
+							2、selected
+								默认预选中,无值
+			4、其他
+				1、label 元素
+					作用：关联文本 与 控件
+					语法：
+						1、标记
+							<label></label>
+						2、属性
+							for ：表示与该元素关联的控件的ID值
+				2、为控件分组
+					<fieldset></fieldset> : 分组
+					<legend></legend> : 分组标题
+				3、浮动框架
+					1、什么是浮动框架
+						可以在一个浏览器窗口中同时显示多个页面文档的内容
+						（在一个页面中引入另外一个页面）
+					2、语法
+						1、标记
+							<iframe>文字</iframe>
+						2、属性
+							1、src
+								浮动框架中要引入的页面URL
+							2、width
+								宽度
+							3、height
+								高度
+							4、frameborder
+								浮动框架边框，如果不想要边框的话，可以设置为0
+3、新表单元素(HTML5新标记) ：缩写统一 txt
+	属性：
+		required : 非空限制
+
+	1、电子邮件类型
+		<input type="email">
+	2、搜索类型
+		<input type="search">
+	3、URL类型
+		数据必须符合 URL 规范
+		<input type="url">
+	4、电话号码类型
+		<input type="tel">
+		移动终端：弹出 数字键盘
+	5、数字类型
+		<input type="number">
+		属性：
+			1、min
+				控件接受的最小值
+			2、max
+				控件接受的最大值
+			3、step
+				控制控件递增的步长，默认为1
+	6、范围类型
+		作用：允许选择指定范围内的一个值
+		<input type="range">
+		属性：
+			1、min ：指定范围的最小值(下限值)
+			2、max ：指定范围的最大值(上限值)
+			3、step：值变化的步长
+			4、value：设置初始值
+	7、颜色类型
+		作用：颜色拾取控件
+		<input type="color">
+	8、日期类型
+		作用：允许用户选择日期
+		<input type="date">
+	9、周类型
+		作用：与date类似，但只能选择周
+		<input type="week">
+	10、月份类型
+		作用：与date类型，但只能选择一个月份
+		<input type="month">
+
+
+
+https://www.baidu.com/?txtUsername=sanfeng.zh&txtPassword=yinsusu&rdoGender=1&chkHobby=0&chkHobby=1&chkHobby=2&chkHobby=3
+
+https://www.baidu.com/?txtUsername=fdafda&txtPassword=fdsafdsa&rdoGender=1&chkHobby=1&txtUserID=30065101
+
+
+file:///E:/%E8%B5%B5%E6%97%AD/01_HTML5BASIC/Day03/Exer/01-form.html?txtName=mary%40163.com&txtPassword=fdsafdsa&chkAuto=on
+
+file:///E:/%E8%B5%B5%E6%97%AD/01_HTML5BASIC/Day03/Exer/01-form.html?txtName=mary%40163.com&txtPassword=fdafdsafd
+
+file:///E:/%E8%B5%B5%E6%97%AD/01_HTML5BASIC/Day03/03-newForm.html?txtEmail=fdsafdsafdsa%40163&txtSearch=&txtUrl=&txtTel=&txtAge=&txtNewage=30&txtColor=%23000000&txtDate=&txtWeek=2010-W25&txtMonth=2017-12
+
+

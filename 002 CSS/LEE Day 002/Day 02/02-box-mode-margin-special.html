@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-cn">
+	<head>
+		<title>外边距特殊注意</title>
+		<meta charset="utf-8">
+		<style>
+			#d1,#d2{
+				width:200px;
+				height:200px;
+			}
+			#d1{
+				background-color:red;
+			}
+			#d2{
+				background-color:yellow;
+				/*border-top:1px solid transparent;*/
+			}
+			#d3{
+				width:100px;
+				height:100px;
+				background-color:blue;
+				margin-top:40px;
+			}
+
+			#s1{
+				background-color:green;
+				margin-top:50px;
+			}
+
+			#txt{
+				margin-top:20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1"></div>
+		<div id="d2">
+			<table></table>
+			<div id="d3"></div>
+		</div>
+		<span id="s1">行内元素span</span>
+		<input id="txt">
+	</body>
+</html>

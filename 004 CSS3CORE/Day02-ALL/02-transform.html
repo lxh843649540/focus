@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-cn">
+	<head>
+		<title>Insert a title</title>
+		<meta charset="utf-8">
+		<style>
+			#d1,#d2{
+				width:200px;
+				height:200px;
+				position:absolute;
+				left:400px;
+				top:200px;
+			}
+			#d1{
+				background-color:#ddd;
+				border:1px solid #333;
+				
+			}
+			#d2{
+				background-color:pink;
+				border:1px solid orange;
+				opacity:0.5;
+				/*转换-位移*/
+				/*transform:translate(50px,50px);*/
+				/*转换-缩放*/
+				/*transform:scale(-2);*/
+				/*转换原点*/
+				/*transform-origin:top left;*/
+				/*转换-旋转*/
+				/*transform:translate(50px) rotate(45deg) ;*/
+				/*倾斜30°*/
+				/*transform:skew(30deg);*/
+				/*transform:skewY(30deg)*/
+				transform:skew(30deg,30deg);
+
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1">参考元素</div>
+		<div id="d2">转换元素</div>
+	</body>
+</html>

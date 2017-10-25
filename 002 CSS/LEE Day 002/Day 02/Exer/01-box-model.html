@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-cn">
+	<head>
+		<title>Insert a title</title>
+		<meta charset="utf-8">
+		<style>
+			#comment{
+				/*宽度，min-height，内边距，边框*/
+				width:90%;
+				min-height:50px;
+				padding:10px;
+				border:1px solid #D0E4C2;
+				/*下外边距*/
+				margin-bottom:10px;
+			}
+
+			#pages a{
+				/*边框，倒角*/
+				border:1px solid #ccc;
+				border-radius:5px;
+				/*内边距*/
+				padding:3px 10px;
+			}
+
+			#pages a.current{
+				border:none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="comment"></div>
+		<div id="pages">
+			<a class="current">1</a>
+			<a href="#">2</a>
+			<a href="#">3</a>
+			<a href="#">4</a>
+			<a href="#">5</a>
+			<a href="#">6</a>
+		</div>
+	</body>
+</html>

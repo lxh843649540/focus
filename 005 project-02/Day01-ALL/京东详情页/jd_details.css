@@ -1,0 +1,106 @@
+#main{
+	display:flex;
+	flex-direction:row;
+	flex-wrap:wrap;/*允许项目换行*/
+}
+#bread-crumb{
+	width:1211px;
+}
+#product-intro{
+	width:1211px;
+}
+#lf-product{
+	width:211px;
+	background:blue;
+}
+#rt-product{
+	width:990px;
+	margin-left:10px;
+	background:yellow;
+}
+/******1、面包屑导航******/
+#bread-crumb b{
+	font-size:18px;
+}
+/******2、产品简介************/
+#product-intro{
+	/*弹性布局,两端对齐*/
+	display:flex;
+	justify-content:space-between;
+	margin:10px 0;
+}
+/*图像预览*/
+#preview>p{
+	border:1px solid #ddd;
+}
+#preview>div{
+	display:flex;
+	justify-content:space-between;
+	margin-top:10px;
+}
+/*左右方向的a*/
+#preview>div>a{
+	width:17px;
+	height:54px;
+	background:url(my/images/background_list.png) no-repeat 0 -60px;
+}
+#preview>div>a.next{
+	background-position:-20px -60px;
+}
+#preview>div ul{
+	/*弹性布局，宽度，项目的对齐方式*/
+	display:flex;
+	width:302px;
+	justify-content:space-between;
+}
+#preview>div li{
+	width:54px;
+	height:54px;
+	border:1px solid #ddd;
+	padding:1px;
+}
+#preview>div li:hover{
+	border:2px solid #e4393c;
+	padding:0;
+}
+/*右：文字信息*/
+#detail{
+	width:849px;
+	height:352px;
+}
+#detail h1 p{
+	color:#e4393c;
+}
+#summary{
+	/*上边框，上外边距，上内边距*/
+	border-top:1px dotted #ddd;
+	margin-top:10px;
+	padding-top:10px;
+	height:294px;
+	/*弹性布局*/
+	display:flex;
+	flex-direction:column;/*主轴为交叉轴*/
+	justify-content:space-between;
+}
+#summary li.line{
+	width:600px;
+	border-top:1px dotted #ddd;
+}
+#summary li{
+	display:flex;
+	align-items:center;
+}
+#summary li>p{
+	font-family:simsun;
+	width:72px;
+	text-align:right;
+}
+/*京东价*/
+#summary-price b{
+	color:#e4393c;
+	font-size:18px;
+}
+
+
+
+

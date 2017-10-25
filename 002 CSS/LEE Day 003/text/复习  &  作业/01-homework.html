@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-cn">
+	<head>
+		<title>Insert a title</title>
+		<meta charset="utf-8">
+		<style>
+			#comment{
+				/*宽度，min-height，内边距，边框*/
+				width:90%;
+				min-height:50px;
+				padding:10px;
+				border:1px solid #D0E4C2;
+				/*下外边距*/
+				margin-bottom:10px;
+			}
+
+			#pages a{
+				/*边框，倒角*/
+				border:1px solid #ccc;
+				border-radius:5px;
+				/*内边距*/
+				padding:3px 10px;
+			}
+
+			#pages a.current{
+				border:none;
+			}
+			/*作业内容*/
+			#comment{
+				background:#FCFFFA;
+			}
+
+			#pages a:hover{
+				background:#005aa0;
+				color:#fff;
+			}
+			#pages a.current{
+				background:transparent;
+				color:#000;
+			}
+
+			#comment div.top{
+				/*下边框，左下内边距*/
+				border-bottom:1px solid #d0e4c2;
+				padding:0 0 5px 5px;
+			}
+
+			div.star{
+				/*宽度，高度，背景属性*/
+				width:76px;
+				height:15px;
+				background:url(../Images/iconlist_1.png) no-repeat;
+			}
+			div.star5{
+				background-position:-108px -238px;
+			}
+			div.star4{
+				background-position:-123px -238px;
+			}
+			div.star3{
+				background-position:-138px -238px;
+			}
+			div.star2{
+				background-position:-153px -238px;
+			}
+			div.star1{
+				background-position:-168px -238px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="comment">
+			<div class="top">
+				<div class="star star1"></div>
+			</div>
+		</div>
+		<div id="pages">
+			<a class="current">1</a>
+			<a href="#">2</a>
+			<a href="#">3</a>
+			<a href="#">4</a>
+			<a href="#">5</a>
+			<a href="#">6</a>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-cn">
+	<head>
+		<title>弹性布局</title>
+		<meta charset="utf-8">
+		<style>
+			#container{
+				border:1px solid #000;
+				height:1000px;
+				/*变为 弹性布局 容器*/
+				display:flex;
+				/*排列方向*/
+				flex-direction:row;
+				/*换行方式*/
+				flex-wrap:wrap;
+				/*flex-wrap:wrap-reverse;*/
+				/*对齐方式*/
+				justify-content:space-around;
+				/*交叉轴对齐方式*/
+				align-items:center;
+				/*多跟轴线的对齐方式*/
+				align-content:space-between;
+			}
+			
+			.c1{
+				width:200px;
+				height:200px;
+				background-color:red;
+				order:2;
+				flex-grow:1;
+				align-self:flex-start;
+			}
+			.c2{
+				width:200px;
+				height:200px;
+				background-color:green;
+				font-size:28px;
+				order:1;
+				flex-grow:2;
+			}
+			.c3{
+				width:200px;
+				height:200px;
+				background-color:blue;
+				order:3;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div class="c1">
+				这是一个div
+			</div>
+			<div class="c2">
+				这是一个div，里面有好多的文本
+				这是一个div，里面有好多的文本
+			</div>
+			<div class="c3">
+				这是class为c3的div元素
+			</div>
+		</div>
+	</body>
+</html>
