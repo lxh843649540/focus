@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  "use strict";
+  var config={
+    IP:"192.168.0.100",
+    PORT:27017,
+    USER:"admin",
+    PWD:"123456"
+  }
+  Object.freeze(config);
+  //config.PORT=8080;
+  delete config.PORT;
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  //创建一个学生对象limei
+    //2个属性: 姓名:Li Mei, 年龄:11
+    //1个功能: 做自我介绍:
+      //我是Li Mei, 我今年11
+  var limei={
+    sname:"Li Mei",
+    sage:11,
+    int(){
+      console.log("I'm"+this.sname+"I'm"+this.sage)
+    }
+  };
+  //输出limei的姓名
+  console.log(limei.sname);
+  //请limei做自我介绍
+  limei.int();
+  //将limei的年龄+1
+  limei.sage+=1;
+  //再输出limei的年龄
+  console.log(limei.sage);
+  //再请limei做自我介绍
+  limei.int();
+</script>
+</body>
+</html>

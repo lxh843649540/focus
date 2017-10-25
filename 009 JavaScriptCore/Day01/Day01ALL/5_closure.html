@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+//  var i=1;
+//  function getNum(){
+//    //var i=1;
+//    console.log(i++);
+//  }
+  function outer(){
+    var i=1;//受保护
+    return function(){
+      console.log(i++);
+    }
+  }
+  var getNum=outer();
+  //getNum:function(){console.log(i++);}
+
+  //需求:
+  getNum();//1
+  getNum();//2
+  i=1;
+  getNum();//3
+  getNum();//4
+</script>
+</body>
+</html>

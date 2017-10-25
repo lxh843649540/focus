@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  +function(){
+  //划分临时作用域，避免全局污染
+    var now=new Date();
+    alert("开始加载,at:"
+      +now.toLocaleString());
+  }()
+</script>
+<h1>Welcome</h1>
+<p>welcome to my web site</p>
+<script>
+  (function(){
+    var now=new Date();
+    alert("加载完成,at:"
+    +now.toLocaleString());
+  })();
+</script>
+</body>
+</html>

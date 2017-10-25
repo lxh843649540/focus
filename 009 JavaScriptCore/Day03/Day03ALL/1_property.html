@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  "use strict";
+
+  var emp={
+    id:1001,     //禁止修改
+    ename:"eric",//禁止删除
+    salary:12000 //禁止遍历
+  }
+  //禁止修改id的值
+  //禁止删除ename:
+  //禁止遍历salary:
+  Object.defineProperties(emp,{
+    id:{
+      writable:false,
+      configurable:false
+    },
+    ename:{configurable:false},
+    salary:{
+      enumerable:false,
+      configurable:false
+    }
+  });
+//  Object.defineProperty(emp,"id",{
+//    writable:false,
+//    configurable:false//不可逆
+//  });
+//  Object.defineProperty(emp,"ename",{
+//    configurable:false//不可逆
+//  });
+//  Object.defineProperty(emp,"salary",{
+//    enumerable:false,
+//    configurable:false//不可逆
+//  });
+
+
+//  Object.defineProperty(emp,"id",{
+//    writable:true,
+//    configurable:true
+//  });
+//  emp.id=1002;
+
+//  delete emp.ename;
+  console.dir(emp);
+  for(var key in emp){
+    console.log(key+":"+emp[key]);
+  }
+  console.log(emp.salary);
+  console.log(
+    Object.getOwnPropertyDescriptor(
+      emp,"id"//ename//salary
+    )
+  );
+
+</script>
+</body>
+</html>

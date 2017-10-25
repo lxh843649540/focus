@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  if(!("map" in Array.prototype))
+    Array.prototype.map=function(fun){
+      for(var i=0,arr=[];
+          i<this.length;
+          i++){
+        var newVal=fun(this[i],i,this);
+        arr.push(newVal);
+      }
+      return arr;
+    };
+  var arr=[1,2,3,4,5];
+//  arr.forEach(function(val,i,arr){
+//    //val*=2; //错误: 按值传递，修改副本不影响原值
+//    arr[i]*=2;
+//    //arr[i]=val*2;
+//  });
+  var evens=arr.map(function(val){
+    return val*2;
+  });
+  document.write(String(arr)+"<br>");
+  document.write(String(evens));
+
+</script>
+</body>
+</html>

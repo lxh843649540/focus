@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包</title>
+</head>
+<body>
+<script>
+    function outer(){
+      var i=1;
+      return function(){console.log(i++);}
+    }
+    var re=outer();
+    re();
+    re();
+    re();
+    re();
+</script>
+</body>
+</html>

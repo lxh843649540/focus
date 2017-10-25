@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  function Flyer(fname,speed){
+    this.fname=fname;
+    this.speed=speed;
+  }
+  Flyer.prototype.fly=function(){
+    console.log(this.fname+" 以时速 "+this.speed+" 飞行");
+  }
+  function Plane(fname,speed,score){
+    //new Plane->Plane中的this->f16
+    //用Plane中正确的this代替Flyer中默认错误的this
+    Flyer.call(this,fname,speed);
+    this.score=score;
+  }
+  Plane.prototype.getScore=function(){
+    console.log("击落"+this.fname+" +"+this.score+" 分");
+  }
+  //让子类型原型继承父类型原型
+  Object.setPrototypeOf(
+    Plane.prototype,Flyer.prototype
+  );
+  function Bee(fname,speed,award){
+    ?
+  }
+  Bee.prototype.getAward=function() {
+    console.log("击落 " + this.fname + " 奖励 " + this.award);
+  }
+  //让子类型原型继承父类型原型
+
+  var f16=new Plane("F16",1000,20);
+  f16.fly();
+  f16.getScore();
+  console.dir(f16);
+</script>
+</body>
+</html>

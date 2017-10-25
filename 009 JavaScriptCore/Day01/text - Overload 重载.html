@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Overflow</title>
+</head>
+<body>
+<script>
+//    function pay(){
+//        if (arguments.length===0)console.log("不支持手机支付");
+//        else
+//            if (arguments.length===1)console.log("不支持现金支付"+arguments[0]);
+//        else
+//            if(arguments.length===2)console.log("不支持刷卡支付");
+//        else
+//            console.log("本店今天全免")
+//    }
+//    pay();
+//    pay(100);
+//    pay(1,2);
+//    pay(1,2,3,5)
+
+//-------------------------------
+
+    function add(){
+        for(var i=0,sum=0;i<arguments.length;i++){
+            sum+=arguments[i];
+        }
+        return sum
+    }
+    console.log(
+        add(1,2,3),
+        add(1,2,3,4,5)
+    )
+</script>
+</body>
+</html>

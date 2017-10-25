@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  "use strict";
+  var a=10;
+  function fun(){
+    console.log(a);//报错，未定义
+    let a=100;
+    console.log(a);
+  }
+  fun();// undefined   100
+  console.log(a);// 10
+</script>
+</body>
+</html>

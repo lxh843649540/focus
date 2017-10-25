@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  "use strict";
+  function Emp(id,ename,salary,age){
+    this.id=id;
+    this.ename=ename;
+    this.salary=salary;
+    this._age;//暂时不赋值
+    //id禁止修改
+    //ename禁止删除
+    //salary禁止遍历
+    //age介于18~65之间
+    Object.defineProperties(this,{
+      id:{writable:false},
+      salary:{enumerable:false},
+      age:{//添加访问器属性age
+        get(){
+          return this._age;
+        },
+        set(val){
+          if(val>=18&&val<=65)
+            this._age=val;
+          else
+            throw new RangeError(
+              "年龄必须介于18~65之间");
+        },
+        enumerable:true
+      }
+    })
+    //将外部传入的参数age交给访问器属性age检查，检查通过，由访问器属性age赋值给受保护的_age属性
+    this.age=age;
+
+    //防篡改:
+    //Object.preventExtensions(this);
+    Object.seal(this);
+  }
+  var eric=new Emp(1001,"Eric",12000,23);
+
+  //eric.id=1002;
+  //delete eric.ename;
+  //eric.age=-2;
+  eric.age=24;
+  eric.Age=-2;
+  console.dir(eric);
+  for(var key in eric){
+    console.log(key+":"+eric[key]);
+  }
+
+
+
+</script>
+</body>
+</html>

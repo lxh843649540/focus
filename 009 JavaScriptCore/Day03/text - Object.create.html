@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Object.create</title>
+</head>
+<body>
+<script>
+    var father={
+        bal:10000000000,
+        car:"infiniti"
+    };
+    var hmm=Object.create(father,{
+        Myphone:{
+            //四大属性默认值为false
+            value:"Iphone8",
+            writable:true,
+            enumerable:true,
+            configurable:true
+        },
+        bag:{
+            value:"LV",
+            writable:true,
+            enumerable:true,
+            configurable:true
+        }
+    });
+    console.dir(hmm);
+</script>
+</body>
+</html>

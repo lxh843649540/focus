@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>every&some</title>
+</head>
+<body>
+<script>
+var arr1=[2,4,6,4,2];
+var arr2=[1,2,3,4,5];
+console.log(arr1.every(
+    function (val) {
+        return val%2===0;
+    }
+));
+console.log(arr2.some(
+    function (val) {
+        return val%2===0;
+    }
+));
+console.log(arr1.every(
+    function (val,i,arr) {
+        return i<arr.length-1?val<arr[i+1]:true;
+    }
+));
+console.log(arr2.every(
+    function (val,i,arr) {
+        return i<arr.length-1?val<arr[i+1]:true;
+    }
+))
+</script>
+</body>
+</html>

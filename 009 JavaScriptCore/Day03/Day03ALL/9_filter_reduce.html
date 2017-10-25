@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  var arr=[1,2,3,4,5];
+  var evens=arr.filter(function(val){
+    return val%2==0;
+  });
+  console.log(String(arr));
+  console.log(String(evens));
+  var sum=arr.reduce(function(prev,val){
+    return prev+val;
+  });
+  console.log(sum);//15
+  var arr=[2,4,6,8,10];
+  sum=arr.reduce(function(prev,val){
+    return prev+val;
+  },sum);
+  console.log(sum);//45
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>自我学习</title>
+</head>
+<body>
+<script>
+    //-----------------------第一种创建对象方式------------------------
+//var lee={
+//    lname:"李小辉",
+//    lage:23,
+//    lheight:170,
+//    can(){
+//        console.log("我是"+this.lname+",我今年"+this.lage+"岁")
+//    }
+//};
+//console.log(lee.lage);
+//console.log(lee.lname);
+//lee.can();
+//lee.lage++;
+//console.log(lee.lage);
+//lee.can();
+
+    //---------------第二种创建对象方式(几乎不用,用的很少)-----------------
+//    var lee=new Object();
+//    lee.lname="李小辉";
+//    lee.lage=23;
+//    lee.can=function () {
+//        console.log("我是"+this.lname+",我今年"+this.lage+"岁")
+//    }
+//    console.log(lee.lage);
+//    console.log(lee.lname);
+//    lee.can();
+//    lee.lage++;
+//    console.log(lee.lage);
+//   lee.can();
+
+    //--------------------第三种 构造函数(一个模板  多次引用)------------------------
+    function students(name,age,height) {
+        this.sname = name;
+        this.sage = age;
+        this.sheight = height;
+    }
+   students.prototype.say=function () {
+       console.log("我是"+this.sname+",我今年"+this.sage+"岁"+"身高"+this.sheight)
+   };
+   let lee=new students("李小辉",23,170);
+   lee.say();
+   lee.sname="李";
+   console.log(lee.sname);
+    students.prototype.say=function () {
+        console.log("我是"+this.sname+",我今年"+this.sage+"岁"+"身高"+this.sheight)
+    };
+    lee.say();
+    console.log("indexOf" in students.prototype);
+</script>
+</body>
+</html>

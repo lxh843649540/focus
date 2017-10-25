@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    "use strict"
+    var lee={
+        id:1702,
+           lname:"Lee",
+        salary:15000
+    };
+    Object.defineProperty(lee,"lname",{
+        configurable:false
+    });
+    lee.id=1701;
+    delete lee.lname;
+    console.dir(lee);
+    for(var key in lee ){
+        console.log(key+":"+lee[key])
+    }
+
+
+
+</script>
+</body>
+</html>

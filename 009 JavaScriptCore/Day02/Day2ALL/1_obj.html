@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+    //创建一个学生对象lilei
+    //2个属性: 姓名:Li Lei, 年龄:11
+    //1个功能: 做自我介绍:
+    //我是Li Lei, 我今年11
+  var lilei={
+    sname:"Li Lei",
+    sage:11,
+    intr(){
+      console.log(
+        "I'm "+this.sname+",I'm "+this.sage);
+    }
+  };
+  //  var lilei=new Object();
+  //  lilei.sname="Li Lei";
+  //  lilei.sage=11;
+  //  lilei.intr=function(){
+  //    console.log(
+  //      "I'm "+this.sname
+  //      +",I'm "+this.sage);
+  //  }
+  //输出lilei的姓名
+  console.log(lilei.sname);
+  //请lilei做自我介绍
+  lilei.intr();
+  //将lilei的年龄+1
+  lilei.sage++;
+  //再输出lilei的年龄
+  console.log(lilei.sage);//12
+  //再请lilei做自我介绍
+  lilei.intr();
+  console.dir(lilei);
+</script>
+</body>
+</html>

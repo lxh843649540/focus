@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  function Student(sname,sage){
+    this.sname=sname;
+    this.sage=sage;
+  }
+  Student.prototype.intr=function(){
+    console.log(
+      "I'm "+this.sname+",I'm "+this.sage);
+  }
+  Student.prototype.classname="初一2班";
+  var lilei=new Student("Li Lei",11);
+  var hmm=new Student("Han Meimei",12);
+  console.dir(lilei);
+  console.dir(hmm);
+  var father={
+    bal:10000000000,
+    car:"infiniti"
+  };
+  //hmm.__proto__=father;
+  Object.setPrototypeOf(hmm,father);
+  console.log(hmm.bal);
+  console.log(hmm.car);
+  console.log(lilei.bal);
+  console.log(lilei.car);
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>构造函数/原型对象</title>
+</head>
+<body>
+<script>
+    function Student(sname,sage){
+        this.sname=sname;
+        this.sage=sage;
+    }
+    Student.prototype.intr=function(){
+        console.log("I'm"+this.sname+", I'm"+this.sage+"years old"+", My classname is:"+this.className)
+    };
+    Student.prototype.className="初一2班";
+    var kangkang=new Student("kangkang",11);
+    console.dir(kangkang);
+    var Jane=new Student("Jane",12);
+    console.dir(Jane);
+    console.log(kangkang.className);
+    console.log(Jane.className);
+    kangkang.intr();
+    Jane.intr();
+</script>
+</body>
+</html>

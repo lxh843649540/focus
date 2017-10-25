@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  "use strict";
+  +function(){
+    var t=0;//用于计时的变量t
+    console.log("建立连接,耗时0.3秒");
+    t+=0.3;//t=0.3;
+    (function(){
+      //var t;
+      console.log("查询数据,耗时0.8秒");
+      t+=0.8;//t=1.1;
+
+      var err=true;//没发生错误
+      if(err){
+        //不允许提前使用t
+        let t=new Date();
+        console.log("发生错误,at:"+t);
+      }//let t释放！
+
+      console.log("共耗时:"+t);
+    })()
+  }()
+</script>
+</body>
+</html>

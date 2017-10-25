@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  var arr1=[2,4,6,4,2];
+  var arr2=[1,2,3,4,5];
+  //判断哪个数组全由偶数组成
+  console.log(
+    arr1.every(function(val){
+      return val%2==0;
+    }),
+    arr2.every(function(val){
+      return val%2==0;
+    })
+  );
+  //判断是否包含偶数
+  console.log(
+    arr1.some(function(val){
+      return val%2==0;
+    }),
+    arr2.some(function(val){
+      return val%2==0;
+    })
+  );
+  //判断哪个数组是升序排列
+  console.log(
+    arr1.every(function(val,i,arr){
+      return i<arr.length-1?
+              val<=arr[i+1]:true;
+    }),//false
+    arr2.every(function(val,i,arr){
+      return i<arr.length-1?
+              val<=arr[i+1]:true;
+    }) //true
+  );
+</script>
+</body>
+</html>

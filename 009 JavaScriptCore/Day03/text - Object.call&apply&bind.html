@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>call&apply&bind</title>
+</head>
+<body>
+<script>
+    function calc(base,bonus1,bonus2){
+        console.log(this.ename+"本月工资为:"+(base+bonus1+bonus2));
+    }
+    var hmm={ename:"Han MeiMei"};
+    var lilei={ename:"Li Lei"};
+    //"临时"强行借用calc
+    calc.call(hmm,10000,2000,3000);
+    calc.apply(lilei,[5000,3000,4000]);
+    //lilei买一个新的属于自己的计算器:
+    var lileiCalc=calc.bind(lilei,10000);
+                         // this  base
+    //创建一个和calc一模一样的新函数，并"永久"绑定this为lilei
+    lileiCalc(1000,2000);
+            //bonus1 bonus2
+</script>
+</body>
+</html>

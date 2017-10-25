@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  //定义构造函数Student描述所有学生的统一结构
+    //都有两个属性: 姓名,年龄
+    //都会做自我介绍:
+      //我是+姓名, 我是+年龄
+  function Student(sname,sage){
+    this.sname=sname;
+    this.sage=sage;
+  }
+  //为Student的原型对象添加共有方法intr
+  Student.prototype.intr=function(){console.log("I'm "+this.sname+",I'm "+this.sage);};
+  //为所有学生添加一个共有属性:
+  //班级classname: 初一2班
+  Student.prototype.classname="初一2班";
+  //分别创建lilei和hmm
+  var lilei=new Student("Li Lei",11);
+  console.dir(lilei);
+  var hmm=new Student("Han Meimei",12);
+  console.dir(hmm);
+  console.log(lilei.__proto__===hmm.__proto__);//true
+  lilei.intr();
+  hmm.intr();
+
+  console.log(lilei.classname);
+  console.log(hmm.classname);
+
+  //lilei+1岁
+  lilei.sage++;
+  //所有学生升一级:
+  Student.prototype.classname="初二2班";
+  console.log(lilei.sage);//12
+  console.log(lilei.classname);
+  console.log(hmm.classname);
+
+</script>
+</body>
+</html>

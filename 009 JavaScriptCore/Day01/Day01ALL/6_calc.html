@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  //定义工厂函数:factory，专门生产汇率计算器函数。但是，生产时，需要动态封装受保护的汇率值。
+  function factory(rate){//rate受保护
+    return function(money){
+      console.log(
+        (money*rate).toFixed(2)
+      );
+    }
+  }
+  //工厂生产rmb2$的计算器，使用0.1639为汇率
+  var rmb2$=factory(0.1639);
+  //rmb2$:function(money){(rate=0.1639)
+    //console.log(
+    // (money*rate).toFixed(2)
+    //);
+  //}
+  //工厂再生产rmb2EURO的计算器，使用0.1449为汇率
+  var rmb2EURO=factory(0.1449);
+  //rmb2EURO:function(money){
+  // (rate=0.1449)
+    //console.log(
+    // (money*rate).toFixed(2)
+    //);
+  //}
+  //需求: //练习10分钟
+  rmb2$(1000);//$163.9
+  rmb2$(5000);//$819.67
+  rmb2EURO(1000);//€144.9
+  rmb2EURO(5000);//€724.6
+</script>
+</body>
+</html>

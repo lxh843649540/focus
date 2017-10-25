@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  //dong:函数的作者
+  function round(num,d){
+    if(!isNaN(num)&&!isNaN(d)){
+      num*=Math.pow(10,d);
+      num=Math.round(num);
+      return num/Math.pow(10,d);
+    }else
+      throw new Error(
+        "孙子,必须传入数字！");
+  }
+
+  //xu:调用者
+  var num=parseFloat(prompt("输入数字"));
+  var d=parseInt(prompt("输入小数位数"));
+  //try{
+  if(!isNaN(num)&&!isNaN(d))
+    console.log(round(num,d));
+  //}catch(err){
+  else{
+    alert("请您输入数字");
+    console.log(String(err));
+  }//}
+  console.log("大旭的程序继续执行...");
+</script>
+</body>
+</html>

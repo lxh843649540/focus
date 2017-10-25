@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function factory(rate){
+        return function(money){
+            console.log((money*rate).toFixed(2))
+        }
+    }
+    var rmb2$=factory(0.1639);
+    var rmb2=factory(0.1449);
+    rmb2$(1000);
+    rmb2(1000);
+</script>
+</body>
+</html>
