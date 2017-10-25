@@ -1,0 +1,16 @@
+2:用户登录
+  2.1 帐户 密码
+	2.2 登录成功自动跳转 user_select.php
+	2.3 编写php  login.php
+	2.4 编写html login_input.html
+	    请用户输入邮件地址/密码
+      SELECT * FROM t_user
+			WHERE email='a@com' AND
+			      upwd='123'
+      抓取
+		$row = mysqli_fetch_assoc($result);
+    $row === null
+3:浏览所有用户信息
+  user_select.php
+4:删除用户
+  user_delete.php

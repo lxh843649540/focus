@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>动态生成表格</title>
+    <style>
+        .color{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<h1>动态生成表格</h1>
+<table id="tb1" border="1" width="90%" cellspacing="0">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>name</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+<script src="jquery-1.11.3.js"></script>
+<script>
+    let list=[{"id":1001,"name":"tom"},{"id":1002,"name":"Jerry"},{"id":1003,"name":"kk"}];
+//    let a=list[0];
+//         tid=a.id;
+//         tname=a.name;
+//    let b=list[1];
+//         jid=b.id;
+//         jname=b.name;
+//    let c=list[2];
+//         kid=c.id;
+//         kname=c.name;
+    let html="";
+    for(let i=0;i<list.length;i++){
+        let obj=list[i],
+            tid=obj.id,
+            tname=obj.name;
+        html+="<tr><td>"+tid+"</td><td>"+tname+"</td><tr>";
+    }
+    $("#tb1>tbody").append(html);
+    $("#tb1>tbody>tr").addClass("color");
+</script>
+</body>
+</html>

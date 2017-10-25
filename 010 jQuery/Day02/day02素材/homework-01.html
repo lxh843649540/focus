@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+     <style>
+         #page{
+             list-style: none;
+         }
+         #page li{
+             float: left;
+             padding: 6px;
+         }
+         #page li.active{
+            background: red;
+         }
+     </style>
+ </head>
+ <body>
+	<h1>操作元素的属性</h1>
+    <img src="img/1.jpg" alt="1">
+    <ul id="page">
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script>
+       var $nums=$("#page>li");
+       $nums.click(function (){
+           //移除所有li的.active
+           $nums.removeClass("active");
+           //为当前的li添加.active
+           $(this).toggleClass("active");
+           //拼接链接
+           $("img").attr("src","img/"+$(this).text()+".jpg");
+       });
+
+//--------------------轮播--------------------
+       var index=1;
+       function task(){
+           index++;
+           index>4&&(index=1);
+           $("img").attr("src","img/"+index+".jpg");
+           //清除原先 active class
+           $("#page>li").removeClass("active");
+           $("#page>li:eq("+(index-1)+")").addClass("active");
+       };
+      var timer=setInterval(task,1000);
+      //鼠标移入停止图片轮播
+       window.onload=function () {
+           $("img").mouseover(function () {
+               //停止定时器
+               clearInterval(timer);
+               //清空定时器
+               timer=null;
+           });
+        //鼠标移出轮播启动
+           $("img").mouseout(function () {
+               //停止定时器
+               timer=setInterval(task,1000);
+           })
+       }
+
+    </script>
+ </body>
+</html>

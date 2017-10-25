@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <style>
+
+  </style>
+ </head>
+ <body>
+    <form action="#" method="post" id="loginForm">
+       <ul>
+           <li id="msgTip"></li>
+         <li>
+           <span style="color:red" id="msg"></span>
+         </li>
+         <li>用户名<input type="text" value="" name="uname" id="uname" /></li>
+         <li>密&nbsp;码<input type="password" value="" name="upwd" id="upwd" /></li>
+         <li><input type="submit" value="登录"/></li>
+       </ul>
+    </form>
+  <script>
+    //表单验证
+      //1.哪些事件触发表单验证
+      //submit提交事件form表单绑定submit事件
+      //2.哪些元素规则(正则表达式)
+      //用户名 6-8位 数字字母 [0-9a-zA-Z]{6,8}
+      //密码 3-8位 数字  [0-9]{3,8}
+      //3.哪些元素如何获取
+
+
+      //验证
+      //1.获取表单元素
+    var loginForm=
+      //2.为表单元素绑定事件 submit 处理函数
+        //2.1创建正则表达式 uname upwd
+        //2.2获取用户名
+        //2.3获取密码
+  </script>
+ </body>
+</html>

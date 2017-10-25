@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+ </head>
+ <body>
+	<script src="jquery-1.11.3.js"></script>
+    <script src="taoLib.js"></script>
+	<script>
+//		let list=[10,30,20,100];
+//		//1:创建一个函数 arrSum
+//        //2:添加参数 list
+//		function arrSum(list){
+//            //3:函数求数组和并且回结果
+//			let sum=0;
+//			for(let i=0;i<list.length;i++){
+//			    sum+=list[i];
+//			}
+//			return sum;
+//		}
+//        //4:调用
+//        console.log(arrSum(list));
+        let list=[10,30,20,100];
+        let rs=$.taoLib.arrSum(list);//变量rs为调用函数
+        console.log(rs);
+	</script>
+ </body>
+</html>

@@ -1,0 +1,219 @@
+今天学习的内容
+1:复习昨天知识重点 
+2:作业
+3:今日目标 php mysql服务器
+  3.1: php mysql 查询(获取记录并判断) 重点&难点
+	3.2: php 常用函数
+	3.3: http协议(知识多，杂，乱，前后没关系)
+#-------------------------
+1:复习昨天知识重点 
+  php 后台语言
+	php 运行后端服务器(apache)
+	php mysql
+	四个步骤
+  1:创建连接
+	$conn = mysqli_connect(url,'root','','jd'); 
+	2:创建sql 发送sql
+	$sql = "INSERT UPDATE DELETE";
+	$result = mysqli_query($conn,$sql);
+	3:判断结果是否正确 
+	if($result===true)
+	4:关闭连接--可省略
+	mysqli_close($conn);
+2:作业  9:38--9:43
+  综合练习.txt
+3:今日目标 php mysql服务器
+  3.1: 
+	php mysql 查询(获取记录并判断) 重点&难点
+	#php mysql 查询操作
+	 1:创建数据库连接
+	 2:设置编码
+	 !!3:创建一条查询语句SELECT，发送sql语句
+	 !!4:获取返回的结果 $result
+	 #查询结果$result不再是true/false
+	 #而是->结果集对象
+	 #结果集对象信息(一共几条记录/几个字段)
+	 #没有真正的数据
+	 #如果获取数据需要再完成功能??
+	 5:抓取结果集对象中数据并且转换数组
+	 $row = mysqli_fetch_assoc(结果集对象);
+	 从结果集对象中抓取一行记录->转换关联数组 
+	 $row = mysqli_fetch_row(结果集对象);
+	 从结果集对象中抓取一行记录->转换索引数组
+   #多条记录循环 while
+	 #判断结束?????
+	 示例:fetch_01.php
+	3.2: php 常用函数
+	 die('') 终止当前php文件的执行,
+	          并且向客户端输出一个终止原因说明.
+   @       压制住当前行代码警告消息.
+	 time()  返回当前系统时间，以秒为消息的整数
+	 $id = mysqli_insert_id($conn);
+	         返回连接上刚刚执行insert语句产生
+					 自增编号.
+   $size = mysqli_affected_rows($conn);
+	         返回连接上刚执行增删改语句影响行数
+	 mysqli_fetch_all($result,MYSQLI_ASSOC);
+	         从查询结果集中抓取所有记录，并且
+					 返回二维数组.
+   示例:mysql_news_02.php
+
+
+  3.3:php是如何工作的
+	    a:前提条件: apache服务器启动正常工作
+			b:客户端浏览器在地址栏输入一个程序地栏 
+			  按回车发送请求 {请求}
+				http://127.0.0.1/day03/1.php
+      c:apache接收请求，并且负责查找相应资源
+			  1.php
+      d:如果apache没有找到相应的资源,
+			  返回错误消息给客户端浏览器
+				404 NOT FOUND
+      e:如果资源存在.
+			  apache发现请求是一个php程序,
+				apache将处理php任务交给php解析引擎
+				php.exe  解析处理执行代码
+      f:php.exe  将执行后的结果转
+			           html/css/js 文件发送apache
+      g:apache 将结果(html/css/js) {响应}
+			         发送给客户端浏览器
+      h:客户端浏览器显示apache返回内容
+			  (html/css/js)
+
+      练习:通过php获取 bbs/user 所有记录
+			     输出'表格'形式.
+      15:12----15:27
+			示例:bbs/select_user.php
+
+	3.5: http协议(知识多，杂，乱，前后没关系)
+	     
+	    a:学习http协议的目标
+			  1:调试ajax应用的中"看不见模不着"的错误
+				2:进行web访问优化--高阶面试
+      b:URL
+			  世界上任何一个建筑必须有一个"地址"
+				互联网上任何一个资源(html/img/css/js/php)
+				必须有一个"URL"才能被访问.
+
+				标准URL:
+				<scheme>://<user>:<pwd>@<host>:
+				<port>/<path>;<params>?<query>#
+
+      c:URL/URN/URI
+			Unified Resource Locator    统一的资源定位符
+      Unified Resource Naming     统一的资源命名符
+			Unified Resource Identifier 统一的资源识别符
+      
+			图示:uri_urn_url.png
+			
+			URI = URL+URN
+
+			URL: <a href="http://tmooc.cn/logo.gif"></a>
+			     <img src="http://tmoo.cn/1.jpg" />
+
+      URN:
+			     <a href="mailto:admin@tmooc.cn">...</a>
+					 <a href="javascript:void(0)">...</a>
+
+      完整URL格式:
+      <scheme>://<user>:<pwd>@<host>:
+			<port>/<path>;<params>?<query>#
+
+			a:<scheme> 方案:
+			  指定以哪种(协议)从服务器上获取指定资源
+				常见方案:http/https/ftp/file/telnet.
+      http://www.ccb.com/cn/home/indexv3.html
+      https://ibsbjstar.ccb.com.cn
+
+			b:<host> 主机名 资源所在服务器ip地址
+			                或者域名
+        127.0.0.1      <-----> localhost
+			  61.135.169.121 <-DNS-> www.baidu.com
+      c:<port> 端口号 每一项服务在计算机上都有
+			                一个监听端口号，整数
+        apache 80/443 (1~65535)
+				mysql  3306
+
+				ftp		  21	文件上传下载
+				ssh			22  安全的远程登录
+				telnet	23  远程登录
+				smtp    25	邮件传输	 
+				dns			53  域名解析  baidu<->61..
+				http		80  超文本传输协议(发送网页)
+				pop3		110 邮件接收
+				https	  443 加密超文本传输协议
+
+      d:?<query> 参数
+			  http://127.0.0.1/1.php?uname=tom&upwd=123
+
+      #相对URL/绝对URL
+			1：以方案开头绝对URL
+			2：不以方案开头相对URL
+			<a href="http://127.0.0.1/1.html">
+			<a herf="1.html"/>
+			
+  3.6: HTTP 协议概述
+	     互联早期没有http协议
+       IETF (互联网任务委员会)
+			 1990年 http/0.9 有严重缺陷
+			 1996年 http/1.0 标准 RFC1945
+			 1999年 http/1.1
+
+  3.7:http协议工作方式:请求响应方式
+	   1:客户端浏览器发送请求给web服务器(apache)
+		   {请求}
+		 2:web服务器接收请求，处理数据
+		   并且将结果返回客户浏览器 
+			 {响应}
+    103请求
+		1:地址输入地址             回车
+		2:<img src="1.jpg">..</a>  请求
+		3:<script src="jquery.js"> 请求
+		4:<link href="1.css">      请求
+		示例:计算请求次数? 
+		day03/04.html    4次请求
+
+
+
+  3.8:http/1.1比http/1.0改进了哪些地方?
+    1:支持虚拟主机技术
+		   在一个web服务器上同时并存多个不同
+			 域名网站. (cpu 512 10T)
+			 tmooc/tts/jobshow
+		2:支持持久连接技术
+		  早期http1.0不支持持久连接
+			三次握手/四次挥手
+			客户端和服务器之间连接保持一段时间
+			(x秒钟) 30S
+      Connection:keep-alive 持久化
+		3:支持代理连接
+		  Proxy:xxx
+
+
+    3.9:http请求和响应的内容
+		标准格式
+
+		请求消息(request) --客户端浏览器发送服务器
+		响应消息(response)--服务器发送客户端浏览器
+
+		消息内容见"http协议详解"思维导图
+
+  作业:留言板
+	1:发表留言    
+	  msg_add.php         获取表单数据保存数据库
+		msg_add_input.html  表单 
+	2:浏览所有留言
+	  msg_select.php      表格形式
+	3:删除某个留言
+	  msg_delete.php      删除留言
+  4:创建msg.sql
+	  创建库 msg utf8
+		表     t_msg (mid,content,uname)
+
+  删除:
+	浏览所有留言
+	10   hi          [删除]
+	11   hello       [删除]
+	要求:点击"删除" 先弹出确认框.
+	如果用户点选择"是"才真正跳转删除页
+	msg_delete.php 

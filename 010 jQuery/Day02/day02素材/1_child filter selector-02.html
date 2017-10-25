@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>.....</title>
+  <meta charset="utf-8"/>
+  <style>
+      .admin{color:red;}
+      .base{font-size:40px;}
+      li{
+          background-repeat:no-repeat;
+          background-position:100px;
+      }
+  </style>
+ </head>
+ <body>
+ <ul>
+  <li>
+      电影
+      <ol>
+          <li>速8</li>
+          <li>速7</li>
+          <li>速6</li>
+      </ol>
+  </li>
+  <li>
+      综艺
+      <ol>
+          <li>跑男</li>
+      </ol>
+  </li>
+  <li>
+      动漫
+      <ol></ol>
+  </li>
+ </ul>
+ <input id="btn1" type="button" value="添加class">
+ <input id="btn2" type="button" value="删除class">
+ <input id="btn3" type="button" value="判断class">
+ <input id="btn4" type="button" value="切换class">
+ <script src="js/jquery-1.11.3.js"></script>
+ <script>
+    //1:ol>li:first :last
+    $("ol>li:first").css("background-image","url(img/fire.jpg)");
+     //2:ol>li:only-child
+    $("ol>li:first-child").css("background-image","url(img/fire.jpg)");
+    //3:ol>li:last-child
+    $("ol>li:last-child").css("backgroundImage","url(img/fire.jpg)");
+    //4:ol>li:nth-child(2)
+    $("ol>li:nth-child(2)").css("backgroundImage","url(img/fire.jpg)");
+ </script>
+ </body>
+</html>

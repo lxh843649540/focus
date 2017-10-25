@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #list{
+            border: 2px solid #ddd;
+            list-style: none;
+        }
+        #list>li{
+            float: left;
+            padding:5px;
+            margin: 10px 20px;
+        }
+       #list:after{
+           content: "";
+           display: block;
+           clear: both;
+       }
+        .color1{
+            background: pink;
+        }
+        .color2{
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+<ul id="list">
+    <li>选项一</li>
+    <li>选项二</li>
+    <li>选项三</li>
+</ul>
+<script src="jquery-1.11.3.js"></script>
+<script>
+    $("#list>li").addClass("color1");
+    $("#list>li").mouseover(function () {
+        $(this).addClass("color2");
+    })
+    $("#list>li").mouseout(function () {
+        $(this).removeClass("color2");
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+     <style>
+         #d,#d1,#d2{
+             width:225px;
+             height:225px;
+             background-color: #94df94;
+         }
+     </style>
+ </head>
+ <body>
+	<h1>jQuery动画函数——显示隐藏动画</h1>
+    <h3>显示show()/隐藏hide()/切换toggle()</h3>
+    <button id="btn1">Show</button>
+    <button id="btn2">Hide</button>
+    <button id="btn3">Toggle</button>
+    <div id="d">你这头猪</div>
+    <h3>淡入fadeIn()/淡出fadeOut()/切换fadeToggle()</h3>
+    <button id="btn4">fadeIn</button>
+    <button id="btn5">fadeOut</button>
+    <button id="btn6">fadeToggle</button>
+    <div id="d1">你这头猪</div>
+    <h3>折叠展开slideUp()/折叠收起slideDown()/折叠切换slideToggle()</h3>
+    <button id="btn7">slideUp</button>
+    <button id="btn8">slideDown</button>
+    <button id="btn9">slideToggl</button>
+    <div id="d2">你这头猪</div>
+    <script src="jquery-1.11.3.js"></script>
+    <script>
+// -----------------显示show()/隐藏hide()/切换toggle()-------------------
+        $("#btn1").click(function () {
+            $("#d").show("slow");
+        });
+        $("#btn2").click(function () {
+            $("#d").hide("slow");
+        });
+        $("#btn3").click(function () {
+            $("#d").toggle("slow");
+        });
+// -----------------淡入fadeIn()/淡出fadeOut()/切换fadeToggle()-------------------
+        $("#btn4").click(function () {
+            $("#d1").fadeIn(3000);
+        });
+        $("#btn5").click(function () {
+            $("#d1").fadeOut(3000);
+        });
+        $("#btn6").click(function () {
+            $("#d1").fadeToggle(3000);
+        });
+// -----------折叠展开slideUp()/折叠收起slideDown()/折叠切换slideToggle()------------
+        $("#btn7").click(function () {
+            $("#d2").slideUp("slow");
+        });
+        $("#btn8").click(function () {
+            $("#d2").slideDown("slow");
+        });
+        $("#btn9").click(function () {
+            $("#d2").slideToggle("slow");
+        })
+    </script>
+ </body>
+</html>

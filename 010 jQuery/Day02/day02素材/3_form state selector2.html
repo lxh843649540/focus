@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+ </head>
+ <body>
+ <form action="" id="loginForm">
+     <select multiple>
+         <option>体育</option>
+         <option>音乐</option>
+         <option>娱乐</option>
+     </select>
+     <input type="button" value="进入我的微博" disabled>
+ </form>
+ <script src="js/jquery-1.11.3.js"></script>
+ <script>
+     //1:获取表单下input=button元素
+     var $btn=$("#loginForm>:button");
+     //2:获取表单下select元素
+     var $select=$("#loginForm>select");
+     //3:获取表单下所有option
+     var $options=$("#loginForm>select>option");
+     //4:为option绑定点击事件
+    $options.click(function () {
+        //5:如果选中option selected=true
+        if($(this).prop("selected")){
+            //6:将input=button  diabled=false
+            $btn.prop("disabled",false)
+        }
+    })
+ </script>
+ </body>
+</html>

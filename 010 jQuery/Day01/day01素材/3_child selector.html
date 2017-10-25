@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8" />
+ <title>2-5</title>
+ <!--   引入jQuery --> 
+ <script src="scripts/assist.js"></script>
+ <link rel="stylesheet" href="css/style.css" />  
+</head>
+<body>
+  <h3>层次选择器.</h3>
+  <button id="reset">手动重置页面元素</button>
+  <input type="checkbox" id="isreset" checked="checked"/><label for="isreset">点击下列按钮时先自动重置页面</label><br /><br />
+ 
+  <input type="button" value="选择 body内的所有div元素." id="btn1"/>
+  <input type="button" value="在body内,选择直接div子元素。" id="btn2"/>
+  <input type="button" value="选择 class为one 的下一个兄弟div元素." id="btn3"/>
+  <input type="button" value="选择 id为two的元素后面的所有兄弟div元素." id="btn4"/>
+
+  <br />
+  <br />
+  
+   <!-- 测试的元素 -->
+  <div class="one" id="one" >
+ id为one,class为one的div
+      <div class="mini">class为mini</div>
+  </div>
+
+    <div class="one"  id="two" title="test" >
+	 id为two,class为one,title为test的div.
+      <div class="mini"  title="other">class为mini,title为other</div>
+      <div class="mini"  title="test">class为mini,title为test</div>
+  </div>
+
+  <div class="one">
+      <div class="mini">class为mini</div>
+      <div class="mini">class为mini</div>
+	  <div class="mini">class为mini</div>
+	  <div class="mini"></div>
+  </div>
+
+  
+
+  <div class="one">
+      <div class="mini">class为mini</div>
+      <div class="mini">class为mini</div>
+	  <div class="mini">class为mini</div>
+	  <div class="mini"  title="tesst">class为mini,title为tesst</div>
+  </div>
+
+
+  <div style="display:none;"  class="none">style的display为"none"的div</div>
+  
+  <div class="hide">class为"hide"的div</div>
+ 
+  <div>
+  包含input的type为"hidden"的div<input type="hidden" size="8"/>
+  </div>
+
+  
+  <span id="mover">正在执行动画的span元素.</span>
+  <script src="scripts/jquery-1.11.3.js"></script>
+  <script>
+      //#btn1:绑定点击事件 选择body所有div元素
+      $("#btn1").click(function () {
+          $("body div").css("border","1px solid red");
+      });
+      //#btn2:绑定点击事件 选择body中所有直接div
+      $("#btn2").click(function () {
+          $("body>div").css("border","2px solid green");
+      });
+      //#btn3:绑定点击事件 选择class为one下一个兄弟div
+      $("#btn3").click(function () {
+          $(".one+div").css("border","1px solid blue");
+      });
+      //#btn4:绑定点击事件 选择id为two的元素之后所有兄弟div
+      $("#btn4").click(function () {
+          $("#two~div").css("border","1px solid purple");
+      });
+  </script>
+</body>
+</html>

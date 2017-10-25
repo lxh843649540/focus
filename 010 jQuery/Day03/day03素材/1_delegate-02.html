@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+ </head>
+ <body>
+	<h1>jQuery事件处理——事件代理</h1>
+    <button id="btn">Click Me</button>
+    <ul id="menu">
+       <li>
+          <a href="#">东东</a>
+       </li>
+    </ul>
+    <script src="../jquery-1.11.3.js"></script>
+    <script>
+//------------------------------版本一--------------------------------
+//        //1:创建两个元素 li a 大旭  li a 文华
+//        let $menu=$("#menu");
+//        let $xu=$("<li><a href='#'>大旭</a></li>");
+//        let $hua=$("<li><a href='#'>文华</a></li>");
+//        //2:追加到menu最后子元素
+//        $menu.append($xu,$hua);
+//        //3:绑定点击事件 on
+//        $menu.on("click","li",function (e) {
+//            //4:删除当前元素
+//            e.preventDefault();
+//            $(this).remove();
+//        });
+//------------------------------版本二--------------------------------
+      let list=["冬瓜","南瓜","西瓜","北瓜"];
+          //1:循环获取数组中每一个元素
+      let html="";
+      for(let i=0;i<list.length;i++){
+          let name=list[i];
+          //2:拼字符串  <li><a href="#">冬瓜</a></li>,<li><a href="#">南瓜</a></li>
+          html+="<li><a href='#'>"+name+"</a></li>";
+      }
+      let $html=$(html);
+      $("#menu").append($html);
+      //4:绑定单击事件  删除当前元素
+      $("#menu").on("click","li",function (e) {
+          e.preventDefault();
+          $(this).remove();
+      })
+    </script>
+ </body>
+</html>

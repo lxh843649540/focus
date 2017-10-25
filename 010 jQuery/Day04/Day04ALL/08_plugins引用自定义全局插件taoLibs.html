@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> 08_plugins引用自定义taoLibs </title>
+  <meta charset="utf-8">
+     <style>
+         .in{
+             background:#94df94;
+         }
+         div{
+             width:100px;
+             height:100px;
+             border:1px solid mediumvioletred;
+         }
+     </style>
+ </head>
+ <body>
+ <h1>javaScript</h1>
+ <div id="box1"></div>
+	<script src="jquery-1.11.3.js"></script>
+    <script src="taoLibs.js"></script>
+	<script>
+//		$("#box1").bind("click",function () {
+//            $(this).toggleClass("in");
+//        })
+        //调用taoLibs插件
+        $("#box1").shLi();
+        $("h1").shLi();
+	</script>
+ </body>
+</html>

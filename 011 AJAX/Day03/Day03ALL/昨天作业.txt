@@ -1,0 +1,56 @@
+1:使用php实现新闻添加删除功能
+
+a:c:/xampp/htdocs/day02/news/
+	1.1 编写sql文件 ifeng.sql
+	    创建表 t_news
+			nid     新闻编号
+			title   新闻标题
+			content 新闻内容
+			count   新闻点击次数
+			pubtime 发布时间
+  小知识:
+	PRIMARY KEY      不能重复，不能为空(主键约束)
+	AUTO_INCREMENT   主键自动增长
+	1.2创建php news_add.php
+	   连接数据库向 t_news 表添加一条记录
+			INSERT INTO t_news VALUES
+			(null,'足球','蓝球',0,now());
+  http://127.0.0.1/day03/news/news_add.php
+	1.3创建php news_del.php
+	   连接数据库删除t_news 表中一条记录
+		 条件是以新闻编号.
+  DELETE FROM t_news WHERE nid = 1;
+	http://127.0.0.1/day03/news/news_del.php
+
+	1.4:创建html
+	news_add_input.html 表单
+	action="news_add.php" 处理表单程序地址
+	1.5:获取表单提交数据
+	$_REQUEST php专用于获取表单数据
+	#注意:$_REQUEST
+	1:必须大写
+	2:只认识表单中 name属性值
+
+	<?php
+     $t = $_REQUEST['title'];
+		 $c = $_REQUEST['content'];
+
+  练习：删除新闻功能 10:22---10:37
+  news_del.php  nid=2
+	1:创建html  c:/xmapp/htdocs/day03/news/
+	  news_del_input.html
+  2:创建表单   action
+	  输出新闻编号
+		<input type="text" value="" 
+		name="nid" />
+		"submit"
+  3:修改news_del.php
+	  $nid = $_REQUEST['nid'];
+  4:修改sql
+	  "DELETE FROM t_news WHERE nid = $nid"
+  5:访问
+	http://127.0.0.1/day03/news/news_del_input.html
+
+
+	  
+	

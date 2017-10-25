@@ -1,0 +1,63 @@
+作业:
+	1:创建对象插件,完成功能对列表排序
+	示例:
+	<ul id="menu">
+	  <li>tom</li>
+	  <li>dongdong</li>
+	  <li>cc</li>
+	</ul>
+	调用插件
+	$("#menu").sortLi();
+  结果
+	<ul id="menu">
+		<li>cc</li>
+	  <li>dongdong</li>
+	  <li>tom</li>
+	</ul>
+
+  #习惯:
+	1:删除数据之前一定要-->确认
+	2:所有列表 数字 文字 汉字 ->排序
+
+
+  作业
+	1:插件-->全局
+	      -->jquery对象  !!!
+	   
+	2:排序列表内容排序
+	<ul id="menu">
+		<li>cc</li>
+	  <li>dongdong</li>
+	  <li>tom</li>
+	</ul>
+	排序功能:本身javascript自身就己提供
+	var list = ["aa","cc","bb"];
+	list.sort();
+  ["aa","bb""cc"];
+
+  解题思路
+	1:获取列表中元素    this.html();
+		  <li>tom</li>
+			<li>cc</li>
+	    <li>dongdong</li>
+	2:拆分元素内容保存数组
+	  ["tom","cc","dongdong"]
+	3:数组排序
+	  sort();
+	4:将数组中内容转字符串
+	     ["tom","cc","dongdong"]
+		   join("</li><li>");
+			cc</li>
+	    <li>dongdong</li>
+			<li>tom
+	5:保存原来列表中
+	  <ul>
+			<li>cc</li>
+	    <li>dongdong</li>
+			<li>tom</li>
+		</ul>
+
+
+  1:创建js文件
+	  js/sortLi.js
+	2:创建htmlwork_01.html

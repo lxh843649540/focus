@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+  <style>
+     img{
+      position: absolute;
+     }
+  </style>
+ </head>
+ <body>
+	<h1>练习：jQuery万能动画函数</h1>
+    <h3>万能动画</h3>
+    <img src="../img/1.jpg" alt="1">
+    <img src="../img/2.jpg" alt="2">
+    <img src="../img/3.jpg" alt="3">
+    <img src="../img/4.jpg" alt="4">
+<script src="jquery-1.11.3.js"></script>
+<script>
+//功能:点击当前图片--->动画效果  宽400 高300 左:当前的左-100 opacity:0  duration 2s 动画结束删除该图片
+$("img").first().css("left",0).next().css("left",200).next().css("left",400).next().css("left",600);
+ $("img").click(function () {
+     $(this).css("zIndex",10).animate({width:400,height:300,opacity:0,left:parseFloat($(this).css("left"))-100},2000,function () {
+         $(this).remove();
+     })
+ })
+</script>
+ </body>
+</html>

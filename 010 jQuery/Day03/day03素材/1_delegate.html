@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+ </head>
+ <body>
+	<h1>jQuery事件处理——事件代理</h1>
+    <button id="btn">click me</button>
+    <ul id="menu">
+       <li>
+          <a href="#">东东</a>
+       </li>
+    </ul>
+    <script src="../jquery-1.11.3.js"></script>
+    <script>
+     //1:获取所有a元素
+     let $a=$("#menu>li>a");
+     //2:绑定事件click mouseover
+     $a.bind("click mouseover",function (e) {
+         //3:阻止事件默认行为
+         e.preventDefault();
+         //4:输出当前元素html内容
+         console.log($(this).html());
+     });
+     //5:获取所有a元素解除绑定 mouseover
+     $a.unbind("mouseover");
+    </script>
+ </body>
+</html>

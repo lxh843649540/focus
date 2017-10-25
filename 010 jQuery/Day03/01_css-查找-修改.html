@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>...</title>
+     <style>
+         .base{
+             color:red;
+         }
+     </style>
+
+ </head>
+  
+ <body>
+ <ul id="menu">
+     <li id="d1">苹果1</li>
+     <li id="d2" class="base">苹果2</li>
+     <li id="d3">苹果3</li>
+ </ul>
+ <script src="jquery-1.11.3.js"></script>
+ <script>
+    $("#d1").css("font-size",30);
+    $("#d3").css({
+        fontSize:39,
+        color:"green",
+    })
+     var $c=$("#d2").css("color");
+    console.log($c);
+ </script>
+ </body>
+</html>

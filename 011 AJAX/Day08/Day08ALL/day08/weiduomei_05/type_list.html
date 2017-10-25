@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <title>hello world</title>
+  </head>
+  <body>
+      <h1>获取蛋糕类别列表 json数据类型</h1>
+     
+      <select id="menu">
+        
+      </select>
+
+
+
+
+
+
+    <script src="jquery-1.11.3.js">
+    </script>
+    <script>
+     $(function(){
+       $.get("type_list.php",function(data){
+         var html = "";
+         for(var i=0;i<data.length;i++){
+           var obj = data[i];
+           html +=
+           `
+             <option value="${obj.id}">${obj.name}</option>
+           `;
+         }
+         $("#menu").html(html);
+       });      
+     });
+    </script>
+  </body>
+  </html>

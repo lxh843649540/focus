@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>.....</title>
+  <meta charset="utf-8"/>
+  <style>
+  </style>
+ </head>
+ <body>
+ <form action="#" id="form1" method="post">
+     用户名:<input type="text" name="useName" disabled><br>
+     密码:<input type="password" name="pwd" disabled><br>
+     <input type="checkbox" id="btn1">我同意本站条件<br>
+     <input type="submit" disabled>
+ </form>
+ <script src="js/jquery-1.11.3.js"></script>
+ <script>
+     //1:选择我同意 CheckBox
+//     var $rs=$("#form1>:checkbox").prop("checked");
+//     console.log($rs);
+//     $("#form1>:checkbox").prop("checked",true);
+     //获取复选款元素
+     var ch=$("#form1>:checkbox");
+     //2:为CheckBox绑定点击事件
+     ch.click(function (){
+         var $state=$(this).prop("checked");
+         //3:如果复选款选中 其余disabled转为false
+         if ($state){
+         $("#form1>:not(:checkbox)").prop("disabled",false)
+     }
+         //4:如果复选框没有选中,其余disabled转true
+         else{$("#form1>:not(:checkbox)").prop("disabled",true)}
+     })
+ </script>
+ </body>
+</html>

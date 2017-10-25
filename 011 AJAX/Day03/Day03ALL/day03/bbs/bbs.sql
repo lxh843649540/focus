@@ -1,0 +1,10 @@
+CREATE DATABASE bbs CHARSET=utf8;
+USE bbs;
+CREATE TABLE user(
+uid     INT PRIMARY KEY AUTO_INCREMENT,
+uname   VARCHAR(20),
+upwd    VARCHAR(32),
+pic     VARCHAR(100),
+score   INT,
+regtime DATETIME
+);

@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <title>hello world</title>
+  </head>
+  <body>
+     <h1>用户登录</h1>
+    <form id="regForm" action="#" method="post">
+      <ul>
+       <li>用户名<input type="text" value="" name="uname" id="uname"/></li>
+       <li>密码<input type="password" value="" name="upwd" id="upwd"/></li>
+       <li><input id="btn" type="button" value="发布" /></li>
+      </ul>
+    </form>
+    <script>
+       //1:获按钮 btn
+       //2:绑定事件 onclick
+       //3:获取用户名，密码
+       btn.onclick = function(){
+         var u = uname.value;
+         var p = upwd.value;
+        //4:创建对象 xhr
+        //5:绑定事件   onreadystatechange
+        var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function(){
+            //5.1 接收返数据
+            if(xhr.readyState===4&&
+            xhr.status===200){
+            alert(xhr.responseText);
+            }
+}
+//6:创建连接   open
+xhr.open('GET','login.php?uname='+u+'&upwd='+p,true);
+//7:发送请求   send(null);
+xhr.send(null);
+       }
+    </script>
+  </body>
+  </html>

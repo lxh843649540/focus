@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+ </head>
+ <body>
+	<h1>事件绑定</h1>
+	<ul>
+       <li>js大全</li>
+       <li>js手册</li>
+       <li>jQuery大全</li>
+    </ul>
+    <script src="jquery-1.11.3.js"></script>
+    <script>
+     //1:为js大全绑定事件 点击事件 bind
+     $("ul>li:eq(0)").bind("click",function () {
+          console.log($(this).html());
+     });
+     //2:为js手册绑定事件  双击事件 一次性
+     $("ul>li:eq(1)").one("dblclick",function () {
+         console.log($(this).html());
+     });
+     //3;为jQuery大全绑定事件  点击 简洁
+     $("ul>li:eq(2)").click(function () {
+         console.log($(this).text());
+     });
+     //4:解除绑定 js大全
+     $("ul>li:first-child").unbind("click");
+    </script>
+ </body>
+</html>

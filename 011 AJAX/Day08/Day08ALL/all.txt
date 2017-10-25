@@ -1,0 +1,257 @@
+今天学习内容
+1:解答二个问题
+2:复习ajax重点
+3:今天新知识
+   3.1: ajax处理不同数据类型 JSON/XML
+	 3.2：jquery中的 ajax
+#-------------------------
+1:解答二个问题
+  ajax:哪些元素动态创建，绑定事件
+	     冒泡/事件代理
+  解答:这个元素是使用什么方式创建
+	     1:document.createElement();
+			 2:menu.innerHTML = xhr.response;
+2:复习ajax重点
+3:今天新知识
+   3.1: ajax处理不同数据类型 JSON/XML
+	 综合示例:查询味多美蛋糕列表
+	 1:服务器查询数据中蛋糕列表
+	 2:返回json字符串
+	 **a:weiduomei.sql   9:25---9:40
+	   a.1 id name  pic price
+   **b:cakelist_01.php
+	   b.1 修改响应头信息 json
+	   b.2 查询数据结果  json 发送
+		 [
+		   {"id":1,"name":"cake1","pic":"1.jpg"},
+		   {"id":2,"name":"cake2","pic":"2.jpg"},
+		   {"id":3,"name":"cake3","pic":"3.jpg"},
+		 ]
+	 c:cakelist_01.html
+	   c.1 发送ajax请求 get
+	   c.2 接收服务器返回数据json
+	   c.3 var arr = JSON.parse(xhr.responseText);
+	 4:接收json转换js对象，动态创建列表
+	   tr td 
+
+   3.2:XML (java 旧项目)
+	   html:超文本标记语言，所有标签预定义好
+		      h1 h2 h9 用于描述一个网页结构
+     xml:可扩展的标签语言，所有标签都是自定义
+		     的，用于描述一段数据-尤其复合数据;
+         10  "tom"
+				 <book>
+				    <id>10</id>
+						<name>js大全</name>
+						<price>100.00</price>
+				 </book>
+      xml语法
+			1:xml文档类型声明
+			  <?xml version="1.0" encoding="utf-8"?>
+			2:整遍xml有且只有一个根元素
+			  <books>
+				</books>
+			3:标签有开始必须有结束，开始标签与
+			  结束的签完全相同
+				<book></book>
+			4:标签可以嵌套不能交叉
+			  <book><id><i></i></id></book> ok
+				<id><book></id></book>
+			5:标签可以有任意属性,必须有单引号
+			  或双引号括起来.
+        
+			总结:XML和HTML用途不同，xml语法更加严格
+      示例一:books.xml
+      示例二:cakelist_02_xml.php
+      *服务器端:
+			header("content-type:application/xml");
+			echo "<?xml version='1.0' encoding='utf-8'?>";
+			echo "<cakelist>";
+			echo "<cake><id>1</id><pic>1.jpg</pic><price>100.00</price></cake>";
+			echo "<cake><id>2</id><pic>2.jpg</pic><price>100.00</price></cake>";
+			echo "<cake><id a='1'>3</id><pic>3.jpg</pic><price>100.00</price></cake>";
+      ....
+			echo "</cakelist>";
+			*客户端: DOM 标准 html DOM
+			cakelist_02_xml.html 
+			var doc = xhr.responseXML;
+      var cakes = doc.querySelectorAll("cake");
+      var id  =   cake.querySelector("id");
+			var txt = id.innerHTML;
+      var v =   id.getAttribute("a");
+
+      标准:
+      流程:php    发送xml <cakelist>
+			                     <cake></cake>
+													 <cake></cake>
+			                    </cakelist>
+      客户:html   接收
+			  1.1 解析  101 1.jpg 100
+				1.2 转换  html <tr><td>1.jpg</td></tr>
+				1.3 动态  tbody
+
+
+
+
+
+    3.3 使用xhr接收响应消息--application/javascript -- 掌握
+		 提示:一般.js文件中,script请求
+		      (任何人)(任何时间)js内容一样.
+		 场景:需要服务器端返回 "动态js"
+		      根据客户端不同或访问时间不同
+					js也不同.
+
+     服务器端:
+		    header("Content-Type:application/javascript");
+				echo "var msg = '你好';alert(msg);";
+		 客户端:
+		    eval(xhr.responseText);
+
+     示例:实现 "i18n国际化" 欢迎消息
+		 1:编写php:读取客户端请求头部 Accept-Language
+		   zh en   11:35---11:50
+       1.1:读取请求消息所有头部 php
+			 $list = getallheaders();
+       $lang = $list['Accept-Language'];
+			 $lang "en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4"
+       1.2: 截取前二个字符
+			 $start2 = substr($lang,0,2);
+			 1.3: 判断不同字符串输出 js
+		 2:编写html:页面加载完成，发起异步请求,
+		   获取服务器给欢迎消息
+			 i18n_04.php
+			 i18n_04.html
+		 
+	 3.4:jquery中的 ajax---->
+	   a:jquery中对ajax操作封装函数--load();
+		 使用语法:
+		   $("选择器").load(URL,[data],[fn]);
+			 URL : 请求url地址
+			 data: 参数
+			       'name=tom&age=10'
+						 {name:"tom",age:10}
+			 fn  : 回调函数.ajax请求返回结果自动
+			       调用函数
+       []   可选
+			 $("ul").load("x.php");
+			 作用含义:
+			 发起一个XHR请求，data为null则为GET
+			 否则发起POST请求,把服务器端返回的响
+			 应数据(必须是html片段).追加为
+			 选定元素的innerHTML;若有参数fn
+			 则调用该函数;
+
+			 #使用限制
+			  1:服务器只有返回是html片段
+				2:选中元素内容必然被清除
+
+      #示例:客户端页面包含
+      1:创建header_01.php 包含全站每个页面都必须页头内容
+			2:创建footer_01.php 包含全站每个页面都必须页尾内容
+			3:创建index_01.php  主页
+			   <div id="header">..</div>
+			   <div id="main">首页主体内容</div>
+			   <div id="footer"></div>
+			$("#header").load("header_01.php");
+			
+
+
+			c:jquery中对ajax操作封装函数--get();
+			  使用方法
+        $.get(URL,[data],[fn]);
+				$.get("x.php",function(){});
+        作用含义:
+				发起一个XHR GET请求，如果服务器
+				返回成功响应消息
+				调用fn,在函数中处理响应数据.
+
+        案例演示:动态加载下拉列表的同容
+				1:weiduomei.sql 
+				  t_cake_type 蛋糕类别
+					id  name
+					10  巧克力蛋糕
+					20  水果蛋糕
+					30  芝士蛋糕
+        2:编写php type_list.php
+				  向客户返回所有蛋糕类别 json
+        3:编写html type_list.html
+				  提供select 缺少有效数据，待页面加载
+					完成后，异步请求type_list.php
+					将返回数据 
+					<option value="10">水果</option>
+					...
+         示例:
+				 $.get("type_list.php",
+				 function(data){
+				 ..
+				 });
+			d:jquery中对ajax操作封装函数--post();
+        使用方法
+				$.post(URL,[data],[fn]);
+				$.post('x.php','name=tom&age=10',fn);
+				$.post('x.php',{name:"tom",age:10},fn);
+
+        作用:
+				发起一XHR POST请求，并在请求主体中提交
+				请求数据.如果服务器返回成功响应消息
+				调用参数fn,在该方法中处理响应数据.
+				
+				ajax处理数据格式:{文本/网页/js/xml/json} 
+				99% - json
+				99% - $.ajax({})
+
+				示例:15:45---16:00
+				编写php: cake_type_add.php
+        name 保存数据库
+				返回数据类JSON
+        $str = '{"code":-2,"msg":"类型名是必须的"}'
+        添加成功
+				$str = '{"code":1,"msg":"添加成功"}';
+        编写html: cake_type_add.html
+				创建表单-->POST
+      echo '{"code":-1,"msg":"添加失败"}';
+      echo "{'code':-1,'msg':'添加失败'}";
+      回顾json字符串格式.txt
+			e:jquery中对ajax操作封装函数--getScript();
+			f:jquery中对ajax操作封装函数--getJSON();
+			g:jquery中对ajax操作封装函数--ajax();--万能  重点
+      
+			使用方法:
+      $.ajax({
+			  type:'GET',    请求方式POST/PUT/DELETE..
+				url:'x.php',   请求地址*** ok
+				data:{k1:v1,k2:v2}  请求参数
+				beforeSend:fn, 请求消息发送之前回调函数 
+				success:fn,    响应完成且成功回调
+				error:fn,      响应完成且失败回调
+				complete:fn    响应完成回调(不论成败)
+			}); 
+
+      示例:05.php   hello
+			     05.html  $.ajax()
+
+
+
+
+  作业:
+	仿beijing.huimaiche.com中车辆展示
+	鼠标悬停在某个类别上，异步请求
+	该类别下所有汽车显示.
+	1:创建库 创建表
+    库  huimaiche
+		表  t_car
+		cid   编号
+		cname 名称
+		pic   图片
+		price 价格
+		type  类别名称 
+		      'lt8'   'lt15'  'lt30' 'suv'
+
+	2:编写php 获取类别8 15 30 suv
+	  查询该类别下所有汽车 json
+  3:编写html 
+	  [8万][15万][30万][suv]
+		绑定鼠标移入事件  8-->ajax php
+
+  
+

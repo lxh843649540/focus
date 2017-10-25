@@ -1,0 +1,43 @@
+		3:application/json       99%
+      JSON字符串格式,作用描述数据
+			 XML是字符串格式描述数据，麻烦->重量级
+       JSON是字符串格式描术数据，简单->轻量级
+      业界标准:php/java/nodejs/.net...
+			JSON:易于阅读和编定,语法js语句，
+			但是目前己被各种语言所支持.
+			"异构系统交互数据标准"
+			异构系统: java---> json-->php js
+			          c   ---> json-->
+      商城:php--->支付-->(支付宝)(微信)(银行)
+
+			JSON字符串语法要求
+			1:一个JSON字符串有且只有一个根
+			  {}对象   [] 数组
+        [
+         1,2,3,4
+				]
+				{
+				 "name":"tao","age":10
+				}
+        [
+				 {"name":"tao"},
+				 {"name":"james"}
+				]
+        error
+				{"name":"tao"}
+				{"name":"james"}
+
+			2:JSON中可以表示数字,bool,null,字符串
+			  ----如果字符串必须用双引号
+			3:[]数组可以包含多个值，使用逗号分隔
+			4:{}对象可以包含多个键值对,
+			    使用逗号分隔，键和值之间用冒号
+					键必须是用双引号
+
+      简单示例:
+			header("content-type:application/json");
+			[1,2,4,2,10,10]
+			echo '{"name":"tom","age":10}';
+			[{"name":"jerry"},{"name":"kk"},{"age":19}]
+
+ 

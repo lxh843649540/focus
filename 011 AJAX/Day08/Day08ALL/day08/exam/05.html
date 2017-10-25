@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <title>hello world</title>
+  </head>
+  <body>
+      <h1>$.ajax</h1>
+    <script src="jquery-1.11.3.js">
+    </script>
+    <script>
+      $(function(){
+       $.ajax({   ///17:40---17:50 添加蛋糕类别
+         type:"POST",
+         url:"06.php",
+         data:{ename:"tom"},
+         beforeSend:function(){
+           console.log("1:发送之前");
+         },
+         success:function(){
+           console.log("2:响应成功");
+         },
+         error:function(){
+           console.log("3:响应失败");
+         },
+         complete:function(){
+           console.log("4:成功失败均执行");
+         }
+       });     
+      });
+
+    </script>
+  </body>
+  </html>

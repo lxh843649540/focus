@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+     <style>
+         .tabs{
+             list-style-type: none;
+             padding: 0;
+         }
+         .tabs>li{
+             float:left;
+         }
+         .tabs>li>a{
+             text-decoration: none;
+             padding:6px 12px;
+             color:pink;
+         }
+     </style>
+ </head>
+ <body>
+ <h1>使用属性选择器实现标签页头的切换</h1>
+    <ul class="tabs">
+        <li><a data-toggle="tab" href="#">十元套餐</a></li>
+        <li><a data-toggle="tab" href="#">二十元套餐</a></li>
+        <li><a data-toggle="tab" href="#">三十元套餐</a></li>
+    </ul>
+ <br>
+ <ul id="menu">
+     <li title="test">js大全</li>
+     <li title="admin">css大全</li>
+     <li title="tts">ajax指南</li>
+ </ul>
+ <script src="scripts/jquery-1.11.3.js"></script>
+ <script>
+    //选择class为tabs下所有按钮 a #按属性和值去查找元素 #data-toggle="tab"
+     var $rows=$(".tabs [data-toggle=tab]");
+//     console.log($rows.length);
+     //1:给所有元素添加下边框
+     $rows.css("border-bottom","1px solid pink");
+     //2:添加点击事件
+     $rows.click(function () {
+         //3.重新获取三个按钮
+         $(".tabs [data-toggle=tab]").css("border","none").css("borderBottom","1px solid pink");
+         //4:当前对象添加边框
+         $(this).css("border","1px solid pink").css("border-bottom","none");
+     });
+//获取menu li 有title属性
+     var $a=$("#menu>li[title]");//可以省略#menu和li,加#menu和li是为了更精确定位
+        console.log($a.length);
+//获取menu li 有title=test
+     var $b=$("#menu>li[title=test]");
+        console.log($b.length);
+//获取menu li 有title=t为开头
+     var $c=$("#menu>li[title^=t]");
+        console.log($c.length);
+//获取menu li 有title=t为结尾
+     var $d=$("#menu>li[title$=t]");
+        console.log($d.length);
+//获取menu li 有title中有ad
+     var $e=$("#menu>li[title*=ad]");
+        console.log($e.length);
+ </script>
+ </body>
+</html>

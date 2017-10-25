@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+ </head>
+ <body>
+  <button>显示出不可见的元素的数量</button>
+
+  <div style="display: none;">DISPLAY: NONE</div>
+  <p style="visibility:hidden;">VISIBILITY: HIDDEN</p>
+  <span style="opacity: 0;">OPACITY: 0;</span>
+  <input type="hidden" name="id" value="123"/>
+  <script src="scripts/jquery-1.11.3.js"></script>
+  <script>
+      //1:查找body元素下所有隐藏元素
+      var size=$("body :hidden").length;
+      console.log(size);
+      var $rows=$("body :hidden");
+      console.dir($rows);
+      //jQuery自带-->each
+      $rows.each(function (i,obj) {
+          console.log(i);
+          console.log(obj);
+          $(obj).css("border","1px solid red");
+      })
+  </script>
+ </body>
+</html>

@@ -1,0 +1,229 @@
+今天学习的内容
+1:复习昨天重点
+2:作业/综合示例
+3:今天新知识
+  3.1 原生ajax
+#----------------
+1:复习昨天重点
+  综合示例..
+	HTTP协议
+	请求消息:客户端浏览器发送服务器(apache)
+	响应消息:服务器发送客户端浏览器
+	index.html
+	响应状态码
+	1xx 提示信息
+	2xx 响应成功 200 OK
+	3xx 重定向   a.php -> b.php
+	             304 
+	4xx 客户端出错 404
+	5xx 服务器出错 500 服务器内部出错
+2:作业/综合示例
+  作业.txt  
+	9:50--10:00  练习删除成功自动跳转
+3:今天新知识
+  3.1 原生ajax
+  a:ajax :Asynchronous JavaScript AND Xml 
+	  异步的js与xml
+  #异步与你专业中异步概念不相同
+
+  学习方法
+	a:快速入门
+	  电话餐厅推出新业务{微信订餐} ->
+
+    示例一:
+		a.1:添加用户 ajax实现功能
+		1:user_add.php        一点都没变
+		  manager/t_user
+		2:user_add_input.html 表单 js一块写
+		  创建表单.   10:35---10:50
+    ##变化    ajax_01.zip 
+		3:获取用户输入{用户名和密码} js
+		4:发送get请求 user_add.php   js
+		  a:创建ajax对象var xhr =  XMLHttpRequest()
+			b:绑定事件        xhr.onreadystatechange
+			    e:接收服务器返回数据
+					xhr.responseText //
+			c:打开连接        xhr.open('GET','user_add.php',true);
+			d:发送请求        xhr.send(null);
+
+		5:获取php返回结果 "添加失败";js
+		 
+    示例二:
+		a.1:删除用户 ajax实现功能
+		 1:创建php   user_delete.php
+		   uid 
+     2:创建html  user_delete_input.html
+		   表单 <input type="text" name="uid" />
+			      <input type="button"
+       ajax
+		 练习:11:31---11:42 删除成功显示 h1
+
+	b:分析对象属性流程
+	  ajax简介:
+		2002年 Google GoogleSuggest 
+		搜索建议:提出AJAX概念
+		AJAX=HTML+CSS+JS+DOM+HTTP+XML
+
+		ajax作用:
+		实现(无刷新)(无提交)(无跳转)的情况
+		下页面内容局部更新.
+
+    ajax应用场合:
+		股票走势图、搜索建议、聊天室、注册...
+
+
+    浏览器中发起请求种类
+		a:同步请求:
+		  浏览品请求后，一片惨白，等待服务器
+			响应,刷新网页(输入内容清空);
+			地址栏输入地址,表单提交,超接链
+			js跳转
+			示例:
+			01.html  02.php
+		b:异步请求:
+      浏览器中有内容，同时又发起请求处理
+			响应.(原有内容没有任何改变)
+			AJAX
+
+
+
+    AJAX对象与属性
+		 a:XHR对象: 作用向web服务器发起异步请求
+		   并且接收返回响应消息(数据);
+     构建XHR
+		 W3C(ch/ff/sa/IE9+):标准对象 XMLHttpRequest
+		 IE(8-): ActiveXObject("Microsoft.XMLHTTP");
+		 if(window.XMLHttpRequest){
+		  var xhr = new XMLHttpRequest();
+		 }else{
+		  var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+		 }
+
+    b:XHR对象属性
+      readyState 
+			:表示xhr对象当前状态，不能手工赋值
+			其值会随请求-响应过程自动改变.
+			可取值
+			0 UNSEND  请求信息尚未发送
+			1 OPENED  xhr己经打开到web服务器连接
+			2 HEADERS_RECEVICED xhr己经接收到响应头部
+			3 LOADING xhr正在加载响应的消息主体
+			4 DONE    xhr接收完成响应消息
+
+
+      status: 服务器响应状态码 200
+
+
+			responseText:响应文本(响应数据)
+			responseXML:
+
+			成员方法
+      open(method,url,isAsyn);  打开到服务器连接
+      method:请求方法 GET/POST/DELETE..
+			url:   请求地址
+			isAyn  是否是异步请求  true
+			             同步请求  false
+
+
+      send(请求主体);
+			GET:		send(null);
+			POST:   send('name=tom&age=10');
+
+			成员事件:
+			onreadystatechange: 当前xhr状态改变触发该事件
+                          readyState(0->1)
+													           1->2
+																		 2->3
+																		 3->4
+      状态改变规则
+
+      (0)------->(1)------>(2)--->(3)--->(4)
+      初始 open()    send()    自然  自然
+
+
+      
+			c:使用XHR发起异步请求消息步骤--重点
+			 1) 创建对象XHR
+			    var xhr = new XMLHttpRequest();
+			 2) 绑定监听(监听状态改变)事件
+			    xhr.onreadystatechange = function(){}
+			 3) 打开一个连接(web服务器)
+			    xhr.open('GET',url,是否是异步请求);
+			 4) 发送请求消息
+			    xhr.send(请求主体);
+
+
+    综合示例一:
+		 a:要注册用户名是否己被占用
+		 1:编写sql:14:45---15:00
+		   1.1:sohu.sql 库sohu 表t_user
+			 1.2:(uid,uname,upwd)
+			 1.3:添加三个用户信息
+     2:编写php: check_uname.php
+		   2.1:接收客户端请求uname
+			 2.2:查询sohu.t_user  uname 是否存在
+			 SELECT * FROM t_user WHERE uname=?
+			 2.3:存在  -> 该用户名己被注册
+			     不存在-> 该用户名可用
+     3:编写html:
+		   user_input.html 15:35--15:45
+     练习:添加新功能:错误 边框红色
+		                 正确 边框绿色
+
+
+
+    综合示例二: 
+		用户登录
+    sohu/t_user  16:00--16:05 练习php
+		1:编写php  login.php
+		  获取用户名/密码 查询并且返回结果
+			$sql = "SELECT * FROM t_user
+			 WHERE uname=? AND upwd = ?";
+      $row = mysqli_fetch_assoc($result);
+			$row==null "登录失败"
+			           "登录成功"
+    2:编写html  login.html
+		  创建表单 uname/upwd   登录
+    出错找到问题根源:
+    1:login.html  html ok
+		  js               语法正确
+			ajax    F12 network
+			1:发送请求
+			2:接收服务器响应
+		2:login.php   php       100%
+    16:45---16:55
+
+		小结:AJAX知识点.jpg 思维导图
+
+
+    综合练习 17:35--17:50
+		1:添加新用户 manager/t_user
+    uid/email/upwd/regtime/lasttime
+		2:编写php  adduser.php
+		  a:获取email/upwd
+			b:保存 INSERT ..
+			c:返回 添加成功  添加失败  {调用}
+    3:编写html adduser_input.html
+		  a:创建表单 email/upwd
+			b:ajax请求添加成功!!!!!!
+	
+	
+	3.2 http 结束
+
+  作业一:
+	 功能:查询manager/t_user用户信息
+	 ajax
+	 1:创建php  select_user.php
+	   获取manager/t_user 表所有记录
+		 拼接字符串 <li>email/regtime</li>
+		 <li>tom@tom.com:2017-10-10</li>
+		 <li>tom@tom.com:2017-10-10</li>
+		 <li>tom@tom.com:2017-10-10</li>
+	 2:创建html select_user_input.html
+	   <input type="button" id="btn" />
+	   <ul id="menu">
+		   ...
+		 </ul>
+		 2.1:点击btn按钮发送ajax请求
+		 2.2:返回数据 <ul>.....</ul>
+

@@ -1,0 +1,73 @@
+今天学习的内容
+1:复习昨天重点
+2:作业/综合示例
+3:今天新知识
+  3.1 原生ajax
+#----------------
+1:复习昨天重点
+  综合示例..
+	HTTP协议
+	请求消息:客户端浏览器发送服务器(apache)
+	响应消息:服务器发送客户端浏览器
+	index.html
+	响应状态码
+	1xx 提示信息
+	2xx 响应成功 200 OK
+	3xx 重定向   a.php -> b.php
+	             304 
+	4xx 客户端出错 404
+	5xx 服务器出错 500 服务器内部出错
+2:作业/综合示例
+  作业.txt  
+	9:50--10:00  练习删除成功自动跳转
+3:今天新知识
+  3.1 原生ajax
+  a:ajax :Asynchronous JavaScript AND Xml 
+	  异步的js与xml
+  #异步与你专业中异步概念不相同
+
+  学习方法
+	a:快速入门
+	  电话餐厅推出新业务{微信订餐} ->
+
+    示例一:
+		a.1:添加用户 ajax实现功能
+		1:user_add.php        一点都没变
+		  manager/t_user
+		2:user_add_input.html 表单 js一块写
+		  创建表单.   10:35---10:50
+    ##变化    ajax_01.zip 
+		3:获取用户输入{用户名和密码} js
+		4:发送get请求 user_add.php   js
+		  a:创建ajax对象var xhr =  XMLHttpRequest()
+			b:绑定事件        xhr.onreadystatechange
+			    e:接收服务器返回数据
+					xhr.responseText //
+			c:打开连接        xhr.open('GET','user_add.php',true);
+			d:发送请求        xhr.send(null);
+
+		5:获取php返回结果 "添加失败";js
+		 
+    示例二:
+		a.1:删除用户 ajax实现功能
+		 1:创建php   user_delete.php
+		   uid 
+     2:创建html  user_delete_input.html
+		   表单 <input type="text" name="uid" />
+			      <input type="button"
+       ajax
+		 练习:11:31---11:42 删除成功显示 h1
+
+	b:分析对象属性流程
+	  ajax简介:
+		2002年 Google GoogleSuggest 
+		搜索建议:提出AJAX概念
+		AJAX=HTML+CSS+JS+DOM+HTTP+XML
+
+		ajax作用:
+		实现(无刷新)(无提交)(无跳转)的情况
+		下页面内容局部更新.
+
+    ajax应用场合:
+		股票走势图、搜索建议、聊天室、注册...
+	3.2 http 结束

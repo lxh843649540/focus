@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <title>hello world</title>
+  </head>
+  <body>
+     <h1>添加用户</h1>
+    <form id="regForm" action="#" method="post">
+      <ul>
+       <li>邮件<input type="text" value="" name="email" id="email"/></li>
+       <li>密码<input type="password" value="" name="upwd" id="upwd"/></li>
+       <li><input id="btn" type="button" value="" /></li>
+      </ul>
+    </form>
+    <script>
+       //使用ajax-->程序改变 
+       //1:表单原有一个按钮  submit
+       //  submit ---> button
+       //2:action="#"  清空
+
+       //程序功能不变-->添加用户
+       //用户名和密码保存数据库
+       //功能没有任何变量-->流程变化
+       //提交操作交  ajax
+
+
+       //使用ajax完成添加用户
+       //1:获取按钮 btn
+       var btn = document.getElementById("btn");
+       //2:绑定点击事件
+       btn.onclick = function(){
+         //2.1:获取用户名，密码
+         var m = email.value;
+         var p = upwd.value;
+         //2.2:创建ajax对象 XMLHttpRequest()
+         var xhr = new XMLHttpRequest();
+         //2.3:绑定事件     onreadystatechange
+         xhr.onreadystatechange = function(){
+             //2.3.1 接收返回数据 responseText
+             alert(xhr.responseText);
+         }
+         //2.4:打开连接     
+         xhr.open('GET','user_add.php?email='+m+'&upwd='+p,true);
+         //2.5:发送数据  send(null);
+         xhr.send(null);
+       }
+    </script>
+  </body>
+  </html>

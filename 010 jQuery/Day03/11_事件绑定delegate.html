@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+     <style>
+         .select{
+             color: red;
+         }
+     </style>
+ </head>
+ <body>
+	<h1>事件绑定</h1>
+	<ul id="menu">
+       <li>js大全</li>
+       <li>js手册</li>
+       <li>jQuery大全</li>
+    </ul>
+    <script src="jquery-1.11.3.js"></script>
+    <script>
+        //动态添加列表
+     var $html=$("<li>css指南</li><li>css大全</li>");
+     $("#menu").append($html);
+     //绑定事件点击
+        //----------第一种------------
+//     $("#menu").delegate("li","click",function(){
+//         $(this).toggleClass("select");
+//     })
+        //----------第二种------------
+        $("#menu").on("click","li",function () {
+            $(this).toggleClass("select");
+        })
+    </script>
+ </body>
+</html>

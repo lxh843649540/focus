@@ -1,0 +1,309 @@
+今天学习的内容
+1:复习昨天重点知识
+2:作业 列表排序插件
+3:今天新任务(ajax 9day+nodejs 4day)
+   3.1:服务器/web概念
+	 3.2:数据服服务器 --> sql   重点&难点
+#-----------------------------------
+1:复习昨天重点知识
+  jquery动画
+	jquery插件
+	京东首页(图片轮播/楼层点亮)
+2:作业 列表排序插件    9:45--9:50  
+  示例:homework_01.html
+	示例:js/sortli.js
+
+3:今天新任务(ajax 9day+nodejs 4day)
+   3.1:服务器/web概念
+	   a:整体阶段课程的安排 
+		   第一阶段:HTML(4)+CSS(5) = 静态页面
+		   第二阶段:JS(7)+DOM(7.5) = 用户交互
+		   第三阶段:AJAX(9)+H5高级(6.5) = 动态页面(全栈)
+		   第四阶段:框架
+
+	   b:ajax课程安排  (写程序慢 下课上课 三遍)
+		   数据库服务器--- SQL  难点 & 重点
+			 web服务器   --- PHP  难点 & 重点
+       HTTP协议    --- 抽象 
+			 原生ajax/jquery ajax 
+		 c:服务器与数据库
+		   后端:??????
+			 电脑容量单位 
+			 MB(兆)
+			 1024MB=1GB
+			 1024GB=1TB   (15TB)
+			 商品:价格，图片，介绍，
+       网站->淘宝->网站
+
+
+		   问题一:网站的数据保存在哪
+			 !数据保存在哪里? 软件(数据库)
+        表格
+				商品表
+				编号  名称    价格  图片 ..
+				1     iphone  5000  1.jpg
+				2     book    15    2.jpg
+				3     bookjs  100   11.jpg
+				.....
+        特点:
+				1:海量永久性保存数据
+				2:高速查询
+			 问题二:如何取出来
+			 问题三:如何显示
+        数据库软件只负责保存数据,
+				如果你需要获取数据并且显示客户
+				在浏览器上可以看到商品
+				php
+			 生活中的场景(电话订餐)
+	 3.2:数据库服务器 --> sql   重点&难点
+	     数据库服务器分类
+			 网状数据库
+			 树形数据库
+			 关系型数据库!!!!
+			 MySQL**/SqlServer/Oracle/DB2....
+			 NOSQL数据库/Redis
+
+      MySQL:公开->MySQL AB->SUN->Oracle
+			
+      #下载,安装,使用
+			#下载
+			  版本:  5.5 (5.6) 5.7  
+				系统:  windows/linux/unix
+				32/64位:右击我的电脑->64
+      官网:http://www.oracle.com.cn/
+			镜像:http://mirrors.sohu.com 
+
+			xampp 软件工具包(php/mysql/apache)
+			https://www.apachefriends.org 
+
+
+      MYSQL数据库数据的结构
+			mysql服务器->库-->表-->行(记录)->列(字段)
+
+      使用
+			1:启动 mysql服务器 不要停止
+			2:SQL语句  ---  重点&难点
+			Structured Query Language 结构查询语言，
+			专用于数据库增删改查数据库中的数据
+      3:SQL语句分类
+			 1:DDL  数据定义语句
+			   CREATE**/DROP**/ALTER/TRUNCATE
+			 2:DML  数据操作语句
+			   INSERT**/UPDATE**/DELETE**
+			 3:DQL  数据查询语句
+			   SELECT*****
+			 4:DCL  数据控制语句
+         GRANT/REVOKE
+ 
+      3.1:CREATE 创建库创建表
+			  #标准语法
+				 CREATE DATABASE 库名;
+				 CREATE DATABASE 库名 CHARSET=utf8;
+        示例
+				 CREATE DATABASE web1702 CHARSET=utf8;
+         ?大小写?库名
+				  1:mysql指令 CREATE create 对
+					  建议:大写
+          2:表名，库名，列名 
+					  建议:小写
+          3:表名，库名，列名->
+					  字母开头,不要空格，不要中文
+						不要特殊字符
+          4:mysql 坑
+					  html/css/js/dom/jquery/php UTF-8
+						mysql                      utf8
+
+      3.2:验证创建库指令
+			    #查看当前 mysql中所有库名
+			    SHOW DATABASES;
+					#进入指定库中
+					USE 库名;
+
+      11:53--12:00
+      练习一:创建库 web1702  验证
+			CREATE DATABASE web1702 CHARSET=utf8;
+			SHOW DATABASES;
+			USE web1702;
+			练习二:创建库 web1702a 验证
+			练习三:创建库 web1702b 验证
+
+
+
+      如何进入 mysql系统中 
+			xampp-->右击按钮[shell] 点击
+			#mysql -uroot -p
+
+      mysql 指令->进入mysql数据库
+      -u    输入用户名
+			root  root是mysql系统权限最大用户
+      -p    密码
+
+
+      3.3:DROP 删除库 删除表
+			#注意:一但删除库或者表很难恢复
+			#生产环境:非常非常谨慎操作
+			?如果很重库->(备份)->删除
+			DROP DATABASE 库名;
+			#如果指定库名存在删除否则就什么都不做.
+			DROP DATABASE IF EXISTS 库名;
+
+			示例:
+			DROP DATABASE IF EXISTS web1702;
+
+			3.4:CREATE TABLE 创建表
+      标准语法
+			CREATE TABLE 表名(
+			   列名称1  列类型,
+				 列名称2  列类型,
+				 ...
+				 列名称n  列类型
+			);
+			#(表名,列名)小写字母开头后面_数字
+			 不要中文不要空格不要其它字符
+      #所有表第一列都要id编号
+      示例:
+      商品表 t_product
+			编号id   图片pic   名称name  价格price
+      
+      #列类型
+			int         整型     -21亿~21
+			varchar(n)  字符串   n字符(汉字，字母，数字，特字符串)
+			n 1~20000
+			datetime    日期时间 年月日时分秒  
+			double(m,n)浮点     m数字其中包含n位小数 
+
+
+      示例:
+      t_product
+			id(int)/pic(varchar(100)/
+			name(varchar(20))/price double(10,2)
+
+      USE web1702a;
+      CREATE TABLE t_product(
+			   id INT,
+				 pic VARCHAR(100),
+				 name VARCHAR(20),
+				 price DOUBLE(10,2)
+			);
+			二个创建表辅助指令
+      SHOW TABLES;    查询当前库中所有表名
+			DESC 表名;      查询指定表名结构
+			14:40--14:50
+      练习1:学生表
+			练习2:班级表
+      USE web1702a;
+			CREATE TABLE t_stu(
+			  id INT,
+				name VARCHAR(20),
+				ctime DATETIME
+			);
+			CREATE TABLE t_clazz(
+			  id INT,
+				name VARCHAR(20)
+			);
+      问题1:t_ 表格 v_视图 ...
+      问题2:有图形化的工具吗?
+      http://mirrors.sohu.com/mysql/
+
+
+
+      3.5:删除表
+			#什么删除操作一定谨慎
+			#
+			DROP TABLE 表名;
+      示例:产品表
+			DROP TABLE t_product;
+
+      3.6:向表中添加一行数据(记录)
+			 标准语法:
+       INSERT INTO 表名 VALUES(值1,值2,..);
+
+			 #注意
+			 1:如果当前列是(字符串)或(日期类型)
+         数据加单引号  'tom'  '2000-10-10'
+			 2:所有语句以分号结尾
+			 3:字符串类型数据区分大小写
+
+      示例:
+			#表名 t_stu 列 id name ctime
+      INSERT INTO t_stu VALUES
+			(1,'tom','2000-10-10');
+			INSERT INTO t_stu VALUES(2,'jerry',
+			'2017-05-05');
+
+      #检测:查询添加记录
+			 SELECT * FROM 表名;
+
+      3.7:更新表中某一些记录
+      标准语法:
+			UPDATE 表名 SET 列名=新值;
+			限制
+      UPDATE 表名 SET 列名=新值,列名=新值
+			WHERE 列=值;
+
+			示例:
+			UPDATE t_stu SET ctime = '2017-10-10'
+			WHERE name = 'tom';
+      99%-->原因 id==>INT
+			UPDATE t_stu SET ctime = '2017-10-10'
+			WHERE id = 1;
+
+      UPDATE t_stu SET 
+			ctime = '2017-01-01',
+			name = 'james'
+			WHERE id = 1;
+			3.8:删除表中记录
+			#删除之前一定谨慎-->
+			标准语法:
+			DELETE FROM 表名;
+			DELETE FROM 表名 WHERE id = 值;
+
+			示例:
+			DELETE FROM t_stu WHERE id=2;
+
+			综合练习一.txt
+
+      小结指令:
+      CREATE DATABASE 库名  CHARSET=utf8;
+			SHOW DATABASES;
+			USE 库名;
+			DROP DATABASE 库名;
+			CREATE TABLE 表名(
+			  列名 列类型,
+				列名 列类型
+			);
+      列类型:int varchar datetime double
+			SHOW TABLES;
+			DESC 表名;
+      INSERT INTO 表名 VALUES(值,,,,)
+			字符串/日期   ''
+			DELETE FROM 表名 WHERE 条件;
+			UPDATE 表名  SET 列名=新值 WHERE 条件;
+
+
+
+      3.8 查询记录
+			标准语法:SELECT 列名,列名...
+			         FROM 表名 
+							 WHERE  条件
+							 ORDER BY 列名    //排序
+
+      特殊情况;
+			#*所有列
+			SELECT * FROM 表名;
+      查询练习一.txt
+			综合练习二.txt
+			综合练习三.txt 17:40--18:00
+			作业
+			综合练习四.txt
+
+
+
+
+
+
+
+
+
+
+

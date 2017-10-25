@@ -1,0 +1,36 @@
+1:编写huimaiche.sql  
+没完成作业同学先创建表
+11:10--11:15
+  a:创建库 huimaiche
+	b:创建表 t_car [cid,cname,pic,price,type]
+	c:添加12条记录
+	  8万  3
+		15万 3
+		30万 3
+		suv  3
+2:编写php  car_list.php
+  a:获取车的type参数{lt15 lt8 lt30 suv}
+	b:查询对应的汽车信息
+	c:返回json字符串
+3:编写html car_list.html
+  a:创建汽车类别列表
+	b:鼠标移入发送ajax请求获取对应汽车列表
+
+	ajax请求{异步/同步}网络工作方式
+  同步1%:客户          服务器  --打电话
+	       1:客户发请求    (等待)
+				 2:(等待)        操作(db/select/返回)
+				 3:客户接        (等待)
+
+  [图书商品]   1.php
+	[dvd商品]    1.php
+	[空调商品]   1.php
+	    [格力]   2.php
+			[格格]   2.php
+			[力力]   2.php
+
+	异步99%客户          服务器  --微信
+	       1:客户发请求  操作 
+				 2:操作        (db/select)
+				 e:客户接      操作
+

@@ -1,0 +1,98 @@
+今天学习的内容
+1:复习昨天知识重点
+2:跨域-------------->了解
+3:京东项目---------->mysql/php/ajax
+4:作业-->
+#---------------------
+1:复习昨天知识重点
+  jquery 实现ajax 方法
+	原生 js 实现ajax 步骤{} 10行
+	$.ajax({
+	  type:'GET',   
+		url:'地址',//必须  'x.php?id=10'
+    data:{id:20,age:20}
+    beforeSend:fn,
+		success:function(data){
+		  
+		},
+		error:fn,
+		complete:fn
+	});
+  x.php
+  $id = $_REQUEST['id']
+	      $_REQUEST['age']
+  echo "helo";
+
+  $("选择").load(url);
+	$.get(url);
+	$.post(url);
+	$.getJSON(url);
+	$.getScript(url);
+
+2:跨域(ajax跨域)-------------->了解
+  www.tts.com/1.php --> www.tmooc.cn/2.php 
+	a.com-->c.com
+	b.com-->a.com
+	c.com..
+
+	2.1:跨域精确定义
+	1:两个域名不同   a.com  b.com
+	2:协议名不同     http://a.com/1.php
+	                 https://a.com/2.php
+  3:主机名/ip不同
+	                 http://127.0.0.1/1.php
+									 http://localhost/2.php
+  
+  4:端口号不同     http://127.0.0.1:80/1.php
+	                 http://127.0.0.1:8080/2.php
+
+   
+  2.2:浏览器允许跨域请求情形
+   <img src="跨域图片允许" />
+	 <link href="跨域css允许" />
+	 <script src="跨域js允许" ></script>
+	 <iframe 跨域访问></ifram>
+  2.3:浏览器禁止跨域访问
+	 浏览器禁止XHR(ajax) -->可能会导致数据安全风险
+   
+  
+  2.4:解决方案:JSONP
+	    JSON with Padding (填充式json)
+			是一种使用json数据方法，用于解决
+			浏览器xhr跨域限制.
+
+  JSONP.jpg 图示
+  示例:
+	01_crossdomain.php
+	<meta charset="utf-8">  
+	#强制浏览器按utf-8显示网页内容
+
+	02_crossdomain.php
+
+  jsonp思路:
+	发起(异步)请求，不使用xhr,
+	使用一个动态创建 script标签代替xhr
+	<script async src="跨域程序"></script>
+	要求服务器必须返回一段js片段,
+	包含服务器端js数据
+	callback('hello')
+	客户端特意提供一个callback(data)函数
+
+  注意:
+	访问第一个程序 01_crossdomain.php
+	http://127.0.0.1/01_crossdomain.php
+  2.5:使用jquery实现jsonp跨域请求
+  $.ajax({
+	   url:"http://localhost/02.php",
+		 dataType:'jsonp',
+     success:function(){
+		    console.log(arguments);
+		 }
+	});
+  function callback(data){
+	  console.log(data);
+	}
+3:京东项目---------->mysql/php/ajax
+  京东项目.txt
+4:作业(惠买车)-->
+  作业.txt

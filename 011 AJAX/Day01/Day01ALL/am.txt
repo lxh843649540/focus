@@ -1,0 +1,154 @@
+今天学习的内容
+1:复习昨天重点知识
+2:作业 列表排序插件
+3:今天新任务(ajax 9day+nodejs 4day)
+   3.1:服务器/web概念
+	 3.2:数据服服务器 --> sql   重点&难点
+#-----------------------------------
+1:复习昨天重点知识
+  jquery动画
+	jquery插件
+	京东首页(图片轮播/楼层点亮)
+2:作业 列表排序插件    9:45--9:50  
+  示例:homework_01.html
+	示例:js/sortli.js
+
+3:今天新任务(ajax 9day+nodejs 4day)
+   3.1:服务器/web概念
+	   a:整体阶段课程的安排 
+		   第一阶段:HTML(4)+CSS(5) = 静态页面
+		   第二阶段:JS(7)+DOM(7.5) = 用户交互
+		   第三阶段:AJAX(9)+H5高级(6.5) = 动态页面(全栈)
+		   第四阶段:框架
+
+	   b:ajax课程安排  (写程序慢 下课上课 三遍)
+		   数据库服务器--- SQL  难点 & 重点
+			 web服务器   --- PHP  难点 & 重点
+       HTTP协议    --- 抽象 
+			 原生ajax/jquery ajax 
+		 c:服务器与数据库
+		   后端:??????
+			 电脑容量单位 
+			 MB(兆)
+			 1024MB=1GB
+			 1024GB=1TB   (15TB)
+			 商品:价格，图片，介绍，
+       网站->淘宝->网站
+
+
+		   问题一:网站的数据保存在哪
+			 !数据保存在哪里? 软件(数据库)
+        表格
+				商品表
+				编号  名称    价格  图片 ..
+				1     iphone  5000  1.jpg
+				2     book    15    2.jpg
+				3     bookjs  100   11.jpg
+				.....
+        特点:
+				1:海量永久性保存数据
+				2:高速查询
+			 问题二:如何取出来
+			 问题三:如何显示
+        数据库软件只负责保存数据,
+				如果你需要获取数据并且显示客户
+				在浏览器上可以看到商品
+				php
+			 生活中的场景(电话订餐)
+	 3.2:数据库服务器 --> sql   重点&难点
+	     数据库服务器分类
+			 网状数据库
+			 树形数据库
+			 关系型数据库!!!!
+			 MySQL**/SqlServer/Oracle/DB2....
+			 NOSQL数据库/Redis
+
+      MySQL:公开->MySQL AB->SUN->Oracle
+			
+      #下载,安装,使用
+			#下载
+			  版本:  5.5 (5.6) 5.7  
+				系统:  windows/linux/unix
+				32/64位:右击我的电脑->64
+      官网:http://www.oracle.com.cn/
+			镜像:http://mirrors.sohu.com 
+
+			xampp 软件工具包(php/mysql/apache)
+			https://www.apachefriends.org 
+
+
+      MYSQL数据库数据的结构
+			mysql服务器->库-->表-->行(记录)->列(字段)
+
+      使用
+			1:启动 mysql服务器 不要停止
+			2:SQL语句  ---  重点&难点
+			Structured Query Language 结构查询语言，
+			专用于数据库增删改查数据库中的数据
+      3:SQL语句分类
+			 1:DDL  数据定义语句
+			   CREATE**/DROP**/ALTER/TRUNCATE
+			 2:DML  数据操作语句
+			   INSERT**/UPDATE**/DELETE**
+			 3:DQL  数据查询语句
+			   SELECT*****
+			 4:DCL  数据控制语句
+         GRANT/REVOKE
+ 
+      3.1:CREATE 创建库创建表
+			  #标准语法
+				 CREATE DATABASE 库名;
+				 CREATE DATABASE 库名 CHARSET=utf8;
+        示例
+				 CREATE DATABASE web1702 CHARSET=utf8;
+         ?大小写?库名
+				  1:mysql指令 CREATE create 对
+					  建议:大写
+          2:表名，库名，列名 
+					  建议:小写
+          3:表名，库名，列名->
+					  字母开头,不要空格，不要中文
+						不要特殊字符
+          4:mysql 坑
+					  html/css/js/dom/jquery/php UTF-8
+						mysql                      utf8
+
+      3.2:验证创建库指令
+			    #查看当前 mysql中所有库名
+			    SHOW DATABASES;
+					#进入指定库中
+					USE 库名;
+
+      11:53--12:00
+      练习一:创建库 web1702  验证
+			CREATE DATABASE web1702 CHARSET=utf8;
+			SHOW DATABASES;
+			USE web1702;
+			练习二:创建库 web1702a 验证
+			练习三:创建库 web1702b 验证
+
+
+
+      如何进入 mysql系统中 
+			xampp-->右击按钮[shell] 点击
+			#mysql -uroot -p
+
+      mysql 指令->进入mysql数据库
+      -u    输入用户名
+			root  root是mysql系统权限最大用户
+      -p    密码
+
+
+      3.3:DROP 删除库 删除表
+			#注意:一但删除库或者表很难恢复
+			#生产环境:非常非常谨慎操作
+			?如果很重库->(备份)->删除
+			DROP DATABASE 库名;
+			#如果指定库名存在删除否则就什么都不做.
+			DROP DATABASE IF EXISTS 库名;
+
+			示例:
+			DROP DATABASE IF EXISTS web1702;
+
+			3.4:CREATE TABLE 创建表
+

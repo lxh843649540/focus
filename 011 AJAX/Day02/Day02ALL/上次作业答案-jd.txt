@@ -1,0 +1,83 @@
+1:删除数据库jd 如果存在
+DROP DATABASE IF EXISTS jd;
+2:创建数据库jd
+CREATE DATABASE jd CHARSET=utf8;
+3:进入数据库jd
+USE jd;
+4:创建用户信息表
+5:t_user
+  id     编号     INT
+	uname  用户名称 VARCHAR(20)
+	upwd   用户密码 VARCHAR(32)
+	pic    图片     VARCHAR(20)
+	regTime注册时间 DATETIME
+
+CREATE TABLE t_user(
+  id INT,
+	uname VARCHAR(20),
+	upwd  VARCHAR(32),
+	pic   VARCHAR(100),
+	regtime DATETIME
+);
+6:向用户表添加三条记录
+INSERT INTO t_user VALUES(1,'tom','123','1.jpg',now());
+INSERT INTO t_user VALUES(2,'jerry','123','2.jpg',now());
+INSERT INTO t_user VALUES(3,'james','123','3.jpg',now());
+
+7:创建用户评论表
+  t_comment
+	id      评论编号   INT
+	title   标题       VARCHAR(20)
+	content 内容       VARCHAR(200)
+	pubtime 发表时间   DATETIME
+	uid     评论发表人编号  INT
+
+CREATE TABLE t_comment(
+  id INT,
+	title VARCHAR(20),
+	content  VARCHAR(200),
+	pubtime  DATETIME ,
+	uid   INT
+);
+8:向评论表添加10条记录
+INSERT INTO t_comment VALUES(1,'HI1','1',now(),1);
+INSERT INTO t_comment VALUES(2,'HI2','1',now(),1);
+INSERT INTO t_comment VALUES(3,'HI3','1',now(),1);
+INSERT INTO t_comment VALUES(4,'HI4','1',now(),1);
+INSERT INTO t_comment VALUES(5,'HI5','1',now(),1);
+INSERT INTO t_comment VALUES(6,'HI6','1',now(),2);
+INSERT INTO t_comment VALUES(7,'HI7','1',now(),2);
+INSERT INTO t_comment VALUES(8,'HI8','1',now(),2);
+INSERT INTO t_comment VALUES(9,'HI9','1',now(),2);
+INSERT INTO t_comment VALUES(10,'HI10','1',now(),2);
+
+
+9:查询所有用户记录
+SELECT * FROM t_user;
+10:查询所有评论记录 
+SELECT * FROM t_comment;
+11:查询1号用户所有评论
+SELECT * FROM t_comment
+WHERE uid = 1;
+
+12:查询2号用户所有评论
+SELECT * FROM t_comment
+WHERE uid = 2;
+
+13:查询 评论标题,评论时间,评论人名称,
+   ***选作(多表查询)
+ 评论标题,评论时间   t_comment
+ 评论人名称          t_user
+标准语法：MYSQL
+1:哪张表 t_comment t_user
+2:每个条起一个别名 
+         t_comment c/t_user u
+3:分析二个表关系 某一列 = < > <= >= !=
+  t_user id ===   t_comment uid
+
+示例:
+  SELECT c.title,c.pubtime,u.uname
+  FROM  t_comment c,t_user u
+	WHERE c.uid=u.id;
+
+

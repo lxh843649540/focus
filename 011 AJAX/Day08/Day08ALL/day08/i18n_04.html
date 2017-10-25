@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <title>hello world</title>
+  </head>
+  <body>
+      <h1>i18n国际化</h1>
+    <script>
+       window.onload = function(){
+          var xhr = new XMLHttpRequest();
+          xhr.onreadystatechange = function(){
+            if(xhr.readyState===4&&xhr.status===200){
+              eval(xhr.responseText);
+            }
+          }
+          xhr.open("GET","i18n_04.php",true);
+          xhr.send(null);
+       }
+    </script>
+  </body>
+  </html>

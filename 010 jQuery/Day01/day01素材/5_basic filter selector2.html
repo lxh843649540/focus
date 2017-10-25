@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8" />
+ <title>...</title>
+    <style>
+        .btn-group{
+            list-style: none;
+        }
+        .btn-group>li{
+            border:1px solid #aaa;
+            float:left;
+            padding:6px 12px;
+        }
+    </style>
+</head>
+<body>
+  <ul class="btn-group">
+   <li>1</li>
+   <li>2</li>
+   <li>3</li>
+   <li>4</li>
+  </ul>
+  <script src="scripts/jquery-1.11.3.js"></script>
+  <script>
+      //1:选择前三个li,去除右侧边框 none
+      $(".btn-group>li:lt(3)").css("border-right","none");
+      //2:选择第一个li,加圆角top-left
+      $(".btn-group>li:first").css("border-radius","10px 0 0 10px");
+
+      //$(".btn-group>li:first").css("border-top-left-radius",10)
+          //.css("border-bottom-left-radius",10);
+
+//      $(".btn-group>li:first").css({
+//         borderTopLeftRadius:10,
+//         borderBottomLeftRadius:10,
+//      });
+      //4:获取最后一个li,加圆角右上和右下
+      $(".btn-group>li:last").css("border-radius","0 10px 10px 0");
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <title>hello world</title>
+  </head>
+  <body>
+     <h1>新增用户</h1>
+    <form id="regForm" action="#" method="post">
+      <ul>
+       <li>邮件<input type="text" value="" name="email" id="email"/></li>
+       <li>密码<input type="password" value="" name="upwd" id="upwd"/></li>
+       <li><input id="btn" type="button" value="发布" /></li>
+      </ul>
+    </form>
+    <script>
+      //1:获取发布按钮
+      //2:绑定事件点击
+      //3:获取 邮件 密码
+      btn.onclick = function(){
+      //4:创建对象
+      //5:绑定事件
+      var e = email.value;
+      var p = upwd.value;
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function(){
+         //5.1:获取服务器返回数据
+         if(xhr.readyState===4&&xhr.status===200){
+            alert(xhr.responseText);
+         }
+      }
+      //6:创建连接 
+      //7:发送请求
+      xhr.open('GET','adduser.php?email='+e+'&upwd='+p,true);
+      xhr.send(null);
+      }
+
+    </script>
+  </body>
+  </html>

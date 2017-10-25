@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>.....</title>
+  <meta charset="utf-8"/>
+  <style>
+      .admin{color:red;}
+      .base{font-size:40px;}
+  </style>
+ </head>
+ <body>
+ <ul>
+  <li>鱼香肉丝</li>
+  <li>青椒肉丝</li>
+  <li>冬瓜肉丝</li>
+ </ul>
+ <input id="btn1" type="button" value="添加class">
+ <input id="btn2" type="button" value="删除class">
+ <input id="btn3" type="button" value="判断class">
+ <input id="btn4" type="button" value="切换class">
+ <script src="js/jquery-1.11.3.js"></script>
+ <script>
+     $("#btn1").click(function () {
+         $("ul>li:first").addClass("admin");
+         $("ul>li:first").addClass("base");
+     });
+     $("#btn2").click(function () {
+        $("ul>li:first").removeClass("base");
+
+     });
+     $("#btn3").click(function () {
+         let $has=$("ul>li:first").hasClass("base");
+         if ($has)
+             console.log("存在");
+         else
+             console.log("不存在")
+     });
+     $("#btn4").click(function () {
+         $("ul>li:first").toggleClass("base");
+     })
+ </script>
+ </body>
+</html>

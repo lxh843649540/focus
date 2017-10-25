@@ -1,0 +1,258 @@
+今天学习的内容
+1:复习ajax内容重点
+2:作业
+3:综合练习
+4:php  概述、语法
+  php  连接mysql  重点&难点
+#--------------------
+1:复习ajax内容重点
+  数据库服务器  mysql(硬件/软件)
+	 服务器
+   1:硬件服务器(高档计算机 高效 稳定)
+	 2:软件服务器(MYSQL)
+  sql:结构化查询语言
+	DDL:CREATE/DROP
+	DML:INSERT/UPDATE/DELETE
+	DQL:SELECT
+	DCL:
+  CREATE 创建库、表
+	CREATE DATABASE 库名 CHARSET=utf8;
+	SHOW DATABASES;
+	USE 库名;
+	CREATE TABLE 表名(
+	  列名 列类型,
+		..
+	);
+	DROP DATABASE 库名;
+	DROP TABLE 表名;
+	INSERT INTO 表名 VALUES(值,'',);
+	'tao'  '2001-10-10'
+	DELETE FROM 表名	WHERE id  = 1;
+	UPDATE 表名 SET 列=值,列=值
+	WHERE 条件...
+2:作业
+  小知识:批量导入数据
+	1:将所有sql指令保存在一个文件中,
+	  通常文件后缀 .sql
+		示 taobao.sql
+  2:打开mysql命令窗口进入mysql系统
+	  mysql -uroot -p
+		#设置当前操作窗口编码utf8
+		SET NAMES utf8;
+  3:SOURCE  d:/taobao.sql
+	  #注意后面没分号 回车  
+
+  SELECT p.id,p.name,t.name
+	FROM  t_product p, t_ptype t
+	WHERE p.did = t.id
+
+  问题
+	1:SOURCE  d:/taobao.sql
+	2:t_user upwd VARCHAR(32)
+	修改列类型:标准语法
+	ALTER TABLE 表名 MODIFY  列名 新列类型;
+	示例
+	ALTER TABLE t_user MODIFY upwd VARCHAR(32);
+
+	在线手册:
+	? ALTER TABLE 回车
+3:综合练习
+  依据注释创建sql--->(顺序)
+  中文正确
+	1:保存sql脚本文件 utf8  !!!!!
+	  ANSI<-->GBK
+	2:打开mysql窗口  
+	  SET NAMES UTF8;
+	  每次新打开窗口执行指令
+	3:SOURCE d:/1.sql 
+	  不报错
+	4:BUG    windows-->命令功能弱 只能正确
+	         显示gbk 中文
+    mysql功能:将utf8数据转换 gbk显示
+		指令:
+		SET NAMES gbk;
+		SELECT * FROM bb_book;
+
+    mysql 300-500(专业数据库工程师)
+		你必须掌握:SELECT/INSERT/UPDATE
+
+4:php  概述、语法
+  4.1:  php 概述
+	  #web服务器(软件)
+		作用: 负责接收客户端请求，处理请求,
+		      查找请求资源并且将结果返回给客
+					户端浏览器.
+    (电话餐厅 大堂经理)
+   web服务器<--->apache
+
+   web服务器种类
+	 a:静态web服务器(apache)
+	   提供的内容任何时间任何人访问完全相同
+		 属于静态web范畴技术
+		 HTML/CSS/JS/Flash/视频/音频/图片
+	 b:动态web服务器(apache)
+     提供的内容在不同时间由不同人访问可能
+		 不完全相同.属于动态web范畴技术
+		 1) JSP = HTML + JAVA  
+		 2) ASP.NET = HTML + C# 
+		 3) PHP = HTML + PHP (简单)
+		 4) NodeJS = HTML + Node.JS
+
+    如何自学一门新编程语言
+		1:了解背景:历史，现状，发展，特点
+		  (应用领域!!!)
+		2:搭建环境:写helloworld
+		3:数据类型
+		4:变量常量
+		5:运算符
+		6:逻辑结构
+		7:通用小程序
+		8:函数对象
+		9:常用函数库，类库，框架
+		10:实用项目
+
+
+
+    4.2.1:php 背景知识
+		php是一种运行在(服务器)端编程序语言，
+		用于生成动态网页.
+		php 2000 zend
+		php特点:开源，简单，易于手，
+		跨平台(windows/linux/mac)
+		!!!适合中小型应用开发(微博.微信.微信公众平台..)
+    php版本 5.1 5.4 5.5  .. 6.0  7.0 
+     
+    4.2.3:搭建php运行环境
+		*1:安装软件 apache
+		*2:安装软件 php解析器
+		!!3:所有php只能保存 
+		c:/xampp/htdocs/1.php
+    4:启动apache
+		5:访问php程序(运行)
+		!!唯一方法:
+		浏览器地址栏
+		http://127.0.0.1/1.php 回车
+    127.0.0.1 地址运行apache软件计算机地址
+		本机
+
+  4.2.3:php语法:
+	   a:注意程序位置  c:/xampp/htdocs/...
+		 b:创建一个程序
+		   <?php
+			   php程序;
+			 ?>
+		 c:声明变量(直接声明立即赋值)
+		   $age = 10;
+       $name = "tao";
+		 d:输出字符串,数字
+		   echo $age;
+		 e:运行(唯一方式)
+		   http://127.0.0.1/1.php
+		 f:一个php程序由html/css/js/php 混合组成
+		
+		示例:2.php
+		示例:3.php 四个示例
+	
+		
+   4.2.5:php中数据类型
+	   1)值类型/标量类型(原始类型)
+		   string
+			 boolean/bool
+			 int/integer
+			 float/double
+		 2)复合类型
+		  object   php面向对象 2005出现
+			array    索引/关联
+		 3)特殊类型
+		   null/NULL
+			 resource 资源类型(数据库连接)
+      示例:4.php 
+
+      #数组使用
+			数组分类
+			1：索引数组:下标自动生成
+			2：关联数组:下标需要手工指定
+
+      索引数组
+			1:声明
+			  $arr = array(10,203,3,4);  旧版本 5.3
+				$arr = [10,20,30,10,100];  新版本 5.4
+			2:读取数组元素修改数组元素
+			  $arr[0];
+				$arr[1] = 10;
+			3:循环数组
+			  count($arr)返回值 5
+				函数:count计算数组中元素个数 
+			4:向数组末尾追加元素
+			  $arr[] = 11;
+
+      关联数组
+      1:声明
+			$arr = ['eid'=>1001,
+				'ename'=>'tom','age'=>20];
+			2:读取数组元素修改数组元素
+			$arr['eid'] = '1002';
+			3:循环数组合
+      foreach($arr as $k=>$v){
+			  echo($v);
+			}
+
+	 示例:5.php 
+	 示例:6.php 
+   练习题: 16:45--16:55
+   1:创建一个空数组
+   2:向数组中(末尾)添加新元素,该元素是一本书信息
+   (关联数组)
+   [图书编号,书名,价格,图片]
+   3:添加3本书信息
+	 示例:7.php 
+
+	4.3:php连接mysql  重点&难点
+   php中操作mysql数据库的函数
+	 
+	 php最初提供一套连接操作mysql函数 mysql_xxx();
+	 后来提供了增强版函数             mysqli_xxx();
+
+	 使用php连接mysql服务器步骤
+	 1:创建到mysql服务器连接
+	   $conn = mysqli_connect(url,uname,upwd,dbname);
+		 url   mysql服务器地址 '127.0.0.1'
+		 uname mysql用户名  'root'
+		 upwd  mysql密码    ''
+		 dbname 连接哪个库  'dangdang'
+	 2:向mysql服务器发送sql语句
+	   $result = mysqli_query(数据连接,sql语句);
+	 3:读取mysql服务器返回结果
+	   if($result===true){
+		  执行成功
+		 }else{
+		  执行失败
+		 }
+	 4:断开与mysql服务器连接---(可以省略)
+     mysqli_close($conn);
+
+    示例:8.php 添加数据
+		dangdang/dd_category(id,name,bcount);
+    坑:
+		  php->数据库记乱码!
+    原因:默认情况下 php-->mysql添加数据
+		     编码latin_1
+    解决:在创建连接之后加一行指令
+		     $conn = mysqli_conn.......
+				 mysqli_query($conn,"SET NAMES UTF8");
+				 PHP发送sql转码--latin_1-->utf8
+ 
+  作业:
+	1:使用php实现新闻添加删除功能
+	1.1 编写sql文件 ifeng.sql
+	    创建表 t_news
+			nid    新闻编号
+			title  新闻标题
+			content新闻内容
+			count  新闻点击次数
+			pubtime发布时间
+	1.2创建php news_add.php
+	   连接数据库向 t_news 表添加一条记录
+	1.3创建php news_de.php
+	   连接数据库删除t_news 表中一条记录
+		 条件是以新闻编号.

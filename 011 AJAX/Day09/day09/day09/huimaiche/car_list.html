@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+ <head>
+   <title>惠买车</title>
+   <meta charset="utf-8">
+   <style>
+     .nav{
+        margin:20px 0 20px -15px;
+        padding:0;
+        list-style:none;
+     }
+     .nav li{
+      display:inline-block;
+      padding:10px 15px;
+      border-bottom:2px solid transparent;
+     }
+     .nav li.active{
+        border-bottom:2px solid #e4393c;
+     }
+     a{
+        text-decoration:none;
+        color:#000;
+     }
+     .item{
+       float:left;
+       width:30%;
+       margin:10px 15px;
+       border:1px solid #aaa;
+       padding:10px;
+       border-radius:4px;
+       overflow:hidden;
+     }
+     .item img{
+         cursor:pointer;
+     }
+   </style>
+ </head>
+ <body>
+   <h1>惠买车</h1>
+   <ul class="nav">
+     <li class="active"><a href="lt8">8万以下</a></li>
+     <li><a href="lt15">15万以下</a></li>
+     <li><a href="lt30">30万以下</a></li>
+     <li><a href="suv">suv</a></li>
+   </ul>
+   <div class="container">
+     --汽车列表--
+   </div>
+   <script src="jquery-1.11.3.js"></script>
+   <script>
+      //1:鼠标移入指定类别 15万 14:30--14:45
+      //  1.1:获取汽车类别列表 a 绑定
+      //  1.2:鼠标移入 mouseenter
+      //  1.3:阻止事件默认行为
+      //  1.4:当前元素父元素添加active
+      //      兄弟清除 active
+      $(".nav a").mouseenter(function(e){
+         e.preventDefault();
+         $(this).parent()
+         .addClass("active")
+         .siblings()
+         .removeClass("active");
+      
+        //2:发送ajax请求->car_list.php
+        //2.1:$.ajax(); type
+        //3:获取该类别下所有汽车信息
+        $.ajax({
+          url:"car_list.php",
+          data:{type:$(this).attr("href")},
+          success:function(data){
+            var html = '';
+            $.each(data,function(i,obj){
+            html += `
+            <div class="item">
+              <h4>${obj.cname}</h4>
+              <p>${obj.price}</p>
+              <img src="img/${obj.pic}"/>
+            </div>
+              `; 
+            });
+            $(".container").html(html);
+          }
+        });
+
+      });
+
+        //3.1:success
+        //名称 图片 价格
+        //<div class="item">
+           //<h4>汽车名称</h4>
+           //<p>汽车价格</p>
+           //<img src="图片"/>
+        //</div>
+
+   </script>
+
+ </body>
+</html>

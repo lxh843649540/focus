@@ -1,0 +1,74 @@
+CREATE TABLE t_user(
+	id INT,
+	name VARCHAR(20),
+	age INT,
+	ctime DATETIME,
+	sal   DOUBLE(10,2)
+);
+INSERT INTO t_user 
+VALUES(1,'tom1',19,now(),10000);
+INSERT INTO t_user 
+VALUES(2,'tom1',18,now(),9000);
+INSERT INTO t_user 
+VALUES(3,'tom1',16,now(),5000);
+INSERT INTO t_user 
+VALUES(4,'tom1',21,now(),12000);
+INSERT INTO t_user 
+VALUES(5,'tom1',18,now(),19000);
+INSERT INTO t_user 
+VALUES(6,'tom1',19,now(),11000);
+INSERT INTO t_user 
+VALUES(7,'tom1',20,now(),10001);
+INSERT INTO t_user 
+VALUES(8,'tom1',19,now(),10000);
+
+
+1:查询所有记录获取所有列
+SELECT * FROM t_user;
+2:查询所有记录要求查编号和用户名
+SELECT id,name FROM t_user;
+3:查询所有记录 编号 姓名 工资 工资涨20%
+SELECT id,name,sal,sal*1.2
+FROM t_user;
+4:查询记录要求 编号 姓名 工资
+  条件 工资大于10000
+SELECT id,name,sal
+FROM t_user
+WHERE sal>10000;
+5:查询记录 要求 编号 姓名 年龄
+  条件 年龄 19 - 25 之间(包含)
+SELECT id,name,age
+FROM t_user
+WHERE age>=19 AND age <= 25;
+6:查询 2017年以后入职员工所有记录
+INSERT INTO t_user VALUES
+(10,'kk',25,'2015-10-10',9000);
+SELECT * FROM t_user
+WHERE ctime > '2016-12-31';
+7:查询所有记录 
+  条件 工资排序
+SELECT * FROM t_user
+ORDER BY sal;   //升序 
+
+SELECT * FROM t_user
+ORDER BY sal DESC;   //降序 
+8:组函数
+count(列名)  统计列有几行  数字 
+max(列名)    统计列最大值 
+min(列名)    统计列最小值
+avg(列名)    统计列平均值
+sum(列名)    统计列总和
+9：工资列几行
+SELECT count(sal) FROM t_user;
+10: 求工资列最大值/最低
+SELECT max(sal) FROM t_user;
+SELECT min(sal) FROM t_user;
+11: 求平均工资/求工资总和   17:05--17:10
+SELECT avg(sal) FROM t_user;
+SELECT sum(sal) FROM t_user;
+
+
+
+
+
+

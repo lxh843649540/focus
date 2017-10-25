@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+     <style>
+         .tabs{
+             list-style-type: none;
+             padding: 0;
+         }
+         .tabs>li{
+             float:left;
+         }
+         .tabs>li>a{
+             text-decoration: none;
+             padding:6px 12px;
+             color:pink;
+         }
+     </style>
+ </head>
+ <body>
+ <h1>使用属性选择器实现标签页头的切换</h1>
+    <ul class="tabs">
+        <li><a data-toggle="tab" href="#">十元套餐</a></li>
+        <li><a data-toggle="tab" href="#">二十元套餐</a></li>
+        <li><a data-toggle="tab" href="#">三十元套餐</a></li>
+    </ul>
+ <script src="scripts/jquery-1.11.3.js"></script>
+ <script>
+     //1:选择class为tabs下的所有按钮a,都加下边框
+     $(".tabs>li>a").css("border-bottom","1px solid pink");
+     //2:选择class为tabs下的所有按钮a,添加点击事件:1所有元素清空边框,2添加下边框3当前元素对象 加边框4将下边框清空
+     $(".tabs>li>a").click(function () {
+         $(".tabs>li>a").css("border","none")
+             .css("border-bottom","1px solid pink");
+         $(this).css("border","1px solid pink")
+             .css("border-bottom","none");
+     })
+ </script>
+ </body>
+</html>

@@ -1,0 +1,242 @@
+今天学习的内容
+1:什么是jquery
+2:jquery安装与使用
+3:jquery 选择器------重点&难点
+#-----------------------------
+1:什么是jquery
+  程涛 chengtao@tedu.cn
+  什么是JQUERY：
+	JQUERY是一个快速的，简洁JAVASCRIPT库.
+  为什么:2个原因
+	1.1:对象DOM终极简化:
+    document.getElementsTagName("h1");
+    $("h1");
+		核心DOM:万能，繁琐
+		HTMLDOM:简单，不是万能
+		jquery:4个方面提供极简化操作
+     1:查找和操作元素(增，删，改,查)
+		 2:事件处理
+		 3:动画效果
+		 4:AJAX操作
+  1.2:屏蔽99%的浏览器兼容性问题
+	  中人JQUERY允许使用，都没有兼容性问题..
+  #PC/移动(禁止框架/库)
+
+  何时:今后绝大多数公司都是利用JQUERY开发
+2:jquery安装与使用
+  2.1:下载
+	    版本:
+			1   1.x {1.1 1.2 ....}
+			    特点:兼容IE8
+          2个文件
+					1.jquery-1.11.3.js     
+					  未经压缩的可读性良好js 
+					2.jquery-1.11.3.min.js
+					  去掉了所有注释，空白字符，换行..
+			2   2.x {2.1 2.2 ....} 
+			    特点:不再兼容IE8
+      3   3.x {3.1 3.2 ....}
+
+  2.2:如何使用
+	   1:引入jquery.js
+		   <script src="jquery-1.11.3.js"></script>
+     注意:
+		   #顺序:必须在自定义script之前,先入jqueryjs
+			 #加载jquery库script中间不要加入任何代码
+       #不要使用自封闭标签
+       <script src="jquery-1.11.3.js" /> error
+     2:***jquery对象:
+       什么是:封装一个/一组DOM元素，
+			        并且提供对DOM元素执行择器可作
+							的简化版API的类数组对象.
+			 为什么:普通用DOM对象无法使用jquery
+			        中的简化版API，只有JQUERY对象
+							才能使用
+       何时:只要调用任何jqueryAPI之前必须先
+			      获得jquery对象.
+
+		   如何:2种
+			  1:先用 API获取DOM对象，再用JQUERY
+				  工厂函数生成一个jquey对象.
+					var $jQuery对象 = jQuery(dom对象);
+					jQuery/$函数也称为工厂函数
+				2:直接用jquery简化版API查找,
+				  自动获取就是jquery对象.
+          var btn = jQuery("#btn");
+					var btn1 = $("#btn");
+        #特性情况  jquery对象->dom对象
+				 a:var dom对象 = $jquery对象.get(0);
+				 b:var dom对象 = $jquery对象[0];
+
+        鄙视题: DOM对象 vs jq对象
+				DOM对象:由W3C	的DOM标准规定,浏览器厂商
+				负责实现的现成对象.
+				使用DOM API--万能..繁琐
+				JQ对象:由第三方JQUERY.JS库定义.
+				并提供简化操作DOM的API，类数组对象
+				使用JQUERY API->简化，解决浏览器兼容问题
+
+        两套API无法通用!
+				
+3:jquery 选择器------重点&难点
+  今后都是先找元素，再调用jqueryAPI操作元素;
+	只要用jquery找元素,都用选择器!
+	用jquery查找元素，返回直接就是jquery对象.
+	无需再封装.
+	
+  如何: var $jq对象 = $("选择器"); 
+  
+	#区别 jquery对象<-->dom对象
+	  var $obj;  //提示当前对象jquery对象
+		var obj;
+
+  基本选择器: 5个 #id .class elem * 选择器1,选择器2,
+	层级选择器: 4个 选择器1  选择器2 > + ~
+	
+  练习:jQuery事件绑定:
+	 $("selector").事件名(function(){...});
+   访问元素的css样式
+	 #读取选中元素css属性
+	  $("selector").css("css属性名");
+	 #修改选中元素css属性
+	  $("selector").css("css属性名","值");
+  强调:jquery多数简化API自带forEach功能:
+	  $("selector").css("css属性名","值");
+		 相当于对找每个元素都css操作
+    $("selector").事件名(function(){....});
+     相当于对找到每个元素都绑定事件.
+
+    过滤选择器:通过特定过滤规则筛选出所需元素
+    包含:基本过滤选择器(位置过滤),
+		     内容过滤选择器
+				 可见性过滤选择器
+				 ***属性过滤选择器
+				 子元素过滤选择器
+				 表单过滤选择器
+
+    基本过滤:位置过滤.根据元素查找结果的位置
+		         来选择.
+    何时:只要选择特定位置的元素时,都用基本过
+		     滤选择器.
+        :first  选择查询结果中排在第一个位置
+				        的元素.
+								不考滤元素在父元素位置,
+								仅考在jquery对象中下标位置 
+				:last   选择查找结果中排在最后位置
+				        一个元素
+				:even/odd 选择器查找结果排偶数/奇数位
+				        置元素.
+								下标从0开始
+				:eq(i)   选择查询结果中的一个元素,i
+				         下标,从0开始
+								 ##jquery查找元素:规则深度优先..
+				:gt(i)   选择查找结果中i位置之后的所有元素
+				:lt(i)   选择查找结果中i位置之前的所有元素
+
+
+  #注意一:
+	 css方法添加属性
+	 css("border-right","none");  ok
+	 css("borderRight","none");   ok
+  #注意二:多次使用css方法
+	 1:jquery支持链式写法
+	  $("#btn1").css("","")
+		.css("","").css("","");
+	 2:jquery{}
+	  $("#btn1").css({
+		  属性名:值,
+			属性名:值,
+			属性名:值......
+		});
+  
+
+	内容过滤选择器:根据内容查找元素
+	包括4个:
+	:contains(text) 查找内容中包含指定文本的元素
+	 比如:span:contains('购物车')
+	:emtpy    查找内容为空的元素
+	 比如:span:emtpy
+	:parent   选择包含内容或子元素的父元素
+	 比如:span:parent  其实就是 :empty反义 
+	:has(selector) 选择内容中包含符合选择器要求
+	       [父]元素.
+
+
+  
+	可见性过滤选择器 2个
+  :visible  匹配所有可见的元素
+	:hidden   匹配所有不可见的元素
+	          display:none; type="hidden"
+	
+	html+css:
+	 css: display:none  visiblility:hidden;
+	      opacity:0
+	 html:type="hidden"
+
+  #注意事项:
+	 当使用jquery each()循环一组对象
+   在函数内容obj-->不是jquery对象
+
+
+  
+  ***属性过滤选择器
+     优：将任意属性作为查找条件!
+		     支持模糊查找!
+  包含:
+	[属性名]    选择包含指定属性元素
+	例   div[id]
+	[属性名=值] 选择包含指定属性,并且
+	            属性值精确等于"值"的元素
+  例   [id=btn]
+  [属性名!=值] 选择包含指定属性,并且
+	             值不等于"值"的元素
+  模糊查找:
+	[属性名^=值] 选择包含指定属性,并且
+	             属性值以"值"开头的元素
+  例   [class^=b]
+	[属性名$=值] 选择包含指定属性，并且
+	             属性值以"值"结尾的元素
+  [属性名*=值] 选择包含指定属性，并且
+	             属性值中包含"值"的元素
+
+  #注意一:
+	#属性值添加单引号不加(均可)
+	#建议加上''
+  #注意二:
+	#复杂属性过滤,多条件查询:
+	 [属性选择器1][属性选择器2]...
+	 选择同时满足多个条件
+
+
+
+
+  课后练习:
+	homework_01.html   {js/jquery}
+	完成表单验证
+  1:获取表单元素
+	2:绑定提交事件 js[onsubmit]
+	               return false; 出错
+								 return true;  全正确
+	3:获取用户名   6-8 字母数字
+	4:获取密码     3-8 数字
+	5:验证出错alert(用户名格式不正确)
+  6:验证出错alert(密码格式不正确)
+
+
+	homework_01.html   {js/jquery}
+	完成表单验证
+  1:获取表单元素
+	2:绑定提交事件 js[onsubmit]
+	               return false; 出错
+								 return true;  全正确
+	3:获取用户名   6-8 字母数字
+	4:获取密码     3-8 数字
+	5:验证出错
+  6:验证出错
+
+
+
+
+  作业:
+	1:京东首页-->图片轮播(JAVASCRIPT)
+	2:京东首页-->产品分页(JAVASCRIPT)

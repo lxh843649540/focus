@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <title>hello world</title>
+  </head>
+  <body>
+     <h1>用户注册</h1>
+    <form id="regForm" action="user_add.php" method="post">
+      <ul>
+       <li>邮件<input type="text" value="" name="email" id="email"/></li>
+       <li>密码<input type="password" value="" name="upwd1" id="upwd1"/></li>
+       <li>确认密码<input type="password" value="" name="upwd2" id="upwd2"/></li>
+       <li><input type="submit" value="发布" /></li>
+      </ul>
+    </form>
+    <script src="jquery-1.11.3.js"></script>
+    <script>
+      //var emailReg = /^\w+@\w+\.\w+(\.\w+)?$/;
+      //var email = "123@163.com";
+      //1:获取表单元素  17:40--17:52
+      //2:绑定事件 submit();
+      //3:获取邮件地址值
+      //4:获取密码值
+      //5:获取确认密码值
+      $("#regForm").submit(function(){
+        var email = $("#email").val();
+        var upwd1 = $("#upwd1").val(); 
+        var upwd2 = $("#upwd2").val(); 
+        var upwd1reg = /^[0-9a-zA-Z]{3,10}$/;
+        if(!upwd1reg.test(upwd1)){
+          alert("密码格式不正确");
+          return false;
+        }
+        if(upwd1 != upwd2){
+          alert("确认密码与密码不同");
+          return false;
+        }
+        return true;
+      });
+      //6:创建正则表达 邮件  密码
+      //7:验证邮件 出错
+      //8:提示错误 邮件格式不正确
+      //9:禁止提交 return false;
+      //10:验证密码
+      //11:验证密码==确认密码
+      //12:return true;
+    </script>
+  </body>
+  </html>

@@ -1,0 +1,51 @@
+今天学习的内容
+1:复习昨天知识重点 
+2:作业
+3:今日目标 php mysql服务器
+  3.1: php mysql 查询(获取记录并判断) 重点&难点
+	3.2: php 常用函数
+	3.3: http协议(知识多，杂，乱，前后没关系)
+#-------------------------
+1:复习昨天知识重点 
+  php 后台语言
+	php 运行后端服务器(apache)
+	php mysql
+	四个步骤
+  1:创建连接
+	$conn = mysqli_connect(url,'root','','jd'); 
+	2:创建sql 发送sql
+	$sql = "INSERT UPDATE DELETE";
+	$result = mysqli_query($conn,$sql);
+	3:判断结果是否正确 
+	if($result===true)
+	4:关闭连接--可省略
+	mysqli_close($conn);
+2:作业  9:38--9:43
+  综合练习.txt
+3:今日目标 php mysql服务器
+  3.1: 
+	php mysql 查询(获取记录并判断) 重点&难点
+	#php mysql 查询操作
+	 1:创建数据库连接
+	 2:设置编码
+	 !!3:创建一条查询语句SELECT，发送sql语句
+	 !!4:获取返回的结果 $result
+	 #查询结果$result不再是true/false
+	 #而是->结果集对象
+	 #结果集对象信息(一共几条记录/几个字段)
+	 #没有真正的数据
+	 #如果获取数据需要再完成功能??
+	 5:抓取结果集对象中数据并且转换数组
+	 $row = mysqli_fetch_assoc(结果集对象);
+	 从结果集对象中抓取一行记录->转换关联数组 
+	 $row = mysqli_fetch_row(结果集对象);
+	 从结果集对象中抓取一行记录->转换索引数组
+   #多条记录循环 while
+	 #判断结束?????
+	 示例:fetch_01.php
+
+
+
+
+	3.2: php 常用函数
+	3.3: http协议(知识多，杂，乱，前后没关系)

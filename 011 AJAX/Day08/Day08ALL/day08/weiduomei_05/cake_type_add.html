@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <title>hello world</title>
+  </head>
+  <body>
+      <h1>添加->蛋糕列表</h1>
+      <form action="#">
+      类别名称<input type="text" value="" id="cname" name="cname"/> <br />
+      <input id="btn" type="button" value="添加" />
+      </form>
+    <script src="jquery-1.11.3.js"></script>
+    <script>
+       $(function(){
+          //1:获取按钮 btn
+          //2:绑定点击事件
+          $("#btn").click(function(){
+            //2.1 获取类别名称
+            //16:05-----16:15
+            var $cname = $("#cname").val();
+           //3:发送ajax post请求
+           //4:接收返回数据
+            $.post('cake_type_add.php',
+            {name:$cname},function(data){
+                 if(data.code>0){
+                   alert(data.msg);
+                 }else{
+                   alert(data.msg);
+                 }
+            });
+          
+          });
+
+       });   
+
+    </script>
+  </body>
+  </html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <title>hello world</title>
+  </head>
+  <body>
+     <h1>用户注册</h1>
+    <form id="regForm" action="#" method="post">
+      <ul>
+       <li>用户名<input type="text" value="" name="uname" id="uname"/>
+       <span id="emailTip" style="color:red"></span></li>
+       <li>密码<input type="password" value="" name="upwd1" id="upwd1"/></li>
+       <li>确认密码<input type="password" value="" name="upwd2" id="upwd2"/></li>
+       <li><input type="button" value="发布" /></li>
+      </ul>
+    </form>
+    <script>
+        //1:获取用户名输入input
+        //2:绑定事件 onblur
+        uname.onblur = function(){
+         //3:获取用户名参数
+         var u = this.value;
+         //4:创建xhr对象
+         var xhr = new XMLHttpRequest();
+         //5:绑定事件 onreadystatechange
+         xhr.onreadystatechange = function(){
+         //  5.1:接收服务器返回结果
+         //a:判断 该用户名己被占用
+         //15:51---15:55
+         if("-1"===xhr.responseText){
+           uname.style.borderColor = "red";
+           emailTip.innerHTML = '用户名己被占用';
+         }else{
+           uname.style.borderColor = "blue";
+           emailTip.innerHTML = '用户名可以使用';
+         }
+         }
+         //6:打开一个web连接
+         xhr.open('GET','check_uname.php?uname='+u,true);
+         //7:发送请求
+         xhr.send(null);
+        }
+       
+    </script>
+  </body>
+  </html>

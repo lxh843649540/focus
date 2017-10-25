@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>...</title>
+ </head>
+  
+ <body>
+ <ul id="menu">
+    <li id="d1">
+       <ul>
+          <li>富士</li>
+          <li id="d12">花牛</li>
+          <li>蛇果</li>
+       </ul>
+    </li>
+    <li id="d2" class="base">绿苹果</li>
+    <li id="d3">
+       黄苹果
+        <ul>
+           <li id="d31">黄香蕉</li>
+        </ul>
+    </li>
+ </ul>
+ <script src="jquery-1.11.3.js"></script>
+ <script>
+    //1:获取#menu直接子元素
+    console.log($("#menu").children());
+  //2:获取#menu后代子元素
+  console.log($("#menu").find("li"));
+  //3:获取#d12父元素
+  console.log($("#d12").parent());
+  //4:获取#d12祖先元素
+  console.log($("#d12").parents("body"));
+  //5:获取#d2的前一个兄弟元素
+  console.log($("#d2").prev());
+    //6:获取#d2的后一个兄弟元素
+  console.log($("#d2").next());
+  //7:获取#d2的所有兄弟
+  console.log($("#d2").siblings());
+
+  //创建新元素
+     var $elem=$("<li>黄香蕉1</li><li>黄香蕉2</li>");
+     $("#d3>ul").append($elem);//追加到结尾
+     var $elem1=$("<li>黄香蕉0</li>");
+     $("#d3>ul").prepend($elem1);//追加到开头
+     var $elem2=$("<li>黑牛</li>");
+     $("#d12").before($elem2);
+    var $elem3=$("<li>黄牛</li>");
+    $("#d12").after($elem3);
+    $("#d12").remove();
+ </script>
+ </body>
+</html>

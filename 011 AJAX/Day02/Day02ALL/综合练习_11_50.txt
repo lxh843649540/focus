@@ -1,0 +1,44 @@
+1:设置sql窗口编码方法utf8 10:30--10:50
+2:删除数据库dangdang 如果存在的话
+3:创建数据库dangdang utf8编码 
+4:进入dangdang
+5:创建图书类别表
+ dd_category(编号,类别名称,该类别下图书数量)
+6:向图书类别表添加三条数据
+  100 计算机类 3
+	200 历史类   2
+	300 美食类   1
+7:创建书籍表
+ dd_book(编号，标题，价格，图片，
+ 出版时间，类别id)
+8:向图书表添厍6条记录
+9:查询编号为6书籍
+	SELECT * FROM dd_book
+	WHERE id = 6;
+10:将 <<计算机发展史>>这本书由 “计算机类”
+   转 <<历史类 >>
+  UPDATE dd_book SET title = '计算机发展史' WHERE id = 1;
+  1:将计算机发展史-->历史
+	UPDATE dd_book SET did = 200
+	WHERE id = 1;
+	2:修改计算机类别和历史类别图书数量
+	UPDATE dd_category SET bcount = 2
+	WHERE id = 100;
+	UPDATE dd_category SET bcount = 3
+	WHERE id = 200;
+11:查询所有类别
+  SELECT * FROM dd_category;
+12:查询出"计算机类"所有图书
+  SELECT id FROM dd_category 
+	WHERE title = '计算机类';
+	SELECT * FROM dd_book
+	WHERE did = (SELECT id FROM dd_category 
+	WHERE name = '计算机类');
+13:查询图书编号/图书名称/图书类别名称
+  图书类别表 dd_category(id,name*,bcount)
+	图书表     dd_book(id*,title*,price,pic,pubtime,did);
+
+  标准语法
+	SELECT b.id,b.title,c.name
+	FROM  dd_category c,dd_book b
+	WHERE c.id = b.did;

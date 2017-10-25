@@ -1,0 +1,92 @@
+
+项目功能模块:
+ 1:用户登录
+ 2:浏览品/分页
+ 3:添加到购物车
+ 4:浏览并且修改购物车内容
+项目使用技术:
+ SQL/PHP/AJAX/JQUERY/HTTP
+实现步骤:
+  #---模块一 "用户登录"
+
+ 1:编写sql  数据库 jd  编码utf8(标准)
+   1.1:jd_user  uid uname upwd
+   1.2:添加二条记录
+ 2:编写php
+   data/user_login_01.php 
+	 接收客户提交uname/upwd
+	 验证：
+	 code:1  uid:6 uname:qd
+	 code:-2 -3 -4 
+	 SQL: SELECT * FROM jd_user
+	      WHERE uname = ? AND upwd = ?
+
+
+ 3:编写html
+   productlist.html
+   415  line
+	 419  line
+	 button   id="bt-login"
+	 $("[name='uname']")
+	 $("[name='upwd']")
+	 <p class="alert">
+			请在此处输入您的注册信息。
+	 </p>
+ 4:编写js
+   productlist.js  
+
+  #---模块二 "商品浏览"
+
+ 1:编写sql  数据库 jd  编码utf8(标准)
+   1.1:jd_product(pid,pname,price,pid)
+ 2:编写php
+   2.1:data/product_list_02.php 向客户端输出所有产品信息
+	 json
+	 SELECT * FROM jd_product;
+ 3:编写html
+   productlist.html
+	 34 line 产品开始
+	 43 line 产品结束
+	 <section id="plist">
+	 <ul>
+ 4:编写js
+   productlist.js  
+
+
+
+  添加分页处理:
+  为什么需要分页:当数据库中保存大量数据
+	不能一次性显示所有记录->30000条记录
+	 8记录 16记录 ...
+  建议:使用mysql数据库 LIMIT 分页
+	SELECT * FROM jd_product LIMIT ?,?
+	? 表中记录行数 0 记录
+	? 一共查询几条记录
+  17:50---18:00 练习分页
+	SELECT * FROM jd_product LIMIT 0,8;  1 页
+	SELECT * FROM jd_product LIMIT 8,8;  2 页
+	SELECT * FROM jd_product LIMIT 16,8; 3 页
+	SELECT * FROM jd_product LIMIT 24,8; 4 页
+  
+	1--->0       (1-1)*8=0
+	2--->8       (2-1)*8=8
+	3--->16      (3-1)*8=16
+
+
+
+
+
+
+
+
+
+
+
+
+ ###注意事项:路径
+ url:"data/user_login_01.php";
+ 路径基准:productlist.html 为准
+          不是以js文件     为准
+ jd/productlist.html       基准点
+   /js/productlist.js      代码
+	 /data/user_login_01.php

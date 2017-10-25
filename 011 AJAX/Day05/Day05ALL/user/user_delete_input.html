@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <title>hello world</title>
+  </head>
+  <body>
+     <h1>删除用户</h1>
+     <h1 id="msg" style="color:red;"></h1>
+    <form id="regForm" action="#" method="post">
+      <ul>
+       <li>用户编号<input type="text" value="" name="uid" id="uid"/></li>
+       <li><input id="btn" type="button" value="删除" /></li>
+      </ul>
+    </form>
+    <script>
+      var btn = document.getElementById("btn");
+      btn.onclick = function(){
+         var id = uid.value;
+         var xhr = new XMLHttpRequest();
+         xhr.onreadystatechange = function(){
+             msg.innerHTML = xhr.responseText;
+         }
+         xhr.open("GET","user_delete.php?uid="+id,true);
+         xhr.send(null);
+      };
+    </script>
+    </body>
+    </html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+  <style>
+     #d,#d1{
+      width:220px;
+      height:220px;
+      background-color: #3bb4f2;
+     }
+  </style>
+ </head>
+ <body>
+	<h1>并发动画</h1>
+	<button id="btn">并列动画</button>
+    <button id="btn1">排列动画</button>
+    <button id="btn2">停止</button>
+    <div id="d"></div>
+    <script src="jquery-1.11.3.js"></script>
+    <script>
+//-------------------------------并发动画----------------------------
+      $("#btn").click(function(){
+          $("#d").animate({width:300,
+              height:300,
+              }, 2000)
+      });
+//-------------------------------排列动画----------------------------
+    $("#btn1").click(function () {
+        $("#d").animate({width:900},2000).animate({height:500},2000)
+    });
+//-------------------------------完成动画后删除动画元素----------------------------
+//$("#btn1").click(function () {
+//    $("#d").animate({width:600},2000).animate({height:300},2000,function () {
+//        $(this).remove();
+//    })
+//});
+//-------------------------------停止动画----------------------------
+    $("#btn2").click(function () {
+        $(":animated").stop(true);
+    });
+    </script>
+ </body>
+</html>

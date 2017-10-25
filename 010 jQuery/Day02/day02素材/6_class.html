@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<style>
+		.alert{
+            border:1px solid #a33;
+            color:#922;
+            background:#fee;
+            padding:10px;
+            overflow:hidden;
+        }
+        .fade{
+            height:0;
+            opacity:0;
+            transition:all 0.3s linear;
+        }
+        .in{
+            height:51px;
+            opacity:1;
+        }
+        .close{
+            float:right;
+            font-weight:bold;
+            opacity:0.5;
+            cursor:pointer;
+            transition:opacity 0.3s linear;
+        }
+	</style>
+ </head>
+ <body>
+    <h1>弹出式提示框</h1>
+ <button data-trigger="pop">弹出</button>
+ <div class="alert fade in">
+     <span class="close" data-trigger="close">X</span>
+     <p>您的浏览器版本太低,请下载最新版本!</p>
+ </div>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script>
+        //显示  隐藏 in
+        //1:隐藏
+        //1.1获取X,绑定点击事件
+        $("span[data-trigger=close]").click(function () {
+            //1.2查找父元素,,1.4移除class为in的
+            $(this).parent().removeClass("in")
+        });
+        //2:显示
+        //2.1获取button按钮,绑定点击事件
+        $("button[data-trigger=pop]").click(function () {
+            //2.2查找下一个兄弟元素,添加class为in的
+            $(this).next().addClass("in");
+        });
+    </script>
+ </body>
+</html>

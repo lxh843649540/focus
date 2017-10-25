@@ -1,0 +1,42 @@
+DROP DATABASE   huimaiche;
+CREATE DATABASE huimaiche;
+USE huimaiche;
+CREATE TABLE t_car(
+  cid INT PRIMARY KEY AUTO_INCREMENT,
+  cname VARCHAR(20) NOT NULL DEFAULT '',
+  pic   VARCHAR(100) NOT NULL DEFAULT '',
+  price DOUBLE(10,2) NOT NULL DEFAULT 0,
+  type  VARCHAR(20) NOT NULL DEFAULT ''
+);
+INSERT INTO t_car VALUES(
+NULL,'11','8_1.jpg',80000,'lt8');
+INSERT INTO t_car VALUES(
+NULL,'12','8_2.jpg',81000,'lt8');
+INSERT INTO t_car VALUES(
+NULL,'13','8_3.jpg',82000,'lt8');
+INSERT INTO t_car VALUES(
+NULL,'21','15_1.jpg',150000,'lt15');
+INSERT INTO t_car VALUES(
+NULL,'22','15_2.jpg',151000,'lt15');
+INSERT INTO t_car VALUES(
+NULL,'23','15_3.jpg',152000,'lt15');
+
+INSERT INTO t_car VALUES(
+NULL,'31','30_1.jpg',300000,'lt30');
+INSERT INTO t_car VALUES(
+NULL,'32','30_2.jpg',301000,'lt30');
+INSERT INTO t_car VALUES(
+NULL,'33','30_3.jpg',302000,'lt30');
+
+INSERT INTO t_car VALUES(
+NULL,'41','suv_1.jpg',300000,'suv');
+INSERT INTO t_car VALUES(
+NULL,'42','suv_2.jpg',301000,'suv');
+INSERT INTO t_car VALUES(
+NULL,'43','suv_3.jpg',302000,'suv');
+
+
+
+
+
+

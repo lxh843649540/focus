@@ -1,0 +1,24 @@
+1:编写bbs.sql 
+2:创建库bbs
+3:创建表user用户表
+ uid
+ uname
+ upwd
+ pic
+ score   分数
+ regtime 创建时间
+   day03/bbs/  10:55--11:10
+4:编写php   user_add.php    
+  接收客户端提交 uname/upwd/pic
+5:编写html  user_add_input.html
+  创建表单 用户名 密码 图片
+6:编写php  user_delete.php
+  接收客户端提交uid删除指定用户
+7:编写html user_delete_input.html
+  创建表单 用户编号 
+8:(可选):
+  完成用户密码更新操作
+	8.1:编写php user_update.php
+	获取参数 uid upwd   
+	8.2:编写html user_update_input.html
+	创建表单 用户编号用户密码

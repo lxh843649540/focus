@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+    <title>hello world</title>
+  </head>
+  <body>
+      <h1>获取蛋糕列表 json数据类型</h1>
+      <table border="1" width="100%">
+        <thead>
+          <tr>
+            <td>图片</td>
+            <td>价格</td>
+            <td>操作</td>
+          </tr>
+        </thead>
+        <tbody id="tb1">
+        </tbody>
+      </table>
+    <script>
+        window.onload = function(){
+          var xhr = new XMLHttpRequest();
+          xhr.onreadystatechange = function(){
+             if(xhr.readyState===4&&xhr.status===200){
+              //1:接收服务器返回数据 xml
+              //console.log(xhr.responseXML);
+              //2:获取xml文档标签 cake
+              var doc = xhr.responseXML;
+              var cakeTagList = doc.querySelectorAll("cake");
+              //3:拼标签
+              var html = "";
+              for(var i=0;i<cakeTagList.length;i++){
+                //4:获取当前cake元素
+                var cake = cakeTagList[i];
+                //5:获取当前id
+ var ids = cake.querySelector("id").innerHTML;
+ var prices = cake.querySelector("price").innerHTML;
+ var pics = cake.querySelector("pic").innerHTML;
+ //拼接 html
+  html += `
+     <tr>
+       <td><img src="img/${pics}" /></td>
+       <td>${prices}</td>
+       <td><a href="${ids}" class="btn-delete">删除</a></td>
+     </tr>
+   `;  
+  }
+  tb1.innerHTML = html;
+
+             }
+          }
+          xhr.open("GET","cakelist_02_xml.php",true);
+          xhr.send(null);
+        }
+
+    </script>
+  </body>
+  </html>

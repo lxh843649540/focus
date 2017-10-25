@@ -1,0 +1,33 @@
+//综合练习一:根据注释编写sql
+// 15:40---15:55
+//1:创建数据库lenovo数据编码utf8
+//2:进入数据库lenovo
+CREATE DATABASE lenovo CHARSET=utf8;
+USE lenovo;
+//3:创建部门表 dept
+//4:编号|部门名称|部门人数
+CREATE TABLE dept(
+    id INT,
+		name VARCHAR(20),
+		dcount INT
+);
+//5:创建员工表 emp
+//6:编号|员工名称|员工所属部门编号
+CREATE TABLE emp(
+   id INT,
+	 name VARCHAR(20),
+   did INT
+);
+//7:员工表添加三行记录
+//8:部门表添加三行记录
+INSERT INTO dept VALUES(1,'account',1);
+INSERT INTO dept VALUES(2,'sofware',1);
+INSERT INTO dept VALUES(3,'manager',1);
+INSERT INTO emp VALUES(1,'tom',1);
+INSERT INTO emp VALUES(2,'jerry',2);
+INSERT INTO emp VALUES(3,'james',3);
+//9:删除一条员工记录
+DELETE FROM emp WHERE id = 2;
+UPDATE dept SET dcount = 0 WHERE id = 2;
+//10:更新一条员记录名称 员工名称-->tom
+UPDATE emp SET name = 'tom' WHERE id = 3;

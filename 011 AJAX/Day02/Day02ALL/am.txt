@@ -1,0 +1,86 @@
+今天学习的内容
+1:复习ajax内容重点
+2:作业
+3:综合练习
+4:php  概述、语法
+  php  连接mysql  重点&难点
+#--------------------
+1:复习ajax内容重点
+  数据库服务器  mysql(硬件/软件)
+	 服务器
+   1:硬件服务器(高档计算机 高效 稳定)
+	 2:软件服务器(MYSQL)
+  sql:结构化查询语言
+	DDL:CREATE/DROP
+	DML:INSERT/UPDATE/DELETE
+	DQL:SELECT
+	DCL:
+  CREATE 创建库、表
+	CREATE DATABASE 库名 CHARSET=utf8;
+	SHOW DATABASES;
+	USE 库名;
+	CREATE TABLE 表名(
+	  列名 列类型,
+		..
+	);
+	DROP DATABASE 库名;
+	DROP TABLE 表名;
+	INSERT INTO 表名 VALUES(值,'',);
+	'tao'  '2001-10-10'
+	DELETE FROM 表名	WHERE id  = 1;
+	UPDATE 表名 SET 列=值,列=值
+	WHERE 条件...
+2:作业
+  小知识:批量导入数据
+	1:将所有sql指令保存在一个文件中,
+	  通常文件后缀 .sql
+		示 taobao.sql
+  2:打开mysql命令窗口进入mysql系统
+	  mysql -uroot -p
+		#设置当前操作窗口编码utf8
+		SET NAMES utf8;
+  3:SOURCE  d:/taobao.sql
+	  #注意后面没分号 回车  
+
+  SELECT p.id,p.name,t.name
+	FROM  t_product p, t_ptype t
+	WHERE p.did = t.id
+
+  问题
+	1:SOURCE  d:/taobao.sql
+	2:t_user upwd VARCHAR(32)
+	修改列类型:标准语法
+	ALTER TABLE 表名 MODIFY  列名 新列类型;
+	示例
+	ALTER TABLE t_user MODIFY upwd VARCHAR(32);
+
+	在线手册:
+	? ALTER TABLE 回车
+3:综合练习
+  依据注释创建sql--->顺序
+  中文正确
+	1:保存sql脚本文件 utf8  !!!!!
+	  ANSI<-->GBK
+	2:打开mysql窗口  
+	  SET NAMES UTF8;
+	  每次新打开窗口执行指令
+	3:SOURCE d:/1.sql 
+	  不报错
+	4:BUG    windows-->命令功能弱 只能正确
+	         显示gbk 中文
+    mysql功能:将utf8数据转换 gbk显示
+		指令:
+		SET NAMES gbk;
+		SELECT * FROM bb_book;
+
+4:php  概述、语法
+  4.1:  php 概述
+	  #web服务器
+		作用: 负责接收客户端请求，处理请求内
+		      查找请求资源并且返回给客户端浏
+					览器.
+    (电话餐厅 大堂经理)
+
+   web服务器<--->apache
+
+  php  连接mysql  重点&难点

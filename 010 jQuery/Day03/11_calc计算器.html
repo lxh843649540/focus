@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<style>
+		.box {
+			width: 100px;
+			height: 100px;
+			float: left;
+			border: 1px solid #aaa;
+			margin: 10px;
+		}
+	</style>
+ </head>
+ <body>
+  <h1>事件绑定,取消与利用冒泡</h1>
+  <div id="keys">
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>4</button>
+      <button>C</button>
+      <button>+</button>
+      <button>-</button>
+      <button>=</button>
+  </div>
+  <textarea name="" id="sc" cols="30" rows="10" style="resize:none;width: 200px;height:50px;" readonly></textarea>
+  <script src="jquery-1.11.3.js"></script>
+  <script>
+      //1:为所有button按钮绑定点击事件 代理
+      $("#keys").on("click","button",function () {
+          //2:获取当前按钮
+          let $html=$(this).html();
+          let $sc=$("#sc");
+          //3:获取输出结果textarea元素
+//          $("#sc").append($html);
+          //4:判断,,
+          // 5:如果当前按钮C textarea 清空,,
+          //-------第一种----------
+          if($html==="C"){
+              $sc.val("");
+          } else
+          if($html==="="){
+              $sc.val(eval($("#sc").val()));
+          } else
+          {
+              $sc.append($html);
+          }
+      });
+      //-------第二种----------
+//      switch($html) {
+//          case "C":$("#sc").val("");break;
+//          case "=":$("#sc").val(eval($("#sc").val()));break;
+//          default:var v=$("#sc").val()+$html;
+//              $("#sc").val(v)
+//      }
+//      })
+      //2:获取当前按钮
+      //3:获取输出结果textarea元素
+      //4:判断
+      //5:如果当前按钮C textarea 清空
+      //6:如果当前按钮 = 计算textarea内容 eval(),并且显示结果
+      //7:除了以上按钮将按钮内容拼接字符串 保存 textarea中
+  </script>
+ </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        td{
+            width:100px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<table cellspacing="0">
+    <tr>
+        <th></th>
+        <th>姓名</th>
+        <th>薪水</th>
+        <th>年龄</th>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>张三</td>
+        <td>20000</td>
+        <td>23</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>李四</td>
+        <td>22000</td>
+        <td>22</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>王五</td>
+        <td>14000</td>
+        <td>26</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>马六</td>
+        <td>15000</td>
+        <td>21</td>
+    </tr>
+</table>
+<script src="jquery-1.11.3.js"></script>
+<script>
+let $check=$("input[type=checkbox]");
+    $check.click(function () {
+        if ($(this).prop("checked")){
+            $(this).parent().parent().css("background","yellow");
+        }else{
+            $(this).parent().parent().css("background","none");
+        }
+    })
+</script>
+</body>
+</html>

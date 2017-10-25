@@ -1,0 +1,37 @@
+dept   部门表
+emp    雇员表
+t_user 用户表
+
+17:10---17:20  
+1:查询所有部门的记录         dept
+  SELECT * FROM dept;
+2:查询所有员工的记录         emp
+  SELECT * FROM emp;
+3:查询1号部门所有员工的记录  emp
+  SELECT * FROM emp
+	WHERE did = 1;
+4:查询1号部门员工数量        emp
+  SELECT count(id) FROM emp
+	WHERE did = 1;  
+6:查询员工姓名等于tom记录    emp
+  SELECT * FROM emp
+	WHERE name = 'tom';
+7:查询用户工资4500-10000之间数量    t_user
+  SELECT * FROM t_user
+	WHERE sal >= 4500 AND sal <= 10000;
+8:查询所有财务部 account 员工数量   emp/dept
+  SELECT id FROM dept WHERE name = 'account';
+  SELECT count(id) FROM emp WHERE
+	did = 1;
+
+  #子查询
+	SELECT id FROM dept 
+	WHERE name = 'account';
+
+	SELECT count(id) FROM emp
+	WHERE did = (SELECT id FROM dept 
+	WHERE name = 'account');
+
+9:查询2000年之后入职用户所有记录    t_user
+  SELECT * FROM t_user
+	WHERE ctime > '2000'

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+ </head>
+ <body>
+	<h1>操作元素的属性</h1>
+    <ul id="menu">
+     <li>苹果</li>
+     <li>桃子</li>
+     <li>梨</li>
+    </ul>
+    <script src="js/jquery-1.11.3.js"></script>
+ <script>
+    //1:获取menu元素下的所有html
+    var $menu=$("#menu").html();
+    console.log($menu);
+     //2:修改menu元素下第一个li->html <li>榴莲</li>
+    $("#menu>li:first-child").html("<a href='#'>榴莲</a>");
+     //3:获取menu元素下最后一个li文本
+     $("#menu>li:last-child").text("西瓜");
+     //5:获取menu元素清空所有内容
+    $("#menu").empty();
+
+ </script>
+ </body>
+</html>
