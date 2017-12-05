@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+	
+		<head>
+				<title>签到效果实现</title>
+				<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+				<link rel="stylesheet" type="text/css" href="css/sign2.css">
+		</head>
+		
+		<body>
+				<div style="" id="calendar">
+						<div class="sign_main" id="sign_layer">
+					    	<div class="sign_succ_calendar_title">
+					    		<div class="calendar_month_span">2017年8月</div>
+					      </div>
+					    	<div class="sign_equal" id="sign_cal">
+					        	<div class="sign_row">
+						            <div class="th_1 bold">日</div>
+						            <div class="th_2 bold">一</div>
+						            <div class="th_3 bold">二</div>
+						            <div class="th_4 bold">三</div>
+						            <div class="th_5 bold">四</div>
+						            <div class="th_6 bold">五</div>
+						            <div class="th_7 bold">六</div>
+						        </div>
+						        <div class="sign_row">
+						            <div class="td_0 calendar_record"> </div>
+						            <div class="td_1 calendar_record"> </div>
+						            <div class="td_2 calendar_record">1</div>
+						            <div class="td_3 calendar_record">2</div>
+						            <div class="td_4 calendar_record">3</div>
+						            <div class="td_5 calendar_record">4</div>
+						            <div class="td_6 calendar_record">5</div>
+						        </div>
+						        <div class="sign_row">
+						        		<div class="td_0 calendar_record">6</div>
+						            <div class="td_1 calendar_record">7</div>
+						            <div class="td_2 calendar_record">8</div>
+						            <div class="td_3 on">9</div>
+						            <div class="td_4 on">10</div>
+						            <div class="td_5 on">11</div>
+						            <div class="td_6 on">12</div>
+						        </div>
+						        <div class="sign_row">
+						        		<div class="td_0 on">13</div>
+						            <div class="td_1 calendar_record">14</div>
+						            <div class="td_2 calendar_record">15</div>
+						            <div class="td_3 calendar_record">16</div>
+						            <div class="td_4 calendar_record">17</div>
+						            <div class="td_5 calendar_record">18</div>
+						            <div class="td_6 calendar_record">19</div>
+						        </div>
+						        <div class="sign_row">
+						        		<div class="td_0 calendar_record">20</div>
+						            <div class="td_1 calendar_record">21</div>
+						            <div class="td_2 calendar_record">22</div>
+						            <div class="td_3 calendar_record">23</div>
+						            <div class="td_4 calendar_record">24</div>
+						            <div class="td_5 calendar_record">25</div>
+						            <div class="td_6 calendar_record">26</div>
+						        </div>
+						        <div class="sign_row">
+						        		<div class="td_0 calendar_record">27</div>
+						            <div class="td_1 calendar_record">28</div>
+						            <div class="td_2 calendar_record">29</div>
+						            <div class="td_3 calendar_record">30</div>
+						            <div class="td_4 calendar_record">31</div>
+						            <div class="td_5 calendar_record"> </div>
+						            <div class="td_6 calendar_record"> </div>
+						        </div>
+					    	</div>
+					 	</div>
+				</div>
+				<script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
+				<script type="text/javascript" src="js/calendar2.js"></script>
+				<script type="text/javascript">
+						$(function(){
+						  //ajax获取日历json数据
+						  var signList=[{"signDay":"09"},{"signDay":"11"},{"signDay":"12"},{"signDay":"13"}];
+						   calUtil.init(signList);
+						});
+				</script>
+		</body>
+		
+</html>
