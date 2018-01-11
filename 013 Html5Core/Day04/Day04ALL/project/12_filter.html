@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body {
+      text-align: center;
+    }
+    svg {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h3>绘制特效对象——滤镜——高斯模糊滤镜</h3>
+  <svg id="s1" width="600" height="400">
+    <!--Define Effects 定义特效对象-->
+    <defs>
+      <filter id="f2">
+        <!--filter effects-->
+        <feGaussianBlur stdDeviation="3"></feGaussianBlur>
+      </filter>
+
+      <filter id="f3">
+        <!--filter effects-->
+        <feGaussianBlur stdDeviation="6"></feGaussianBlur>
+      </filter>
+    </defs>
+
+    <g font-size="70" >
+      <text x="0" y="0" alignment-baseline="before-edge">达内科技 ® 2017</text>
+      <text x="0" y="100" alignment-baseline="before-edge" filter="url(#f2)">达内科技 ® 2017</text>
+      <text x="0" y="200" alignment-baseline="before-edge" filter="url(#f3)">达内科技 ® 2017</text>
+    </g>
+
+  </svg>
+
+</body>
+</html>

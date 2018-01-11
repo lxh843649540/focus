@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <h3>H5提供的新的表单元素</h3>
+
+  <form action="1.php">
+    <datalist id="lunch">
+      <option>鱼香肉丝</option>
+      <option>京酱肉丝</option>
+      <option>青椒肉丝</option>
+      <option>番茄炒蛋</option>
+    </datalist>
+    您的午餐：<input type="text" list="lunch">
+    <hr/>
+    <datalist id="supper">
+      <option value="yxrs">鱼香肉丝</option>
+      <option value="jjrs">京酱肉丝</option>
+      <option value="qjrs">青椒肉丝</option>
+      <option value="fqcd">番茄炒蛋</option>
+    </datalist>
+    您的晚餐：<input type="text" list="supper">
+    <hr/>
+    连接中：<progress></progress>
+    <hr/>
+    下载进度：<progress value="0.7"></progress>
+    <hr/>
+    文件下载：<progress id="p3" value="0"></progress>
+    <hr/>
+    <!--最优值在low和high之间：黄-绿-黄-->
+    机油含量：<meter id="m1"  min="0" low="30" high="70" optimum="55" max="100" value="0"></meter>
+    <hr/>
+    <!--最优值在low之下：  绿 - 黄 - 红-->
+    PM25含量：<meter id="m2" min="0" max="500" low="100" high="300" optimum="10" value="0"></meter>
+    <hr/>
+    <!--最优值在high之上： 红 - 黄 - 绿 -->
+    <!--0~100000  20000~70000  90000-->
+    到手工资：<meter id="m3" min="0" max="100000" low="20000" high="70000" optimum="90000" value="0"></meter>
+
+    <hr/>
+    单价：￥3.50  数量：<input type="number" value="2"> 小计：<output>￥7.00</output><br/>
+    单价：￥4.50  数量：<input type="number" value="1"> 小计：<output>￥4.50</output><br/>
+    总计：<output>￥11.50</output>
+    <hr/>
+  </form>
+
+
+  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+  <script>
+    var t = setInterval(function(){
+      var v = p3.value;
+      //console.log(typeof  v);  //number
+      v += 0.02;
+      p3.value = v; //必须把修改后的变量重新赋值给DOM元素
+
+      if(v>=1){   //已达到100%，清除定时器
+        clearInterval(t);
+      }
+    }, 50)
+
+    var t1 = setInterval(function(){
+      var v = m1.value;
+      v += 1;
+      m1.value = v;
+
+      if(v>=m1.max){
+        clearInterval(t1);
+      }
+    }, 50);
+    var t2 = setInterval(function(){
+      var v = m2.value;
+      v += 10;
+      m2.value = v;
+
+      if(v>=m2.max){
+        clearInterval(t2);
+      }
+    }, 50);
+    var t3 = setInterval(function(){
+      var v = m3.value;
+      v += 1000;
+      m3.value = v;
+
+      if(v>=m3.max){
+        clearInterval(t3);
+      }
+    }, 50);
+  </script>
+</body>
+</html>

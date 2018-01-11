@@ -1,0 +1,33 @@
+1、Less 语法
+2、Bootstrap定制
+3、Intel
+======================================
+1、Less语法
+	1、函数
+		1、杂项函数
+			1、image-width('URL')
+			2、image-height('URL')
+		2、颜色定义函数
+			1、rgba(red,green,blue,alpha)
+		3、颜色操作函数
+			1、darken(color,num%)
+				background-color:darken("#e4393c",20%)
+			2、lighten(color,num%)
+		4、数字相关
+			1、ceil(@num)
+				对数字向上取整
+				ex
+					ceil(123.456789) 
+					结果为：124
+			2、floor(@num)
+				对数字向下取整
+				ex
+					cell(123.456789)
+					结果为：123
+	2、@import 功能
+		在 Less 中，@import 用于在服务器端将多个less文件中的内容整合到一个Less文件中
+		语法：
+			xx.less 文件中 
+				@import "xxx.less";
+
+

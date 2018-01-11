@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <style>
+        .blue{
+            color:#33a;
+            background: #ccf;
+        }
+        .pink{
+            color:#a0a;
+            background: #fcf;
+        }
+        .dark{
+            color:#eee;
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+<h3>用户中心</h3>
+<hr>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, fugit, nostrum! Alias autem, dignissimos distinctio est eum explicabo illum itaque iusto libero maiores nam omnis quaerat saepe similique tempora. Rerum.</p>
+<hr>
+<a href="6_localStorage_index.html">返回首页</a>
+<script>
+    var t=localStorage["userTheme"];
+    document.body.className=t;
+    //监听localstorage中的数据的改变
+    window.onstorage=function () {
+        var t=localStorage["userTheme"];
+        document.body.className=t;
+    }
+</script>
+</body>
+</html>

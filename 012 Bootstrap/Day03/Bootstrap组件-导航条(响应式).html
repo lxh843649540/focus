@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0;">
+    <title>Bootstrap组件-导航条(响应式)</title>
+    <link href="../../../bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="../../../bootstrap/3.3.7/js/html5shiv.min.js"></script>
+    <script src="../../../bootstrap/3.3.7/js/respond.min.js"></script>
+    <![end if]-->
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!--一直显示的内容-->
+            <div class="navbar-header">
+                <!--一直显示的brand-->
+                <a href="#" class="navbar-brand">Tarena</a>
+                <!---->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!--用作响应的内容 .navbar collapse-->
+            <div class="collapse navbar-collapse" id="collapse">
+                <ul class="nav navbar-nav">
+                    <li data-toggle="tab" class="active"><a href="#">主页</a></li>
+                    <li data-toggle="tab" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            分类
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">HTML</a></li>
+                            <li><a href="#">CSS3</a></li>
+                            <li><a href="#">JavaScript</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">JQuery</a></li>
+                            <li><a href="#">Ajax</a></li>
+                        </ul>
+                    </li>
+                    <li data-toggle="tab"><a href="#">关于</a></li>
+                </ul>
+                <form action="" class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <div class="form-group has-feedback">
+                            <input type="search" class="form-control" placeholder="搜索...">
+                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        </div>
+                        <button type="button" class="btn btn-success">登录</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+<script src="../../../bootstrap/3.3.7/js/jquery-1.11.3.js"></script>
+<script src="../../../bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="../../../bootstrap/3.3.7/js/bootlint.js"></script>
+<script>
+    bootlint.showLintReportForCurrentDocument([]);
+</script>
+</body>
+</html>

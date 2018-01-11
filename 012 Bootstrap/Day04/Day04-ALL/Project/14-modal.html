@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.min.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <!--第一层-->
+  <div id="myModal" class="modal" data-backdrop="static">
+    <!--第二层-->
+    <div class="modal-dialog">
+      <!--第三层 :背景，边框，倒角，阴影-->
+      <div class="modal-content">
+        <!--第四层：控制内容-->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4>模态框标题</h4>
+        </div>
+        <div class="modal-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab aspernatur, cumque doloribus, dolorum, et expedita fuga impedit incidunt itaque laborum magnam nihil officia perspiciatis possimus quaerat reiciendis unde vero.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3>模态框元素</h3>
+  <div class="container">
+    <a href="#myModal" data-toggle="modal">显示模态框</a>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">打开模态框</button>
+  </div>
+
+
+
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/bootlint.js"></script>
+<script>
+  bootlint.showLintReportForCurrentDocument([]);
+</script>
+</body>
+</html>
+
+
+
+
+
+

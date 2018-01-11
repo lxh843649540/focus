@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0;">
+    <title>JavaScript插件-弹出框&提示框</title>
+    <link href="../../../bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="../../../bootstrap/3.3.7/js/html5shiv.min.js"></script>
+    <script src="../../../bootstrap/3.3.7/js/respond.min.js"></script>
+    <![end if]-->
+</head>
+<body>
+<div class="container">
+    <div class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">haha</a>
+        <ul class="dropdown-menu">
+            <li>heiheihei</li>
+            <li>fasf</li>
+            <li>fasf</li>
+        </ul>
+    </div>
+    <h3>使用dismiss来关闭警告框</h3>
+    <div class="alert alert-danger alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <p>您还未满18周岁,请满18岁再来</p>
+    </div>
+    <h3><smark>提示框</smark></h3>
+    <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="我就是提示,有何贵干">碰我会有提示出来</button>
+    <h3><smark>弹出框</smark></h3>
+    <button type="button" class="btn btn-default" data-toggle="popover" title="碰我?" data-content="点我干嘛
+    "  data-placement="right" >点我点我</button>
+</div>
+<script src="../../../bootstrap/3.3.7/js/jquery-1.11.3.js"></script>
+<script src="../../../bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../../../bootstrap/3.3.7/js/bootlint.js"></script>
+<script>
+    bootlint.showLintReportForCurrentDocument([]);
+</script>
+<script>
+    $('[data-toggle="tooltip"]').tooltip();
+    $('[data-toggle="popover"]').popover();
+</script>
+</body>
+</html>

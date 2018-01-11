@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body {
+      text-align: center;
+    }
+    canvas {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h3>绕自己为中心旋转的小飞机</h3>
+  <canvas id="c4" width="500" height="400"></canvas>
+  <script>
+    var ctx = c4.getContext('2d');
+
+    var p4 = new Image();
+    p4.src = 'img/p4.png';
+    p4.onload = function(){
+
+      var deg1 = 0; //飞机1旋转的角度
+      var deg3 = 0; //飞机3旋转的角度
+
+      setInterval(function(){
+        /**1.绘制飞机1   **/
+        ctx.save();  //保存画笔当前的变形状态
+        //平移->旋转->绘图->逆向旋转->逆向平移
+        ctx.translate(p4.width/2, p4.height/2);
+        ctx.rotate(deg1*Math.PI/180);
+        ctx.drawImage(p4,-p4.width/2, -p4.height/2);
+        ctx.restore();  //恢复画笔最近的变形状态
+        deg1 += 5;  //由于有逆向旋转，必须手工累加
+
+        /**2.绘制飞机2**/
+        ctx.drawImage(p4, 500-p4.width, 0);
+
+        /**3.绘制飞机3**/
+        //平移->旋转->绘图->逆向旋转->逆向平移
+        ctx.translate(p4.width/2, 400-p4.height/2);
+        ctx.rotate(deg3*Math.PI/180);
+        ctx.drawImage(p4, -p4.width/2, -p4.height/2);
+        ctx.rotate(-deg3*Math.PI/180);
+        ctx.translate(-p4.width/2, -(400-p4.height/2));
+        deg3 += 10;
+      }, 20);
+    }
+  </script>
+</body>
+</html>

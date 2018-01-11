@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <h3>用户留言</h3>
+
+  <form>
+    用户名： <input name="uname"/><br/>
+    内容： <input name="content"/><br/>
+    <input type="button" value="提交"/>
+  </form>
+
+  <a href="msg_list.html">查看列表</a>
+  <script src="js/jquery-1.11.3.js"></script>
+  <script>
+    $('[type="button"]').click(function(){
+      //向Web服务器发起异步的AJAX请求
+      $.ajax({
+        type: 'get',
+        url: '/add',
+        data: {
+          uname:$('[name="uname"]').val(),
+          content:$('[name="content"]').val()
+        },
+        success: function(result){
+          console.log('接收到成功的响应消息')
+          alert(result)
+        }
+      });
+    });
+  </script>
+</body>
+</html>

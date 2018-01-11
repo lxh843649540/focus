@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Audio</title>
+</head>
+<body>
+<h3>音频播放</h3>
+<audio src="res/T-ara - 오늘까지만 아파할 거야.mp3" controls loop id="bgm"></audio>
+<input type="checkbox" id="cb"><label for="cb">播放背景音乐</label>
+<hr>
+<!--<audio>-->
+    <!--<source src="res/bg.mp3">-->
+<!--</audio>-->
+<script>
+    bgm.volume=0;
+    cb.onchange=function () {
+        if(this.checked){
+            bgm.play();
+            var p=setInterval(
+                function () {
+                    var v=bgm.volume;
+                    v+=0.1;
+                    bgm.volume=v;
+                    console.log(bgm.volume);
+                    if(bgm.volume.toFixed(1)>=1){
+                        bgm.volume=0.3;
+                        clearInterval(p);
+                        s=null;
+                    }
+                },1000);
+        }else {
+            var o= bgm.volume;
+            var s=setInterval(function(){
+            o-=0.1;
+            bgm.volume=o;
+            console.log(bgm.volume);
+            if(bgm.volume.toFixed(1)<=0){
+                clearInterval(s);
+                s=null;
+                bgm.pause();
+            }
+            },1000);
+        }
+    };
+</script>
+</body>
+</html>

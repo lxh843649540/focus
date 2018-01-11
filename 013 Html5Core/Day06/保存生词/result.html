@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>开始测试</title>
+    <style>
+    </style>
+</head>
+<body>
+    <h3>知识管理系统--测试结果</h3>
+    <hr>
+    <p>单词总数:<span id="s1">4</span></p>
+    <p>正确数量:<span id="s2">3</span></p>
+    <p>正确率:<span id="s3">4</span></p>
+    <hr>
+    <a href="save.html">录入新词</a>
+    <a href="test.html">重新测试</a>
+    <script>
+        var total=sessionStorage["totalCount"];
+        var correct1=sessionStorage["correct"];
+        s1.innerHTML=total;
+        s2.innerHTML=correct1;
+        s3.innerHTML=(correct1/total*100).toFixed(2)+"%";
+    </script>
+</body>
+</html>

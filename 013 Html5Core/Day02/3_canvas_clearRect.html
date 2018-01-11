@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            text-align: center;
+        }
+canvas{
+    background: #3bb4f2;
+}
+    </style>
+</head>
+<body>
+<h3>使用Canvas的画笔绘制矩形</h3>
+<canvas id="c4" width="500" height="400"></canvas>
+<script>
+    var ctx=c4.getContext("2d");
+    ctx.strokeStyle="black";
+    ctx.lineWidth=5;
+    ctx.fillStyle="yellow";
+    ctx.fillRect(0,0,500,400);
+    ctx.clearRect(100,50,100,100);
+    ctx.clearRect(200,250,100,100);
+    ctx.clearRect(300,50,100,100);
+    ctx.strokeRect(50,250,100,100);
+    ctx.strokeRect(350,250,100,100);
+</script>
+</body>
+</html>

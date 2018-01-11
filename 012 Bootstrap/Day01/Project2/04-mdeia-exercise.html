@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <!--指定视口信息-->
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+  <title>Media Query 练习</title>
+  <style>
+    *{
+      box-sizing:border-box;
+    }
+    #container{
+      width:100%;
+    }
+    #container div{
+      background-color:red;
+      border:2px solid #000;
+      height:30px;
+      float:left;
+    }
+
+    /*1、屏幕尺寸 大于 991 时 (>= 992)*/
+    @media screen and (min-width:992px){
+      #container div{
+        width:14.66%;
+        margin:0 1%;
+      }
+    }
+    /*2、屏幕尺寸在 768 ~ 991之间*/
+    @media screen and (min-width:768px) and (max-width:991px){
+      #container div{
+        width:31.33%;
+        margin:5px 1%;
+      }
+    }
+    /*3、屏幕尺寸 <= 767px*/
+    @media screen and (max-width:767px){
+      #container div{
+        width:100%;
+        margin-bottom:5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div>内容1</div>
+    <div>内容2</div>
+    <div>内容3</div>
+    <div>内容4</div>
+    <div>内容5</div>
+    <div>内容6</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            position: relative;
+            margin:0;
+        }
+        body:before{
+            content: "";
+            display: table;
+        }
+        #p3{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<h3>H5新特性-拖放API-源对象可能触发事件</h3>
+<img src="images/trash.png" alt="" id="trash">
+<hr>
+<img src="images/p3.png" alt="" id="p3">
+<script>
+    //拖动着进入
+    trash.ondragenter=function (e) {
+        console.log("enter");
+    };
+    trash.ondragover=function (e) {
+        //drap over事件默认行为:必须触发ondragleave
+        //必须阻止此默认行为,否则drop事件无法触发
+        e.preventDefault();
+        console.log("over");
+    };
+    trash.ondragleave=function (e) {
+        console.log("leave");
+    };
+    trash.ondrop=function (e) {
+        console.log("drop");
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.min.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+  <style>
+    body{
+      padding-top:50px;
+    }
+  </style>
+</head>
+<body>
+  <!--响应式导航条-->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <!--1、头部显示-->
+      <div class="navbar-header">
+        <!--1、brand-->
+        <a href="#" class="navbar-brand">Tarena</a>
+        <!--2、折叠按钮-->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myCollapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <!--2、折叠内容-->
+      <div id="myCollapse" class="navbar-collapse collapse">
+        <!--1、导航链接-->
+        <ul class="nav navbar-nav">
+          <li><a href="#">主页</a></li>
+          <li class="dropdown">
+            <a href="#" data-toggle="dropdown">
+              分类
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#">HTML5</a></li>
+              <li><a href="#">CSS3</a></li>
+              <li><a href="#">Javascript</a></li>
+              <li class="divider"></li>
+              <li><a href="#">jQuery</a></li>
+              <li><a href="#">Ajax</a></li>
+            </ul>
+          </li>
+          <li><a href="#">关于</a></li>
+        </ul>
+        <!--2、form表单-->
+        <form class="navbar-form navbar-right">
+          <div class="form-group has-feedback">
+            <input type="search" class="form-control" placeholder="搜索..."/>
+            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-success">登录</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+  <div class="container">
+    <!--第一行-->
+    <div class="row">
+      <!--1、左侧内容 ：sm 及以上占3列宽,xs下是隐藏-->
+      <div class="col-sm-3 hidden-xs">
+        <!--1、上：面板-->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">个人资料</h3>
+          </div>
+          <div class="panel-body">
+            <img src="Images/1.jpeg" class="img-circle img-responsive"/>
+          </div>
+        </div>
+        <!--2、下：列表组-->
+        <ul class="list-group">
+          <li class="list-group-item">HTML5</li>
+          <li class="list-group-item">HTML5</li>
+          <li class="list-group-item">HTML5</li>
+          <li class="list-group-item">HTML5</li>
+          <li class="list-group-item">HTML5</li>
+          <li class="list-group-item">HTML5</li>
+        </ul>
+      </div>
+      <!--2、右侧内容：sm及以上占9列宽，xs占12列-->
+      <div class="col-sm-9 col-xs-12">
+        <!--1、路径导航-->
+        <ul class="breadcrumb">
+          <li>
+            <a href="#">主页</a>
+          </li>
+          <li>
+            <a href="#">HTML5</a>
+          </li>
+          <li class="active">
+            表单2.0
+          </li>
+        </ul>
+        <!--2、二级标题-->
+        <h2>表单2.0新特性</h2>
+        <!--3、Well（水井）-->
+        <div class="well">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam odit recusandae rerum similique? Aperiam consequatur cum dolores earum inventore itaque maxime minus modi obcaecati, quidem sit voluptate! Alias, ipsam nostrum?
+        </div>
+        <!--4、文本-->
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias autem corporis expedita in laboriosam, maxime, optio placeat repellendus sapiente sed, soluta veniam veritatis! Amet ea eius id inventore ratione suscipit.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias autem corporis expedita in laboriosam, maxime, optio placeat repellendus sapiente sed, soluta veniam veritatis! Amet ea eius id inventore ratione suscipit.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias autem corporis expedita in laboriosam, maxime, optio placeat repellendus sapiente sed, soluta veniam veritatis! Amet ea eius id inventore ratione suscipit.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias autem corporis expedita in laboriosam, maxime, optio placeat repellendus sapiente sed, soluta veniam veritatis! Amet ea eius id inventore ratione suscipit.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias autem corporis expedita in laboriosam, maxime, optio placeat repellendus sapiente sed, soluta veniam veritatis! Amet ea eius id inventore ratione suscipit.</p>
+        <!--5、媒体对象列表-->
+        <h3>评论列表</h3>
+        <ul class="media-list">
+          <li class="media">
+            <div class="media-left">
+              <img src="Images/1.jpeg" width="70">
+            </div>
+            <div class="media-body media-middle">
+              <h4 class="media-heading">用户名</h4>
+              <p>评论内容...</p>
+            </div>
+          </li>
+          <li class="media">
+            <div class="media-left">
+              <img src="Images/1.jpeg" width="70">
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">用户名</h4>
+              <p>评论内容...</p>
+            </div>
+          </li>
+          <li class="media">
+            <div class="media-left">
+              <img src="Images/1.jpeg" width="70">
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">用户名</h4>
+              <p>评论内容...</p>
+            </div>
+          </li>
+          <li class="media">
+            <div class="media-left">
+              <img src="Images/1.jpeg" width="70">
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">用户名</h4>
+              <p>评论内容...</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/bootlint.js"></script>
+<script>
+  bootlint.showLintReportForCurrentDocument([]);
+</script>
+</body>
+</html>
+
+
+
+
+
+

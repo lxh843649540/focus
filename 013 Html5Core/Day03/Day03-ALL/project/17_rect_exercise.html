@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body {
+      text-align: center;
+    }
+    svg {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h3>SVG绘图——矩形</h3>
+  <svg id="svg17" width="500" height="400">
+  </svg>
+  <script>
+    var list = [
+      {label: '部门1', value: 250},
+      {label: '部门2', value: 300},
+      {label: '部门3', value: 280}
+    ];
+    /***为SVG上动态的添加新的图形元素***/
+    //方式1：HTML字符串拼接
+    /*var html = '';
+    for(var i=0; i<list.length; i++){
+      var d = list[i];
+      html += `
+        <rect width="50" height="${d.value}" x="${(2*i+1)*50}" y="50"></rect>
+      `;
+    }
+    svg17.innerHTML = html;*/
+    //方式2：动态创建新的DOM元素
+    for(var i=0; i<list.length; i++){
+      //var r = document.createElement('rect'); //新元素的名称空间默认为html空间
+      var r = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      r.setAttribute('width', 50);
+      r.setAttribute('height', list[i].value);
+      r.setAttribute('x', (2*i+1)*50);
+      svg17.appendChild(r);
+    }
+
+  </script>
+
+</body>
+</html>

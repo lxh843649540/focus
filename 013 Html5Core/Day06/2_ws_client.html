@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>使用H5特性--创建WS协议的客户端程序</h3>
+<button id="btn1">连接到WS服务器</button>
+    <button id="btn2">开始接收WS服务器的消息</button>
+    <button id="btn3">向WS服务器发送一条消息</button>
+    <button id="btn4">断开WS连接</button>
+    <script>
+        //全局变量:用于与WS服务器通信的套接字对象
+        var socket=null;
+        btn1.onclick=function () {
+            socket=new WebSocket("ws://127.0.0.1:8090");
+            socket.onopen=function () {
+                console.log("WS客户端成功连接到服务器");
+            }
+        };
+
+        //接收WS服务器的消息
+        btn2.onclick=function(){
+            socket.onmessage=function (e) {
+                console.log("客户端接收到一个消息:",e.data);
+            }
+        };
+
+        //ws客户端向服务器发送消息
+        btn3.onclick=function () {
+            socket.send("你好,我是客户端--"+new Date());
+        };
+
+        //断开到WS服务器的连接e
+        btn4.onclick=function () {
+            socket.close();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <!--1、视口-->
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <title>响应式网页</title>
+  <style>
+    /*css reset*/
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font: 14px "microsoft yahei";
+      margin: 0;
+      padding: 0;
+      background-color: #EEEEEE;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .clear:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    #container {
+      width: 95%;
+      margin: 5px auto;
+    }
+
+    #top {
+      background: #034d50;
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    #top ul {
+      float: left;
+    }
+
+    #top ul li {
+      float: left;
+      color: #fff;
+      font-size: 1.5em;
+      margin-right: 15px;
+    }
+
+    #txtSearch {
+      float: right;
+      font-size: 1.2em;
+    }
+
+    #main {
+      margin: 10px 0;
+    }
+
+    #main ul.lf_list {
+      /*左浮动，宽度，背景颜色，边框倒角，内边距*/
+      float: left;
+      width: 25%;
+      background: #57085B;
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    #main ul.lf_list li {
+      /*背景色，内边距，文字大小，外边距*/
+      background: #EEEEEE;
+      padding: 15px;
+      font-size: 1.4em;
+      margin: 5px 0;
+    }
+
+    #main div.content {
+      /*左浮动，宽度，左右外边距*/
+      float: left;
+      width: 48%;
+      margin: 0 1%;
+      background: #FFB951;
+      padding: 10px 5px;
+    }
+
+    #main div.content img {
+      /*左浮动，宽度，左右外边距*/
+      float: left;
+      width: 23%;
+      margin: 0 1%;
+    }
+    #main aside.rt{
+      float:left;
+      width:25%;
+      background:#5a5708;
+      color:#fff;
+      padding:5px;
+      border-radius:5px;
+    }
+    #footer{
+      border-top:2px solid #08575B;
+      margin-top:10px;
+      padding-top:10px;
+      text-align:center;
+    }
+    /*响应式效果*/
+    /*PAD端*/
+    @media screen and (min-width:768px) and (max-width:991px){
+      #main ul.lf_list{
+        width:30%;
+      }
+      #main div.content{
+        width:69%;
+        margin-left:1%;
+        margin-right:0;
+      }
+      #main aside.rt{
+        display:none;
+      }
+    }
+    /*手机终端*/
+    @media screen and (max-width:767px){
+      #main ul.lf_list{
+        width:100%;
+      }
+      #main div.content{
+        width:100%;
+        margin:10px 0;
+      }
+      #main aside.rt{
+        display:none;
+      }
+      #main div.content img{
+        width:48%;
+        margin:5px 1%;
+      }
+    }
+  </style>
+</head>
+<body>
+<div id="container">
+  <!--1、上-->
+  <header id="top" class="clear">
+    <ul>
+      <li>首页</li>
+      <li>影集</li>
+      <li>活动</li>
+    </ul>
+    <input type="text" id="txtSearch" placeholder="Search..."/>
+  </header>
+  <!--2、中-->
+  <section id="main" class="clear">
+    <!--1、左-->
+    <ul class="lf_list">
+      <li>豆蔻年华</li>
+      <li>花样青春</li>
+      <li>激情岁月</li>
+    </ul>
+    <!--2、中-->
+    <div class="content">
+      <p class="clear">
+        <img src="img/1.jpg">
+        <img src="img/2.jpg">
+        <img src="img/3.jpg">
+        <img src="img/4.jpg">
+      </p>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium aliquid aspernatur aut cumque error fuga
+        harum inventore mollitia, quaerat quo quod, quos sed. Ducimus eius in ipsum nam perferendis.
+      </p>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquam atque, beatae delectus deserunt
+        distinctio dolorem ea eos eveniet fugit illo laboriosam laborum magnam nisi placeat, possimus praesentium
+        recusandae velit.
+      </p>
+    </div>
+    <!--3、右-->
+    <aside class="rt">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, aperiam aspernatur at cum eos facilis, impedit modi nostrum numquam odio porro quos repudiandae sed sequi vel voluptas voluptate voluptatem? Sed?
+    </aside>
+  </section>
+  <!--3、下-->
+  <footer id="footer">
+    COPYRIGHT ® TARENA.COM.CN
+  </footer>
+</div>
+</body>
+</html>

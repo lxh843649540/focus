@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        canvas{
+            background: #dda0dd;
+        }
+    </style>
+</head>
+<body>
+<canvas id="c13" width="600" height="300"></canvas>
+<script>
+    var ctx=c13.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(300,150,100,0,2*Math.PI);
+    ctx.strokeStyle="#bbb";
+    ctx.lineWidth=10;
+    ctx.stroke();
+    ctx.closePath();
+    //绘制圆形进度条
+    var start=-90;
+    var end=-90;
+    var t=setInterval(
+        function(){
+            ctx.clearRect(250,100,100,100);
+            ctx.beginPath();
+            ctx.arc(300,150,100,start*Math.PI/180,end*Math.PI/180);
+            ctx.strokeStyle="red";
+            ctx.stroke();
+            ctx.fillText(((end-start)/360*100).toFixed(0)+"%",300,150);
+            end+=1;
+            if(end>270){
+                clearInterval(t);
+            }
+        },50
+    );
+
+</script>
+</body>
+</html>

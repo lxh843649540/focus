@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.min.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<div class="container">
+  <h3>使用 data-dismiss 关闭警告框</h3>
+
+  <div class="fade in alert alert-danger alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert">&times;</a>
+    <h4>
+      您还未满18岁，不能登录此网站...
+    </h4>
+  </div>
+  <h3>使用JS关闭警告框</h3>
+
+  <div class="fade in alert alert-danger alert-dismissible">
+    <a id="btnClose" href="#" class="close">&times;</a>
+    <h4>
+      您还未满18岁，不能登录此网站...
+    </h4>
+  </div>
+</div>
+
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/bootlint.js"></script>
+<script>
+  bootlint.showLintReportForCurrentDocument([]);
+</script>
+<script>
+    $(function(){
+      $("#btnClose").click(function(){
+        $(this).alert("close");
+      });
+    });
+</script>
+</body>
+</html>
+
+
+
+
+
+

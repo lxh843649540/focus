@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.min.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <h3>基本的折叠效果</h3>
+    <a href="#myCollapse" class="btn btn-success" data-toggle="collapse">打开/隐藏 折叠元素</a>
+    <button type="button" data-target="#myCollapse" class="btn btn-warning" data-toggle="collapse">打开/隐藏 折叠元素</button>
+    <div class="collapse" id="myCollapse">
+      <div class="well">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur blanditiis deserunt dolorem, eligendi inventore laudantium nulla qui repellat repellendus voluptates. Consectetur eaque incidunt quam? Ad eligendi id molestiae. Magni, natus.
+      </div>
+    </div>
+
+    <h3>折叠面板</h3>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a href="#pnlCollapse1" data-toggle="collapse">显示/隐藏 面板内容</a>
+        </h4>
+      </div>
+      <!--创建 panel-collapse的元素 用于包含被隐藏的 body和footer-->
+      <div id="pnlCollapse1" class="panel-collapse collapse">
+        <div class="panel-body">
+          Lorem ipsum dolor sit amet, consectetur
+        </div>
+        <div class="panel-footer">
+          <button data-toggle="collapse" data-target="#pnlCollapse" type="button" class="btn btn-info">关闭</button>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a href="#pnlCollapse2" data-toggle="collapse">显示/隐藏 面板内容</a>
+        </h4>
+      </div>
+      <!--创建 panel-collapse的元素 用于包含被隐藏的 body和footer-->
+      <div id="pnlCollapse2" class="panel-collapse collapse">
+        <div class="panel-body">
+          Lorem ipsum dolor sit amet, consectetur
+        </div>
+        <div class="panel-footer">
+          <button data-toggle="collapse" data-target="#pnlCollapse" type="button" class="btn btn-info">关闭</button>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a href="#pnlCollapse" data-toggle="collapse">显示/隐藏 面板内容</a>
+        </h4>
+      </div>
+      <!--创建 panel-collapse的元素 用于包含被隐藏的 body和footer-->
+      <div id="pnlCollapse" class="panel-collapse collapse">
+        <div class="panel-body">
+          Lorem ipsum dolor sit amet, consectetur
+        </div>
+        <div class="panel-footer">
+          <button data-toggle="collapse" data-target="#pnlCollapse" type="button" class="btn btn-info">关闭</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/bootlint.js"></script>
+<script>
+  bootlint.showLintReportForCurrentDocument([]);
+</script>
+</body>
+</html>
+
+
+
+
+
+

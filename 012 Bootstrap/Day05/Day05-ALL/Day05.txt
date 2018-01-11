@@ -1,0 +1,161 @@
+1、插件 - 折叠效果 
+	1、基本折叠效果
+		1、触发元素
+			<a data-toggle="collapse" href="#id"></a>
+			<button data-toggle="collapse" data-target="#id">
+		2、被折叠元素
+			<div class="collapse" id="id"></div>
+	2、手风琴(Accordin)
+	3、响应式导航条
+		当屏幕尺寸 >= 768px 时，可以正常显示所有内容,当屏幕尺寸 <= 767px 时，一部分内容就会隐藏，通过点击(折叠)方式进行弹出
+		响应式导航条由 两部分 组成
+		1、class.navbar-header
+			该部分内容，不受折叠效果影响
+			1、.navbar-brand
+				任何情况都会显示
+			2、折叠按钮
+				.navbar-toggle
+				屏幕尺寸 >= 768 时，不显示
+				屏幕尺寸 <= 767 时，显示
+		2、class.navbar-collapse
+			被折叠的内容，
+			屏幕尺寸 >= 768px 时，正常显示
+			屏幕尺寸 <= 767px 时，则隐藏，通过 .navbar-toggle 的按钮 点击来完成显示
+2、插件 - 广告轮播(Carousel)
+	1、基本广告
+		<div class="carousel slide" data-ride="carousel">
+			<div class="carousel-inner">
+				<div class="item active">
+					<img>
+				</div>
+			</div>
+		</div>
+	2、指定轮播事件
+		<div class="carousel slide" data-ride="carousel" data-interval="2000">
+	3、带说明文本的轮播
+		<div class="item">
+			<img>
+			<div class="carousel-caption">
+				<h4>标题</h4>
+				<p>文本</p>
+			</div>
+		</div>
+	4、带方向按钮的轮播
+		<div id="myCar" class="carousel slide">
+			<div class="carousel-inner"></div>
+			<!-- 左右方向按钮 -->
+			<a href="#myCar" class="carousel-control left" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+			</a>
+		</div>
+	5、带圆点导航的轮播
+		<div class="carousel slide">
+			<ul class="carousel-indicators">
+				<li 
+					data-target="#carousel的ID"
+					data-slide-to="图像索引"
+					class="active"></li>
+			</ul>
+		</div>
+===========================================
+Bootstrap 定制 & Less
+1、样式语言的分类
+	1、静态样式语言 ：css
+		可以被浏览器直接解析处理；但CSS并不是合格的"语言",它缺少编程语言的最基本要素:变量，运算符。。。静态语言的缺点：可维护性差
+	2、动态样式语言 ：
+		如：Less，Stylus,Sass/SCSS ... ...
+		不能被浏览器直接编译处理；必须经过编译(Compile)得到一个CSS文件，再交给浏览器去使用
+2、Less语言
+	官网：http://lesscss.org
+	中文网：http://less.bootcss.com
+	Less是一个 CSS预处理语言，它扩充了CSS，在静态的CSS基础上增加了一部分动态内容 如：变量，混合(Mixin),Less中完全支持和兼容 CSS
+
+	在Web中使用Less的两种方式:
+	1、在客户端浏览器中编译Less - 不推荐
+		1、编写 xx.less 文件
+		2、编写 xx.html , 引入 xx.less同时引入编译文件 less.js
+		3、浏览器在访问 xx.html 会自动下载 xx.less 和 less.js，然后在客户端进行编译
+	2、在服务器端编译 Less - 推荐
+		1、编写 xx.less
+		2、在服务器端搭建Less编译器，将 xx.less 编译成 xx.css
+		3、编写 xx.html 直接引入 xx.css 即可
+3、搭建Less编译器 (乱点)
+	Less编译器由JS进行编写的
+	1、安装独立的JS解释器 - NodeJS
+		命令行中：执行 node -v 结果为：0.12.4 或 4.4.7
+	2、安装 Less 编译器程序 
+		lessc.cmd 文件存在即可
+	3、将 Less 转换为 CSS
+		控制台中 找到 lessc.cmd 的位置
+		输入：
+			lessc.cmd D:\1.less > D:\1.css
+	4、在WebStorm中，配置FileWatchers(文件监视器)
+		由WS自动检测Less文件的编写与更改，自动进行编辑得到CSS
+		Ws-->File-->Settings-->Tools-->FileWatchers --> 添加 选择Less --> 指定 lessc.cmd文件地址即可
+4、Less语法
+	1、Less 完全支持 CSS语法
+	2、Less 支持单行注释 和 多行注释，只有多行注释能被编译到CSS中
+		单行：// 注释内容
+		多行：/*   */
+	3、Less 支持 变量(Variable)
+		变量：在Less中表示的是一个可以变化的数据
+		语法：
+			@变量名:值;
+			变量名：英文，数字，_,-并且不要以数字开头
+			ex:
+				1、@jd_color:#e4393c;
+				2、@border_width:3px;
+				3、@base-font:"微软雅黑";
+				4、@border:1px solid #000;
+	4、Less 中变量允许使用运算符
+		+,-,*,/,%
+		5+2=7
+		5-2=3
+		5*2=10
+		5/2=2.5
+		5%2=1
+	5、Less 中支持 在一组样式中 混入(Mixin) 另一组样式
+		选择器1{ ... }
+		选择器2{  ... ;选择器1; ...}
+		最终：选择器2中 包含 选择器1 定义好的样式
+
+	带参数的混合
+		声明选择器的时候，允许使用 "参数" 来表示暂时不确定的数据，在最终 混入的时候，将确定的数据传递进来
+
+		语法：
+			选择器1(@参数名){
+				border:@参数名 solid #ff6500;
+			}
+
+			带多个参数
+			选择器3(@参1,@参2,@参3){
+				border:@参1 @参2 @参3;
+			}
+		使用 带参的混合写法
+			选择器2{
+				选择器1(值);
+			}
+	6、嵌套规则
+		在 less 中，允许在一个选择器内再声明另一个选择器，以便完成子代选择器 或 后代选择器
+		选择器1{//生成：选择器1{}
+			...;
+			...;
+			选择器2{ //生成：选择器1 选择器2{}
+				...;
+				...;
+			}
+			>选择器3{//生成：选择器1>选择器3{}
+				...;
+				...;
+			}
+		}
+
+
+
+
+
+
+
+
+
+

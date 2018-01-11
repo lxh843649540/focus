@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    body{
+        text-align: center;
+    }
+    svg{
+        background:#ddd;
+    }
+    </style>
+</head>
+<body>
+<h3>SVG绘图--矩形</h3>
+<svg width="500" height="400">
+    <rect id="r1" width="100" height="100" fill="blue" stroke="red"  fill-opacity=".5" stroke-opacity=".5" x="200" y="150"></rect>
+    <rect id="r2" width="100" height="100" x="0" fill="#dda0dd"></rect>
+</svg>
+<svg id="svg1" width="500" height="400"></svg>
+<script>
+    var x=0;
+    r1.onmouseenter=function () {
+        this.setAttribute("fill-opacity","1");
+        this.setAttribute("stroke-opacity","1");
+    };
+    r1.onmouseout=function () {
+        this.setAttribute("fill-opacity",".5");
+        this.setAttribute("stroke-opacity",".5");
+    };
+    r2.onclick=function(){
+        var timer=setInterval(function () {
+            if(x>=400){
+                clearInterval(timer);
+                timer=null;
+                x=0;
+            }
+            r2.setAttribute("x",x);
+            x+=1;
+        },5);
+    };
+    //为svg动态添加新的图形元素
+    var data=[{label:"部门1",value:250},{label:"部门2",value:150},{label:"部门3",value:200},{label:"部门4",value:300}];
+    //---------------方式一---------------
+//    var html="";
+//    for(var i=0;i<data.length;i++){
+//        var d=data[i];
+//        html+=`
+//            <rect width="50" height="${d.value}" x="${2*i*50+50}" y="50"></rect>
+//        `
+//    }
+//    svg1.innerHTML=html;
+    //--------------方式二---------------
+    for(var i=0;i<data.length;i++){
+        function rn(min,max){
+            return Math.floor(Math.random()*(max-min)+min);
+        }
+        function rc(min,max){
+            var r=rn(min,max);
+            var g=rn(min,max);
+            var b=rn(min,max);
+            return `rgb(${r},${g},${b})`;
+        }
+        var d=data[i];
+        var bar=document.createElementNS("http://www.w3.org/2000/svg","rect");
+        bar.setAttribute("width",50);
+        bar.setAttribute("height",d.value);
+        bar.setAttribute("x",2*i*50+50);
+        bar.setAttribute("y",50);
+        bar.setAttribute("fill",rc(0,255));
+        svg1.appendChild(bar);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body {
+      text-align: center;
+    }
+    canvas {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h3>可以随鼠标移动的小飞机</h3>
+  <canvas id="c4" width="500" height="400"></canvas>
+  <script>
+    var ctx = c4.getContext('2d');
+
+    var p4 = new Image();
+    p4.src = 'img/p4.png';
+    p4.onload = function(){
+      var x = 0;  //鼠标当前坐标/飞机的坐标
+      var y = 0;  //鼠标当前坐标/飞机的坐标
+      //1.监听鼠标在画布上的移动事件
+      c4.onmousemove = function(e){
+        x = e.offsetX;  //鼠标距离事件源的偏移量
+        y = e.offsetY;
+      }
+      //2.启动定时器，重绘小飞机
+      setInterval(function(){
+        //清除画布已有内容
+        ctx.clearRect(0, 0, 500, 400);
+        //重绘飞机
+        ctx.drawImage(p4, x, y);
+      }, 20)
+    }
+  </script>
+</body>
+</html>

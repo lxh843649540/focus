@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        canvas{
+            background: #3bb4f2;
+        }
+    </style>
+</head>
+<body>
+<canvas id="c5" width="500" height="400"></canvas>
+<script>
+    var ctx=c5.getContext("2d");
+    var g=ctx.createLinearGradient(50,100,450,100);
+    g.addColorStop(0,"#f00");
+    g.addColorStop(0.5,"#ff0");
+    g.addColorStop(1,"#0f0");
+//    ctx.fillStyle=g;
+//    ctx.fillRect(50,100,400,200);
+    ctx.strokeStyle=g;
+    ctx.strokeRect(50,100,400,200);
+</script>
+</body>
+</html>

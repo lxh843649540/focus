@@ -1,0 +1,39 @@
+<html>
+	<head>
+    <title>user list</title>
+	</head>
+	<body>
+	   <table border="1" width="90%">
+	     <thead>
+		   <tr>
+		     <td>uname</td>
+			 <td>uid</td>
+		   </tr>
+		 </thead>
+		 <tbody id="tb1">
+		 </tbody>
+	   </table>
+		<script src="/jquery"></script>
+		<script>
+		  $(function(){
+		    $.ajax({
+			  url:"/list.do",
+			  success:function(obj){
+				  //var obj = JSON.parse(data);
+				  var html = "";
+				  for(o of obj){
+					  html += `
+					    <tr>
+						  <td>${o.uname}</td>
+						  <td>${o.upwd}</td>
+						</tr>
+					  `;
+				  }
+				  $("#tb1").html(html);
+			  }
+			});
+		  
+		  });
+		</script>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//------------------1.for循环法-----------------
+//    let input=parseInt(prompt("请输入一个整数:")),
+//        doc=[],
+//        a=1;
+//    for(let i=input;i>=1;i--){
+//        doc.push(i);
+//        a*=i;
+//    }
+//    document.write(doc.join("x")+"="+a);
+//----------------1.递归法-------------------
+//let input=parseInt(prompt("请输入一个整数:")),
+//          doc=[],
+//          a=1;
+//    function c(input){
+//        if(input>=1){
+//            doc.push(input);
+//            a*=input;
+//            input--;
+//            return c(input);
+//        }
+//        return doc.join("x")+"="+a;
+//    }
+//    document.write(c(input));
+//------------------2.for循环法-------------------
+//        let input=parseInt(prompt("请输入一个整数:")),
+//            doc=[];
+//        for(let i=input;i>=1;i--){
+//            doc.push(input+"x"+i+"="+input*i);
+//        }
+//        document.write(doc.join(";<br>"));
+//----------------2.递归法-------------------
+let input=parseInt(prompt("请输入一个整数:")),
+          doc=[],
+          a=input;
+    function c(input){
+        if(input>=1){
+            doc.push(a+"x"+input+"="+a*input);
+            input--;
+            c(input);
+        }
+        return doc.join(";<br>")
+    }
+    document.write(c(input));
+</script>
+</body>
+</html>

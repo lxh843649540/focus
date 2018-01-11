@@ -1,0 +1,14 @@
+作业:
+1:接收客户端请求，依据不同请求返回相应资源
+  http://127.0.0.1:8080/register.do  注册
+	http://127.0.0.1:8080/login.do     登录
+	http://127.0.0.1:8080/logout.do    退出
+
+	接收请求 /public/register.html 返回
+	接收请求 /public/login.html    返回
+	接收请求 /public/logout.html   返回
+	接收请求 /public/404.html      返回
+	接收请求 /public/500.html      返回
+
+
+

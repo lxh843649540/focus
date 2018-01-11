@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--XML NameSpace：名称空间，用于指定标签所处的语境-->
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="400">
+    <rect width="250" height="200"></rect>
+</svg>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <!--定义视口信息-->
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+  <title></title>
+  <style>
+    #d1{
+      border:3px solid #000;
+      padding:5px;
+    }
+    /*1、判断屏幕尺寸是否大于 1200*/
+    @media screen and (min-width:1200px){
+      #d1{
+        border-color:#000;
+        background:transparent;
+      }
+    }
+    /*2、判断屏幕尺寸是否 >992 并且 < 1199*/
+    @media screen and (min-width:992px) and (max-width:1199px){
+      #d1{
+        border-color:#e4393c;
+        background-color:darkred;
+      }
+    }
+    /*3、屏幕尺寸是否 > 768 并且 < 991 时*/
+    @media screen and (min-width:768px) and (max-width:991px){
+      #d1{
+        border-color:blue;
+        background-color:dodgerblue;
+      }
+    }
+    /*4、判断屏幕尺寸是否小于767*/
+    @media screen and (max-width:767px){
+      #d1{
+        border-color:yellow;
+        background-color:greenyellow;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!--
+    1、屏幕尺寸大于 1200px ，边框 黑色，3px，实线，背景透明
+    2、屏幕尺寸 小于 1199px 并且 大于 992px，边框为 红色，背景红色
+    3、屏幕尺寸 大于768px 并且 小于 991px 时，边框为 蓝色，背景为蓝色
+    4、屏幕尺寸 小于767时，边框为 黄色，背景为黄色
+  -->
+  <div id="d1">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores assumenda delectus dignissimos distinctio dolores eaque explicabo inventore natus, nisi nostrum possimus quos recusandae repudiandae sequi tempora ullam unde. Esse, unde? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aspernatur illum, molestiae nisi saepe tenetur. Aspernatur cupiditate dolorum earum eius eos, fugit, ipsa ipsam magni odit quasi sit ut, voluptas.
+  </div>
+</body>
+</html>

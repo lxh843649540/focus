@@ -1,0 +1,33 @@
+//nodejs 是一种开发平台，开发语言js
+1:回顾 nodejs mysql   占位符 连接池
+  加载mysql模块
+  const mysql = require("mysql");
+  创建连接池
+  var pool = mysql.createPool({
+    host:'127.0.0.1',        //host主机名称
+    user:'root',
+    password:'',             //练习可用,危险
+    database:'jd',           //操作库名称
+    port:3306,               //mysql默认端口
+    connectionLimit:10       //初始化连接对象数量
+  });
+  pool.getConnection((err,conn)=>{
+    conn.query("select ... where id = ?",[1],(err,result)=>{
+        res.json(result);//将查询结果转json发送
+        conn.release();//释放连接
+    });  
+  });
+2:回顾 nodejs express 处理不同的请求 
+  get/post常用方法
+  const http = require("http");
+  const express = require("express");
+
+  var app = express();//创建express应用
+  var server = http.createServer(app);//创建服务器
+  server.listen(8080);//为服务器绑定监听端口
+
+  app.get("/",(req,res)=>{
+    req.query.id;// 获取参数 ?id=10
+    res.send("<h1>hello</h1>");  //发送html文档片段 
+    res.sendFile("绝对路径");    //发送一个文件
+  });

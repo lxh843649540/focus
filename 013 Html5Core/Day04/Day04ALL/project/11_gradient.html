@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body {
+      text-align: center;
+    }
+    svg {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h3>绘制特效对象——渐变</h3>
+  <svg id="s1" width="600" height="400">
+    <!--Define Effects 定义特效对象-->
+    <defs>
+      <!--渐变对象的定位点相对于目标对象，而不是画布-->
+      <linearGradient id="g1" x1="0" y1="0" x2="100%" y2="0">
+        <stop offset="0" stop-color="#f00"></stop>
+        <stop offset="0.5" stop-color="#ff0"></stop>
+        <stop offset="1" stop-color="#0f0"></stop>
+      </linearGradient>
+
+      <linearGradient id="g2">
+        <stop offset="0" stop-color="#f00"></stop>
+        <stop offset="1" stop-color="#f00" stop-opacity="0"></stop>
+      </linearGradient>
+    </defs>
+
+    <!--定义矩形，应用渐变对象-->
+    <rect width="400" height="100" fill="url(#g2)"></rect>
+    <rect width="400" height="100" stroke="url(#g1)" x="200" y="300" fill="transparent"></rect>
+  </svg>
+
+</body>
+</html>

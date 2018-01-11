@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <button type="button" id="bt">
+    获取用户当前的定位数据
+  </button>
+  <script>
+    bt.onclick = function(){
+      navigator.geolocation.getCurrentPosition(succCB, errCB);
+    }
+
+    function succCB(pos){  //定位成功的回调
+      console.log('用户定位数据获取成功')
+      //console.log(arguments);
+      console.log('定位时间：',pos.timestamp)
+      console.log('经度：',pos.coords.longitude)
+      console.log('纬度：',pos.coords.latitude)
+      console.log('海拔：',pos.coords.altitude)
+      console.log('速度：',pos.coords.speed)
+
+    }
+    function errCB(err){   //定位失败的回调
+      console.log('用户定位数据获取失败')
+      //console.log(arguments);
+      console.log('错误编码：', err.code);
+      console.log('错误消息：', err.message);
+    }
+
+  </script>
+</body>
+</html>

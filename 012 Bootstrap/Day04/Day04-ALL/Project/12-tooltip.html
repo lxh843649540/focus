@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <title>工具提示</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.min.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class="container">
+  <h3>tooltip-工具提示</h3>
+  <button type="button" class="btn btn-danger" data-toggle="tooltip" title="让你碰你就碰啊!" data-placement="bottom">碰我试试!!!
+  </button>
+  <h3>popover-弹出框</h3>
+  <button type="button" class="btn btn-success" data-toggle="popover" data-placement="right" title="你点我" data-content="让你点你就点啊！！！">点我试试!!!</button>
+</div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/bootlint.js"></script>
+<script>
+  bootlint.showLintReportForCurrentDocument([]);
+</script>
+<script>
+  $("[data-toggle='tooltip']").tooltip();
+  $("[data-toggle='popover']").popover();
+</script>
+</body>
+</html>
+
+
+
+
+
+

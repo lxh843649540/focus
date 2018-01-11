@@ -1,0 +1,99 @@
+*{
+    box-sizing:border-box;
+}
+html{
+    font-size:14px;
+}
+ul{
+    padding:0;
+    list-style:none;
+}
+.clear:after{
+    display:block;
+    content:"";
+    clear:both;
+}
+#top{
+    background-color:#034C50;
+    border-radius:5px;
+    padding:0 5px;
+}
+#top ul{
+    float:left;
+}
+#top li{
+    float:left;
+    color:#fff;
+    font-size:1.3rem;
+    padding:0 10px;
+}
+#top input{
+    float:right;
+    margin-top:1.2%;
+}
+#main .left{
+    width:25%;
+    background-color:#57085B;
+    padding:10px 15px;
+    border-radius:5px;
+    float:left;
+}
+#main .left li{
+    background-color:#EEEEEE;
+    margin:5px 0;
+}
+#main .center{
+    width:48%;
+    margin:1% 1%;
+    float:left;
+    background-color:#FEB951;
+    padding-bottom:1%;
+    border-radius:1%;
+}
+#main .center div{
+    margin-top:1.5%;
+}
+#main img{
+    max-width:23%;
+}
+#main .right{
+    width:25%;
+    background-color:#5B5708;
+    border-radius:5px;
+    padding:10px 5px;
+    float:left;
+    margin-top:1%;
+    color:#fff;
+}
+/*超小屏幕中 显示的效果*/
+@media screen and (max-width:767px){
+    #top ul{
+        width:100%;
+    }
+    #main .left{
+        width:100%;
+        float:none;
+    }
+    #main .center{
+        width:100%;
+        float:none;
+        text-align:center;
+    }
+    #main .center img{
+        max-width:100%;
+    }
+    #main .right{
+        display:none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

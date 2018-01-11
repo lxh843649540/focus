@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <style>
+        .blue{
+            color:#33a;
+            background: #ccf;
+        }
+        .pink{
+            color:#a0a;
+            background: #fcf;
+        }
+        .dark{
+            color:#eee;
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+<h3>首页</h3>
+<hr>
+<select name="" id="selectTheme">
+    <option value="0">-请选择您喜欢的主题-</option>
+    <option value="blue">蔚蓝天空</option>
+    <option value="pink">芭比公主</option>
+    <option value="dark">暗黑主题</option>
+</select>
+<p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus alias at ducimus earum esse ex illo ipsa ipsum quia quidem ratione similique sit suscipit, totam unde veniam voluptatem voluptatibus.</span></p>
+<hr>
+<a href="6_localStorage_usercenter.html">跳转到用户中心</a>
+<script>
+    selectTheme.onchange=function () {
+        var t=this.value;
+        if(t==="0"){
+            return;
+        }
+        document.body.className=t;
+        localStorage["userTheme"]=t;
+    }
+</script>
+</body>
+</html>

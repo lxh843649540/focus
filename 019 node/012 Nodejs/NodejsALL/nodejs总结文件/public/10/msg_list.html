@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <h3>用户注册</h3>
+ <table border="1" width="80%">
+    <thead >
+      <tr>
+       <td>用户名</td>
+       <td>内容</td>
+      </tr>
+    </thead>
+    <tbody id="tb1">
+    </tbody>
+ </table>
+  
+  <script src="js/jquery-1.11.3.js"></script>
+  <script>
+  $(function(){
+
+    $.ajax({
+      url:'getall',
+      success:function(data){
+         var html = "";
+         $.each(data,function(i,obj){
+            html += `
+            <tr>
+            <td>${obj.uname}</td>
+            <td>${obj.content}</td>
+            </tr>
+
+            `;
+
+         });
+         $("#tb1").html(html);
+      }
+
+    });
+  });
+  </script>
+</body>
+</html>

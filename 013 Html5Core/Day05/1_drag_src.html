@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            position: relative;
+            margin:0;
+        }
+        body:before{
+            content: "";
+            display: table;
+        }
+        #p3{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<h3>H5新特性-拖放API-源对象可能触发事件</h3>
+<img src="images/p3.png" alt="" id="p3">
+<script>
+    var startX=0;
+    var startY=0;
+    p3.ondragstart=function (e) {
+        //拖动
+        startX=e.offsetX;
+        startY=e.offsetY;
+    };
+    p3.ondrag=function (e) {
+        var x=e.pageX;
+        var y=e.pageY;
+        if(x===0&&y===0){
+            return;
+        }
+        p3.style.top=y-startY+"px";
+        p3.style.left=x-startX+"px";
+    };
+    p3.ondragend=function (e) {};
+</script>
+</body>
+</html>

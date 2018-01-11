@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0;">
+    <title>Bootstrap组件-总结作业</title>
+    <link href="../../../bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="../../../bootstrap/3.3.7/js/html5shiv.min.js"></script>
+    <script src="../../../bootstrap/3.3.7/js/respond.min.js"></script>
+    <![end if]-->
+    <style>
+        body{
+            padding-top: 70px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!--一直显示的内容-->
+            <div class="navbar-header">
+                <!--一直显示的brand-->
+                <a href="#" class="navbar-brand">Tarena</a>
+                <!---->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!--用作响应的内容 .navbar collapse-->
+            <div class="collapse navbar-collapse" id="collapse">
+                <ul class="nav navbar-nav">
+                    <li data-toggle="tab" class="active"><a href="#">主页</a></li>
+                    <li data-toggle="tab" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            分类
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">HTML</a></li>
+                            <li><a href="#">CSS3</a></li>
+                            <li><a href="#">JavaScript</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">JQuery</a></li>
+                            <li><a href="#">Ajax</a></li>
+                        </ul>
+                    </li>
+                    <li data-toggle="tab"><a href="#">关于</a></li>
+                </ul>
+                <form action="" class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <div class="form-group has-feedback">
+                            <input type="search" class="form-control" placeholder="搜索...">
+                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        </div>
+                        <button type="button" class="btn btn-success">登录</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2 hidden-xs">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4>个人资料</h4>
+                    </div>
+                    <div class="panel-body">
+                        <img src="imgs/1.jpeg" class="img-circle img-responsive">
+                    </div>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item">HTML5</li>
+                    <li class="list-group-item">CSS3</li>
+                    <li class="list-group-item">JavaScript</li>
+                    <li class="list-group-item">jQuery</li>
+                    <li class="list-group-item">Ajax</li>
+                </ul>
+            </div>
+            <div class="col-sm-10">
+                <ul class="breadcrumb">
+                    <li><a href="#">主页</a></li>
+                    <li><a href="#">HTML5</a></li>
+                    <li class="active">表单2.0</li>
+                </ul>
+                <h2>表单<strong>2.0</strong>新特性</h2>
+                <div class="well">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda eius est eum non pariatur qui reiciendis repellat similique tenetur veritatis. Alias aperiam deleniti doloremque eveniet labore repellat sed sit voluptates?
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto aspernatur beatae corporis deleniti ea eaque eligendi eveniet fuga impedit minima odio omnis porro, quasi, quis quos recusandae voluptates. Eum, ut.
+                </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias ducimus illo, nisi possimus tempora ullam. Aliquid cum distinctio eius facere fugit in mollitia, neque quasi quis sed suscipit, voluptate!
+                </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores assumenda dolorem earum eius error explicabo fuga fugit illo inventore, ipsam magnam neque non quia reiciendis similique sit unde vel!
+                </p>
+                <h3>评论列表</h3>
+                <ul class="media-list">
+                    <li class="media">
+                        <div class="media-left">
+                            <img src="imgs/3.jpeg" width="100">
+                        </div>
+                        <div class="media-body media-bottom">
+                            <h4 class="media-heading">用户名</h4>
+                            <p>此处为评论内容</p>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <div class="media-left">
+                            <img src="imgs/4.jpeg" width="100">
+                        </div>
+                        <div class="media-body media-bottom">
+                            <h4 class="media-heading">用户名</h4>
+                            <p>此处为评论内容</p>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <div class="media-left">
+                            <img src="imgs/5.jpeg" width="100">
+                        </div>
+                        <div class="media-body media-bottom">
+                            <h4 class="media-heading">用户名</h4>
+                            <p>此处为评论内容</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<script src="../../../bootstrap/3.3.7/js/jquery-1.11.3.js"></script>
+<script src="../../../bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="../../../bootstrap/3.3.7/js/bootlint.js"></script>
+<script>
+    bootlint.showLintReportForCurrentDocument([]);
+</script>
+</body>
+</html>

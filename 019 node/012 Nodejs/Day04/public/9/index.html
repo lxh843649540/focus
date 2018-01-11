@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>登录表单</h1>
+<form action="#" method="post">
+    用户名:<input type="text" name="uname" id="uname">
+    密码:<input type="password" name="upwd" id="upwd">
+    <input type="button" value="提交" id="btn">
+</form>
+<script src="/jquery"></script>
+<script>
+    $(function(){
+        $("#btn").click(function(){
+            $.ajax({
+                type:"POST",
+                url:"/user",
+                data:{
+                    uname:$("#uname").val(),
+                    upwd:$("#upwd").val()
+                },
+                success:function(data){
+                    console.log("服务器返回数据:"+data)
+                },
+            });
+        });
+    });
+</script>
+</body>
+</html>

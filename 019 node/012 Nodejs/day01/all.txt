@@ -1,0 +1,166 @@
+﻿今天学习的内容
+1:复习总结昨天项目
+2:作业 购物车 删除 更新
+3:今天新的内容
+  3.1: nodejs 简介
+	3.2: 安装与使用 
+	3.3：nodejs 模块
+#-------------------------
+1:复习总结昨天项目
+  建议:写项目(html/js/php/ajax/mysql)
+	     1:表(背)下来 表名 存什么数据 几列 类型
+       2:看思维导图 登录(html/js/php)
+         (登录)
+       html显示数据->js发送ajax->
+			 php处理数据返回结果->js->修改html
+2:作业 购物车 删除 更新(+ -)
+
+3:今天新的内容
+  3.1: nodejs 简介
+	    a:静态网页和动态网页
+			  静态:网页内容任何在任何时间访问都不变的
+				     HTML/CSS/JS/FLASH/视频音频...
+				动态:网页内容不同人在不同时间访问可能
+				     不同的
+						 DB/JSP/PHP/ASP.NET/NodeJS
+      JSP     = HTML+JAVA 功能强大可靠，适合
+			          大型企业级项目.(java)
+								复杂运算
+			PHP     = HTML+PHP
+			          简单易用，适合互联网项目
+			ASP.NET = HTML+C#
+			          易用，适合 windows平台
+			NodeJS  = HTML+"JS"
+			          性能好,适合于服务端IO密集型项目
+								，不适合CPU密集计算项目.
+      IO:输入输出       微博
+			CPU:大量计算弱点
+			           
+
+      #概述:
+			NODEJS不是JS,是一种服务器端技术，它竞争
+			对手是php/jsp/asp.net
+			官网:www.nodejs.org
+			版本:0.12(16初) 4.x(16年中) 6.x(16年底)
+      2009 初 16 发展快用多 
+      
+			LTS:Long Term Support 长期稳定支持版本
+			Current:最新版本
+	3.2: 安装与使用 
+	     node-v6.10.2-x64.msi  windows 64位
+		 node-v6.10.2-x86.msi  windows 32位
+       鼠标右击->我的电脑->属性-> 64位
+	3.3：两种运行模式
+	     1)交互模式--一般用于临时测试
+			    REPL:输入一行代码执行一行
+          node 回车
+			 2)脚本模式--正式项目中使用方式
+			   把要执行所有语句编写成一个文本文件
+				 (后缀名任意,没有都行),一次性提交
+				 node解释器执行
+				 node  完整路径名/x.js 回车
+			   练习:创建 D:\dev\day01\3.js 输出 hello 
+				           D:\dev\day01\4.js 输出 99乘法口决表
+
+	3.4: 如何自学一门语言 nodejs 
+	    1:了解背景  09开发 16年 io密集型
+			2:搭建开发环境 编写 helloWorld
+			3:数据类型--
+			4:变量和常量
+			  var age = 20;
+				const PI = 3.14;
+      5:运算符
+			  	算术运算符 
+				比较运算符 
+				逻辑运算符
+				位运算符
+				三目运算符
+				赋值运算符 += -= *= /= 
+				特殊运算符 typeof instanceof
+
+      6:逻辑结构 if..else  switch..case
+			  练习:5.js 创建一个变量 14:40--14:50 
+				var path = "/index";
+				使用二种选择结构,判断path值为哪种
+				(/index /search /login),
+				调用不同的执行函数
+				index() search() login();
+				练习:6.js 声明一个保存5个学生成绩的数组
+				，使用for循环依次打印出每个成绩值.
+       7:通用小程序
+			   九九乘法表，100以内的质数，数组排序..
+				 练习:打印出100以内所有质数
+				 练习:7.js
+			 8:函数和对象
+       9:常用的组件，第三方工具，框架
+			 10:实际小项目
+	3.5: nodejs 模块
+	     一个web项目功能可以分不同"模块",
+			 如商品模块，用户管理模块，支付模块，
+			 商家管理...
+			 nodejs按照功能把不同函数，对象分到不同
+			 文件/目录,nodejs模块 "Module"
+       user product manager
+
+			 每个模块可以使用自己函数 require()
+			 函数引入另一个模块--
+			 底质本质就是创建指定模块一个对象实例.
+			 require("./模块文件名");
+       练习:
+			 8_module_user.js 声明变量 创建函数
+			 9_app.js         
+       每个模块可以使用exports对象向外公开(导出)
+			 一些自己内部成员其它模块使用.
+       exports.成员名 = 成员值;
+       require("./模块名称");
+			 练习:创建文件模块 10_Circle.js
+			 其中定义常量PI,声明一个方法getSize(r)
+			 根据传入圆形半径，返回面积;
+			 以及一个方法getPerimeter(r)
+			 根据传入圆形半返回其周长;
+			 再创建一个应用主模块 11_app.js
+			 引用 10_Circle.js,调用其公开两个成员方法
+       16:00-16:10 
+
+       练习:编写模块12_ArrayUtil,包含一个方法
+			 sum(arr),返回指定数组中所有数值的和,
+			 一个方法 avg(arr)返回指定数组中中所有
+			 数值平均值,使用 module.exports导出
+			 上述二个成员.
+			 13_app.js 模块引入 12_ArrayUtil,
+			 调用其公开方法.
+       
+  3.6: nodejs中模块分类
+	     1)nodejs官方提供模块-
+			   require("模块名")
+			 2)第三方编写模块(mysql/oracle/..)
+			 3)用户定义模块
+			   exports.x    require("./模块名称");
+
+  3.7: node预定模块 - Global
+	     该模块提供可以直接使用,而无需require()
+			 14.js
+
+  3.8: nodejs官方提供原生模块-fs-->重点
+	     file(文件)
+			 fs模块提供对文件系统中文件/目录
+			 增删改查、读写功能.
+       同步读取写入文件方法(API) 等待
+			  #同步读取文件中内容
+				const fs =  require("fs");
+				var data = fs.readFileSync(file);
+				#同步向文件中写出内容(删除己有内容)
+        fs.writeFileSync(file,str/buf);
+        #同步向文件中追加写入内容(不删除己有内容)
+				fs.appendFileSync(file,str/buf);
+        15_fs.js
+				16_fs.js
+				17_fs.js
+
+			 异步读取写入文件方法(API) 不等待
+
+			 作业:
+			 创建文件 homework.js
+			 功能:完成文件复制内容
+			 源文件   public/2.log
+			 目标文件 public/3.log

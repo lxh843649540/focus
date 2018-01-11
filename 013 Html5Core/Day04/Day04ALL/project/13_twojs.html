@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body {
+      text-align: center;
+    }
+    svg,canvas {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h3>使用Two.js</h3>
+  <!--盛饭绘图的容器-->
+  <div id="box"></div>
+
+  <script src="js/two.js"></script>
+  <script>
+    //创建一个2D绘图对象，追加到DOM树上
+    var two = new Two({
+      width: 800,
+      height: 400,
+      type: Two.Types.svg
+      //type: Two.Types.canvas
+    }).appendTo(box);
+
+    //创建圆形
+    var c = two.makeCircle(200,200,100);
+    c.fill = '#ff8000';
+    c.stroke = '#c30';
+    c.linewidth = 5;
+
+    //创建矩形——Two中所有图形的定位点都在中央！
+    var r = two.makeRectangle(600,200,200,200);
+    r.fill = '#09f';
+
+    //将绘图内容从内存中更新到画布上
+    two.update();
+
+  </script>
+</body>
+</html>

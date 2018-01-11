@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>退出登录</title>
+</head>
+<body>
+<h3>退出登录</h3>
+<hr>
+<h4>您已退出登录</h4>
+<p>3s后将自动跳转回首页</p>
+<script>
+    sessionStorage.clear();
+    setTimeout(function () {
+        location.href="5_sessionStorage_index.html";
+    },3000)
+</script>
+</body>
+</html>

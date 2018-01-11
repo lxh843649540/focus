@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        svg{
+            background-color: #3bb4f2;
+        }
+    </style>
+</head>
+<body>
+<svg id="s1" width="600" height="300">
+    <defs>
+        <!--渐变对象的定位点相对于目标对象,而不是画布-->
+        <linearGradient id="g1" x1="0" y1="0" x2="100%" y2="0">
+            <stop offset="0" stop-color="#f00"> </stop>
+            <stop offset="0.5" stop-color="#ff0"> </stop>
+            <stop offset="1" stop-color="#0f0"> </stop>
+        </linearGradient>
+    </defs>
+    <rect width="300" height="50" x="150" y="0" fill="url(#g1)"></rect>
+    <rect width="300" height="50" x="150" y="150" stroke="url(#g1)" fill="transparent"></rect>
+</svg>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        canvas{
+            background: #ddd;
+        }
+    </style>
+</head>
+<body>
+<canvas id="c6" width="500" height="400"></canvas>
+<script>
+    function rn(min,max){
+        return Math.floor(Math.random()*(max-min));
+    }
+    function rc(min,max) {
+        var r=rn(min,max);
+        var g=rn(min,max);
+        var b=rn(min,max);
+        return `rgb(${r},${g},${b})`;
+    }
+    var count=parseInt(prompt("请输入柱子数量:"));//输入柱子数量
+    var cw=500;
+    var ch=400;
+    var padding=50;
+    var ctx=c6.getContext("2d");
+    var w=cw-2*padding;
+    var h=ch-2*padding;
+    var barWidth=w/(2*count+1);
+    for(var i=0;i<count;i++){
+        var g=ctx.createLinearGradient(padding+(2*i+1)*barWidth,padding,padding+(2*i+1)*barWidth,padding+h);
+        g.addColorStop(0,rc(0,255));
+        //g.addColorStop(0.5,rc(0,255));
+        g.addColorStop(1,"#fff");
+        ctx.fillStyle=g;
+        ctx.fillRect(padding+(2*i+1)*barWidth,padding,barWidth,h);
+    }
+    ctx.strokeStyle="#37B158";
+    ctx.strokeRect(padding,padding,w,h);
+</script>
+</body>
+</html>

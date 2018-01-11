@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0;">
+    <title>JavaScript组件-carousel(轮播)</title>
+    <link href="../../../bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="../../../bootstrap/3.3.7/js/html5shiv.min.js"></script>
+    <script src="../../../bootstrap/3.3.7/js/respond.min.js"></script>
+    <![end if]-->
+</head>
+<body>
+<div class="container">
+    <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+            <li data-target="#carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel" data-slide-to="1"></li>
+            <li data-target="#carousel" data-slide-to="2"></li>
+            <li data-target="#carousel" data-slide-to="3"></li>
+            <li data-target="#carousel" data-slide-to="4"></li>
+        </ul>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="slider-img/slide1.jpg" alt="...">
+                <div class="carousel-caption">
+                    <h1>一片苍茫</h1>
+                </div>
+            </div>
+            <div class="item">
+                <img src="slider-img/slide2.jpg" alt="...">
+                <div class="carousel-caption">
+                    <h1>千山鸟飞绝</h1>
+                </div>
+            </div>
+            <div class="item">
+                <img src="slider-img/slide3.jpg" alt="...">
+                <div class="carousel-caption">
+                    <h1>New York CITY</h1>
+                </div>
+            </div>
+            <div class="item">
+                <img src="slider-img/slide4.jpg" alt="...">
+                <div class="carousel-caption">
+                    <H1>干净的街道</H1>
+                </div>
+            </div>
+            <div class="item">
+                <img src="slider-img/slide5.jpg" alt="...">
+                <div class="carousel-caption">
+                    <h1>被破坏的森林</h1>
+                </div>
+            </div>
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+</div>
+<script src="../../../bootstrap/3.3.7/js/jquery-1.11.3.js"></script>
+<script src="../../../bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="../../../bootstrap/3.3.7/js/bootlint.js"></script>
+<script>
+    bootlint.showLintReportForCurrentDocument([]);
+</script>
+</body>
+</html>

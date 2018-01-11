@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body {
+      text-align: center;
+    }
+    svg,canvas {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h3>使用Two.js——图形旋转——以指定的点为轴心</h3>
+  <!--盛饭绘图的容器-->
+  <div id="box"></div>
+
+  <script src="js/two.js"></script>
+  <script>
+    //创建一个2D绘图对象，追加到DOM树上
+    var two = new Two({
+      width: 800,
+      height: 400,
+      type: Two.Types.svg
+      //type: Two.Types.canvas
+    }).appendTo(box);
+
+    //小组中的圆形的定位点的坐标相对于组的定位点
+    //var c = two.makeCircle(200,200,100);
+    var c = two.makeCircle(-200,0,100);
+    c.fill = '#ff8000';
+    c.stroke = '#c30';
+    c.linewidth = 5;
+
+    //小组中的矩形的定位点的坐标相对于组的定位点
+    //var r = two.makeRectangle(600,200,200,200);
+    var r = two.makeRectangle(200,0,200,200);
+    r.fill = '#09f';
+    //如何让矩形绕(400,200)为轴心旋转？
+    //创建一个透明的容器(Group)，它的中心在(400,200)，把矩形绘制在透明容器中
+    var g = two.makeGroup(r,c);//把矩形放到组中(透明的容器)——小组的定位点默认在画布左上角
+    //g.rotation = 20*Math.PI/180;
+    //把小组的定位点平移到(400,200)
+    g.translation.set(400,200);
+    g.rotation = 90*Math.PI/180; //旋转整个小组
+
+    //将绘图内容从内存中更新到画布上
+    two.update();
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body {
+      text-align: center;
+    }
+    svg {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h3>各阶段课程难点统计</h3>
+  <svg id="s1">
+    <!--定义所有的特效对象-->
+    <defs></defs>
+    <!--外围的轮廓-->
+    <rect id="box"></rect>
+    <!--所有的柱子-->
+    <g id="group-bars"></g>
+  </svg>
+
+  <script src="js/jquery-1.11.3.js"></script>
+  <script>
+    var sw = 800; //SVG画布的宽
+    var sh = 500; //SVG画布的高
+    var padding = 50;  //画布内容到边界的距离
+    //s1.width = sw;  无效的写法
+    //s1.height = sh; 无效的写法
+    s1.setAttribute('width', sw);
+    s1.setAttribute('height', sh);
+    //设置#box的描边效果
+    box.setAttribute('width', sw-2*padding);
+    box.setAttribute('height', sh-2*padding);
+    box.setAttribute('x', padding);
+    box.setAttribute('y', padding);
+    box.setAttribute('fill', 'transparent');
+    box.setAttribute('stroke', '#333');
+
+    //发起异步请求，获取统计数据
+    $.ajax({
+      type: 'GET',
+      url: '/stat',
+      success: function(list){
+        console.log(list);
+        //创建所有的渐变特效对象
+        var html = '';
+        for(var i=0; i<list.length; i++){
+          html += `
+            <linearGradient id="g${i}" x1="0"
+            y1="0" x2="0" y2="100%">
+              <stop offset="0" stop-color="#f00"></stop>
+              <stop offset="1" stop-color="#fff"></stop>
+            </linearGradient>
+          `;
+        }
+        $('#s1 defs').html(html);
+
+        //创建所有的柱子
+        var html = '';
+        for(var i=0; i<list.length; i++){
+          var w = (sw-2*padding)/(2*list.length+1);  //柱子的宽
+          var h = (sh-2*padding)*(list[i].value)/(10);  //柱子的高
+          var x = (2*i+1)*w + padding;  //柱子的X
+          var y = sh-padding-h;  //柱子的Y
+          html += `<rect width="${w}" height="${h}"
+            x="${x}" y="${y}" fill="url(#g${i})"></rect>`;
+        }
+        $('#group-bars').html(html);
+      }
+    });
+
+
+  </script>
+</body>
+</html>

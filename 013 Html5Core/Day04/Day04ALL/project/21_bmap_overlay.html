@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://api.map.baidu.com/api?v=2.0&ak=T6GrEojbNTxd3WCXh5mdWCZ8uk0RZzWM">
+  </script>
+  <style>
+    #container {
+      width: 600px;
+      height: 400px;
+    }
+  </style>
+</head>
+
+<body>
+<h3>欢迎来到李文华的站点</h3>
+<div id="container"></div>
+<script>
+  var map = new BMap.Map("container");
+  var point = new BMap.Point(116.300649,39.915872);
+  map.centerAndZoom(point, 14);
+  map.enableScrollWheelZoom(true);
+
+  //在地图上添加覆盖物
+  var mk = new BMap.Marker(point);
+  map.addOverlay(mk);
+  mk.setAnimation(BMAP_ANIMATION_BOUNCE);
+
+  //var lb = new BMap.Label('达内科技');
+  //map.addOverlay(lb);
+
+
+
+</script>
+</body>
+</html>

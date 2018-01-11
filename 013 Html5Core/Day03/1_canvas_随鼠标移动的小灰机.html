@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>随鼠标移动小灰机</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        canvas{
+            background: #dda0dd;
+        }
+    </style>
+</head>
+<body>
+<h3>随鼠标移动小灰机</h3>
+<canvas id="c" width="600" height="300"></canvas>
+<script>
+    var ctx=c.getContext("2d");
+    var x=0;
+    var y=0;
+    c.onmousemove=function(e){
+        x=e.offsetX;
+        y=e.offsetY;
+    };
+    var p4=new Image();
+    p4.src="planes/p4.png";
+    p4.onload=function(){
+        setInterval(function () {
+            ctx.clearRect(0,0,600,300);
+            ctx.drawImage(p4,x-100,y-50);
+            if(x>=500){x=500}else if(x<=100){x=100}else if(y>=250){y=250}else if(y<=50){y=50}
+        },1)
+    };
+</script>
+</body>
+</html>

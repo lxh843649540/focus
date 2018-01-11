@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+<h3>H5中的视频播放</h3>
+left<video id="v6" src="res/birds.mp4" autoplay controls loop>您的浏览器不支持video标签</video>right
+<hr>
+<video>
+    <source src="res/birds.mp4">
+    <source src="res/birds.ogg">
+    <source src="res/birds.webm">
+    您的浏览器不支持video标签
+</video>
+<script>
+    //起始音量
+    v6.volume=0.3;
+    //起始播放进度
+    v6.currentTime=30;
+    //播放速率
+    v6.playbackRate=1.5;
+</script>
+</body>
+</html>

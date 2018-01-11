@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas_animation 03</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        canvas{
+            background: #1b6d85;
+        }
+    </style>
+</head>
+<body>
+<h3>canvas animation 03</h3>
+<canvas id="c9" width="600" height="300"></canvas>
+<script>
+    var ctx=c9.getContext("2d");
+    var x=0;
+    var xDirection=1;//1--表右行 -1表左行
+    var yDirection=1;//1--表右行 -1表左行
+    var y=125;
+    //定时器:动画引擎
+    setInterval(function(){
+        //清除已有内容
+        ctx.clearRect(0,0,600,300);
+        ctx.strokeRect(x,y,100,50);
+        if(x>=500){xDirection=-1;}else if(x<=0){xDirection=1;}
+        x+=10*xDirection;
+        if(y>=250){yDirection=-1;}else if(y<=0){yDirection=1;}
+        y+=5*yDirection;
+    },50);
+</script>
+</body>
+</html>

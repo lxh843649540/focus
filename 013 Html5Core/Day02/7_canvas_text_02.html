@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>7_canvas_text 02</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        canvas{
+            background: #dda0dd;
+        }
+        
+    </style>
+</head>
+<body>
+<h2>canvas text 02</h2>
+<canvas id="c11" width="600" height="300"></canvas>
+<script>
+    var ctx=c11.getContext("2d");
+    ctx.font="30px sans-serif";
+    ctx.textBaseline="top";
+    ctx.strokeStyle="#241563";
+    //ctx.fillText(txt,0,0);
+    var txt="李小辉好帅啊";
+    var txt1="我爱刘亦菲!";
+    var txt2="双击666!!!";
+    var txt3="邓大瓜送了一艘游艇!!!";
+    var txt4="轻轻的我来了......";
+    var txt5="感谢老铁的礼物...";
+    var x=-150;
+    var y=-400;
+    setInterval(function(){
+        //清除已有内容
+        ctx.clearRect(0,0,600,300);
+        ctx.strokeText(txt,x,0);
+        ctx.fillText(txt4,y,0);
+        ctx.fillText(txt5,y,50);
+        ctx.strokeText(txt1,x,50);
+        ctx.strokeText(txt2,x,100);
+        ctx.strokeText(txt3,x,150);
+        if(x>=500){x=-150}
+        x+=10;
+        if(y>=500){y=-150}
+        y+=10;
+    },100);
+
+</script>
+</body>
+</html>

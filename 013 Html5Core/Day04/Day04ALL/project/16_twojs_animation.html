@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body {
+      text-align: center;
+    }
+    svg,canvas {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h3>使用Two.js——动画基本原理</h3>
+  <!--盛饭绘图的容器-->
+  <div id="box"></div>
+
+  <script src="js/two.js"></script>
+  <script>
+    var two = new Two({
+      width: 800,
+      height: 400,
+      type: Two.Types.svg
+    }).appendTo(box);
+
+
+    var counter = 0;
+    two.on('update', function(){
+      counter++;
+      console.log('UPDATE事件触发了：', counter)
+    })
+    /*two.update();
+    two.update();
+    two.update();*/
+    two.play();   //每秒钟调用60次two.update()
+
+  </script>
+</body>
+</html>

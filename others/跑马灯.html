@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        #div1{ width:1140px; height:42px; border:2px solid red;overflow:hidden}
+        ul{ position:relative; left:0; top:0; list-style:none}
+        li{ float:left;}
+    </style>
+</head>
+
+
+<body>
+<div id="div1">
+    <ul>
+        <li>分解啊时空裂缝干撒打飞机快乐撒就撒开了防腐剂安徽省复活甲撒快递公司的健康发哈数据库官方撒党和国家阿萨德回房间卡收到货发生大锅饭撒娇的风口浪尖撒颇丰..........</li>
+        <li>afsdafsadfasdfasdfsadfasdf........</li>
+        <li>宫颈癌欧派飞机扫干净女爱上平均分泼尼........</li>
+        <li>fasdfsadfasdfsadfasdfsadfasdfsdafsadfsadfsadf........</li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    function marquee(box_id,speed){//传id  speed 速度
+        var oDiv=document.getElementById(box_id);
+//ul填充图片
+        var oUl=oDiv.getElementsByTagName('ul')[0];
+        var aLi=oDiv.getElementsByTagName('li');
+        var timer;
+        var i=0;//定时器用的 计时器
+        var w=400*aLi.length;  //一套图片的宽度，注意本例中每个图片的宽度为400px
+        oUl.innerHTML+=oUl.innerHTML;//复制一套图片
+        oUl.style.width=w*2+"px";
+//-------------------------------------------------
+//重复代码封装函数
+        function run(){
+            timer=setInterval(function(){
+                i-=speed;//计时器步进
+                oUl.style.left=i+"px";
+
+                if(i<=-w){//如果移动过一套图片的宽度，归零
+                    i=0;
+                }
+            },30);
+        }
+//首次调用
+        run();
+//----------------------------------------------
+
+//鼠标进入停止
+        oDiv.onmouseover=function(){
+            clearInterval(timer);
+        };
+//鼠标移出继续
+        oDiv.onmouseout=function(){
+            run();
+        };
+
+    }
+    //------------------------------------------------------
+    marquee("div1",5)
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>7_canvas_text 01</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        canvas{
+            background: #dda0dd;
+        }
+        
+    </style>
+</head>
+<body>
+<h2>canvas text 01</h2>
+<canvas id="c10" width="600" height="300"></canvas>
+<script>
+    var ctx=c10.getContext("2d");
+    var txt="abgy中国";
+    ctx.font="30px sans-serif";
+    ctx.textBaseline="top";
+    //ctx.fillText(txt,0,0);
+    ctx.strokeText(txt,0,0);
+    var txtWidth=ctx.measureText(txt).width;//文本宽度
+    console.log(txtWidth);
+</script>
+</body>
+</html>

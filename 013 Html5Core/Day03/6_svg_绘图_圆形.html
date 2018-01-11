@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    body{
+        text-align: center;
+    }
+    svg{
+        background:#eee;
+    }
+    </style>
+</head>
+<body>
+<h3>SVG绘图--圆形</h3>
+<svg id="svg1" width="1350" height="500"></svg>
+<script>
+    function rn(min,max){
+        return Math.floor(Math.random()*(max-min)+min);
+    }
+    function fc(min,max){
+        return (Math.random()*(max-min)+min).toFixed(1);
+    }
+    function rc(min,max){
+        var r=rn(min,max);
+        var g=rn(min,max);
+        var b=rn(min,max);
+        return  `rgb(${r},${g},${b})`;
+    }
+    for(var i=0;i<300;i++){
+        var cir=document.createElementNS("http://www.w3.org/2000/svg","circle");
+        cir.setAttribute("r",rn(10,30));
+        cir.setAttribute("cx",rn(0,1350));
+        cir.setAttribute("cy",rn(0,500));
+        cir.setAttribute("fill",rc(0,255));
+        cir.setAttribute("fill-opacity",fc(0.1,1));
+        svg1.appendChild(cir);
+        cir.onclick=function () {
+            var that=this;
+            that.onclick=null;//让圆形只能点一次
+            var t=setInterval(function(){
+                var r=that.getAttribute("r");
+                r*=1.05;
+                that.setAttribute("r",r);
+                //修改圆形透明度,每次减小5%
+                var p=that.getAttribute("fill-opacity");
+                p-=0.01;
+                that.setAttribute("fill-opacity",p);
+                if(p<=0){//颜色几乎透明时
+                    clearInterval(t);
+                    svg1.removeChild(that);
+                }
+            },10)
+        }
+    }
+
+</script>
+</body>
+</html>

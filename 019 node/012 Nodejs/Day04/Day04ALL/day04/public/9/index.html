@@ -1,0 +1,39 @@
+<html>
+<head>
+</head>
+<body>
+<h1>登录表单</h1>
+<form action="#">
+  用户名<input type="text" name="uname" id="uname"/>
+  密码<input type="password" name="upwd" id="upwd"/>
+  提交<input type="button" value="login" id="btn"/>
+</form>
+<script src="/jquery"></script>
+<script>
+ $(function(){
+
+  $("#btn").click(function(){
+    $.ajax({
+     type:"POST",
+     url:'/user',
+     data:{
+       uname:$("#uname").val(),
+       upwd:$("#upwd").val()
+      },
+     success:function(data){
+        console.log("服务器端返回数据:"+data);
+     }
+     
+
+   }); 
+  
+  });
+
+ 
+ });
+
+
+
+</script>
+</body>
+</html>

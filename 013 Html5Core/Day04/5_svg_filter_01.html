@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        svg{
+            background-color: #3bb4f2;
+        }
+    </style>
+</head>
+<body>
+<svg id="s1" width="600" height="300">
+    <defs>
+        <!--渐变对象的定位点相对于目标对象,而不是画布-->
+        <filter id="f1">
+            <feGaussianBlur stdDeviation="1"></feGaussianBlur>
+        </filter>
+        <filter id="f2">
+            <feGaussianBlur stdDeviation="2"></feGaussianBlur>
+        </filter>
+        <filter id="f3">
+            <feGaussianBlur stdDeviation="4"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g font-size="30" >
+        <text x="0" y="0" alignment-baseline="before-edge" filter="url(#f1)">达内科技 &copy;2017</text>
+        <text x="0" y="100" alignment-baseline="before-edge">达内科技 &copy;2017</text>
+        <text x="0" y="200" alignment-baseline="before-edge" filter="url(#f3)">达内科技 &copy;2017</text>
+    </g>
+</svg>
+</body>
+</html>

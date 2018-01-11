@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body {
+      text-align: center;
+    }
+    canvas {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h3>让画布左上角旋转的小飞机</h3>
+  <canvas id="c4" width="500" height="400"></canvas>
+  <script>
+    var ctx = c4.getContext('2d');
+
+    var p4 = new Image();
+    p4.src = 'img/p4.png';
+    p4.onload = function(){
+      /*ctx.rotate(15*Math.PI/180);
+      ctx.drawImage(p4, 0, 0);
+
+      ctx.rotate(15*Math.PI/180);
+      ctx.drawImage(p4, 0, 0);
+
+      ctx.rotate(15*Math.PI/180);
+      ctx.drawImage(p4, 0, 0);
+
+      ctx.rotate(15*Math.PI/180);
+      ctx.drawImage(p4, 0, 0);*/
+      setInterval(function(){
+        ctx.rotate(10*Math.PI/180);
+        ctx.drawImage(p4, 0, 0);
+        //ctx.drawImage(p4, 250, 200);
+      }, 50)
+    }
+  </script>
+</body>
+</html>

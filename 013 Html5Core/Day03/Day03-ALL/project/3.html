@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body {
+      text-align: center;
+    }
+    canvas {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h3>左右晃动的小飞机</h3>
+  <canvas id="c1" width="500" height="400"></canvas>
+  <script>
+    var ctx = c1.getContext('2d');
+
+    var p4 = new Image();
+    p4.src = 'img/p4.png';
+    p4.onload = function(){
+      var x = 0;
+      var xDirection = 1;
+      var y = 0;
+      setInterval(function(){
+        //清除画布内容
+        ctx.clearRect(0,0, 500,400);
+        //重新绘制飞机
+        ctx.drawImage(p4, x, y);
+        x += 10*xDirection;
+        if(x>=500-p4.width){
+          xDirection = -1;
+        }
+      }, 50)
+
+    }
+  </script>
+</body>
+</html>

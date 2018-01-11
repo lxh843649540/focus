@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        canvas{
+            background: #ddd;
+        }
+    </style>
+</head>
+<body>
+<canvas id="c2" width="800" height="700">您的浏览器不支持canvas</canvas>
+<h3>上年度集团销售统计</h3>
+<script src="/jquery"></script>
+<script>
+    $(function () {
+       $.ajax({
+           type:"GET",
+           url:"/stat",
+           success:function(data){
+            //console.log(data);
+               var ctx=c2.getContext("2d");
+               var cw=800;
+               var ch=700;
+               var count=data.length;//数据的数量
+               var padding=50;//内容到画布边界的距离
+               var barWidth=(cw-2*padding)/(2*count+1);
+               for(var i=0;i<count;i++){
+                   var w=barWidth;//柱子宽度
+                   var h=data[i].value;//柱子高度
+                   var x=(2*i+1)*barWidth+padding;//柱子x坐标
+                   var y=ch-padding-h;
+                   ctx.fillStyle="#9ED18B";
+                   ctx.fillRect(x,y,w,h);
+               }
+               ctx.strokeRect(padding,padding,cw-2*padding,ch-2*padding);
+           },
+       })
+    });
+</script>
+</body>
+</html>

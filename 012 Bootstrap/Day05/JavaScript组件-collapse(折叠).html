@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0;">
+    <title>JavaScript组件-collapse(折叠)</title>
+    <link href="../../../bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="../../../bootstrap/3.3.7/js/html5shiv.min.js"></script>
+    <script src="../../../bootstrap/3.3.7/js/respond.min.js"></script>
+    <![end if]-->
+</head>
+<body>
+<div class="container">
+    <h1><mark>普通按钮折叠</mark></h1>
+    <!--激活按钮-->
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample">
+        单击弹出/隐藏折叠框
+    </a>
+    <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseExample">
+        再单击再弹出/隐藏折叠框
+    </button>
+    <!--折叠框-->
+    <div class="collapse" id="collapseExample">
+        <div class="well">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae blanditiis commodi culpa est, et exercitationem explicabo facere harum illo laborum magni mollitia porro quasi quisquam ratione repellendus suscipit temporibus voluptatibus!
+        </div>
+    </div>
+   <!------------------------------------------------华丽的分割线------------------------------------------------------->
+    <h1><mark>面板折叠</mark></h1>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapsethree">
+                    Collapsible Group Item #1
+                </a>
+            </h4>
+        </div>
+        <div id="collapsethree" class="panel-collapse collapse in">
+            <div class="panel-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+            <div class="panel-footer">
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-parent="#accordion" data-target="#collapsethree">
+                    I Get
+                </button>
+            </div>
+        </div>
+    </div>
+    <!------------------------------------------------华丽的分割线------------------------------------------------------>
+    <h1><mark>面板折叠组</mark></h1>
+    <div class="panel-group" id="accordion">
+                            <!-------------------------第一个折叠面板-------------------------->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                        Collapsible Group Item #1
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse">
+                <div class="panel-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+                <div class="panel-footer">
+                    <button type="button" class="btn btn-info" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne">
+                        I Get
+                    </button>
+                </div>
+            </div>
+        </div>
+                            <!-------------------第二个折叠面板---------------------------->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                        Collapsible Group Item #2
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../../bootstrap/3.3.7/js/jquery-1.11.3.js"></script>
+<script src="../../../bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="../../../bootstrap/3.3.7/js/bootlint.js"></script>
+<script>
+    bootlint.showLintReportForCurrentDocument([]);
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+创建数据库bbs，包含表msg(mid, uname, content, pubTime)；
+使用Node.js创建一个“留言板”应用，服务端可以接收如下的请求：
+  静态内容：
+ /public/js/jquery-1.11.3.js
+/public/msg_add.html 显示“添加新留言”的表单，包括“姓名”、“留言内容”；
+ /public/msg_list.html 在TABLE中显示出所有留言记录
+  动态内容：
+ POST /msg 接收客户端异步提交的uname、content，添加入数据库，返回{"code":1, "msg":"留言添加成功", "mid":5 }
+ GET /msg 向客户端返回所有的留言，以JSON格式
+
+
+

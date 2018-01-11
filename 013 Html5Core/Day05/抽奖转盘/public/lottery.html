@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>幸运大转盘</title>
+    <style>
+    body{
+        text-align: center;
+    }
+    canvas{
+        background: #ddd;
+    }
+    </style>
+</head>
+<body>
+<h3>幸运抽奖</h3>
+<h5>使用Canvas绘制小游戏</h5>
+<button id="bt">抽奖数据加载中......</button>
+<br><br>
+<canvas id="c1"></canvas>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    var progress=0;
+     var imgPan=new Image();
+     imgPan.src="img/pan.png";
+     imgPan.onload=function () {
+         console.log("1-圆盘加载完成");
+         progress+=75;
+         if(progress===100){
+             startDraw();
+             console.log("1-开始绘图")
+         }
+     };
+     var imgPin=new Image();
+     imgPin.src="img/pin.png";
+     imgPin.onload=function(){
+         progress+=25;
+         if(progress===100){
+             startDraw();
+         }
+     };
+
+//绘制圆盘,指针
+     function startDraw() {
+         console.log("开始绘图");
+         var cw=imgPan.width;
+         var ch=imgPan.height;
+         c1.width=cw;
+         c1.height=ch;
+         var ctx=c1.getContext("2d");
+         ctx.drawImage(imgPan,0,0);
+         ctx.drawImage(imgPin,cw/2-imgPin.width/2,ch/2-imgPin.height/2);
+     }
+
+    $.ajax({
+        url:"/lottery",
+        data:{uid:5},
+        success:function(data){
+            bt.innerHTML=`开始抽奖(总的抽奖次数:${data.total}剩余次数:${data.total-data.used})`;
+            if(data.total<=data.used){
+                return;//已抽奖次数大于等于总次数,不能再抽奖
+            }
+            bt.disabled=false;
+            bt.onclick=function () {//点击按钮.开始抽奖
+                //设置一个随机的旋转总时长
+                var duration=Math.random()*4000+5000;
+                //记录当前已经旋转的时长
+                var last=0;
+                //记录当前已经旋转的角度
+                var deg=0;
+                //启动定时器,开始旋转:平移-旋转-绘图-恢复-绘制指针
+                var ctx=c1.getContext("2d");
+                var timer=setInterval(function () {
+                    //保存画笔当前的状态
+                    ctx.save();
+                    //平移坐标轴原点
+                    ctx.translate(c1.width/2,c1.height/2);
+                    //旋转画笔
+                    ctx.rotate(deg*Math.PI/180);
+                    //绘制圆盘
+                    ctx.drawImage(imgPan,-c1.width/2,-c1.height/2);
+                    //恢复画笔的变形值到最近一次保持的状态
+                    ctx.restore();
+                    //绘制指针
+                    ctx.drawImage(imgPin,c1.width/2-imgPin.width/2,c1.height/2-imgPin.height/2);
+                    deg+=5;
+                    last+=20;
+                    if(last>=duration){
+                        clearInterval(timer);
+                    }
+                },20)
+            }
+        }
+    });
+     console.log("3-JS执行完成")
+</script>
+</body>
+</html>

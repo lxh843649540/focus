@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>使用Worker执行复杂运算</h3>
+<hr>
+数据1:<input type="text" id="ipt1">
+<br>
+数据2:<input type="text" id="ipt2">
+<br>
+<input type="button" value="求和" id="btn">
+<hr>
+<p id="p1">0</p>
+<script>
+    btn.onclick=function(){
+        var in1=ipt1.value;
+        var in2=ipt2.value;
+        var w=new Worker("1.js");
+        w.postMessage(in1+","+in2);
+        w.onmessage=function(e){
+            p1.innerHTML=e.data;
+        }
+    }
+</script>
+</body>
+</html>

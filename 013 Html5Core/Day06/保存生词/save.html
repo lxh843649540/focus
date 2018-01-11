@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>保存生词</title>
+</head>
+<body>
+    <h3>知识管理系统--保存生词</h3>
+    <hr>
+    英文:<input id="english"><br>
+    中文:<input id="chinese"><br>
+    <input type="button" value="保存" id="bt">
+    <hr>
+    <a href="test.html">开始测试</a>
+    <script>
+        bt.onclick=function(){
+            var en=english.value;
+            var ch=chinese.value;
+            //把生词永久存储在客户端浏览器中
+            localStorage[en]=ch;
+            alert("生词保存成功");
+            english.value="";
+            chinese.value="";
+        }
+    </script>
+</body>
+</html>

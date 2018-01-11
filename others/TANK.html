@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-cn">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>TANK</title>
+	<style type="text/css">
+		body{
+			text-align:center;
+		}
+		#c1{
+			background:#ccc;
+		}
+	</style>
+ </head>
+ <body>
+  <canvas height="600" width="600" id='c1'></canvas>
+	<script type="text/javascript">
+					var ctx=c1.getContext("2d");
+					//圆心坐标   移动方向：0 1向下  0 -1向上  -1 0 向左 1 0向右  
+					var x=260,y=250,xDirection=0,yDirection=1,tx=1,ty=0;//tx坦克是横的   ty坦克是竖的
+					var timer =setInterval(function(){},1000);//定义定时器
+				 
+				window.onkeydown=function(){
+					clearInterval(timer);
+					timer=null;
+					var b=event.keyCode;
+					switch(b){
+						case 37: //左
+						case 65:     //A键
+							//console.log("向左移动");
+							yDirection=0;
+							xDirection=-1;//方向向左
+							tx=0;
+							ty=1;//坦克竖着
+							x-=10;//向左位移10
+							//drawTank(x,y,xDirection,yDirection,tx,ty);
+							//console.log("xDirection"+xDirection+",yDirection"+yDirection);
+							bullet(x,y,xDirection,yDirection,tx,ty);//子弹函数  包括重绘画布 与 坦克
+						break;
+						case 38://上
+						case 87:    //W键
+							//console.log("向上移动");
+							yDirection=-1;
+							xDirection=0;//方向向上
+							tx=1;
+							ty=0;//坦克横着
+							y-=10;//向上位移10
+							//console.log("xDirection"+xDirection+",yDirection"+yDirection);
+							//drawTank(x,y,xDirection,yDirection,tx,ty);
+							bullet(x,y,xDirection,yDirection,tx,ty);
+						break;
+						case 39://右
+						case 68:   //D键
+							//console.log("向右移动");
+							yDirection=0;
+							xDirection=1;//方向向右
+							tx=0;
+							ty=1;//坦克竖着
+							x+=10;//向右位移10
+							//console.log("xDirection"+xDirection+",yDirection"+yDirection);
+							//drawTank(x,y,xDirection,yDirection,tx,ty);
+							bullet(x,y,xDirection,yDirection,tx,ty);
+						break;
+						case 40://下
+						case 83:    //S键
+							//console.log("向下移动");
+							y+=10;
+							yDirection=1;
+							xDirection=0;//方向向下
+							tx=1;
+							ty=0;//坦克横着
+							y+=10;//向下位移10
+							//console.log("xDirection"+xDirection+",yDirection"+yDirection);
+							//drawTank(x,y,xDirection,yDirection,tx,ty);
+							bullet(x,y,xDirection,yDirection,tx,ty);
+						break;
+					}
+				}
+					function drawTank(x,y,xDirection,yDirection,tx,ty){
+					 //console.log("x:"+x+"y:"+y);
+							ctx.fillStyle="red";
+							ctx.fillRect(x-40,y-40,80,80);//身体
+							//腿部   根据tx 和ty来判断坦克要横着画还是竖着画 
+							//因为每次都有一个参数为0 所以可将两种情况叠加起来写在一起
+							ctx.fillRect((x-60)*tx+(x-50)*ty,(y-60)*ty+(y-50)*tx,20*tx+100*ty,20*ty+100*tx);
+							ctx.fillRect((x+40)*tx+(x-50)*ty,(y+40)*ty+(y-50)*tx,20*tx+100*ty,20*ty+100*tx);
+							//履带  
+							for(var i = 20;i<100;i+=20){
+								ctx.beginPath();
+								ctx.strokeStyle="green";
+								//因为坦克竖着的时候 履带是横着的  所以参照上面的写法 不过将tx 与 ty调换了位置
+								//然后通过坐标的变化 i*ty  i*tx  实现条纹的分离
+								ctx.moveTo((x-50)*ty+(x-60)*tx+i*ty,(y-50)*tx+(y-60)*ty+i*tx);
+								ctx.lineTo((x-50)*ty+(x-40)*tx+i*ty,(y-50)*tx+(y-40)*ty+i*tx);
+								ctx.moveTo((x-50)*ty+(x+60)*tx+i*ty,(y-50)*tx+(y+60)*ty+i*tx);
+								ctx.lineTo((x-50)*ty+(x+40)*tx+i*ty,(y-50)*tx+(y+40)*ty+i*tx);
+								ctx.lineWidth=3;
+								ctx.stroke();
+								ctx.closePath();
+							}
+							ctx.fillStyle="#000";
+							ctx.arc(x,y,25,0,2*Math.PI);//圆盘底盘
+							ctx.fill();
+							ctx.closePath();
+							ctx.beginPath();
+							ctx.fillStyle="#fff";
+							ctx.arc(x,y,20,0,2*Math.PI);//圆盘上盘
+							ctx.fill();
+							ctx.closePath();
+							ctx.beginPath();
+							ctx.moveTo(x+20*xDirection,y+20*yDirection);//炮管 根据 xDirection yDirection控制方向
+							ctx.lineTo(x+80*xDirection,y+80*yDirection);
+							ctx.lineWidth=8;
+							ctx.stroke();
+							ctx.closePath();
+							//ctx.strokeStyle="black";
+							//ctx.moveTo(x+85*xDirection,y+85*yDirection);
+							//ctx.lineTo(x+95*xDirection,y+95*yDirection);
+							//ctx.lineWidth=8;
+							//ctx.stroke();
+				 }
+				 drawTank(x,y,xDirection,yDirection,tx,ty);
+				
+
+				 //子弹函数
+				function bullet(x,y,xDirection,yDirection,tx,ty){
+						//this.xx=x;
+						//this.yy=y;
+						this.i=x;//保留原坐标
+						this.j=y;
+						this.x=x;
+						this.y=y;
+						this.xDirection=xDirection;
+						this.yDirection=yDirection;
+						this.tx=tx;
+						this.ty=ty;
+						var times=10;//移动的距离
+						console.log("x:"+this.x+",y:"+this.y+",xDirection"+this.xDirection+",yDirection"+this.yDirection+",tx:"+this.tx+",ty:"+this.ty);
+						//console.log("xDirection"+xDirection+",yDirection"+yDirection+",tx:"+tx+",ty:"+ty);
+						timer=setInterval(function(){
+							//每次都重新绘制画布实现子弹的移动
+							//console.log("time:"+time);
+							ctx.fillStyle="#ccc";
+							ctx.fillRect(0,0,600,600);//重绘画布
+							drawTank(x,y,xDirection,yDirection,tx,ty);//重绘坦克
+							ctx.beginPath();
+							ctx.strokeStyle="blue";
+							//console.log("起始点:x:"+(x+70*xDirection+times*xDirection)+"y:"+(y+70*yDirection+times*yDirection));
+							
+							//console.log("到达点:x:"+(x+80*xDirection+times*xDirection)+"y:"+(y+80*yDirection+times*yDirection));
+							//每次在坐标和炮管的长度的基础上  再加上 子弹移动的距离
+							//炮管和子弹需要根据方向来作为参数
+							ctx.moveTo(x+70*xDirection+times*xDirection,y+70*yDirection+times*yDirection);
+							ctx.lineTo(x+80*xDirection+times*xDirection,y+80*yDirection+times*yDirection);
+							ctx.stroke();
+							ctx.closePath();
+							times+=10;
+							var xd=x+80*xDirection+times*xDirection;//计算子弹到达的位置
+							var yd=y+80*yDirection+times*yDirection
+							//若位置超出边界，则将位置还原
+							//console.log("xd:"+xd+",yd:"+yd);
+							if(xd<0 || xd>600||yd<0 || yd>600){
+								console.log("位置还原");
+								x=i;
+								y=j;
+								times=10;
+							}
+						},200)
+					}
+	</script>
+ </body>
+</html>

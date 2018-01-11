@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            text-align: center;
+        }
+        #list{
+            min-height: 100px;
+            border:2px solid #33AAAA;
+        }
+        #chosen{
+            border:1px solid #aaa;
+            width:200px;
+            height:100px;
+            margin:0 auto;
+            padding:5px;
+        }
+        #chosen img{
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+<h3>出战飞机</h3>
+<div id="chosen">
+    <img src="images/p0.png" alt="" id="p0">
+</div>
+<hr>
+<div id="list">
+    <img src="images/p3.png" alt="p3" id="p3">
+    <img src="images/p4.png" alt="p4" id="p4">
+    <img src="images/p5.png" alt="p5" id="p5">
+</div>
+<script>
+    //拖动源对象可能触发的事件
+    var plist=document.querySelectorAll("#list>img");
+    for(var i=0;i<plist.length;i++){
+        var p=plist[i];//遍历每个小飞机
+        p.ondragstart=function(e){
+            e.dataTransfer.setData("pid",this.id);
+        };
+        p.drag=function (e) {};
+        p.ondragend=function(e){};
+    }
+    chosen.ondragenter=function(e){};
+    chosen.ondragover=function(e){
+        e.preventDefault();
+    };
+    chosen.ondragleave=function(e){};
+    chosen.ondrop=function(e){
+        p0.style.display="none";
+        if(p0.nextElementSibling){list.appendChild(p0.nextElementSibling)}
+        var pid=e.dataTransfer.getData("pid");
+        var imgId=document.getElementById(pid);
+        chosen.appendChild(imgId);
+    }
+</script>
+</body>
+</html>

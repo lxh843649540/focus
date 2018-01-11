@@ -1,0 +1,92 @@
+//引入 bootstrap.less
+@import "bootstrap.less";
+body{
+  padding-top:50px;
+  font-family:"SimHei","Simsun",arial,sans-serif;
+}
+//导航条
+#nav{
+  //brand 相关样式
+  a.navbar-brand{
+    width:64px;
+    height:42px;
+    padding:0;
+    background:url(../img/hdr-spr.png) no-repeat 0px -512px;
+  }
+  //"菜单"文本的样式
+  #myCollapse a.dropdown-toggle{
+    /*下划线，文本颜色，背景颜色，加粗，高度，左右内边距，行高*/
+    text-decoration:none;
+    color:#fff;
+    background-color:#0081D6;
+    font-weight:bold;
+    height:50px;
+    line-height:50px;
+    padding:0 40px 0 20px;
+    /*外边距*/
+    margin:0 15px;
+  }
+  //p.form-control-static
+  p.form-control-static{
+    color:#fff;
+    font-weight:bold;
+  }
+  .panel-body{
+    width:300px;
+  }
+}
+//主体内容
+#main{
+  div.img-title{
+    position:absolute;
+    bottom:20px;
+    left:25px;
+    width:93%;
+  }
+  @media screen and (max-width:767px){
+    div.img-title{
+      position:static;
+      background-color:#0171C5;
+      width:100%;
+      padding:10px;
+    }
+  }
+  div.media{
+    //内边距，背景颜色
+    padding:30px 0 30px 30px;
+    background-color:#0071C5;
+  }
+  div.col-md-12.col-sm-6.col-xs-12{
+    margin-bottom:20px;
+    overflow:hidden;
+  }
+  //半透明 遮罩层
+  div.half-mask{
+    /*背景颜色（透明），高度，宽度，绝对定位，初始位置，过渡*/
+    background-color:rgba(0,0,0,0.7);
+    height:100%;
+    width:90.8%;//暂定
+    position:absolute;
+    top:80%;
+    left:15px;
+    transition:top 200ms;
+  }
+  div.half-mask:hover{
+    top:0px;
+  }
+}
+
+#footer{
+  background-color:#f3f3f3;
+  color:#333;
+
+  a{
+    color:#568CD3;
+  }
+  li{
+    line-height:2rem;
+  }
+}
+
+
+

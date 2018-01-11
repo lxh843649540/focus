@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    canvas{
+        background:#dda0dd;
+    }
+</style>
+<body>
+<h3>使用第三方图标工具--Char.js</h3>
+<canvas id="c10" width="600" height="300"></canvas>
+<script src="js/Chart.js"></script>
+<script>
+    var ctx=c10.getContext("2d");
+    new Chart(ctx,
+        {type:"bar",
+         data:{
+            labels:["部门1","部门2","部门3","部门4","部门5"],
+            datasets:[{label:"2016年各部门销售统计",
+                data:[350,450,410,652,541],
+                backgroundColor: [
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(153, 102, 255, 0.5)'
+            ]
+            }],
+         },
+         options:{
+             responsive:false,
+             scales:{
+                 yAxes:[{
+                     ticks:{beginAtZero:true}
+                 }]
+             }
+            }
+        }
+        );
+</script>
+</body>
+</html>

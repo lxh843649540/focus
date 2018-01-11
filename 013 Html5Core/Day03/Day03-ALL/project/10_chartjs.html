@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <h3>使用第三方图表工具——Chart.js</h3>
+  <canvas id="c10" width="500" height="400">
+  </canvas>
+  <script src="js/Chart.js"></script>
+  <script>
+    var ctx = c10.getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels:['部门1','部门2','部门3','部门4','部门5'],
+        datasets: [{
+          label:'2016年各部门销售统计',
+          data:[350,200,500,400,380]
+        }]
+      },
+      options: {
+        responsive: false,  //取消响应式
+        scales:{            //Y轴从0开始
+          yAxes:[{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  </script>
+</body>
+</html>

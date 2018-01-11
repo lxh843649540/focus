@@ -1,0 +1,79 @@
+@color:#ff6600;
+//声明变量
+@jd-color:#005aa0;
+@border-width:5px;
+@base-font:"microsoft yahei";
+@border:1px solid #000;
+.border{
+  border:1px solid @color;
+}
+//带参数的混合(Mixin)
+//@b-width : 参数，用于定义边框宽度的
+.solid-border(@b-width){
+  border:@b-width solid #ff6500;
+}
+.solid-border1(@b-width1,@style1,@color1){
+  border: @b-width1 @style1 @color1;
+}
+//使用带参数的 混合
+h5{
+  .solid-border1(1px,solid,#005aa0);//border:1px solid #005aa0;
+}
+//使用 带参数的 混合
+h3{
+  .solid-border(1px); //border:1px solid #ff6500;
+}
+//使用 带参数的 混合
+h4{
+  .solid-border(10px);//border:10px solid #ff6500;
+}
+h1{
+  color:@color;//引用 @color 变量的值作为 color属性的值
+  font-family: @base-font;
+  border:@border;
+  background:@jd-color;
+  border-width: @border-width / 2;
+  //padding:@border-width % 2;
+}
+h2{
+  color:@color;
+  //将 .border 的选择器 混入到 h2中
+  .border;
+}
+/*这是 class 为 box 的元素*/
+.box{
+  //将 .border 的选择器 混入到 .box 中
+  .border;
+  padding:5px;
+  margin:0 auto;
+}
+div{
+  background-color:@color;
+  //将 .box 混入到 div 中
+  .box;
+}
+/**************嵌套规则****************/
+#container{
+  width:100%;
+  height:30px;
+  background-color: @jd-color;
+  //嵌套个后代
+  p{
+    width:50%;
+    color:#000;
+    margin:0 auto;
+  }
+  //嵌套个子代
+  >.top{
+    width:90%;
+    background-color:#ddd;
+    border-bottom:1px solid #aaa;
+  }
+}
+
+
+
+
+
+
+

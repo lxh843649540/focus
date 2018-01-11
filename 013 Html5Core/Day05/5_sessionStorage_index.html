@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <style>
+        #welcome{
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<div id="welcome">
+    <a href="5_sessionStorage_login.html">用户登录</a>
+</div>
+<hr>
+<h3>首页</h3>
+<script>
+    //读取会话级存储的数据
+    var n=sessionStorage["loginUname"];
+    if(n){
+        welcome.innerHTML=`欢迎回来:${n}<a href="5_sessionStorage_logout.html">退出登录</a>`
+    }
+</script>
+</body>
+</html>

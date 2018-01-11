@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body {
+      text-align: center;
+    }
+    svg {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h3>SVG绘图——圆形</h3>
+  <svg id="svg19" width="500" height="400">
+  </svg>
+  <script>
+    for(var i=0; i<20; i++){
+      var c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      c.setAttribute('r', rn(20,100));//半径
+      c.setAttribute('cx', rn(0,500));//圆心X
+      c.setAttribute('cy', rn(0,400));//圆形Y
+      c.setAttribute('fill', rc(0,256));//填充色
+      c.setAttribute('fill-opacity', Math.random()); //填充透明度
+      svg19.appendChild(c);
+
+      //为每个圆形添加事件绑定
+      c.onclick = function(){
+        var that = this;  //保留事件源的引用
+        that.onclick = null;  //让圆形只能点一次
+        var t = setInterval(function(){
+          //修改圆形半径，每次变大5%
+          var r = that.getAttribute('r');
+          r *= 1.05; //隐式的浮点数解析
+          that.setAttribute('r',r);
+          //修改圆形透明度，每次减小5%
+          var p = that.getAttribute('fill-opacity');
+          p *= 0.95;
+          that.setAttribute('fill-opacity', p);
+
+          if(p<=0.001){  //已经透明几乎看不见了
+            clearInterval(t);
+            svg19.removeChild(that);//从DOM上删除圆形
+          }
+
+        },30);
+      }
+    }
+
+
+    //random number，返回指定范围内的随机整数
+    function rn(min, max) {
+      return Math.floor(Math.random() * (max - min) + min);
+    }
+    //random color，返回指定范围内的随机颜色
+    function rc(min, max) {
+      var r = rn(min, max);
+      var g = rn(min, max);
+      var b = rn(min, max);
+      return `rgb(${r}, ${g}, ${b})`;
+    }
+  </script>
+
+</body>
+</html>

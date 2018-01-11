@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="">
+    <title>旋转</title>
+    <style>
+        #stage{
+            perspective:1500px;
+        }
+        #parent{
+            width:700px;
+            height:350px;
+            margin:100px auto;
+            position:relative;
+            transform:rotateX(-20deg)  rotatey(0deg);
+            transform-style:preserve-3d;
+            /*transition:transform 5s linear;*/
+            animation:scroll 3s linear infinite;
+        }
+        #parent>div{
+            width:100px;
+            height:100px;
+            position:absolute;
+            top:0;
+            right:0;
+            bottom:0;
+            left:0;
+            margin:auto;
+        }
+        #parent>div:nth-child(1){
+            transform:translateZ(200px);
+            background-color:#00CCFF;
+        }
+        #parent>div:nth-child(2){
+            transform:rotateY(60deg) translateZ(200px);
+            background-color:#00CC00;
+        }
+        #parent>div:nth-child(3){
+            transform:rotateY(120deg) translateZ(200px);
+            background-color:#0A528C;
+        }
+        #parent>div:nth-child(4){
+            transform:rotateY(180deg) translateZ(200px);
+            background-color:#00AA88;
+        }
+        #parent>div:nth-child(5){
+            transform:rotateY(240deg) translateZ(200px);
+            background-color:#9999FF;
+        }
+        #parent>div:nth-child(6){
+            transform:rotateY(300deg) translateZ(200px);
+            background-color:#985f0d;
+        }
+        #parent:hover{
+            animation-play-state:paused;
+        }
+        @keyframes scroll{
+            0%{
+                transform:rotateX(-20deg)  rotatey(0deg);
+            }
+            100%{
+                transform:rotateX(-20deg)  rotatey(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="stage">
+        <div id="parent">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </div>
+</body>
+</html>

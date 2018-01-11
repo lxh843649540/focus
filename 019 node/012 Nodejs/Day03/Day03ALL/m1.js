@@ -1,0 +1,1 @@
+module.exports.age1 = 19;

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.min.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+  <style>
+    .carousel .carousel-inner img{
+      width:100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h3>1、基本广告轮播</h3>
+    <div class="carousel slide" data-ride="carousel">
+      <!--广告图片区域(轮播区域)-->
+      <div class="carousel-inner">
+        <!--广告图片1-->
+        <div class="item active">
+          <img src="Images/11.jpg">
+        </div>
+        <!--广告图片2-->
+        <div class="item">
+          <img src="Images/22.jpg">
+        </div>
+        <!--广告图片3-->
+        <div class="item">
+          <img src="Images/33.jpg">
+        </div>
+        <!--广告图片4-->
+        <div class="item">
+          <img src="Images/44.jpg">
+        </div>
+      </div>
+    </div>
+    <h3>2、指定轮播时间</h3>
+    <div class="carousel slide" data-ride="carousel" data-interval="2000">
+      <!--广告图片区域(轮播区域)-->
+      <div class="carousel-inner">
+        <!--广告图片1-->
+        <div class="item active">
+          <img src="Images/11.jpg">
+        </div>
+        <!--广告图片2-->
+        <div class="item">
+          <img src="Images/22.jpg">
+        </div>
+        <!--广告图片3-->
+        <div class="item">
+          <img src="Images/33.jpg">
+        </div>
+        <!--广告图片4-->
+        <div class="item">
+          <img src="Images/44.jpg">
+        </div>
+      </div>
+    </div>
+    <h3>3、带说明文本</h3>
+    <div class="carousel slide" data-ride="carousel" data-interval="2000">
+      <!--广告图片区域(轮播区域)-->
+      <div class="carousel-inner">
+        <!--广告图片1-->
+        <div class="item active">
+          <img src="Images/11.jpg">
+          <!--说明文本区域-->
+          <div class="carousel-caption">
+            <h4>一朵大菊花</h4>
+            <p>看着好看，问着香...</p>
+          </div>
+        </div>
+        <!--广告图片2-->
+        <div class="item">
+          <img src="Images/22.jpg">
+          <!--说明文本区域-->
+          <div class="carousel-caption">
+            <h4>大好河山</h4>
+            <p>大好河山，山河好大</p>
+          </div>
+        </div>
+        <!--广告图片3-->
+        <div class="item">
+          <img src="Images/33.jpg">
+        </div>
+        <!--广告图片4-->
+        <div class="item">
+          <img src="Images/44.jpg">
+        </div>
+      </div>
+    </div>
+    <h3>4、带方向按钮的轮播</h3>
+    <div id="myCar" class="carousel slide" data-ride="carousel" data-interval="2000">
+      <!--广告图片区域(轮播区域)-->
+      <div class="carousel-inner">
+        <!--广告图片 : 0-->
+        <div class="item active">
+          <img src="Images/11.jpg">
+          <!--说明文本区域-->
+          <div class="carousel-caption">
+            <h4>一朵大菊花</h4>
+            <p>看着好看，问着香...</p>
+          </div>
+        </div>
+        <!--广告图片2 : 1-->
+        <div class="item">
+          <img src="Images/22.jpg">
+          <!--说明文本区域-->
+          <div class="carousel-caption">
+            <h4>大好河山</h4>
+            <p>大好河山，山河好大</p>
+          </div>
+        </div>
+        <!--广告图片3 : 2-->
+        <div class="item">
+          <img src="Images/33.jpg">
+        </div>
+        <!--广告图片4 : 3-->
+        <div class="item">
+          <img src="Images/44.jpg">
+        </div>
+      </div>
+      <!--方向按钮区域-->
+      <a href="#myCar" class="carousel-control left" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a href="#myCar" class="carousel-control right" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </div>
+    <h3>5、带导航圆点的轮播</h3>
+    <div id="myCar1" class="carousel slide" data-ride="carousel" data-interval="2000">
+      <!--广告图片区域(轮播区域)-->
+      <div class="carousel-inner">
+        <!--广告图片 : 0-->
+        <div class="item active">
+          <img src="Images/11.jpg">
+          <!--说明文本区域-->
+          <div class="carousel-caption">
+            <h4>一朵大菊花</h4>
+            <p>看着好看，问着香...</p>
+          </div>
+        </div>
+        <!--广告图片2 : 1-->
+        <div class="item">
+          <img src="Images/22.jpg">
+          <!--说明文本区域-->
+          <div class="carousel-caption">
+            <h4>大好河山</h4>
+            <p>大好河山，山河好大</p>
+          </div>
+        </div>
+        <!--广告图片3 : 2-->
+        <div class="item">
+          <img src="Images/33.jpg">
+        </div>
+        <!--广告图片4 : 3-->
+        <div class="item">
+          <img src="Images/44.jpg">
+        </div>
+      </div>
+      <!--方向按钮区域-->
+      <a href="#myCar" class="carousel-control left" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a href="#myCar" class="carousel-control right" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+      <!--导航圆点-->
+      <ul class="carousel-indicators">
+        <li data-target="#myCar1" data-slide-to="0" class="active"></li>
+        <li data-target="#myCar1" data-slide-to="1"></li>
+        <li data-target="#myCar1" data-slide-to="2"></li>
+        <li data-target="#myCar1" data-slide-to="3"></li>
+      </ul>
+    </div>
+  </div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/bootlint.js"></script>
+<script>
+  bootlint.showLintReportForCurrentDocument([]);
+</script>
+</body>
+</html>
+
+
+
+
+
+

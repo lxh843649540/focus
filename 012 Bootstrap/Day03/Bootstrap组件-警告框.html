@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0;">
+    <title>Bootstrap组件-警告框</title>
+    <link href="../../../bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="../../../bootstrap/3.3.7/js/html5shiv.min.js"></script>
+    <script src="../../../bootstrap/3.3.7/js/respond.min.js"></script>
+    <![end if]-->
+</head>
+<body>
+<div class="container">
+    <h4><mark class="bg-success">默认的警告框</mark></h4>
+    <div class="alert alert-success">
+        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+    </div>
+    <h4><mark>带关闭功能的警告框</mark></h4>
+    <div class="alert alert-warning alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+    </div>
+    <h4><mark class="bg-danger">带链接关闭功能的警告框</mark></h4>
+    <div class="alert alert-danger alert-dismissible">
+        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+        <p>点击<a href="#" class="alert-link" data-dismiss="alert">这里</a>实现关闭</p>
+    </div>
+</div>
+<script src="../../../bootstrap/3.3.7/js/jquery-1.11.3.js"></script>
+<script src="../../../bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="../../../bootstrap/3.3.7/js/bootlint.js"></script>
+<script>
+    bootlint.showLintReportForCurrentDocument([]);
+</script>
+</body>
+</html>

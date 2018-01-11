@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body {
+      text-align: center;
+    }
+    canvas {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h3>使用路径进行裁剪</h3>
+  <canvas id="c1" width="500" height="400"></canvas>
+  <script>
+    var ctx = c1.getContext('2d');
+
+    var p4 = new Image();
+    p4.src = 'img/p4.png';
+    p4.onload = function(){
+      //左上角
+      ctx.drawImage(p4, 0, 0);
+      //右上角
+      ctx.drawImage(p4, 500-p4.width, 0);
+      //左下角
+      ctx.drawImage(p4, 0, 400-p4.height);
+      //右下角
+      ctx.drawImage(p4, 500-p4.width, 400-p4.height);
+
+      //正中央
+      ctx.drawImage(p4, 250-p4.width, 200-p4.height, p4.width*2, p4.height*2);
+    }
+  </script>
+</body>
+</html>

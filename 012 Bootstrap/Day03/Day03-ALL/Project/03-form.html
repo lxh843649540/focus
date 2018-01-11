@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.min.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class="container">
+  <h1>全局样式-表单</h1>
+
+  <h3>bootstrap默认表单</h3>
+
+  <form>
+    <!--1、小组1：用户名输入的表单控件-->
+    <div class="form-group">
+      <!--1、标签-->
+      <label for="txtUName" class="control-label">用户名称：</label>
+      <!--2、表单控件-->
+      <input type="text" name="txtUName" id="txtUName" class="form-control">
+      <!--3、提示文本（可选）-->
+      <span class="help-block" style="color: #a94444;">用户名，必须是6-18位</span>
+    </div>
+    <!--小组2：用户密码-->
+    <div class="form-group">
+      <label for="" class="control-label">用户密码：</label>
+      <input type="password" class="form-control">
+      <span class="help-block">密码不能是重复字符</span>
+    </div>
+    <!--复选框：记住密码-->
+    <div class="checkbox">
+      <label>
+        <input type="checkbox">
+        记住密码
+      </label>
+    </div>
+  </form>
+  <h3>Bootstrap-行内(内联)表单</h3>
+
+  <form class="form-inline">
+    <!--用户名小组-->
+    <div class="form-group">
+      <label for="" class="control-label">用户名</label>
+      <input type="text" class="form-control">
+    </div>
+    <!--密码小组-->
+    <div class="form-group">
+      <label for="" class="control-label">密码</label>
+      <input type="password" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <input type="submit" value="提交" class="btn btn-danger">
+    </div>
+  </form>
+  <h3>水平表单 - 栅格系统</h3>
+
+  <form action="">
+    <div class="row">
+      <div class="col-md-2 text-right">
+        <label for="" class="control-label">用户名：</label>
+      </div>
+      <div class="col-md-10">
+        <input type="text" class="form-control">
+      </div>
+    </div>
+  </form>
+  <h3>水平表单</h3>
+
+  <form action="" class="form-horizontal">
+    <!--第一行：form-group-->
+    <div class="form-group">
+      <!--第一列:label:col-md-2-->
+      <label class="control-label col-md-2">用户名</label>
+      <!--第二列：div ：col-md-8-->
+      <div class="col-md-8">
+        <input type="text" class="form-control">
+      </div>
+      <!--第三列：span : col-md-2-->
+      <span class="help-block col-md-2">
+        输入6-18个字符
+      </span>
+    </div>
+    <!--第二行：form-group-->
+    <div class="form-group">
+      <div class="col-md-2">
+        <label class="control-label">密码</label>
+      </div>
+      <div class="col-md-8">
+        <input type="password" class="form-control"/>
+      </div>
+      <div class="col-md-2">
+        <span class="help-block">字符不能重复</span>
+      </div>
+    </div>
+  </form>
+
+</div>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/bootlint.js"></script>
+<script>
+  bootlint.showLintReportForCurrentDocument([]);
+</script>
+</body>
+</html>
+
+
+
+
+
+

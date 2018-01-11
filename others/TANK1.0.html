@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+	<style type="text/css">
+		body{
+			text-align:center;
+		}
+		#c1{
+			background:#ccc;
+		}
+	</style>
+ </head>
+ <body>
+  <canvas height="600" width="600" id='c1'></canvas>
+	<script type="text/javascript">
+					var ctx=c1.getContext("2d");
+					var x=260,y=250,yDirection=1,xDirection=0,tx=0,ty=1;
+				 function drawTank(x,y,yDirection,xDirection,tx,ty){
+							ctx.fillStyle="red";
+                            ctx.fillRect(x-40,y-40,80,80);
+							ctx.fillRect((x-60)*ty+(x-50)*tx,(y-60)*tx+(y-50)*ty,20*ty+100*tx,20*tx+100*ty);
+                            ctx.fillRect((x+40)*ty+(x-50)*tx,(y+40)*tx+(y-50)*ty,20*ty+100*tx,20*tx+100*ty);
+                                for(var i = 20;i<100;i+=20){
+                                     ctx.beginPath();
+                                     ctx.strokeStyle="green";
+                                     ctx.moveTo((x-50)*tx+(x-60)*ty+i*tx,(y-50)*ty+(y-60)*tx+i*ty);
+                                     ctx.lineTo((x-50)*tx+(x-40)*ty+i*tx,(y-50)*ty+(y-40)*tx+i*ty);
+                                     ctx.moveTo((x-50)*tx+(x+60)*ty+i*tx,(y-50)*ty+(y+60)*tx+i*ty);
+                                     ctx.lineTo((x-50)*tx+(x+40)*ty+i*tx,(y-50)*ty+(y+40)*tx+i*ty);
+                                     ctx.lineWidth=3;
+                                     ctx.stroke();
+                                     ctx.closePath();
+                                }
+							ctx.fillStyle="#000";
+							ctx.arc(x,y,25,0,2*Math.PI);
+							ctx.fill();
+							ctx.closePath();
+							ctx.beginPath();
+							ctx.fillStyle="#fff";
+							ctx.arc(x,y,20,0,2*Math.PI);
+							ctx.fill();
+							ctx.beginPath();
+							ctx.moveTo(x+18*xDirection,y+18*yDirection);
+							ctx.lineTo(x+80*xDirection,y+80*yDirection);
+							ctx.lineWidth=8;
+							ctx.stroke();
+							ctx.beginPath();
+							ctx.strokeStyle="black";
+                            ctx.moveTo(x+85*xDirection,y+85*yDirection);
+                            ctx.lineTo(x+95*xDirection,y+95*yDirection);
+							ctx.lineWidth=8;
+							ctx.stroke();
+				 }
+				drawTank(x,y,yDirection,xDirection,tx,ty);
+				window.onkeydown=function(){
+					ctx.clearRect(0,0,800,800);
+					var b=event.keyCode;
+					switch(b){
+						case 37:
+                            yDirection=0;
+                            xDirection=-1;
+							x-=10;
+							tx=1;
+							ty=0;
+                            drawTank(x,y,yDirection,xDirection,tx,ty);
+						break;
+						case 38:
+						    yDirection=-1;
+						    xDirection=0;
+							y-=10;
+							tx=0;
+							ty=1;
+							drawTank(x,y,yDirection,xDirection,tx,ty);
+							break;
+						case 39:
+                            yDirection=0;
+                            xDirection=1;
+						    x+=10;
+							tx=1;
+							ty=0;
+                            drawTank(x,y,yDirection,xDirection,tx,ty);
+							break;
+						case 40:
+                            yDirection=1;
+                            xDirection=0;
+							y+=10;
+							tx=0;
+							ty=1;
+							drawTank(x,y,yDirection,xDirection,tx,ty);
+							break;
+					}
+				}
+	</script>
+ </body>
+</html>

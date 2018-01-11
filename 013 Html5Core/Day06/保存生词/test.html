@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>开始测试</title>
+    <style>
+        #wordList{
+            list-style: none;
+            padding:0;
+        }
+        #wordList span{
+            display:inline-block;
+            width:80px;
+            padding-right: 1em;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <h3>知识管理系统--开始测试</h3>
+    <hr>
+    <ul id="wordList"></ul>
+    <input type="button" value="提交答案" id="bt">
+    <hr>
+    <script>
+        var html="";
+        //根据localStorage中的key生成单词列表
+        for(var i=0;i<localStorage.length;i++){
+            var key=localStorage.key(i);
+            html+=`
+               <li><span>${key}</span><input type="text"></li>
+            `
+        }
+        wordList.innerHTML=html;
+        bt.onclick=function(){
+            var total=localStorage.length;
+            var correct=0;//正确的词汇数量
+            var inputList=document.querySelectorAll("#wordList input");
+            for(var i=0;i<inputList.length;i++){
+                var userInput=inputList[i].value;
+                var key=localStorage.key(i);//英文
+                var value=localStorage[key];//正确中文
+                if(userInput===value){
+                    correct++;
+                }
+            }
+            //跨页面传递数据--会话级存储
+            sessionStorage["totalCount"]=total;
+            sessionStorage["correct"]=correct;
+            location.href="result.html"
+        }
+    </script>
+</body>
+</html>

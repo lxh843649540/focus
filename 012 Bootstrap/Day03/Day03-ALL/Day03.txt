@@ -1,0 +1,171 @@
+1、Bootstrap
+	1、起步
+		1、<meta name="viewport">
+		2、<meta http-equiv="x-ua-compatible" content="IE=edge">
+		3、两个JS
+			<!--[if lt IE 9]>
+				html5shiv.min.js
+				respond.min.js
+			<![endif]-->
+		4、Bootstrap.css
+		5、两个JS
+			jquery.js
+			Bootstrap.js
+		6、测试检查结构
+			bootlint.js
+		7、<html lang="zh-cn">
+	2、全局 CSS 样式
+		1、Button
+		2、Img
+		3、Table
+		4、UL，OL，DL
+		5、Text
+		6、栅格布局系统
+			1、栅格布局系统必须是boot提供的容器
+				.container
+				.container-fluid
+			2、容器中允许放置若干的 "行"
+				<div class="row"></div>
+
+				<div class="container">
+					<h1></h1>
+					<p></p>
+					<div class="row"></div>
+				</div>
+			3、每行 最多 等分 12列
+				<div class="col-md-*">
+				* : 所占据的列宽数
+			4、列偏移
+				<div class="col-md-offset-*">
+
+**********************************************
+1、全局样式 - 栅格布局系统
+	....
+	1、栅格布局系统的嵌套
+		.container>.row>.col-*-*>.row>.col-*-*
+		.col-*-* : 相当于是一个 容器
+	2、适用于不同屏幕的列的class(xs/sm/md/lg),可以兼容更大的屏幕
+		col-xs-6 : 在 超小 屏幕中占6列宽
+		col-lg-5 : 在 大型 屏幕中占5列宽
+
+		.col-xs-* : 适用于 xs/sm/md/lg
+		.col-sm-* : 适用于 sm/md/lg
+		.col-md-* : 适用于 md/lg
+		.col-lg-* : 适用于 lg
+
+		大屏幕的内容不能够兼容小屏幕的，所以大屏幕的内容放在小屏幕中显示占100%(即纵向排列)
+	3、可以在一个div中，指定在不同屏幕下的宽度占比
+		允许在 一个列中 指定不同屏幕下的列宽即可
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-2"></div>
+		在 xs 中占12列的宽(一行中只能显示一列)
+		在 sm 中占6列的宽(一行中能显示2列)
+		在 md 中占3列的宽(一行中能显示4列)
+		在 lg 中占2列的宽(一行中能显示6列)
+	4、指定列在特定屏幕下不显示
+		.hidden-lg : 在 lg 下隐藏
+		.hidden-md : 在 md 下隐藏
+		.hidden-sm : 在 sm 下隐藏
+		.hidden-xs : 在 xs 下隐藏
+2、全局样式 - 表单
+	Bootstrap中，表单控件会属于某个表单控件小组(form-group),表单小组中，允许包含：1、label 2、表单控件 3、提示文本(可选)
+	1、表单控件小组
+		.form-group : 定义表单控件组
+	2、表单控件
+		.form-control : 定义表单控件基本样式(checkbox ,radio 除外)
+	3、标签(label)
+		.control-label : 定义控件对应的label
+	4、提示文本(可选)
+		.help-block : 定义提示文本的样式
+
+	表单分类：
+		1、默认表单
+		2、行内表单
+			<form class="form-inline">
+		3、水平排列的表单(小难点)
+			水平表单 = 表单 + 栅格布局系统
+				栅格：
+					最外层：.container / container-fluid
+					行：div.row
+					列：div.col-*-*
+				水平表单
+					最外层：
+						.container / .container-fluid
+						<form class="form-horizontal">
+					行：
+						div.row
+						div.form-group
+					列：
+						div.col-*-*
+						<label class="col-*-*">名称</label>
+						<span class="help-block col-*-*">提示文本</span>
+3、组件-下拉菜单
+	1、外层元素
+		必须是 .dropdown 或 position:relative
+	2、内层
+		1、触发元素
+			由 <button> 或 <a>
+			class="dropdown-toggle"
+			data-toggle="dropdown" : 切换菜单的显示和隐藏
+		2、菜单
+			由 <ul> 或 <div>
+			class="dropdown-menu"
+			li.divider : 分割线
+			li.disabled : 禁用菜单项
+			li.dropdown-header : 标题
+4、组件-导航(非导航条)
+	1、所有的导航都依赖于 .nav 
+	2、导航分类
+		1、标签页式导航
+			<ul class="nav nav-tabs">
+				<li>
+					<a href="#">...</a>
+				</li>
+			</ul>
+		2、胶囊式导航
+			<ul class="nav nav-pills"></ul>
+	3、实现点击切换效果
+		<li>
+			<a data-toggle="tab">...</a>
+		</li>
+5、组件-图标字体(glyphicon)
+	在页面中，显示为图标，但本质是文字，允许设置字体，颜色，大小，阴影，粗体，斜体 ...
+	Web程序中常用的图标字体：
+		1、Glyphicons 收费
+		2、FontAwesome 675个 免费
+	
+	由于客户端不具备 bootstrap 中提供的图标字体，所以在使用时，必须先声明(将字体名称，和字体文件提供给用户去下载)，然后再使用
+	在服务器端的css文件中
+	***.css
+	@font-face{/*声明字体*/
+		font-family:"自定义名称";
+		src:url('字体文件路径');
+	}
+
+	选择器{/*使用字体*/
+		font-family:"自定义名称";
+	}
+
+	使用方法：
+		1、创建一个元素，必须保证为空
+		2、class="glyphicon glyphicon-*"
+	练习：
+		在页面中创建多个按钮，在每个按钮上显示一个小图标
+		首页(房子),配置(齿轮),刷新，定位，购物车，放大镜，发邮件，照相机，播放相关(播放，暂停，上一曲，下一曲)
+
+6、组件-按钮组
+	将多个按钮放在一个组中(btn-group)
+	1、基本按钮组
+		<div class="btn-group">
+			<button>
+		</div>
+	2、将一组 .btn-group 组合进一个 .btn-toolbar(按钮工具栏)
+	3、按钮组的尺寸
+		为 .btn-group 增加 .btn-group-*类设置尺寸
+			.btn-group-lg : 超大号
+			.btn-group-sm : 小号
+			.btn-group-xs : 超小号
+	4、按钮组嵌套
+	5、两端对齐按钮组
+		.btn-group .btn-group-justified
+	6、垂直显示的按钮组
+		.btn-group-vertical

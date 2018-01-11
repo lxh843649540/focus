@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>吃豆豆</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        canvas{
+            background: #dda0dd;
+        }
+    </style>
+</head>
+<body>
+<h3>小灰机</h3>
+<canvas id="c" width="600" height="300"></canvas>
+<script>
+    var ctx=c.getContext("2d");
+    var p4=new Image();
+    p4.src="planes/p4.png";
+    p4.onload=function(){
+        ctx.drawImage(p4,0,0);
+        ctx.drawImage(p4,400,0);
+        ctx.drawImage(p4,0,200);
+        ctx.drawImage(p4,400,200);
+    };
+</script>
+</body>
+</html>

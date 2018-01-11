@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <title>媒体查询练习</title>
+  <style>
+    *{
+      box-sizing:border-box;
+    }
+    #container div{
+      height:100px;
+      background-color:#e4393c;
+      border:2px solid #ddd;
+    }
+
+    /*媒体查询：判断 中型屏幕*/
+    @media screen and (min-width:992px) and (max-width:1199px){
+      #container div{
+        /*浮动，宽度*/
+        float:left;
+        width:16.66%;
+      }
+    }
+
+    /*媒体查询：判断是否为小型屏幕*/
+    @media screen and (min-width:768px) and (max-width:991px){
+      #container div{
+        float:left;
+        width:50%;
+      }
+    }
+
+    /*媒体查询：判断是否为超小型屏幕*/
+    @media screen and (max-width:767px){
+      #container div{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+  </div>
+</body>
+</html>

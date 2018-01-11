@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>左右移动小灰机</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        canvas{
+            background: #dda0dd;
+        }
+    </style>
+</head>
+<body>
+<h3>左右移动小灰机</h3>
+<canvas id="c" width="600" height="300"></canvas>
+<script>
+    var ctx=c.getContext("2d");
+    var p4=new Image();
+    p4.src="planes/p4.png";
+    var x=0;
+    var y=0;
+    var xDirection=1;
+    p4.onload=function(){
+        setInterval(function () {
+            ctx.clearRect(0,0,600,300);
+            ctx.drawImage(p4,x,y);
+            x+=10*xDirection;
+            if(x>=400){xDirection=-1;}else if(x<=0){xDirection=1;}
+        },100)
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        svg{
+            background: #94df94;
+        }
+
+    </style>
+</head>
+<body>
+<h3>使用Two.js</h3>
+<div id="box"></div>
+<script src="js/two.js"></script>
+<script>
+    //创建一个2d绘图对象,添加到DOM树上
+    var two=new Two({
+        width:800,
+        height:400,
+        //type:Two.Types.canvas
+        type:Two.Types.svg
+    }).appendTo(box);
+    var counter=0;
+    two.on("update",function(){
+        counter++;
+        console.log("update事件触发了:",counter)
+    });
+    two.play();
+
+</script>
+</body>
+</html>

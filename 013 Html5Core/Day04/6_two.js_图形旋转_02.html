@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        svg{
+            background: #94df94;
+        }
+
+    </style>
+</head>
+<body>
+<h3>使用Two.js</h3>
+<div id="box"></div>
+<script src="js/two.js"></script>
+<script>
+    //创建一个2d绘图对象,添加到DOM树上
+    var two=new Two({
+        width:800,
+        height:400,
+        //type:Two.Types.canvas
+        type:Two.Types.svg
+    }).appendTo(box);
+    //小组中的圆形的定位点的坐标相对于组的定位点
+    var c=two.makeCircle(-200,0,100);
+    c.fill="#ff8000";
+    c.stroke="#a30";
+    c.linewidth=5;
+    //(1)创建矩形---two中所有图形的定位点都在正中央
+    //(2)小组中的矩形的定位点的坐标相对于组的定位点
+    var r=two.makeRectangle(200,0,200,200);
+    r.fill="#4C8CF5";
+    //如何让矩形绕(400,200)为轴心旋转?
+    //创建一个透明的容器(Group),它的中心在(400,200),把矩形绘制在透明容器中
+    var g=two.makeGroup(r,c);//把矩形绘制在透明容器中--小组定位点默认在画布左上角
+    g.translation.set(400,200);
+    var deg=0;
+    setInterval(function(){
+        g.rotation=deg*Math.PI/180;
+        deg+=10;
+        two.update();
+    },100);
+    //将绘图内容从内存中更新到画布上
+    two.update();
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        svg{
+            background: #94df94;
+        }
+
+    </style>
+</head>
+<body>
+<h3>使用Two.js</h3>
+<div id="box"></div>
+<script src="js/two.js"></script>
+<script>
+    //创建一个2d绘图对象,添加到DOM树上
+    var two=new Two({
+        width:800,
+        height:400,
+        //type:Two.Types.canvas
+        type:Two.Types.svg
+    }).appendTo(box);
+    //创建圆形
+    var c=two.makeCircle(200,200,100);
+    c.fill="#ff8000";
+    c.stroke="#a30";
+    c.linewidth=5;
+    //创建矩形---two中所有图形的定位点都在正中央
+    var r=two.makeRectangle(600,200,200,200);
+    r.fill="#4C8CF5";
+    //(1)旋转是属性,没有叠加功能;(2)所有图形的旋转都以自己的中央为轴心
+    r.rotation=10*Math.PI/180;
+    //将绘图内容从内存中更新到画布上
+    two.update();
+</script>
+</body>
+</html>

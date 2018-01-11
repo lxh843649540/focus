@@ -1,0 +1,29 @@
+/*1、判断是 pc 屏幕时，文字颜色 ：purple*/
+@media screen and (min-width:992px) and (max-width:1199px){
+    #container p{
+        color:#fff;
+    }
+}
+/*2、判断是 pad 屏幕时，文字颜色 ：blue*/
+@media screen and (min-width:768px) and (max-width:991px){
+    #container p{
+        color:blue;
+    }
+}
+/*3、判断是 phone 屏幕时，文字颜色 ：pink*/
+@media screen and (max-width:767px){
+    #container p{
+        color:pink;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

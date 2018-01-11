@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body {
+      text-align: center;
+    }
+    svg {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h3>绘制直线</h3>
+  <svg id="s1" width="500" height="400">
+    <!--
+    <line x1="50" y1="50" x2="50" y2="50" stroke="#000" stroke-width="50" stroke-linecap="round"></line>
+    <line x1="150" y1="50" x2="350" y2="50" stroke="#000" stroke-width="50" stroke-linecap="round"></line>
+
+    <line x1="50" y1="150" x2="50" y2="150" stroke="#000" stroke-width="50" stroke-linecap="round"></line>
+    <line x1="150" y1="150" x2="350" y2="150" stroke="#000" stroke-width="50" stroke-linecap="round"></line>
+
+    <line x1="50" y1="250" x2="50" y2="250" stroke="#000" stroke-width="50" stroke-linecap="round"></line>
+    <line x1="150" y1="250" x2="350" y2="250" stroke="#000" stroke-width="50" stroke-linecap="round"></line>-->
+    <!--元素小组：用于保存多个子元素共用的属性-->
+    <g stroke="#f00" stroke-width="50" stroke-linecap="round">
+      <line x1="50" y1="50" x2="50" y2="50" stroke="#0ff"></line>
+      <line x1="150" y1="50" x2="350" y2="50"></line>
+
+      <line x1="50" y1="150" x2="50" y2="150"></line>
+      <line x1="150" y1="150" x2="350" y2="150"></line>
+
+      <line x1="50" y1="250" x2="50" y2="250"></line>
+      <line x1="150" y1="250" x2="350" y2="250"></line>
+    </g>
+  </svg>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        canvas{
+            background: #ddd;
+        }
+    </style>
+</head>
+<body>
+<h3>Canvas绘图技术</h3>
+<canvas id="c10" width="500" height="400"></canvas>
+<p>你永远都是我的紫霞仙子</p>
+<script>
+    //获取画布上的画笔对象
+    var ctx=c10.getContext("2d");
+//    var ctx2=c10.getContext("2d");
+//    console.log(ctx===ctx2) //true
+//    console.dir(ctx);
+    //使用画笔绘制矩形
+    ctx.fillStyle="#1F8BF4";
+    ctx.strokeStyle="red";
+    ctx.strokeRect(0,0,100,80);
+    ctx.strokeRect(400,0,100,80);
+    ctx.fillRect(0,320,100,80);
+    ctx.fillRect(400,320,100,80);
+    //正中央描边+填充
+    ctx.strokeRect(200,160,100,80);
+    ctx.fillRect(200,160,100,80);
+    ctx.clearRect(200,0,100,80);
+</script>
+</body>
+</html>

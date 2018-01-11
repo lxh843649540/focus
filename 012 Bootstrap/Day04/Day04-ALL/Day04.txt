@@ -1,0 +1,179 @@
+1、简单组件
+	1、路径导航 (面包屑导航)
+		<ul class="breadcrumb">
+			<li>
+				<a></a>
+			</li>
+			<li class="active">
+				<a></a>
+			</li>
+		<ul>
+	2、分页条
+		.pagination : 分页
+		.active ：被激活的
+		<ul>
+			<li>
+				<a></a>
+			</li>
+		</ul>
+	3、翻页
+		.pager
+		<ul class="pager"></ul>
+	4、标签
+		所有标签都依赖于 .label
+		.label-default
+		.label-danger
+		.label-success
+		... ...
+	5、徽章
+		.badge
+	6、巨幕
+		.jumbotron
+	7、页头
+		.page-header
+	8、Well(水井)
+		.well
+2、进度条
+	外层：.progress
+	内层：
+		.progress-bar
+		.progress-bar-danger
+		.progress-bar-success
+		....
+		.progress-bar-striped : 条纹
+		.active : 被激活的
+		style="width:50%" 指定宽度
+3、组件-警告框(alert)
+	所有的警告框都依赖于 .alert
+	.alert
+	.alert-success
+	.alert-danger
+	....
+
+	1、警告框中的连接
+		<a class="alert-link"></a>
+	2、允许关闭的警告框
+		1、元素必须依赖于 alert-dismissible
+		2、激发关闭的元素
+			data-dismiss="alert"
+4、组件-缩略图(thumbnail)
+	1、基本缩略图
+		.thumbnail
+		<a class="thumbnail">
+			<img>
+		</a>
+5、组件-媒体对象(media)
+6、组件-列表组(list-group)
+	ul ：class="list-group"
+	li ：class="list-group-item"
+7、面板
+	呈现头部、主体、尾部的结构组件
+	<div class="panel panel-default/success/">
+		<!-- 面板头部(可选) -->
+		<div class="panel-heading">
+			头内内容
+			<h3 class="panel-title">标题元素</h3>
+		</div>
+		<!-- 面板主体(必有) -->
+		<div class="panel-body">
+			...
+		</div>
+		<!-- 面板底部(可选) -->
+		<div class="panel-footer">
+			...
+		</div>
+	</div>
+8、组件-导航条(navbar)
+	1、基本导航条
+		1、向 nav 元素添加 
+			.navbar .navbar-default
+			必须要包含一个容器(.container/.container-fluid)
+		2、向 navbar的容器中 添加 div.navbar-header,允许包含 a.navbar-brand 元素
+		3、允许向导航条中添加链接列表，需要添加 .nav , .navbar-nav 两个类
+
+	2、导航条中的表单
+		导航条中的表单不适用于bootstrap中的默认类
+		使用的时候，需要为表单添加 .navbar-form 来实现表单效果
+		可以通过 navbar-right / navbar-left 来调整格式
+	3、导航条中的按钮
+		.navbar-btn 允许向不在form中的按钮增加样式
+	4、导航条中的文本
+		.navbar-text 保证文本的格式
+	5、导航条内容对齐方式
+		允许添加 .navbar-left 实现左浮动
+		允许添加 .navbar-right 实现右浮动
+	6、实现导航固定
+		让导航条一直都在可视化区域中
+		固定在页面顶端：.nabvar-fixed-top
+		固定在页面底端：.navbar-fixed-bottom
+		注意：最好为body设置至少 50px 的内边距
+9、JS插件 - Plugins
+	Bootstrap提供了一组行为(对元素操作的动作，如：下拉菜单，导航列表内容切换)
+	Bootstrap 提供的行为 基于 jQuery(Javascript 框架/库)，并且在 jQuery 的基础上提供了 十几个插件函数,每个函数都是一个独立的JS文件，可以一次性引入全部的JS操作 - bootstrap.js
+	每个插件函数都有两种调用方式：
+	1、data-*
+		<a data-toggle="dropdown">
+		<a data-dismiss="alert">
+	2、JS编程方式
+		手动编写JS代码完成行为的调用
+		<script src="jquery.js">
+		<script src="bootstrap.js">
+		<script>
+			$("选择器") : 在Javascript中获取指定选择器所对应的元素
+				$("#nav"):获取 页面 id为nav的元素
+				$(".container"):获取页面class为container的元素
+				$("div p"):
+		</script>
+10、JS插件-工具提示
+	为元素添加
+		data-toggle="tooltip" /*鼠标移入的行为*/
+		title="提示的文本";
+		data-placement="top/right/bottom/left"
+	必须配合 JS 代码
+		$("选择器").tooltip();
+11、JS插件-弹出框
+	为元素添加
+		data-toggle="popover";/*指定弹出框打开方式*/
+		data-placement="top/right/bottom/left";
+		title="弹出框标题";
+		data-content="弹出框内容";
+	必须配合 JS 代码
+		$("选择器").popover();
+12、JS插件-标签页(tab)
+	标准的标签页分为两部分组成
+	1、标签导航部分
+		<ul class="nav nav-tabs"></ul>
+		a 标记属性
+			1、data-toggle="tab"
+			2、href="#显示内容的ID"
+	2、内容部分
+		<div class="tab-content"></div>
+		1、class 必须为 tab-content
+		2、在内容组中 增加对应显示的内容模块（与导航要对应）
+			1、class = tab-pane
+			2、id 提供给关联的标签导航的a元素
+13、模态对话框
+	模态对话框组成的两部分
+	1、触发元素
+		通常由 a / button 组成
+		<a data-toggle="modal" href="#模态框ID"></a>
+		<button data-toggle="modal" data-target="#模态框ID"></button>
+	2、模态框元素
+		//class="modal" , 提供了半透明的遮罩层
+		//data-backdrop:必须通过关闭按钮才能关闭模态框
+		<div id="" class="modal" data-backdrop="static">
+			//class="modal-dialog"，提供了内容区域宽度，高度，定位
+			<div class="modal-dialog">
+				//class=modal-content，提供了，背景，边框，倒角，阴影
+				<div class="modal-content">
+					<div class="modal-header"></div>
+					<div class="modal-body"></div>
+					<div class="modal-footer"></div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+

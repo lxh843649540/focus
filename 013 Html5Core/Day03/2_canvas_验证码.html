@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>验证码图片</h3>
+<canvas id="ca"></canvas>
+<script>
+    var cw=120; //画布的总宽度
+    var ch=30;  //画布的总高度
+    ca.width=cw;
+    ca.height=ch;
+    var ctx=ca.getContext("2d");
+    //1.绘制背景颜色--填充矩形
+    ctx.fillStyle=rc(150,230);
+    ctx.fillRect(0,0,cw,ch);
+    //2.循环绘制4个随机字符
+    ctx.textBaseline="top";
+    var pool="ABCDEFGHJKLMNPQRSTUVWXY3456789";
+    for(var i=0;i<4;i++){
+        var c=pool[rn(0,pool.length)];
+        var fs=rn(10,30);//字体大小
+        ctx.font=fs+"px SimHei";
+        var fc=rn(50,150);//字体颜色
+        ctx.strokeStyle=fc;
+        var deg=rn(-45,45);
+        var x=-fs/2;
+        var y=-fs/2;
+        //绘制一个字符  保存状态->平移->旋转->绘制->恢复
+        ctx.save();
+        ctx.translate(30*i+15,15);
+        ctx.rotate(deg*Math.PI/180);
+        ctx.strokeStyle=fc;
+        ctx.strokeText(c,x,y);
+        ctx.restore();
+    }
+    //3.绘制5条干扰线
+    for(var i=0;i<5;i++){
+        ctx.beginPath();
+        ctx.moveTo(rn(0,cw),rn(0,ch));
+        ctx.lineTo(rn(0,cw),rn(0,ch));
+        ctx.strokeStyle=rc(0,255);
+        ctx.stroke();
+        ctx.closePath();
+    }
+    //4.绘制5个杂色点-半径为0.5圆形路径
+    for(var i=0;i<5;i++){
+        ctx.beginPath();
+        ctx.arc(rn(0,cw),rn(0,ch),3,0,2*Math.PI);
+        ctx.fillStyle=rc(0,255);
+        ctx.fill();
+        ctx.closePath();
+    }
+    //random number 返回指点范围内的随机整数
+    function rn(min,max){
+        return Math.floor(Math.random()*(max-min)+min);
+    }
+    //random color  返回指定范围内的
+    function rc(min,max){
+        var r=rn(min,max);
+        var g=rn(min,max);
+        var b=rn(min,max);
+        return  `rgb(${r},${g},${b})`;
+    }
+</script>
+
+</body>
+</html>

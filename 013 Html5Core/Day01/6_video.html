@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            text-align: center;
+            position: relative;
+        }
+        #container {
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            width:856px;
+            height:480px;
+            margin-left: -428px;
+        }
+        #btn {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -32px;
+            margin-top: -32px;
+            cursor: pointer;
+        }
+        #pic{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left:-250px;
+            margin-top:-172px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h3>练习：H5中的视频播放</h3>
+
+<div id="container">
+    <video src="res/birds.mp4" id="v7"></video>
+    <img src="images/123.gif" alt="" id="pic">
+    <img src="images/play.png" id="btn"/>
+</div>
+<script>
+    //点击btn则播放/暂停视频
+    btn.onclick = function(){
+        if(v7.paused){    //视频当前处于暂停状态
+            v7.play();
+            btn.src = 'images/pause.png';
+            pic.style.display='none';
+        }else {           //视频当前处于播放状态
+            v7.pause();
+            btn.src = 'images/play.png';
+            pic.style.display='block';
+        }
+    };
+    //鼠标进入#container则显示按钮，移除则隐藏
+    container.onmouseenter = function(){
+        btn.style.display = 'block';
+    };
+    container.onmouseleave = function(){
+        btn.style.display = 'none';
+    }
+</script>
+</body>
+</html>
